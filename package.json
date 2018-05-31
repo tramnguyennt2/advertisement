@@ -1,0 +1,26 @@
+{
+  "name": "advertisement",
+  "version": "1.0.0",
+  "description": "Advertisement website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tramnguyennt2/advertisement.git"
+  },
+  "keywords": [
+    "Advertisement",
+    "website"
+  ],
+  "author": "Tram Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tramnguyennt2/advertisement/issues"
+  },
+  "homepage": "https://github.com/tramnguyennt2/advertisement#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
