@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/tramnguyennt2/advertisement#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "~2.8.3",
     "express": "^4.16.3"
   }
 }
