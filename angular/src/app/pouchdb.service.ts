@@ -18,7 +18,9 @@ export class PouchdbService {
     };
 
     this.db.sync(this.remote, options);
-
   }
 
+  add(item): void {
+    this.db.post(item);
+  }
 }
