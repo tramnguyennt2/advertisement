@@ -1,16 +1,16 @@
 <div class="container">
   <div class="col-md-12 col-md-offset-8">
     <div class="input-group">
-      <select class="form-control col-md-2" id="area">
-        <option>Ha Noi</option>
+      <select class="form-control col-md-2" id="area" [(ngModel)]="area">
+        <option>Hà Nội</option>
         <option>Da Nang</option>
-        <option>TP HCM</option>
+        <option>Hồ Chí Minh</option>
         <option selected>All areas</option>
       </select>
-      <select class="form-control col-md-2" id="category">
+      <select class="form-control col-md-2" id="category" [(ngModel)]="cat">
         <option>Fashion</option>
         <option>Pets</option>
-        <option>House</option>
+        <option>Home</option>
         <option selected>All categories</option>
       </select>
       <input type="text" class="form-control" [(ngModel)]="keyword" name="keyword" placeholder="Search term...">
@@ -29,8 +29,7 @@
 
   <div *ngFor="let item of items">
     <hr>
-    <a routerLink="/detail/{{item.id}}" innerHTML="{{item.title}}" (click)="saveUserBehavior(item.id)" id="title"></a>
-    <p innerHTML="{{item.description}}" id="description"></p>
+    <!--<a routerLink="/detail/{{item.id}}" innerHTML="{{item.title}}" (click)="saveUserBehavior(item.id)" id="title"></a>-->
+    <p innerHTML="{{item.title}}" id="title"></p>
   </div>
-  {{ message }}
 </div>

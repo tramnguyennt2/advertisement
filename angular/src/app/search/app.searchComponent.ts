@@ -25,7 +25,7 @@ export class searchComponent {
       Object.keys(res.response.docs).map(k => {
         let doc = res.response.docs[k];
         let title = doc.title[0];
-        let content = doc.description[0];
+        let content = doc.content[0];
         let price = doc.price[0];
         this.items.push({
           'title': title,
