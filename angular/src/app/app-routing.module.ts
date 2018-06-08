@@ -5,6 +5,7 @@ import {contentAreaComponent} from './contentArea/app.contentAreaComponent';
 import {signupComponent} from './signup/app.signupComponent';
 import {signinComponent} from './signin/app.signinComponent';
 import {introComponent} from './intro/app.introComponent';
+import {adDetailComponent} from './ad-detail/app.adDetailComponent';
 
 const routes: Routes = [
   {path: '', component: contentAreaComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'sign-in', component: signinComponent},
   {path: 'sign-up', component: signupComponent},
   {path: 'intro', component: introComponent},
+  {path: 'detail', component: adDetailComponent},  
 ];
 
 @NgModule({

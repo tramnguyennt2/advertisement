@@ -22,6 +22,7 @@ export class SolrService {
   }
 
   getDetail(id): any {
-    return this.http.get(this.solr_url + '/select?q=id:' + id + '&fl=title,description&wt=json');
+    //return this.http.get(this.solr_url + '/select?q=id:' + id + '&fl=title,description&wt=json');
+    return this.http.get(this.solr_url + '/select?q=id:' + id);
   }
 }

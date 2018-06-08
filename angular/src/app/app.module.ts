@@ -12,6 +12,7 @@ import {signinComponent} from './signin/app.signinComponent';
 import {signupComponent} from './signup/app.signupComponent';
 import {contactComponent} from './contact/app.contactComponent';
 import {topProductComponent} from './top-product/app.topProductComponent';
+import {adDetailComponent} from './ad-detail/app.adDetailComponent';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
@@ -32,6 +33,7 @@ import {SolrService} from "./solr.service";
     signupComponent,
     contactComponent,
     topProductComponent,
+    adDetailComponent
   ],
   imports: [
     FormsModule,

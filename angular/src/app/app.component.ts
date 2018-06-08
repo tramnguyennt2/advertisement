@@ -9,6 +9,7 @@ import { signinComponent } from './signin/app.signinComponent';
 import { signupComponent } from './signup/app.signupComponent';
 import { contactComponent } from './contact/app.contactComponent';
 import { topProductComponent } from './top-product/app.topProductComponent';
+import {adDetailComponent} from './ad-detail/app.adDetailComponent';
 
 @Component({
   selector: 'app-root',
