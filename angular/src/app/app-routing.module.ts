@@ -1,19 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {contactComponent} from './contact/app.contactComponent';
-import {contentAreaComponent} from './contentArea/app.contentAreaComponent';
-import {signupComponent} from './signup/app.signupComponent';
-import {signinComponent} from './signin/app.signinComponent';
-import {introComponent} from './intro/app.introComponent';
-import {adDetailComponent} from './ad-detail/app.adDetailComponent';
+import {AdDetailComponent} from "./ad-detail/ad-detail.component";
+import {ContactComponent} from "./contact/contact.component";
+import {ContentAreaComponent} from "./content-area/content-area.component";
+import {IntroComponent} from "./intro/intro.component";
+import {SigninComponent} from "./signin/signin.component";
+import {SignupComponent} from "./signup/signup.component";
 
 const routes: Routes = [
-  {path: '', component: contentAreaComponent},
-  {path: 'contact', component: contactComponent},
-  {path: 'sign-in', component: signinComponent},
-  {path: 'sign-up', component: signupComponent},
-  {path: 'intro', component: introComponent},
-  {path: 'detail', component: adDetailComponent},  
+  {path: '', component: ContentAreaComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'sign-in', component: SigninComponent},
+  {path: 'sign-up', component: SignupComponent},
+  {path: 'intro', component: IntroComponent},
+  {path: 'detail/:id', component: AdDetailComponent},
 ];
 
 @NgModule({

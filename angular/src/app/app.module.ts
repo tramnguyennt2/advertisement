@@ -1,39 +1,39 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {headerComponent} from './header/app.headerComponent';
-import {navComponent} from './nav/app.navComponent';
-import {contentAreaComponent} from './contentArea/app.contentAreaComponent';
-import {footerComponent} from './footer/app.footerComponent';
-import {introComponent} from './intro/app.introComponent';
-import {searchComponent} from './search/app.searchComponent';
-import {categoryComponent} from './category/app.categoryComponent';
-import {signinComponent} from './signin/app.signinComponent';
-import {signupComponent} from './signup/app.signupComponent';
-import {contactComponent} from './contact/app.contactComponent';
-import {topProductComponent} from './top-product/app.topProductComponent';
-import {adDetailComponent} from './ad-detail/app.adDetailComponent';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
 import {PouchdbService} from "./pouchdb.service";
 import {SolrService} from "./solr.service";
+import {AdDetailComponent} from './ad-detail/ad-detail.component';
+import {CategoryComponent} from './category/category.component';
+import {ContactComponent} from './contact/contact.component';
+import {ContentAreaComponent} from './content-area/content-area.component';
+import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
+import {IntroComponent} from './intro/intro.component';
+import {NavComponent} from './nav/nav.component';
+import {SearchComponent} from './search/search.component';
+import {SigninComponent} from './signin/signin.component';
+import {SignupComponent} from './signup/signup.component';
+import { TopProductComponent } from './top-product/top-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    headerComponent,
-    navComponent,
-    introComponent,
-    contentAreaComponent,
-    footerComponent,
-    searchComponent,
-    categoryComponent,
-    signinComponent,
-    signupComponent,
-    contactComponent,
-    topProductComponent,
-    adDetailComponent
+    AdDetailComponent,
+    CategoryComponent,
+    ContactComponent,
+    ContentAreaComponent,
+    FooterComponent,
+    HeaderComponent,
+    IntroComponent,
+    NavComponent,
+    SearchComponent,
+    SigninComponent,
+    SignupComponent,
+    TopProductComponent
   ],
   imports: [
     FormsModule,

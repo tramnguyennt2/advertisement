@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a routerLink="/">
+    <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" alt="Logo" width="40" />
+  </a>
+  <div id="navbarNavDropdown" class="navbar-collapse collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/intro" class="nav-link">Introduce</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Support</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" class="nav-link">Contact</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button routerLink="/sign-in" class="btn btn-info">Sign In</button>
+      </li>
+      <li class="nav-item">
+        <button routerLink="/sign-up" class="btn btn-outline-info">Sign Up</button>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">
+          Language
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Tiếng Việt</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

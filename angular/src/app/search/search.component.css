@@ -1,0 +1,45 @@
+.input-group-btn, input{
+  margin-right: 3px;
+}
+
+.container{
+  align-items: center
+}
+
+.btn-info {
+  margin-right:15px;
+  text-transform:uppercase;
+  padding:10px;
+  display:block;
+  float:left;
+}
+.btn-info a {
+  display:block;
+  text-decoration:none;
+  width:100%;
+  height:100%;
+  color:#fff;
+}
+.more {
+  float:right;
+}
+
+.ad-item {
+  margin-left: 15%;
+  margin-right: 15%;
+
+}
+
+.ad-title {
+  color: brown
+}
+
+.ad-content {
+  line-height: 1.5em;
+  height: 4.5em;
+  overflow: hidden;
+}
+
+.result {
+  text-align: center
+}

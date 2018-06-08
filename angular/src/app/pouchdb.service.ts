@@ -21,6 +21,11 @@ export class PouchdbService {
   }
 
   add(item): void {
-    this.db.post(item);
+    this.db.post(item, function (err, response) {
+      if (err) {
+        return console.log(err);
+      }
+      return response.id;
+    });
   }
 }
