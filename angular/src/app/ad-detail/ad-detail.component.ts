@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SolrService} from '../solr.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-ad-detail',
@@ -10,7 +11,7 @@ import {SolrService} from '../solr.service';
 export class AdDetailComponent implements OnInit {
   item = {};
 
-  constructor(private http: HttpClient, private solr: SolrService) {
+  constructor(private http: HttpClient, private solr: SolrService, private route: ActivatedRoute,) {
     this.display();
   }
 
@@ -19,13 +20,13 @@ export class AdDetailComponent implements OnInit {
 
   display() {
     this.item = {};
-    return this.solr.getDetail('e08b2724-ef1b-419d-b97a-bf66b426e701').subscribe((res) => {
+    return this.solr.getDetail(this.route.snapshot.paramMap.get('id')).subscribe((res) => {
       let doc = res.response.docs[0];
       this.item = {
-        'title': doc.title,
-        'area': doc.area,
-        'content': doc.content,
-        'price': doc.price
+        'title': doc.title[0],
+        'area': doc.area[0],
+        'content': doc.content[0],
+        'price': doc.price[0]
       };
     });
   }
