@@ -18,6 +18,7 @@ import {SearchComponent} from './search/search.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignupComponent} from './signup/signup.component';
 import { TopProductComponent } from './top-product/top-product.component';
+import {PostAdComponent} from "./post-ad/post-ad.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TopProductComponent } from './top-product/top-product.component';
     SearchComponent,
     SigninComponent,
     SignupComponent,
-    TopProductComponent
+    TopProductComponent,
+    PostAdComponent
   ],
   imports: [
     FormsModule,
