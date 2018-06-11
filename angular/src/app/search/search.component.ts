@@ -13,8 +13,8 @@ export class SearchComponent implements OnInit {
   keyword = '';
   items = [];
   behavior = new UserBehavior(1);
-  area = '';
-  cat = '';
+  area = 'all';
+  cat = 'all';
 
   constructor(private http: HttpClient, private pouchdb: PouchdbService, private solr: SolrService) {
   }

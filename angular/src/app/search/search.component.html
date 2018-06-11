@@ -6,13 +6,13 @@
           <option>Hà Nội</option>
           <option>Da Nang</option>
           <option>Hồ Chí Minh</option>
-          <option selected>All areas</option>
+          <option value="all">All areas</option>
         </select>
         <select class="form-control col-md-2" id="category" [(ngModel)]="cat">
           <option>Fashion</option>
           <option>Pets</option>
           <option>Home</option>
-          <option selected>All categories</option>
+          <option value="all">All categories</option>
         </select>
         <input type="text" class="form-control" [(ngModel)]="keyword" name="keyword" placeholder="Search term...">
         <span class="input-group-btn">
@@ -21,7 +21,7 @@
           </button>
         </span>
         <span class="input-group-btn">
-          <button class="btn btn-danger" type="button" routerLink="/post">
+          <button class="btn btn-danger" type="button" routerLink="/new-ad">
             <span class="glyphicon glyphicon-search">Post Now</span>
           </button>
         </span>
