@@ -729,6 +729,7 @@ var NewAdComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_from__ = __webpack_require__("./node_modules/rxjs/_esm5/add/observable/from.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__solr_service__ = __webpack_require__("./src/app/solr.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ad__ = __webpack_require__("./src/app/ad.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -743,11 +744,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PouchDB = __WEBPACK_IMPORTED_MODULE_1_pouchdb__["a" /* default */];
 var PouchdbService = /** @class */ (function () {
     function PouchdbService(solr) {
         this.solr = solr;
-        this.remote = 'http://127.0.0.1:5984/advertisement';
+        this.remote = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].couchdb_server + '/advertisement';
         this.db = new PouchDB('advertisement');
         var options = {
             live: true,
@@ -988,6 +990,7 @@ var SignupComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SolrService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -999,10 +1002,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var SolrService = /** @class */ (function () {
     function SolrService(http) {
         this.http = http;
-        this.solr_url = 'http://localhost:8983/solr/advertisement';
+        this.solr_url = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].solr_server + '/advertisement';
     }
     SolrService.prototype.add = function (ads) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]();
@@ -1109,7 +1113,9 @@ var UserBehavior = /** @class */ (function () {
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: false,
+    couchdb_server: 'http://127.0.0.1:5984',
+    solr_server: 'http://localhost:8983/solr',
 };
 
 

@@ -3,14 +3,14 @@ import * as $PouchDB from 'pouchdb';
 import 'rxjs/add/observable/from';
 import {SolrService} from "./solr.service";
 import {Ad} from "./ad";
-import {Observable} from "rxjs/Observable";
+import {environment} from "../environments/environment";
 
 const PouchDB = $PouchDB['default'];
 
 @Injectable()
 export class PouchdbService {
   db: any;
-  remote = 'http://127.0.0.1:5984/advertisement';
+  remote = environment.couchdb_server + '/advertisement';
 
   constructor(private solr: SolrService) {
     this.db = new PouchDB('advertisement');

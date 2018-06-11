@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment} from "../environments/environment";
 
 @Injectable()
 export class SolrService {
-  solr_url = 'http://localhost:8983/solr/advertisement';
+  solr_url = environment.solr_server + '/advertisement';
 
   constructor(private http: HttpClient) {
   }
