@@ -17,8 +17,8 @@ import {NavComponent} from './nav/nav.component';
 import {SearchComponent} from './search/search.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignupComponent} from './signup/signup.component';
-import { TopProductComponent } from './top-product/top-product.component';
-import {PostAdComponent} from "./post-ad/post-ad.component";
+import {TopProductComponent} from './top-product/top-product.component';
+import {NewAdComponent} from './new-ad/new-ad.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import {PostAdComponent} from "./post-ad/post-ad.component";
     SigninComponent,
     SignupComponent,
     TopProductComponent,
-    PostAdComponent
+    NewAdComponent
   ],
   imports: [
     FormsModule,

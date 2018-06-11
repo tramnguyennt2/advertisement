@@ -36,7 +36,7 @@
     <h3 class="ad-title">{{item.title}}</h3>
     <h6>{{item.area}} - {{item.price}}đ</h6>
     <p class="ad-content">{{item.content}}</p>
-    <a class="more" routerLink="/detail/{{item.id}}" (click)="saveUserBehavior(item.id)">Read more</a>
+    <a class="more" routerLink="/detail/{{item.couchdb_id}}" (click)="saveUserBehavior(item.couchdb_id)">Read more</a>
     <br/>
     <hr>
     <!--<a routerLink="/detail/{{item.id}}" innerHTML="{{item.title}}" (click)="saveUserBehavior(item.id)" id="title"></a>-->

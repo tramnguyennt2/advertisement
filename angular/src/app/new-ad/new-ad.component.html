@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel-heading">
+        <h3 class="panel-title">Post Advertisement</h3>
+      </div>
+      <label>Title</label>
+      <input class="form-control" name="title" placeholder="title" [(ngModel)]="ad.title" type="text"/>
+      <label>Area</label>
+      <input class="form-control" name="area" placeholder="area" [(ngModel)]="ad.area" type="text"/>
+      <label>Category</label>
+      <input class="form-control" name="category" placeholder="category" [(ngModel)]="ad.category" type="text"/>
+      <label>Price</label>
+      <input class="form-control" name="price" placeholder="price" [(ngModel)]="ad.price" type="text"/>
+      <label>Content</label>
+      <textarea class="form-control" name="content" placeholder="content" type="textarea"
+                [(ngModel)]="ad.content"></textarea>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="addAd()">Post</button>
+    </div>
+  </div>
+</div>

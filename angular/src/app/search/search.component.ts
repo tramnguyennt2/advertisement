@@ -27,15 +27,15 @@ export class SearchComponent implements OnInit {
     return this.solr.search(this.keyword, this.area, this.cat).subscribe((res) => {
       Object.keys(res.response.docs).map(k => {
         let doc = res.response.docs[k];
-        let id = doc.id;
-        // let couchdb_id = doc.couchdb_id[0];
+        // let id = doc.id;
+        let couchdb_id = doc.couchdb_id[0];
         let title = doc.title[0];
         let area = doc.area[0];
         let content = doc.content[0];
         let price = doc.price[0];
         this.items.push({
-          'id': id,
-          // 'couchdb_id': couchdb_id,
+          // 'id': id,
+          'couchdb_id': couchdb_id,
           'title': title,
           'area': area,
           'content': content,
