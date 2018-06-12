@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="env">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pouchdb.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/pouchdb.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="solr.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/solr.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="environment.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/environments/environment.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="8" selection-end-column="43" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="environment.prod.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/environments/environment.prod.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ad.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/ad.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>styles.css</find>
+      <find>const</find>
+      <find>&lt;field</find>
+      <find>copyFie</find>
+      <find>copyFiel</find>
+      <find>Field</find>
+      <find>&lt;initParams</find>
+      <find>once</find>
+      <find>boot</find>
+      <find>bootstrap</find>
+      <find>060606</find>
+      <find>keywor</find>
+      <find>adde</find>
+      <find>navi</find>
+      <find>post-ad.component</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="huyentk" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="C:/solr-7.3.0/server/solr/advertisement/conf/solrconfig.xml" />
+        <option value="C:/solr-7.3.0/server/solr/advertisement/conf/managed-schema" />
+        <option value="$PROJECT_DIR$/angular/src/index.html" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/angular/package.json" />
+        <option value="$PROJECT_DIR$/angular/.angular-cli.json" />
+        <option value="$PROJECT_DIR$/angular/src/app/search/search.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/search/app.searchComponent.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/ad-detail/app.adDetailComponent.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/category/category.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/category/category.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/contentArea/app.contentAreaComponent.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/contact/contact.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/contact/contact.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/footer/footer.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/intro/intro.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/nav/nav.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/nav/nav.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/search/search.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/signin/signin.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/signin/signin.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/signup/signup.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/signup/signup.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/top-product/top-product.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/search/search.component.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/search/search.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/angular/src/.htaccess" />
+        <option value="$PROJECT_DIR$/angular/src/env.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/solr.service.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" />
+        <option value="$PROJECT_DIR$/dist/.htaccess" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/angular/src/app/ad.ts" />
+        <option value="$PROJECT_DIR$/angular/.gitignore" />
+        <option value="$PROJECT_DIR$/angular/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/angular/src/environments/environment.prod.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/angular/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/angular/package.json" />
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/angular/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\angular\src\app" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\angular\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\dist" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="" />
+      <created>1527860836187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1527860836187</updated>
+      <workItem from="1527860840641" duration="2786000" />
+      <workItem from="1527907492796" duration="1156000" />
+      <workItem from="1527920043803" duration="1331000" />
+      <workItem from="1527953265022" duration="296000" />
+      <workItem from="1527954776159" duration="464000" />
+      <workItem from="1527955336087" duration="622000" />
+      <workItem from="1527989057206" duration="1939000" />
+      <workItem from="1528033497353" duration="4476000" />
+      <workItem from="1528120127662" duration="7494000" />
+      <workItem from="1528165925604" duration="2522000" />
+      <workItem from="1528171007292" duration="1085000" />
+      <workItem from="1528184320274" duration="162000" />
+      <workItem from="1528186067560" duration="111000" />
+      <workItem from="1528292731104" duration="2954000" />
+      <workItem from="1528367414337" duration="6000" />
+      <workItem from="1528386394531" duration="755000" />
+      <workItem from="1528448640594" duration="950000" />
+      <workItem from="1528464691200" duration="8348000" />
+      <workItem from="1528559689361" duration="1233000" />
+      <workItem from="1528618607034" duration="4704000" />
+      <workItem from="1528631829739" duration="718000" />
+      <workItem from="1528707265024" duration="2242000" />
+      <workItem from="1528715016747" duration="223000" />
+      <workItem from="1528716293306" duration="1061000" />
+      <workItem from="1528729545129" duration="1245000" />
+      <workItem from="1528769856478" duration="986000" />
+      <workItem from="1528770926238" duration="862000" />
+      <workItem from="1528772224849" duration="359000" />
+      <workItem from="1528773130748" duration="126000" />
+      <workItem from="1528773750044" duration="574000" />
+      <workItem from="1528798282475" duration="212000" />
+    </task>
+    <task id="LOCAL-00001" summary="mess">
+      <created>1528171338148</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528171338149</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mess">
+      <created>1528186147807</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528186147807</updated>
+    </task>
+    <task id="LOCAL-00003" summary="mess">
+      <created>1528293574784</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528293574784</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mess">
+      <created>1528293895546</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528293895546</updated>
+    </task>
+    <task id="LOCAL-00005" summary="mess">
+      <created>1528293983177</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528293983177</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528295870857</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1528295870879</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528469252164</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528469252164</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528469833392</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1528469833392</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528708260009</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1528708260009</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528710490613</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1528710490613</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528715222131</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1528715222131</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528717350667</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1528717350667</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1528730444664</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1528730444664</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;dist/inline.bundle.js.map&#10;#&#9;dist/main.bundle.js&#10;#&#9;dist/main.bundle.js.map">
+      <created>1528730699403</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528730699403</updated>
+    </task>
+    <task id="LOCAL-00015" summary="env">
+      <created>1528769937680</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1528769937680</updated>
+    </task>
+    <task id="LOCAL-00016" summary="env">
+      <created>1528770462435</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770462435</updated>
+    </task>
+    <task id="LOCAL-00017" summary="env">
+      <created>1528770558769</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770558769</updated>
+    </task>
+    <task id="LOCAL-00018" summary="env">
+      <created>1528770826314</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770826314</updated>
+    </task>
+    <task id="LOCAL-00019" summary="env">
+      <created>1528771209940</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771209940</updated>
+    </task>
+    <task id="LOCAL-00020" summary="env">
+      <created>1528771357578</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771357578</updated>
+    </task>
+    <task id="LOCAL-00021" summary="env">
+      <created>1528771401481</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771401481</updated>
+    </task>
+    <task id="LOCAL-00022" summary="env">
+      <created>1528771455876</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771455876</updated>
+    </task>
+    <task id="LOCAL-00023" summary="env">
+      <created>1528771773011</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771773011</updated>
+    </task>
+    <task id="LOCAL-00024" summary="env">
+      <created>1528774303329</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1528774303329</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="51790000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="0" width="784" height="832" extended-state="0" />
+    <layout>
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32905984" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3266399" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32621083" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mess" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;dist/inline.bundle.js.map&#10;#&#9;dist/main.bundle.js&#10;#&#9;dist/main.bundle.js.map" />
+    <MESSAGE value="env" />
+    <option name="LAST_COMMIT_MESSAGE" value="env" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signin/app.signinComponent.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signup/signup.css" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signup/signup.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signup/signup.html" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signup/app.signupComponent.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/topProduct.html" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/topProduct.css" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/app.topProductComponent.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signin/signin.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/category/category.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/contact/contact.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/footer/footer.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/nav/nav.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/signup/signup.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/top-product.component.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/top-product.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/intro/intro.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/post-ad/post-ad.component.css" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/post-ad/post-ad.component.html" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/post-ad/post-ad.component.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="81" lean-forward="true" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/.htaccess">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/env.ts" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/pouchdb.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/search/search.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/search/search.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/solr.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/ad.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/environments/environment.prod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
