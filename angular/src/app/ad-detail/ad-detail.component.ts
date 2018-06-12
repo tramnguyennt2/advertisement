@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from "@angular/router";
 import {PouchdbService} from "../pouchdb.service";
+import {Ad} from "../ad";
 
 @Component({
   selector: 'app-ad-detail',
@@ -9,7 +10,7 @@ import {PouchdbService} from "../pouchdb.service";
   styleUrls: ['./ad-detail.component.css']
 })
 export class AdDetailComponent implements OnInit {
-  item = {};
+  item = new Ad('', '', '','',0);
 
   constructor(private http: HttpClient, private pouchdb: PouchdbService, private route: ActivatedRoute,) {
     this.display();
