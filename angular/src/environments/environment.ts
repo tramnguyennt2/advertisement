@@ -6,6 +6,5 @@
 export const environment = {
   production: false,
   couchdb_server: 'http://127.0.0.1:5984',
-  solr_server: 'http://localhost:8983/solr',
-  av:'b'
+  solr_server: 'http://localhost:8983/solr'
 };
