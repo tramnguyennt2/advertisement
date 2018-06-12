@@ -4,7 +4,7 @@ export class Ad {
   area: string;
   category: string;
   price: number;
-  couchdb_id?: string;
+  couchdb_id?: string; // ?: maybe has or not
 
   constructor(title: string,
               content: string,
