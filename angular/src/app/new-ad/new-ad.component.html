@@ -4,17 +4,24 @@
       <div class="panel-heading">
         <h3 class="panel-title">Post Advertisement</h3>
       </div>
-      <label>Title</label>
-      <input class="form-control" name="title" placeholder="title" [(ngModel)]="ad.title" type="text"/>
-      <label>Area</label>
-      <input class="form-control" name="area" placeholder="area" [(ngModel)]="ad.area" type="text"/>
+      <label>Title</label>      
+      <input class="form-control" name="title" [(ngModel)]="ad.title" type="text"/>
+      <label>Location</label>
+      <select class="form-control" name="area" [(ngModel)]="ad.area">
+        <option>Hà Nội</option>
+        <option>Da Nang</option>
+        <option>Hồ Chí Minh</option>
+      </select>
       <label>Category</label>
-      <input class="form-control" name="category" placeholder="category" [(ngModel)]="ad.category" type="text"/>
+      <select class="form-control" name="category" [(ngModel)]="ad.category">
+        <option>Fashion</option>
+        <option>Pets</option>
+        <option>Home</option>
+      </select>
       <label>Price</label>
-      <input class="form-control" name="price" placeholder="price" [(ngModel)]="ad.price" type="text"/>
+      <input class="form-control" name="price" [(ngModel)]="ad.price" type="text"/>
       <label>Content</label>
-      <textarea class="form-control" name="content" placeholder="content" type="textarea"
-                [(ngModel)]="ad.content"></textarea>
+      <textarea class="form-control" name="content" type="textarea" [(ngModel)]="ad.content"></textarea>
       <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="addAd()">Post</button>
     </div>
