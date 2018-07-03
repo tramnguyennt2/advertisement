@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {PouchdbService} from "../pouchdb.service";
 import {SolrService} from "../solr.service";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserBehavior} from "../user-behavior";
+import 'rxjs/add/operator/map';
+import {NodeService} from "../node.service";
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,7 @@ export class SearchComponent implements OnInit {
   area = 'all';
   cat = 'all';
 
-  constructor(private http: HttpClient, private pouchdb: PouchdbService, private solr: SolrService) {
+  constructor(private nodejs: NodeService, private pouchdb: PouchdbService, private solr: SolrService) {
   }
 
   ngOnInit() {
@@ -47,6 +49,8 @@ export class SearchComponent implements OnInit {
 
   saveUserBehavior(item_id) {
     this.behavior.item = item_id;
-    this.pouchdb.add(this.behavior);
+    console.log(this.behavior);
+    this.nodejs.post(this.behavior).subscribe(res => console.log(res));
+    // this.pouchdb.add(this.behavior);
   }
 }

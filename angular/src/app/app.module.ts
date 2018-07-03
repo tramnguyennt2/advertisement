@@ -19,6 +19,7 @@ import {SigninComponent} from './signin/signin.component';
 import {SignupComponent} from './signup/signup.component';
 import {TopProductComponent} from './top-product/top-product.component';
 import {NewAdComponent} from './new-ad/new-ad.component';
+import {NodeService} from "./node.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {NewAdComponent} from './new-ad/new-ad.component';
   ],
   providers: [
     PouchdbService,
-    SolrService
+    SolrService,
+    NodeService
   ],
   bootstrap: [AppComponent]
 })
