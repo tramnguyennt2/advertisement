@@ -10,6 +10,8 @@ export class NodeService {
   post(data): Observable<any>{
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
+    console.log("Data");
+    console.log(data);
     return this.http.post('http://localhost:3000/catch-event', data, {
       headers: headers
     });
