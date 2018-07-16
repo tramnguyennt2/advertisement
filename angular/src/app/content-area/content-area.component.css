@@ -11,3 +11,35 @@ body{margin:50px;}
 
 .panel-collapse div.list-group div.list-group{margin: 0;}
 .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd;border-bottom: 0;padding-left: 30px;}
+
+.row1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content{
+    background-color: #e6e6e6
+}
+
+.category-content{
+    background-color: white;
+    margin-left: 5%;
+}
+
+.list-item{
+    background-color: white;
+    margin-left: 5px;
+    padding-bottom: 20px
+}
+
+.items div div button img{
+    height: 180px;
+    width: 180px;
+}
+
+.item-button{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: none
+}
