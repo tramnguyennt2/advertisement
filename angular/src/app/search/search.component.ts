@@ -50,6 +50,5 @@ export class SearchComponent implements OnInit {
   saveUserBehavior(item_id) {
     this.behavior.item = item_id;
     this.nodejs.post(this.behavior).subscribe(res => console.log(res));
-    // this.pouchdb.add(this.behavior);
   }
 }
