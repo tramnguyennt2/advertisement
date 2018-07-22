@@ -29,7 +29,8 @@ body{margin:50px;}
 .list-item{
     background-color: white;
     margin-left: 5px;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    padding-top: 15px
 }
 
 .items div div button img{
@@ -41,5 +42,37 @@ body{margin:50px;}
     height: 100%;
     width: 100%;
     background-color: white;
-    border: none
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.filter{
+    text-align: right
+}
+
+.price-item{
+    text-align: left;
+    margin-left: 5px;
+    color: red;
+}
+.title-item{
+    text-align: left;
+    margin-left: 5px;
+    color: #004080;
+    font-weight: 500
+}
+
+.items{
+    margin-top: 10px
+}
+
+.item-icon{
+    height: 20px !important;
+    width: 20px !important;
+}
+
+.location-item{
+    text-align: left;
+    margin-left: 5px;
 }
