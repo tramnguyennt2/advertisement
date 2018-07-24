@@ -1,19 +1,19 @@
 <div class="content">
     <div class="row row1">
         <div class="panel panel-default col-md-3 category-content">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                        <span class="glyphicon glyphicon-file">
-                        </span>Đồ điện tử</a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Điện thoại</a>
-                    <a href="#" class="list-group-item">Máy tính bàn</a>
+            <div *ngFor="let cat of cats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                            <span class="glyphicon glyphicon-file">
+                            </span>{{cat['category']}}</a>
+                    </h4>
                 </div>
-
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="list-group" *ngFor="let sub of cat['name']">
+                        <a href="#" class="list-group-item">{{sub}}</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div class="banner col-md-8">

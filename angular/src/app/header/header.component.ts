@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {CategoryService} from "../category.service";
+import { Component, OnInit } from '@angular/core';
+import { CategoryService } from "../category.service";
 import * as locationsJson from 'assets/data/location.json';
 
 @Component({
@@ -20,5 +20,14 @@ export class HeaderComponent implements OnInit {
     // load Location
     this.locations = <any>locationsJson;
     console.log(this.locations);
+  }
+
+  clicked(event) {
+    var el = document.getElementsByClassName("selected");
+    for (var i = 0; i < el.length; i++) {
+      el[i].classList.remove("selected");
+    }
+    //el.classList.remove("selected");
+    event.target.classList.add('selected');
   }
 }

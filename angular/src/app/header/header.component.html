@@ -23,13 +23,10 @@
                 <span class="text-uppercase head-category">{{cat['category']}}</span>
                 <ul class="nav flex-column">
                   <li class="nav-item">
-                    <div class="row">
-                      <img class="check-icon" src="../../assets/icons/check-icon.png"/>
-                      <a class="nav-link sub-category all" href="#">Tất cả</a>
-                    </div>
+                    <a class="nav-link sub-category all" href="#" (click)="clicked($event)">Tất cả</a>
                   </li>
                   <li class="nav-item" *ngFor="let sub of cat['name']">
-                    <a class="nav-link sub-category" href="#">{{sub}}</a>
+                    <a class="nav-link sub-category" href="#" (click)="clicked($event)">{{sub}}</a>
                   </li>
                 </ul>
               </div>
@@ -57,7 +54,7 @@
                 <span class="text-uppercase head-location">{{location['area']}}</span>
                 <ul class="nav flex-column" *ngFor="let province of location['province']">
                   <li class="nav-item">
-                    <a class="nav-link sub-location" href="#">{{province}}</a>
+                    <a class="nav-link sub-location" href="#" (click)="clicked($event)">{{province}}</a>
                   </li>
                 </ul>
               </div>
@@ -132,10 +129,17 @@
           $(this).removeClass("show");
         });
 
+        //when click a sub-category
+        // $(".sub-category").click(function(){
+        //   $(this).addClass("checked");
+        // });
+        $(".sub-category").click(function(){
+          $(this).addClass("selected");
+        });
+
         // do something here
       }
-    });
-
+    }); 
 
     // document ready
   });

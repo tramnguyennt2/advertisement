@@ -59,12 +59,12 @@ button{
   color: #801a00
 }
 
-.all{
-  font-weight: bold;
-}
-
 .sub-category, .sub-location{
   color: #496969 !important
+}
+
+.sub-category:hover, .sub-location:hover{
+  color: #ff0000 !important;
 }
 
 .nav-right{
@@ -85,4 +85,8 @@ button{
   background-color: transparent;
   border: none;
   color: #0088cc
+}
+
+.selected{
+  color: #ff0000 !important;
 }
