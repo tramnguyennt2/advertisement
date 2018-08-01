@@ -75,18 +75,12 @@ button{
   padding-left: 10px
 }
 
-.check-icon{
-  height: 20px;
-  width: 20px;
-  margin-top: 9px;
-}
-
 .login-button, .register-button{
   background-color: transparent;
   border: none;
   color: #0088cc
 }
 
-.selected{
+.selected-category, .selected-location {
   color: #ff0000 !important;
 }

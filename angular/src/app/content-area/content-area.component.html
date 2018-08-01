@@ -1,20 +1,37 @@
 <div class="content">
-    <div class="row row1">
-        <div class="panel panel-default col-md-3 category-content">
-            <div *ngFor="let cat of cats">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                            <span class="glyphicon glyphicon-file">
-                            </span>{{cat['category']}}</a>
-                    </h4>
-                </div>
-                <div id="collapseFour" class="panel-collapse collapse">
-                    <div class="list-group" *ngFor="let sub of cat['name']">
-                        <a href="#" class="list-group-item">{{sub}}</a>
+  <div class="row search-block">
+        <div class="col-md-3 category-content">
+            <!-- <div *ngFor="let cat of cats">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                <span class="glyphicon glyphicon-file">
+                                </span>{{cat['category']}}</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="list-group" *ngFor="let sub of cat['name']">
+                            <a href="#" class="list-group-item">{{sub}}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <ul class="list-category" *ngFor="let cat of cats">
+                <li class="d-flex justify-content-between align-items-center">
+                    <a href="#">
+                        <img class="category-icon" src="../../assets/icons/general-category-icon.png" width="20" />
+                        <span>{{cat['category']}}</span>
+                    </a>
+                    <span class="badge badge-primary badge-pill number-item">14</span>
+                </li>
+                <ul *ngFor="let sub of cat['name']">
+                    <li>
+                        <a href="#">{{sub}}</a>
+                        <span>(10)</span>
+                    </li>
+                </ul>
+            </ul>
         </div>
         <!-- <div class="banner col-md-8">
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -56,7 +73,7 @@
             </a>
         </div>
     </div> -->
-        <div class="list-item col-md-8">
+        <div class="list-item col">
             <div class="row">
                 <div class="col-md-9">
                     <div>
@@ -120,4 +137,64 @@
             </div>
         </div>
     </div>
+  <div class="new-block">
+    <h3>New Advertisement</h3>
+    <div class="row">
+      <div>
+        <button class="arrow">
+          <img class="arrow" src="../../assets/icons/arrow-left.png">
+        </button>
+      </div>
+      <div class="list-item col-md-8">
+        <div class="items">
+          <div class="row">
+            <div class="col">
+              <button class="item-button">
+                <img src="../../assets/images/default-item.jpg" />
+                <div class="title-item">Cần bán gấp điện thoại Samsung 2 sim 2 sóng</div>
+                <div class="price-item">
+                  <img class="item-icon" src="../../assets/icons/price-item-icon.png" /> 2.000.000
+                </div>
+                <!-- <div class="location-item">
+                    <img class="item-icon" src="../../assets/icons/location-item-icon.png"/> Hồ Chí Minh
+                </div> -->
+              </button>
+            </div>
+            <div class="col">
+              <button class="item-button">
+                <img src="../../assets/images/default-item.jpg" />
+                <div class="title-item">Cần bán gấp điện thoại Samsung 2 sim 2 sóng</div>
+                <div class="price-item">
+                  <img class="item-icon" src="../../assets/icons/price-item-icon.png" /> 2.000.000
+                </div>
+              </button>
+            </div>
+            <div class="col">
+              <button class="item-button">
+                <img src="../../assets/images/default-item.jpg" />
+                <div class="title-item">Cần bán gấp điện thoại Samsung 2 sim 2 sóng</div>
+                <div class="price-item">
+                  <img class="item-icon" src="../../assets/icons/price-item-icon.png" /> 2.000.000
+                </div>
+              </button>
+            </div>
+            <div class="col">
+              <button class="item-button">
+                <img src="../../assets/images/default-item.jpg" />
+                <div class="title-item">Cần bán gấp điện thoại Samsung 2 sim 2 sóng</div>
+                <div class="price-item">
+                  <img class="item-icon" src="../../assets/icons/price-item-icon.png" /> 2.000.000
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="arrow">
+          <img class="arrow" src="../../assets/icons/arrow-right.png">
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

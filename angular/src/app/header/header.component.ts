@@ -22,12 +22,19 @@ export class HeaderComponent implements OnInit {
     console.log(this.locations);
   }
 
-  clicked(event) {
-    var el = document.getElementsByClassName("selected");
+  clickedCategory(event) {
+    var el = document.getElementsByClassName("selected-category");
     for (var i = 0; i < el.length; i++) {
-      el[i].classList.remove("selected");
+      el[i].classList.remove("selected-category");
     }
-    //el.classList.remove("selected");
-    event.target.classList.add('selected');
+    event.target.classList.add("selected-category");
+  }
+
+  clickedLocation(event) {
+    var el = document.getElementsByClassName("selected-location");
+    for (var i = 0; i < el.length; i++) {
+      el[i].classList.remove("selected-location");
+    }
+    event.target.classList.add("selected-location");
   }
 }
