@@ -1,0 +1,48 @@
+[
+  {
+    "category": "Đồ điện tử",
+    "name": [
+      "Điện thoại",
+      "Máy tính bảng",
+      "Laptop",
+      "Máy tính để bàn",
+      "Máy ảnh, Máy quay",
+      "Tivi, Loa, Amply",
+      "Linh kiện, phụ kiện",
+      "Khác"
+    ]
+  },
+  {
+    "category": "Đồ gia dụng",
+    "name": [
+      "Điện lạnh",
+      "Thiết bị nhà bếp",
+      "Đồ dùng gia đình",
+      "Vật dụng cá nhân",
+      "Khác"
+    ]
+  },
+  {
+    "category": "Đồ văn phòng",
+    "name": [
+      "Bàn ghế",
+      "Tủ",
+      "Máy chiếu",
+      "Máy photocopy",
+      "Camera an ninh",
+      "Khác"
+    ]
+  },
+  {
+    "category": "Xe",
+    "name": [
+      "Xe máy",
+      "Ôtô",
+      "Xe tải",
+      "Xe đạp",
+      "Phụ tùng xe",
+      "Dịch vụ sửa chữa",
+      "Khác"
+    ]
+  }
+]

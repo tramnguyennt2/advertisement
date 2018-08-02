@@ -7,7 +7,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {PouchdbService} from "./pouchdb.service";
 import {SolrService} from "./solr.service";
 import {AdDetailComponent} from './ad-detail/ad-detail.component';
-import {CategoryComponent} from './category/category.component';
 import {ContactComponent} from './contact/contact.component';
 import {ContentAreaComponent} from './content-area/content-area.component';
 import {FooterComponent} from './footer/footer.component';
@@ -20,12 +19,13 @@ import {SignupComponent} from './signup/signup.component';
 import {TopProductComponent} from './top-product/top-product.component';
 import {NewAdComponent} from './new-ad/new-ad.component';
 import {NodeService} from "./node.service";
+import {CategoryService} from "./category.service";
+import {ItemService} from "./item.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     AdDetailComponent,
-    CategoryComponent,
     ContactComponent,
     ContentAreaComponent,
     FooterComponent,
@@ -47,7 +47,9 @@ import {NodeService} from "./node.service";
   providers: [
     PouchdbService,
     SolrService,
-    NodeService
+    NodeService,
+    CategoryService,
+    ItemService
   ],
   bootstrap: [AppComponent]
 })

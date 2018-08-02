@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoryService} from "../category.service";
 
 @Component({
   selector: 'app-content-area',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-area.component.css']
 })
 export class ContentAreaComponent implements OnInit {
+  cats = [];
 
-  constructor() { }
+  constructor(private catService: CategoryService) {
+  }
 
   ngOnInit() {
+    //load Category
+    this.catService.getAllCategory().subscribe(cats => this.cats = cats);
   }
 
 }

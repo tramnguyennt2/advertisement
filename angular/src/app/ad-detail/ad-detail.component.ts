@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from "@angular/router";
-import {PouchdbService} from "../pouchdb.service";
 import {Ad} from "../ad";
+import {ItemService} from "../item.service";
 
 @Component({
   selector: 'app-ad-detail',
@@ -12,7 +12,7 @@ import {Ad} from "../ad";
 export class AdDetailComponent implements OnInit {
   item = new Ad('', '', '','',0);
 
-  constructor(private http: HttpClient, private pouchdb: PouchdbService, private route: ActivatedRoute,) {
+  constructor(private http: HttpClient, private itemService: ItemService, private route: ActivatedRoute,) {
     this.display();
   }
 
@@ -20,7 +20,7 @@ export class AdDetailComponent implements OnInit {
   }
 
   display() {
-    this.pouchdb.get(this.route.snapshot.paramMap.get('id')).then((res) => {
+    this.itemService.getItem(this.route.snapshot.paramMap.get('id')).then((res) => {
       this.item = res;
     });
   }

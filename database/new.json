@@ -1,0 +1,73 @@
+[
+  {
+    "id": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
+    "key": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
+    "doc": {
+      "_id": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
+      "_rev": "1-a46027ff27b1cfcd9667a9da98c86258",
+      "data": [
+        {
+          "category": "Đồ điện tử",
+          "name": [
+            "Điện thoại",
+            "Máy tính bảng",
+            "Laptop",
+            "Máy tính để bàn",
+            "Máy ảnh, Máy quay",
+            "Tivi, Loa, Amply",
+            "Linh kiện, phụ kiện",
+            "Khác"
+          ]
+        },
+        {
+          "category": "Đồ gia dụng",
+          "name": [
+            "Điện lạnh",
+            "Thiết bị nhà bếp",
+            "Đồ dùng gia đình",
+            "Vật dụng cá nhân",
+            "Khác"
+          ]
+        },
+        {
+          "category": "Đồ văn phòng",
+          "name": [
+            "Bàn ghế",
+            "Tủ",
+            "Máy chiếu",
+            "Máy photocopy",
+            "Camera an ninh",
+            "Khác"
+          ]
+        },
+        {
+          "category": "Xe",
+          "name": [
+            "Xe máy",
+            "Ôtô",
+            "Xe tải",
+            "Xe đạp",
+            "Phụ tùng xe",
+            "Dịch vụ sửa chữa",
+            "Khác"
+          ]
+        }
+      ],
+      "type": "category"
+    }
+  },
+  {
+    "id": "_design\/categories",
+    "key": "_design\/categories",
+    "doc": {
+      "_id": "_design\/categories",
+      "_rev": "2-d2ce9f085bb2da688a692567fbedfd29",
+      "views": {
+        "all-category": {
+          "map": "function (doc) {\n  if(doc.type && doc.type == \"category\"){\n    emit(\"data\", doc.data);\n  }\n}"
+        }
+      },
+      "language": "javascript"
+    }
+  }
+]
