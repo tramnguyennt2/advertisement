@@ -64,7 +64,11 @@
       </li>
     </ul>
     <input type="text" class="form-control col-md-6" [(ngModel)]="keyword" name="keyword"
-           placeholder="Nội dung cần tìm...">
+           placeholder="Nội dung cần tìm..." list="recommend-keyword">
+    <datalist id="recommend-keyword">
+      <option value="Gợi ý 1">
+      <option value="Gợi ý 2">
+    </datalist>
     <button class="btn btn-warning" type="button" (click)="searchDocument()">
       <img src="https://qph.fs.quoracdn.net/main-qimg-1b422a1ceee9b131152d63b24c584dad" width="20"/>
       <!-- <span class="glyphicon glyphicon-search">Tìm</span> -->
