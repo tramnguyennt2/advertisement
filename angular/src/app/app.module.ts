@@ -16,7 +16,6 @@ import {NavComponent} from './nav/nav.component';
 import {SearchComponent} from './search/search.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignupComponent} from './signup/signup.component';
-import {TopProductComponent} from './top-product/top-product.component';
 import {NewAdComponent} from './new-ad/new-ad.component';
 import {NodeService} from "./services/node.service";
 import {CategoryService} from "./services/category.service";
@@ -36,7 +35,6 @@ import { NewAdsComponent } from './new-ads/new-ads.component';
     SearchComponent,
     SigninComponent,
     SignupComponent,
-    TopProductComponent,
     NewAdComponent,
     NewAdsComponent
   ],
