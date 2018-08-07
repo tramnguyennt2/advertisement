@@ -7,6 +7,7 @@ import {IntroComponent} from "./intro/intro.component";
 import {SigninComponent} from "./signin/signin.component";
 import {SignupComponent} from "./signup/signup.component";
 import {NewAdComponent} from "./new-ad/new-ad.component";
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
   {path: '', component: ContentAreaComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'intro', component: IntroComponent},
   {path: 'detail/:id', component: AdDetailComponent},
   {path: 'new-ad', component: NewAdComponent},
+  {path: 'search', component: SearchComponent},
 ];
 
 @NgModule({

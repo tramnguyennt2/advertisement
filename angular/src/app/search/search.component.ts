@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserBehavior} from "../user-behavior";
 import 'rxjs/add/operator/map';
 import {NodeService} from "../node.service";
+import {CategoryService} from "../category.service";
 
 @Component({
   selector: 'app-search',
@@ -17,11 +18,14 @@ export class SearchComponent implements OnInit {
   behavior = new UserBehavior(1);
   area = 'all';
   cat = 'all';
+  cats = [];
 
-  constructor(private nodejs: NodeService, private pouchdb: PouchdbService, private solr: SolrService) {
+  constructor(private nodejs: NodeService, private pouchdb: PouchdbService, private solr: SolrService, private catService: CategoryService) {
   }
 
   ngOnInit() {
+    //load Category
+    this.catService.getAllCategory().subscribe(cats => this.cats = cats);
   }
 
   searchDocument() {

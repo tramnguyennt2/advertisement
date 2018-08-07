@@ -69,7 +69,7 @@
       <option value="Gợi ý 1">
       <option value="Gợi ý 2">
     </datalist>
-    <button class="btn btn-warning" type="button" (click)="searchDocument()">
+    <button class="btn btn-warning" type="button" (click)="searchDocument()" routerLink="/search">
       <img src="https://qph.fs.quoracdn.net/main-qimg-1b422a1ceee9b131152d63b24c584dad" width="20"/>
       <!-- <span class="glyphicon glyphicon-search">Tìm</span> -->
     </button>
@@ -114,37 +114,3 @@
   </ul>
 </nav>
 
-<script>
-  $(document).ready(function () {
-    // executes when HTML-Document is loaded and DOM is ready
-
-    // breakpoint and up
-    $(window).resize(function () {
-      if ($(window).width() >= 980) {
-
-        // when you hover a toggle show its dropdown menu
-        $(".navbar .dropdown-toggle").hover(function () {
-          $(this).parent().toggleClass("show");
-          $(this).parent().find(".dropdown-menu").toggleClass("show");
-        });
-
-        // hide the menu when the mouse leaves the dropdown
-        $(".navbar .dropdown-menu").mouseleave(function () {
-          $(this).removeClass("show");
-        });
-
-        //when click a sub-category
-        // $(".sub-category").click(function(){
-        //   $(this).addClass("checked");
-        // });
-        $(".sub-category").click(function(){
-          $(this).addClass("selected");
-        });
-
-        // do something here
-      }
-    }); 
-
-    // document ready
-  });
-</script>
