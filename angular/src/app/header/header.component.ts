@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from "../category.service";
+import { CategoryService } from "../../services/category.service";
 import * as locationsJson from 'assets/data/location.json';
 
 @Component({
@@ -16,23 +16,22 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     //load Category
-    this.catService.getAllCategory().subscribe(cats => this.cats = cats);
+    this.catService.getAllCategory().subscribe(cats => this.cats=cats);
     // load Location
     this.locations = <any>locationsJson;
-    console.log(this.locations);
   }
 
   clickedCategory(event) {
-    var el = document.getElementsByClassName("selected-category");
-    for (var i = 0; i < el.length; i++) {
+    let el = document.getElementsByClassName("selected-category");
+    for (let i = 0; i < el.length; i++) {
       el[i].classList.remove("selected-category");
     }
     event.target.classList.add("selected-category");
   }
 
   clickedLocation(event) {
-    var el = document.getElementsByClassName("selected-location");
-    for (var i = 0; i < el.length; i++) {
+    let el = document.getElementsByClassName("selected-location");
+    for (let i = 0; i < el.length; i++) {
       el[i].classList.remove("selected-location");
     }
     event.target.classList.add("selected-location");

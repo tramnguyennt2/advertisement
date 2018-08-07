@@ -1,4 +1,4 @@
-export class Ad {
+export class Item {
   title: string;
   content: string;
   area: string;

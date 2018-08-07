@@ -5,7 +5,6 @@ import {PouchdbService} from "./pouchdb.service";
 @Injectable()
 export class CategoryService {
   catSubject: any = new Subject();
-  cats: any;
 
   constructor(private pouchdb: PouchdbService) {
   }
@@ -15,8 +14,6 @@ export class CategoryService {
       let cats = data.rows.map(row => {
         return row.value;
       });
-      this.cats = cats;
-      console.log(this.cats[0]);
       this.catSubject.next(cats[0]);
     });
     return this.catSubject;

@@ -1,0 +1,31 @@
+<h3>New Advertisement</h3>
+<div class="row">
+  <div>
+    <button>
+      <img class="arrow" src="../../assets/icons/arrow-left.png">
+    </button>
+  </div>
+  <div class="list-item col-md-8">
+    <div class="items">
+      <div class="row" *ngFor="let item of items">
+        <div class="col">
+          <button class="item-button">
+            <img src="../../assets/images/default-item.jpg"/>
+            <div class="title-item">{{item.title}}</div>
+            <div class="price-item">
+              <img class="item-icon" src="../../assets/icons/price-item-icon.png"/> {{item.price}}
+            </div>
+            <div class="location-item">
+                <img class="item-icon" src="../../assets/icons/location-item-icon.png"/> {{item.area}}
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button>
+      <img class="arrow" src="../../assets/icons/arrow-right.png">
+    </button>
+  </div>
+</div>

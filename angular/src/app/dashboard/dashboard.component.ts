@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from "../category.service";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
-  selector: 'app-content-area',
-  templateUrl: './content-area.component.html',
-  styleUrls: ['./content-area.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class ContentAreaComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   cats = [];
 
   constructor(private catService: CategoryService) {
