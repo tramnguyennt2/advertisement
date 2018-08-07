@@ -16,7 +16,6 @@ export class CategoryService {
         return row.value;
       });
       this.cats = cats;
-      console.log(this.cats[0]);
       this.catSubject.next(cats[0]);
     });
     return this.catSubject;

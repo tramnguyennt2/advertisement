@@ -7,14 +7,10 @@ import {CategoryService} from "../services/category.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  cats = [];
-
-  constructor(private catService: CategoryService) {
+  constructor() {
   }
 
   ngOnInit() {
-    //load Category
-    this.catService.getAllCategory().subscribe(cats => this.cats = cats);
   }
 
 }

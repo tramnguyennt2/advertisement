@@ -1,38 +1,6 @@
 <div class="content">
   <div class="row search-block">
-    <div class="col-md-3 category-content">
-      <!-- <div *ngFor="let cat of cats">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                          <span class="glyphicon glyphicon-file">
-                          </span>{{cat['category']}}</a>
-                  </h4>
-              </div>
-              <div id="collapseFour" class="panel-collapse collapse">
-                  <div class="list-group" *ngFor="let sub of cat['name']">
-                      <a href="#" class="list-group-item">{{sub}}</a>
-                  </div>
-              </div>
-          </div>
-      </div> -->
-      <ul class="list-category" *ngFor="let cat of cats">
-        <li class="d-flex justify-content-between align-items-center">
-          <a href="#">
-            <img class="category-icon" src="../../assets/icons/general-category-icon.png" width="20" />
-            <span>{{cat['category']}}</span>
-          </a>
-          <span class="badge badge-primary badge-pill number-item">14</span>
-        </li>
-        <ul *ngFor="let sub of cat['name']">
-          <li>
-            <a href="#">{{sub}}</a>
-            <span>(10)</span>
-          </li>
-        </ul>
-      </ul>
-    </div>
+    <app-category-detail></app-category-detail>
     <div class="list-item col">
       <div class="row">
         <div class="col-md-9">
@@ -42,7 +10,7 @@
             <a href="#">Laptop</a>
           </div>
           <div class="row margin-none">
-            <span>1234</span>
+            <span>{{len}}</span>
             <span>&nbsp;kết quả cho từ khóa "</span>
             <span class="font-italic">laptop</span>
             <span>"</span>
@@ -56,46 +24,19 @@
             <option value="expensive">Giá cao trước</option>
           </select>
         </div>
-        </div>
+      </div>
       <div class="items">
-      <div class="row">
-      <div class="col">
-      <button title="Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM" class="item-button">
-      <img src="../../assets/images/default-item.jpg" />
-      <span class="crop-text-2 title-item text-left">Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM</span>
-      <div class="price-item text-left">
-      <img class="item-icon" src="../../assets/icons/price-item-icon.png" />2.000.000
-      </div>
-      </button>
-      </div>
-      <div class="col">
-      <button title="Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM" class="item-button">
-      <img src="../../assets/images/default-item.jpg" />
-      <span class="crop-text-2 title-item text-left">Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM</span>
-      <div class="price-item text-left">
-      <img class="item-icon" src="../../assets/icons/price-item-icon.png" />2.000.000
-      </div>
-      </button>
-      </div>
-      <div class="col">
-      <button title="Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM" class="item-button">
-      <img src="../../assets/images/default-item.jpg" />
-      <span class="crop-text-2 title-item text-left">Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM</span>
-      <div class="price-item text-left">
-      <img class="item-icon" src="../../assets/icons/price-item-icon.png" />2.000.000
-      </div>
-      </button>
-      </div>
-      <div class="col">
-      <button title="Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM" class="item-button">
-      <img src="../../assets/images/default-item.jpg" />
-      <span class="crop-text-2 title-item text-left">Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM</span>
-      <div class="price-item text-left">
-      <img class="item-icon" src="../../assets/icons/price-item-icon.png" />2.000.000
-      </div>
-      </button>
-      </div>
-      </div>
+        <div class="row" *ngFor="let item of items">
+          <div class="col">
+            <button title="Cần bán gấp điện thoại Samsung 2 sim 2 sóng TPHCM" class="item-button">
+              <img src="../../assets/images/default-item.jpg"/>
+              <span class="crop-text-2 title-item text-left">{{item.title}}</span>
+              <div class="price-item text-left">
+                <img class="item-icon" src="../../assets/icons/price-item-icon.png"/>{{item.price}}
+              </div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

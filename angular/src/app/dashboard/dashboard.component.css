@@ -25,23 +25,6 @@ body{margin:50px;}
     padding-top: 50px;
 }
 
-.category-content{
-    background-color: white;
-    padding-top: 15px;
-}
-
-.list-category{
-  padding-left: 0;
-}
-
-.list-category ul li{
-  margin-left: 20px;
-}
-
-.category-icon{
-  margin: 5px;
-}
-
 .list-item{
     background-color: white;
     margin-left: 5px;
@@ -68,39 +51,6 @@ body{margin:50px;}
     box-shadow: 0 5px 10px 0 #669999, 0 7px 50px 0 #e0ebeb;
 }
 
-.price-item{
-    margin-left: 5px;
-    color: red;
-}
-.title-item{
-    margin: 5px;
-    color: #004080;
-    font-weight: 500;
-    max-width: 180px;
-}
-
-.items{
-    margin-top: 10px
-}
-
-.item-icon{
-    height: 20px !important;
-    width: 20px !important;
-}
-
-.location-item{
-    text-align: left;
-    margin-left: 5px;
-}
-
-.category-button{
-    width: 100%;
-}
-
-.number-item{
-    right: 0
-}
-
 .new-block{
   background-color: white;
   margin-left: 20px;
@@ -108,33 +58,6 @@ body{margin:50px;}
   padding-bottom: 20px;
 }
 
-.new-block .row{
-  justify-content: center;
-}
-
-.new-block h3{
-  text-transform: uppercase;
-  padding-top: 20px;
-  color: #4d4d4d
-}
-
-button.arrow{
-  border: none;
-  background-color: #d1e0e0;
-}
-
-button.arrow:hover{
-    background-color: #a3c2c2
-}
-
-img.arrow{
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.margin-none{
-    margin: 0;
-}
 
 .crop-text-2 {
     -webkit-line-clamp: 2;
@@ -143,8 +66,3 @@ img.arrow{
     display: -webkit-box;
     -webkit-box-orient: vertical;
   }
-
-.arrow{
-    display: flex;
-    align-items: center;
-}

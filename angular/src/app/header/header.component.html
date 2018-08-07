@@ -11,7 +11,7 @@
       </li>
       <li class="nav-item col-md-1"></li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
            aria-haspopup="true"
            aria-expanded="false">
           Danh mục
@@ -21,20 +21,18 @@
             <div class="row">
               <div class="col-md-3" *ngFor="let cat of cats">
                 <span class="text-uppercase head-category">{{cat['category']}}</span>
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link sub-category all" href="#" (click)="clickedCategory($event)">Tất cả</a>
+                  </li>
+                </ul>
               </div>
-              <!-- <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                                <p class="text-white">Short image call to action</p>
-
-                            </div> -->
             </div>
           </div>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
            aria-haspopup="true"
            aria-expanded="false">
           Khu vực
@@ -61,9 +59,9 @@
       <option value="Gợi ý 1">
       <option value="Gợi ý 2">
     </datalist>
-    <button class="btn btn-warning" type="button" (click)="searchDocument()" routerLink="/search">
+    <button class="btn btn-warning" type="button" routerLink="/search"
+            [queryParams]="{location: location, cat: cat, keyword: keyword}">
       <img src="https://qph.fs.quoracdn.net/main-qimg-1b422a1ceee9b131152d63b24c584dad" width="20"/>
-      <!-- <span class="glyphicon glyphicon-search">Tìm</span> -->
     </button>
     <button class="btn btn-danger" type="button" routerLink="/new-ad">
       <span class="glyphicon glyphicon-search">Đăng tin ngay</span>
@@ -85,24 +83,6 @@
       </button>
       <br/>
     </li>
-    <!-- <li class="nav-item">
-              <button routerLink="/sign-in" class="btn btn-info">Đăng nhập</button>
-            </li>
-            <li class="nav-item">
-              <button routerLink="/sign-up" class="btn btn-outline-info">Đăng ký</button>
-            </li> -->
-
-    <!-- Language -->
-    <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                 aria-expanded="false">
-                Language
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">English</a>
-                <a class="dropdown-item" href="#">Tiếng Việt</a>
-              </div>
-            </li> -->
   </ul>
 </nav>
 

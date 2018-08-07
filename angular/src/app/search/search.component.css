@@ -25,23 +25,6 @@ body{margin:50px;}
   padding-top: 50px;
 }
 
-.category-content{
-  background-color: white;
-  padding-top: 15px;
-}
-
-.list-category{
-  padding-left: 0;
-}
-
-.list-category ul li{
-  margin-left: 20px;
-}
-
-.category-icon{
-  margin: 5px;
-}
-
 .list-item{
   background-color: white;
   margin-left: 5px;

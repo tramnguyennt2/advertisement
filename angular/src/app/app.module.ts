@@ -21,6 +21,7 @@ import {NodeService} from "./services/node.service";
 import {CategoryService} from "./services/category.service";
 import {ItemService} from "./services/item.service";
 import { NewAdsComponent } from './new-ads/new-ads.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NewAdsComponent } from './new-ads/new-ads.component';
     SigninComponent,
     SignupComponent,
     NewAdComponent,
-    NewAdsComponent
+    NewAdsComponent,
+    CategoryDetailComponent
   ],
   imports: [
     FormsModule,

@@ -10,7 +10,9 @@ import * as locationsJson from 'assets/data/location.json';
 export class HeaderComponent implements OnInit {
   cats = [];
   locations = [];
-
+  keyword = '';
+  location = '';
+  cat = '';
   constructor(private catService: CategoryService) {
   }
 
@@ -19,7 +21,6 @@ export class HeaderComponent implements OnInit {
     this.catService.getAllCategory().subscribe(cats => this.cats = cats);
     // load Location
     this.locations = <any>locationsJson;
-    console.log(this.locations);
   }
 
   clickedCategory(event) {

@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {PouchdbService} from "../services/pouchdb.service";
 import {SolrService} from "../services/solr.service";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserBehavior} from "../user-behavior";
 import 'rxjs/add/operator/map';
 import {NodeService} from "../services/node.service";
-import {CategoryService} from "../services/category.service";
+import {ActivatedRoute} from "@angular/router";
+import {Item} from "../item";
 
 @Component({
   selector: 'app-search',
@@ -13,41 +13,36 @@ import {CategoryService} from "../services/category.service";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  keyword = '';
-  items = [];
+  keyword: string;
+  cat: string;
+  location: string;
+  items: Item[];
+  len: number;
   behavior = new UserBehavior(1);
-  area = 'all';
-  cat = 'all';
   cats = [];
 
-  constructor(private nodejs: NodeService, private pouchdb: PouchdbService, private solr: SolrService, private catService: CategoryService) {
+  constructor(private nodejs: NodeService, private pouchdb: PouchdbService,
+              private solr: SolrService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    //load Category
-    this.catService.getAllCategory().subscribe(cats => this.cats = cats);
+    this.route.queryParams
+      .subscribe(params => {
+        this.keyword = params.keyword;
+        this.cat = params.cat;
+        this.location = params.location;
+      });
   }
 
   searchDocument() {
     this.items = [];
-    return this.solr.search(this.keyword, this.area, this.cat).subscribe((res) => {
+    return this.solr.search(this.keyword, this.location, this.cat).subscribe((res) => {
       Object.keys(res.response.docs).map(k => {
         let doc = res.response.docs[k];
-        // let id = doc.id;
-        let couchdb_id = doc.couchdb_id[0];
-        let title = doc.title[0];
-        let area = doc.area[0];
-        let content = doc.content[0];
-        let price = doc.price[0];
-        this.items.push({
-          // 'id': id,
-          'couchdb_id': couchdb_id,
-          'title': title,
-          'area': area,
-          'content': content,
-          'price': price
-        });
+        let item = new Item(doc.title[0], doc.content[0], doc.area[0], "", doc.price[0]);
+        this.items.push(item);
       });
+      this.len = this.items.length;
     });
   }
 

@@ -16,9 +16,9 @@ export class SolrService {
       headers: headers
     });
   }
-  search(keyword, area, cat): any {
+  search(keyword, location, cat): any {
     let url = this.solr_url + '/select' +
-      '?q=' + keyword + ' AND category:' + cat + ' AND area:' + area + '&wt=json';
+      '?q=' + keyword + ' AND category:' + cat + ' AND area:' + location + '&wt=json';
     return this.http.get(url);
   }
 
