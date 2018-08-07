@@ -1,0 +1,31 @@
+<h3 class="text-center">Tin mới nhất</h3>
+<div class="row">
+  <div class="arrow">
+    <button class="arrow">
+      <img class="arrow" src="../../assets/icons/arrow-left.png">
+    </button>
+  </div>
+  <div class="list-item col-md-8">
+    <div class="items">
+      <div class="row" *ngFor="let item of items">
+        <div class="col">
+          <button class="item-button">
+            <img src="../../assets/images/default-item.jpg"/>
+            <div class="title-item">{{item.title}}</div>
+            <div class="price-item">
+              <img class="item-icon" src="../../assets/icons/price-item-icon.png"/> {{item.price}}
+            </div>
+            <div class="location-item">
+              <img class="item-icon" src="../../assets/icons/location-item-icon.png"/> {{item.area}}
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow">
+    <button class="arrow">
+      <img class="arrow" src="../../assets/icons/arrow-right.png">
+    </button>
+  </div>
+</div>
