@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {PouchdbService} from "../pouchdb.service";
-import {SolrService} from "../solr.service";
+import {PouchdbService} from "../services/pouchdb.service";
+import {SolrService} from "../services/solr.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserBehavior} from "../user-behavior";
 import 'rxjs/add/operator/map';
-import {NodeService} from "../node.service";
-import {CategoryService} from "../category.service";
+import {NodeService} from "../services/node.service";
+import {CategoryService} from "../services/category.service";
 
 @Component({
   selector: 'app-search',

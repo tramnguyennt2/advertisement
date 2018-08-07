@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as $PouchDB from 'pouchdb';
 import 'rxjs/add/observable/from';
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 
 const PouchDB = $PouchDB['default'];
 

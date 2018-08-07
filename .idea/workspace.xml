@@ -2,22 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="ng b -prod">
-      <change afterPath="$PROJECT_DIR$/database/new.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/ad.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/item.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/category/category.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/category/category.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/category/category.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/category.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/category.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/item.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/item.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/node.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/node.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/node.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/pouchdb.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/pouchdb.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/search/search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/search/search.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/assets/data/category.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/assets/data/location.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/assets/data/location.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/assets/data/sub-category.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/assets/data/sub-category.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/typings.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/typings.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/solr.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/solr.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/solr.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,41 +38,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/src/app/header/header.component.ts">
+      <file leaf-file-name="new-ads.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="408">
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="145" column="13" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new-ads.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
+                <element signature="n#constructor#0;n#NewAdsComponent#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="item.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/services/item.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/src/app/item.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angular/src/app/header/header.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/new.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="68" column="8" lean-forward="true" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="location.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/src/assets/data/location.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="238">
+              <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -106,9 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/angular/src/app/category/category.component.html" />
-        <option value="$PROJECT_DIR$/angular/src/app/contentArea/app.contentAreaComponent.ts" />
-        <option value="$PROJECT_DIR$/angular/src/app/contact/contact.component.css" />
         <option value="$PROJECT_DIR$/angular/src/app/contact/contact.component.html" />
         <option value="$PROJECT_DIR$/angular/src/app/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/angular/src/app/intro/intro.component.html" />
@@ -120,7 +148,6 @@
         <option value="$PROJECT_DIR$/angular/src/app/signup/signup.component.css" />
         <option value="$PROJECT_DIR$/angular/src/app/signup/signup.component.html" />
         <option value="$PROJECT_DIR$/angular/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html" />
         <option value="$PROJECT_DIR$/angular/src/app/top-product/top-product.component.html" />
         <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.css" />
         <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.html" />
@@ -150,13 +177,17 @@
         <option value="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts" />
-        <option value="$PROJECT_DIR$/angular/src/app/item.service.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/search/search.component.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/angular/src/typings.d.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/header/header.component.ts" />
-        <option value="$PROJECT_DIR$/angular/src/app/header/header.component.html" />
         <option value="$PROJECT_DIR$/database/new.json" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.css" />
+        <option value="$PROJECT_DIR$/angular/src/app/item.service.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html" />
+        <option value="$PROJECT_DIR$/angular/src/app/header/header.component.html" />
       </list>
     </option>
   </component>
@@ -200,7 +231,20 @@
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -221,15 +265,16 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/angular/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement\route" />
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement\dist" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
       <recent name="C:\Users\huyen\WebstormProjects\advertisement\angular\src\app" />
       <recent name="C:\Users\huyen\WebstormProjects\advertisement\angular\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\angular\src\app\services" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\route" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\dist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -542,42 +587,54 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94216000" />
+    <option name="totallyTimeSpent" value="95842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32768363" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32627118" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2937853" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32768363" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15928619" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1784534" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5" />
       <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32768363" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32627118" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32768363" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15928619" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,16 +657,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env" />
-    <entry file="file://$PROJECT_DIR$/angular/karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" selection-start-column="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/.htaccess" />
-    <entry file="file://$PROJECT_DIR$/dist/index.html" />
     <entry file="file://$PROJECT_DIR$/angular/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -639,7 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/solr.service.ts">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/services/solr.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="22" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
@@ -707,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -731,34 +778,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="442">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
+        <state relative-caret-position="493">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/node.service.ts">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/services/node.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="204">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/content-area/content-area.component.css">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/content-area/content-area.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angular/src/app/search/search.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -767,21 +807,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/ad.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/assets/data/category.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/pouchdb.service.ts">
+    <entry file="file://$PROJECT_DIR$/angular/src/assets/data/category.json" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/services/pouchdb.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
@@ -815,13 +842,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/category/category.component.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/category/category.component.ts" />
     <entry file="file://$PROJECT_DIR$/angular/src/app/contact/contact.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/content-area/content-area.component.ts">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/angular/src/app/top-product/top-product.component.ts">
@@ -839,28 +864,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angular/src/app/search/search.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="51" column="71" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
+        <state relative-caret-position="748">
+          <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/category.service.ts">
+    <entry file="file://$PROJECT_DIR$/angular/src/app/services/category.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="n#constructor#0;n#CategoryService#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/item.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -879,9 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,17 +914,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/new.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="68" column="8" lean-forward="true" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/services/item.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/item.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="n#constructor#0;n#NewAdsComponent#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/dashboard/dashboard.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="145" column="13" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
         </state>
       </provider>
     </entry>

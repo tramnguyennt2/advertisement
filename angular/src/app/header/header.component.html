@@ -14,21 +14,13 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true"
            aria-expanded="false">
-          Tất cả
+          Danh mục
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div class="container">
             <div class="row">
               <div class="col-md-3" *ngFor="let cat of cats">
                 <span class="text-uppercase head-category">{{cat['category']}}</span>
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link sub-category all" href="#" (click)="clickedCategory($event)">Tất cả</a>
-                  </li>
-                  <li class="nav-item" *ngFor="let sub of cat['name']">
-                    <a class="nav-link sub-category" href="#" (click)="clickedCategory($event)">{{sub}}</a>
-                  </li>
-                </ul>
               </div>
               <!-- <div class="col-md-4">
                                 <a href="">

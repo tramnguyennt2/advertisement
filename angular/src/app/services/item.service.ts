@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Subject} from "rxjs/Subject";
 import {PouchdbService} from "./pouchdb.service";
-import {Ad} from "./ad";
+import {Item} from "../item";
 import {SolrService} from "./solr.service";
 
 @Injectable()
 export class ItemService {
-  catSubject: any = new Subject();
-  cats: any;
+  latestItemsSubject: any = new Subject();
 
   constructor(private pouchdb: PouchdbService, private solr: SolrService) {
   }
@@ -19,7 +18,7 @@ export class ItemService {
       if (err) {
         return console.log(err);
       }
-      let solr_item = new Ad(item.title, item.content, item.area, item.category, item.price, response.id);
+      let solr_item = new Item(item.title, item.content, item.area, item.category, item.price, response.id);
       self.solr.add(solr_item).subscribe((res) => console.log('inserted to solr'));
     });
   }
@@ -33,7 +32,24 @@ export class ItemService {
     });
   }
 
-  getItem(id): Promise<Ad> {
+  getItem(id): Promise<Item> {
     return this.pouchdb.db.get(id);
+  }
+
+  getLastestItems() {
+    let latestItems: Item[];
+    // http://127.0.0.1:5984/advertisement/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
+    this.pouchdb.db.query('items/latest-items', {
+      limit: 5,
+      include_docs: true,
+      descending: true
+    }).then((data) => {
+      latestItems = data.rows.map(row => {
+        return new Item(row.doc.title, row.doc.content, row.doc.area,
+          row.doc.category, row.doc.price);
+      });
+      this.latestItemsSubject.next(latestItems);
+    });
+    return this.latestItemsSubject;
   }
 }
