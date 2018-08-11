@@ -22,8 +22,6 @@ router.post('/catch-event', function (req, res, next) {
     producer.on('error', function (err) {
     });
 });
-router.get('/abc', function (req, res) {
-   console.log("hello");
-});
+
 module.exports = router;
 

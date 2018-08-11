@@ -1,0 +1,80 @@
+{
+  "1": {
+    "area": "Miền Bắc",
+    "province": [
+      "Thành phố Hà Nội",
+      "Thành phố Hải Phòng",
+      "Tỉnh Bắc Giang",
+      "Tỉnh Bắc Kạn",
+      "Tỉnh Bắc Ninh",
+      "Tỉnh Cao Bằng",
+      "Tỉnh Điện Biên",
+      "Tỉnh Hà Giang",
+      "Tỉnh Hà Nam",
+      "Tỉnh Hà Tĩnh",
+      "Tỉnh Hải Dương",
+      "Tỉnh Hòa Bình",
+      "Tỉnh Hưng Yên",
+      "Tỉnh Lai Châu",
+      "Tỉnh Lạng Sơn",
+      "Tỉnh Lào Cai",
+      "Tỉnh Nam Định",
+      "Tỉnh Ninh Bình",
+      "Tỉnh Phú Thọ",
+      "Tỉnh Quảng Ninh",
+      "Tỉnh Sơn La",
+      "Tỉnh Thái Bình",
+      "Tỉnh Thái Nguyên",
+      "Tỉnh Tuyên Quang",
+      "Tỉnh Vĩnh Phúc",
+      "Tỉnh Yên Bái"
+    ]
+  },
+  "2": {
+    "area": "Miền Trung",
+    "province": [
+      "Thành phố Đà Nẵng",
+      "Tỉnh Bình Định",
+      "Tỉnh Bình Thuận",
+      "Tỉnh Đắk Lắk",
+      "Tỉnh Đắk Nông",
+      "Tỉnh Gia Lai",
+      "Tỉnh Khánh Hòa",
+      "Tỉnh Kon Tum",
+      "Tỉnh Lâm Đồng",
+      "Tỉnh Nghệ An",
+      "Tỉnh Ninh Thuận",
+      "Tỉnh Phú Yên",
+      "Tỉnh Quảng Bình",
+      "Tỉnh Quảng Nam",
+      "Tỉnh Quảng Ngãi",
+      "Tỉnh Quảng Trị",
+      "Tỉnh Thanh Hóa",
+      "Tỉnh Thừa Thiên - Huế"
+    ]
+  },
+  "3": {
+    "area": "Miền Nam",
+    "province": [
+      "Thành phố Cần Thơ",
+      "Thành phố Hồ Chí Minh",
+      "Tỉnh An Giang",
+      "Tỉnh Bà Rịa - Vũng Tàu",
+      "Tỉnh Bạc Liêu",
+      "Tỉnh Bến Tre",
+      "Tỉnh Bình Dương",
+      "Tỉnh Bình Phước",
+      "Tỉnh Cà Mau",
+      "Tỉnh Đồng Nai",
+      "Tỉnh Đồng Tháp",
+      "Tỉnh Hậu Giang",
+      "Tỉnh Kiên Giang",
+      "Tỉnh Long An",
+      "Tỉnh Sóc Trăng",
+      "Tỉnh Tây Ninh",
+      "Tỉnh Tiền Giang",
+      "Tỉnh Trà Vinh",
+      "Tỉnh Vĩnh Long"
+    ]
+  }
+}

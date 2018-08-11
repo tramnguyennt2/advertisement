@@ -1,0 +1,18 @@
+<br/>
+<div class="row">
+  <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let cat of cats">
+    <div class="card">
+      <div class="card-body p-3 clearfix">
+        <i class="fa fa-laptop bg-warning p-3 font-2xl mr-3 float-left"></i>
+        <div class="h5 text-warning mb-0 mt-2">{{cat['value']}}</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">{{cat['key']}}</div>
+      </div>
+      <div class="card-footer px-3 py-2">
+        <a class="font-weight-bold font-xs btn-block text-muted" href="#">Xem thêm
+          <i class="fa fa-angle-right float-right font-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-new-ads></app-new-ads>
