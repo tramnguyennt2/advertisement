@@ -1,55 +1,57 @@
 <br/>
-<div class="card">
-  <div class="card-header">
-    <strong class="text-uppercase">Đăng tin</strong>
-  </div>
-  <div class="card-body">
-    <form class="form-horizontal" action="" method="post">
-      <div class="text-center">
-        <strong class="text-uppercase">Thông tin chung</strong>
-      </div>
-      <br/>
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
-        <div class="col-md-10">
-          <input class="form-control" id="title-ad" type="text" name="title-ad" placeholder="">
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      <strong class="text-uppercase">Đăng tin</strong>
+    </div>
+    <div class="card-body">
+      <form class="form-horizontal" action="" method="post">
+        <div class="text-center">
+          <strong class="text-uppercase">Thông tin chung</strong>
         </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label" for="location-ad">Khu vực</label>
-        <div class="col-md-3">
-          <select class="form-control" id="location-ad" name="location-ad">
-            <option value=""></option>
-            <option value="">Hà Nội</option>
-            <option value="">Đà Nẵng</option>
-            <option value="">HCM</option>
-          </select>
+        <br/>
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
+          <div class="col-md-10">
+            <input class="form-control" id="title-ad" type="text" name="title-ad" placeholder="">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label" for="price-ad">Giá cả</label>
-        <div class="col-md-3">
-          <input class="form-control" id="price-ad" type="text" name="price-ad" placeholder="">
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" for="location-ad">Khu vực</label>
+          <div class="col-md-3">
+            <select class="form-control" id="location-ad" name="location-ad">
+              <option value=""></option>
+              <option value="">Hà Nội</option>
+              <option value="">Đà Nẵng</option>
+              <option value="">HCM</option>
+            </select>
+          </div>
         </div>
-        <span class="col-form-label">VNĐ</span>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label" for="content-ad">Mô tả chi tiết</label>
-        <div class="col-md-10">
-          <textarea class="form-control" name="content-ad" type="textarea" id="content-ad" rows="10"></textarea>
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" for="price-ad">Giá cả</label>
+          <div class="col-md-3">
+            <input class="form-control" id="price-ad" type="text" name="price-ad" placeholder="">
+          </div>
+          <span class="col-form-label">VNĐ</span>
         </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label" for="content-ad">Hình ảnh</label>
-        <div class="col-md-10">
-          <input id="file-multiple-input" type="file" name="file-multiple-input" multiple="">
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" for="content-ad">Mô tả chi tiết</label>
+          <div class="col-md-10">
+            <textarea class="form-control" name="content-ad" type="textarea" id="content-ad" rows="10"></textarea>
+          </div>
         </div>
-      </div>
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" for="content-ad">Hình ảnh</label>
+          <div class="col-md-10">
+            <input id="file-multiple-input" type="file" name="file-multiple-input" multiple="">
+          </div>
+        </div>
 
-    </form>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-sm btn-primary" type="submit">Đăng</button>
-    <button class="btn btn-sm btn-danger" style="margin-left: 5px">Hủy</button>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-sm btn-primary" type="submit">Đăng</button>
+      <button class="btn btn-sm btn-danger" style="margin-left: 5px">Hủy</button>
+    </div>
   </div>
 </div>
