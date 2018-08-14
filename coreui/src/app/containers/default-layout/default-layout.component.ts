@@ -21,7 +21,8 @@ export class DefaultLayoutComponent {
   locations = [];
   keyword = "";
   navObjs = [];
-
+  category = 'Danh mục'
+  province = 'Khu vực'
   constructor(private catService: CategoryService) {
     this.changes = new MutationObserver(mutations => {
       this.sidebarMinimized = document.body.classList.contains(
@@ -65,5 +66,29 @@ export class DefaultLayoutComponent {
       let location = locationObj[locationIndex];
       return location;
     });
+  }
+
+  mouseenterLocation(event){
+    let catEl = document.getElementsByClassName("current-location");
+    for (let i = 0; i < catEl.length; i++){
+      catEl[i].children[1].classList.remove("show");
+      catEl[i].classList.remove("current-location");
+
+    }
+    var curEl = event.currentTarget.parentElement;
+    curEl.classList.add("current-location");
+    curEl.children[1].classList.add("show");
+  }
+
+  clickCategory(event){
+    var curEl = event.currentTarget;
+    curEl.classList.add("active");
+    this.category = curEl.innerHTML;
+  }
+
+  clickProvince(event){
+    var curEl = event.currentTarget;
+    curEl.classList.add("active");
+    this.province = curEl.innerHTML;
   }
 }

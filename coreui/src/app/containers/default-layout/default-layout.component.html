@@ -7,35 +7,25 @@
     <div class="form-group row col-md-10" style="padding-top: 17px">
       <div class="input-group col">
         <div class="input-group-prepend" dropdown>
-          <button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>Danh mục
+          <button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>{{category}}
             <span class="caret"></span>
           </button>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#" *ngFor="let cat of cats">{{cat['category']}}</a>
+            <a class="dropdown-item" href="#" *ngFor="let cat of cats" (click)="clickCategory($event)">{{cat['category']}}</a>
           </div>
         </div>
         <div class="input-group-prepend" dropdown>
-          <button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>Khu vực
+          <button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>{{province}}
             <span class="caret"></span>
           </button>
-          <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#" *ngFor="let location of locations">{{location['area']}}</a>
-          </div>
+          <ul class="dropdown-menu" *dropdownMenu>
+            <li class="dropdown-submenu" *ngFor="let location of locations"><a class="dropdown-item dropdown-toggle" (mouseenter)="mouseenterLocation($event)">{{location['area']}}</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" *ngFor="let province of location['province']" (click)="clickProvince($event)">{{province}}</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <!--<div class="input-group-prepend" dropdown>-->
-          <!--<button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>Khu vực-->
-            <!--<span class="caret"></span>-->
-          <!--</button>-->
-          <!--<ul class="dropdown-menu" *dropdownMenu>-->
-            <!--<li><a class="dropdown-item" href="#">Miền Bắc</a></li>-->
-            <!--<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Miền Trung</a>-->
-              <!--<ul class="dropdown-menu">-->
-                <!--<li><a class="dropdown-item" href="#">Khánh Hòa</a></li>-->
-                <!--<li><a class="dropdown-item" href="#">Khánh Hòa</a></li>-->
-              <!--</ul>-->
-            <!--</li>-->
-          <!--</ul>-->
-        <!--</div>-->
         <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm...">
         <span class="input-group-append">
           <button class="btn btn-info" type="button" [routerLink]="['/search']">
@@ -90,25 +80,25 @@
     <a href="https://coreui.io">SBthings</a> &copy; 2018</span>
 </app-footer>
 
-<!--<style>-->
-  <!--.dropdown-submenu {-->
-    <!--position: relative;-->
-  <!--}-->
+<style>
+  .dropdown-submenu {
+    position: relative;
+  }
 
-  <!--.dropdown-submenu a::after {-->
-    <!--transform: rotate(-90deg);-->
-    <!--position: absolute;-->
-    <!--right: 6px;-->
-    <!--top: .8em;-->
-  <!--}-->
+  .dropdown-submenu a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
+  }
 
-  <!--.dropdown-submenu .dropdown-menu {-->
-    <!--top: 0;-->
-    <!--left: 100%;-->
-    <!--margin-left: .1rem;-->
-    <!--margin-right: .1rem;-->
-  <!--}-->
-<!--</style>-->
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
+</style>
 <!--<script>-->
   <!--$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {-->
     <!--if (!$(this).next().hasClass('show')) {-->
