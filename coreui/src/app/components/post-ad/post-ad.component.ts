@@ -12,7 +12,7 @@ export class PostAdComponent implements OnInit {
   locations = [];
   category = '';
   subCategory = 'Chọn danh mục';
-  location = '';
+  area = '';
   province = 'Chọn khu vực';
 
   constructor(private catService: CategoryService) { }
@@ -81,7 +81,7 @@ export class PostAdComponent implements OnInit {
     let curEl = event.currentTarget;
     curEl.classList.add("active");
     curEl.classList.add("current-level-2");
-    this.location = curEl.parentElement.parentElement.parentElement.children[0].innerHTML;
+    this.area = curEl.parentElement.parentElement.parentElement.children[0].innerHTML;
     this.province = curEl.innerHTML;
   }
 
