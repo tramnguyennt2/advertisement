@@ -11,26 +11,39 @@
         </div>
         <br/>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="category-ad">Danh mục</label>
-          <div class="col-md-10">
-            <input class="form-control" id="category-ad" type="text" name="title-ad" placeholder="">
+          <label class="col-md-2 col-form-label">Danh mục</label>
+          <div class="input-group-prepend col-md-4" dropdown>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" dropdownToggle>{{subCategory}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <li class="dropdown-submenu" *ngFor="let cat of cats"><a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{cat['category']}}</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item level-2" *ngFor="let sub of cat['name']" (click)="clickSubCategory($event)" (mouseenter)="mouseenterLevel2($event)">{{sub}}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Khu vực</label>
+          <div class="input-group-prepend col-md-4" dropdown>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" dropdownToggle>{{province}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <li class="dropdown-submenu" *ngFor="let location of locations"><a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item level-2" *ngFor="let province of location['province']" (click)="clickProvince($event)" (mouseenter)="mouseenterLevel2($event)">{{province}}</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
           <div class="col-md-10">
             <input class="form-control" id="title-ad" type="text" name="title-ad" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="location-ad">Khu vực</label>
-          <div class="col-md-3">
-            <select class="form-control" id="location-ad" name="location-ad">
-              <option value=""></option>
-              <option value="">Hà Nội</option>
-              <option value="">Đà Nẵng</option>
-              <option value="">HCM</option>
-            </select>
           </div>
         </div>
         <div class="form-group row">
@@ -71,7 +84,7 @@
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="address-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="address-user" name="address-user" placeholder="" value="Địa chỉ mặc định">
+            <input class="form-control" id="address-user" name="address-user" placeholder="" value="Quận Thủ Đức, TPHCM">
           </div>
         </div>
 
@@ -83,3 +96,23 @@
     </div>
   </div>
 </div>
+
+<style>
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: 18px;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
+</style>
