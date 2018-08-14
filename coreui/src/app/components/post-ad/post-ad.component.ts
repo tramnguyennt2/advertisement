@@ -47,18 +47,12 @@ export class PostAdComponent implements OnInit {
   mouseenterLevel2(event){
     let oldEl = document.getElementsByClassName("level-2");
     for (let i = 0; i < oldEl.length; i++){
-      oldEl[i].classList.remove("active");
-    }
-    let curEl = document.getElementsByClassName("current-level-2");
-    for (let i = 0; i < curEl.length; i++){
-      curEl[i].classList.add("active");
+      if(!(oldEl[i].classList.contains("current-level-2"))){
+        oldEl[i].classList.remove("active");
+      }
     }
     let newEl = event.currentTarget;
     newEl.classList.add("active");
-  }
-
-  clickLevel1(){
-    return false;
   }
 
   clickSubCategory(event){
@@ -67,8 +61,8 @@ export class PostAdComponent implements OnInit {
       oldEl[i].classList.remove("active");
     }
     let curEl = event.currentTarget;
-    curEl.classList.add("active");
-    curEl.classList.add("current-level-2");
+    const cls = ["active", "current-level-2"];
+    curEl.classList.add(cls);
     this.category = curEl.parentElement.parentElement.parentElement.children[0].innerHTML;
     this.subCategory = curEl.innerHTML;
   }
@@ -79,8 +73,8 @@ export class PostAdComponent implements OnInit {
       oldEl[i].classList.remove("active");
     }
     let curEl = event.currentTarget;
-    curEl.classList.add("active");
-    curEl.classList.add("current-level-2");
+    const cls = ["active", "current-level-2"];
+    curEl.classList.add(cls);
     this.area = curEl.parentElement.parentElement.parentElement.children[0].innerHTML;
     this.province = curEl.innerHTML;
   }
