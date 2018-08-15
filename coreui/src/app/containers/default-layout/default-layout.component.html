@@ -1,8 +1,6 @@
-<app-header [fixed]="true"
-            [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-            [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
-            [sidebarToggler]="'lg'"
-            [asideMenuToggler]="'lg'">
+<app-header [fixed]="true" [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}" [sidebarToggler]="'lg'"
+  [asideMenuToggler]="'lg'">
   <div class="row d-md-down-none col-md-8 align-items-center justify-content-center">
     <div class="form-group row col-md-10" style="padding-top: 17px">
       <div class="input-group col">
@@ -19,14 +17,22 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" *dropdownMenu>
-            <li class="dropdown-submenu" *ngFor="let location of locations"><a class="dropdown-item dropdown-toggle" (mouseenter)="mouseenterLocation($event)">{{location['area']}}</a>
+            <li class="dropdown-submenu" *ngFor="let location of locations">
+              <a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" *ngFor="let province of location['province']" (click)="clickProvince($event)">{{province}}</a></li>
+                <li>
+                  <a class="dropdown-item level-2" *ngFor="let province of location['province']" (click)="clickProvince($event)"
+                    (mouseenter)="mouseenterLevel2($event)">{{province}}</a>
+                </li>
               </ul>
             </li>
           </ul>
         </div>
-        <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm...">
+        <input class="form-control" type="text" name="keyword" placeholder="Nội dung cần tìm..." list="old-keyword"/>
+        <datalist id="old-keyword">
+          <option value="keyword 1">
+          <option value="keyword 2">
+        </datalist>
         <span class="input-group-append">
           <button class="btn btn-info" type="button" [routerLink]="['/search']">
             <i class="fa fa-search"></i>
@@ -89,7 +95,7 @@
     transform: rotate(-90deg);
     position: absolute;
     right: 6px;
-    top: .8em;
+    top: 18px;
   }
 
   .dropdown-submenu .dropdown-menu {
@@ -99,20 +105,21 @@
     margin-right: .1rem;
   }
 </style>
+
 <!--<script>-->
-  <!--$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {-->
-    <!--if (!$(this).next().hasClass('show')) {-->
-      <!--$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");-->
-    <!--}-->
-    <!--var $subMenu = $(this).next(".dropdown-menu");-->
-    <!--$subMenu.toggleClass('show');-->
+<!--$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {-->
+<!--if (!$(this).next().hasClass('show')) {-->
+<!--$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");-->
+<!--}-->
+<!--var $subMenu = $(this).next(".dropdown-menu");-->
+<!--$subMenu.toggleClass('show');-->
 
 
-    <!--$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {-->
-      <!--$('.dropdown-submenu .show').removeClass("show");-->
-    <!--});-->
+<!--$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {-->
+<!--$('.dropdown-submenu .show').removeClass("show");-->
+<!--});-->
 
 
-    <!--return false;-->
-  <!--});-->
+<!--return false;-->
+<!--});-->
 <!--</script>-->
