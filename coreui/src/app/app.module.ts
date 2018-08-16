@@ -2,7 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { PouchdbService } from "./services/pouchdb.service";
 import { SolrService } from "./services/solr.service";
 import { NodeService } from "./services/node.service";
@@ -69,10 +68,6 @@ import { NewAdsComponent } from "./components/new-ads/new-ads.component";
     NewAdsComponent
   ],
   providers: [
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy
-    },
     PouchdbService,
     SolrService,
     NodeService,
