@@ -1,8 +1,7 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Category</a>
+    <a href="#">{{cat_name}}</a>
   </li>
-  <li class="breadcrumb-item">Sub-category</li>
   <div class="ml-auto">
     <span>Lọc&nbsp;</span>
     <select>
@@ -18,7 +17,10 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <span><strong>123</strong>&nbsp;kết quả cho từ khóa&nbsp;<strong>laptop</strong></span>
+          <span>
+            <strong>{{total}}</strong>&nbsp;kết quả cho từ khóa&nbsp;
+            <strong>{{keyword}}</strong>
+          </span>
         </div>
         <div class="card-body">
           <div id="new-items" class="row view-group">

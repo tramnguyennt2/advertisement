@@ -1,26 +1,29 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/Subject";
 import { PouchdbService } from "./pouchdb.service";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class CategoryService {
   catSubject: any = new Subject();
   cats: any;
 
-  subs: any;
-  subSubject: any = new Subject();
+  allCategorySubject: any = new Subject();
 
   constructor(private pouchdb: PouchdbService) {}
 
   getAllCategory() {
-    this.pouchdb.db.query("categories/all-category").then(data => {
-      let cats = data.rows.map(row => {
-        return row.value;
+    this.pouchdb.db
+      .find({
+        selector: { type: "category" }
+      })
+      .then(result => {
+        this.allCategorySubject.next(result.docs[0].data);
+      })
+      .catch(function(err) {
+        console.log(err);
       });
-      this.subs = cats;
-      this.subSubject.next(cats[0]);
-    });
-    return this.subSubject;
+    return this.allCategorySubject;
   }
 
   getItemNumberOfCategory() {
@@ -35,5 +38,15 @@ export class CategoryService {
         this.catSubject.next(cats);
       });
     return this.catSubject;
+  }
+
+  getCategory(id: string) {
+    return this.getAllCategory().map(cats => {
+      for (let i = 0; i < cats.length; i++) {
+        if (cats[i].cat_id == id) {
+          return cats[i].cat_name;
+        }
+      }
+    });
   }
 }

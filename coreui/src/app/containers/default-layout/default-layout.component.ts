@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
-import { navItems } from "./../../_nav";
 import { CategoryService } from "../../services/category.service";
-import locationsJson from "assets/data/location.json";
+import { LocationService } from "../../services/location.service";
 
 @Component({
   selector: "app-dashboard",
@@ -21,9 +20,15 @@ export class DefaultLayoutComponent {
   locations = [];
   keyword = "";
   navObjs = [];
-  category = 'Danh mục'
-  province = 'Khu vực'
-  constructor(private catService: CategoryService) {
+  cat_id = 0;
+  loc_id = 0;
+  cat = "Danh mục";
+  loc = "Khu vực";
+
+  constructor(
+    private catService: CategoryService,
+    private locService: LocationService
+  ) {
     this.changes = new MutationObserver(mutations => {
       this.sidebarMinimized = document.body.classList.contains(
         "sidebar-minimized"
@@ -36,19 +41,27 @@ export class DefaultLayoutComponent {
   }
 
   ngOnInit() {
+    this.loadCategory();
+    // load Location
+    this.loadLocation();
+  }
+
+  loadCategory() {
+    this.navObjs = [];
+    this.navItems = [];
     // load Category
     this.catService.getAllCategory().subscribe(cats => {
       this.cats = cats;
       for (let cat of this.cats) {
         let navItem = {
-          name: cat["category"],
+          name: cat["cat_name"],
           url: "/search",
           icon: "fa fa-desktop",
           children: []
         };
-        for (let sub of cat["name"]) {
+        for (let sub of cat["subs"]) {
           navItem.children.push({
-            name: sub,
+            name: sub["name"],
             url: "/base/cards",
             icon: "icon"
           });
@@ -58,37 +71,37 @@ export class DefaultLayoutComponent {
       for (let n of this.navObjs) {
         this.navItems.push(n["navItem"]);
       }
-      console.log("this.navObjs: ", this.navObjs);
-    });
-    // load Location
-    let locationObj = <any>locationsJson;
-    this.locations = Object.keys(locationObj).map(function(locationIndex) {
-      let location = locationObj[locationIndex];
-      return location;
     });
   }
 
-  mouseenterLocation(event){
-    let catEl = document.getElementsByClassName("current-location");
-    for (let i = 0; i < catEl.length; i++){
-      catEl[i].children[1].classList.remove("show");
-      catEl[i].classList.remove("current-location");
+  loadLocation() {
+    this.locService.getAllLocation().subscribe(locs => {
+      this.locations = locs;
+    });
+  }
 
+  mouseenterLocation(event) {
+    let locEl = document.getElementsByClassName("current-location");
+    for (let i = 0; i < locEl.length; i++) {
+      locEl[i].children[1].classList.remove("show");
+      locEl[i].classList.remove("current-location");
     }
-    var curEl = event.currentTarget.parentElement;
+    let curEl = event.currentTarget.parentElement;
     curEl.classList.add("current-location");
     curEl.children[1].classList.add("show");
   }
 
-  clickCategory(event){
-    var curEl = event.currentTarget;
+  clickCat(event) {
+    let curEl = event.currentTarget;
     curEl.classList.add("active");
-    this.category = curEl.innerHTML;
+    this.cat = curEl.innerHTML;
+    this.cat_id = curEl.id;
   }
 
-  clickProvince(event){
-    var curEl = event.currentTarget;
+  clickLoc(event) {
+    let curEl = event.currentTarget;
     curEl.classList.add("active");
-    this.province = curEl.innerHTML;
+    this.loc = curEl.innerHTML;
+    this.loc_id = curEl.id;
   }
 }

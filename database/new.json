@@ -1,73 +1,417 @@
-[
-  {
-    "id": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
-    "key": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
-    "doc": {
-      "_id": "af6c4e9a4b7bfadd3ec0d93b66000ed8",
-      "_rev": "1-a46027ff27b1cfcd9667a9da98c86258",
-      "data": [
+//16-8
+// xoa view: getallcategory
+
+// them location
+[{
+  "data": [
+    {
+      "area_id": 1,
+      "area": "Miền Bắc",
+      "province": [
         {
-          "category": "Đồ điện tử",
-          "name": [
-            "Điện thoại",
-            "Máy tính bảng",
-            "Laptop",
-            "Máy tính để bàn",
-            "Máy ảnh, Máy quay",
-            "Tivi, Loa, Amply",
-            "Linh kiện, phụ kiện",
-            "Khác"
-          ]
+          "province_id": 1,
+          "name": "Thành phố Hà Nội"
         },
         {
-          "category": "Đồ gia dụng",
-          "name": [
-            "Điện lạnh",
-            "Thiết bị nhà bếp",
-            "Đồ dùng gia đình",
-            "Vật dụng cá nhân",
-            "Khác"
-          ]
+          "province_id": 2,
+          "name": "Thành phố Hải Phòng"
         },
         {
-          "category": "Đồ văn phòng",
-          "name": [
-            "Bàn ghế",
-            "Tủ",
-            "Máy chiếu",
-            "Máy photocopy",
-            "Camera an ninh",
-            "Khác"
-          ]
+          "province_id": 3,
+          "name": "Tỉnh Bắc Giang"
         },
         {
-          "category": "Xe",
-          "name": [
-            "Xe máy",
-            "Ôtô",
-            "Xe tải",
-            "Xe đạp",
-            "Phụ tùng xe",
-            "Dịch vụ sửa chữa",
-            "Khác"
-          ]
+          "province_id": 4,
+          "name": "Tỉnh Bắc Kạn"
+        },
+        {
+          "province_id": 5,
+          "name": "Tỉnh Bắc Ninh"
+        },
+        {
+          "province_id": 6,
+          "name": "Tỉnh Cao Bằng"
+        },
+        {
+          "province_id": 7,
+          "name": "Tỉnh Điện Biên"
+        },
+        {
+          "province_id": 8,
+          "name": "Tỉnh Hà Giang"
+        },
+        {
+          "province_id": 9,
+          "name": "Tỉnh Hà Nam"
+        },
+        {
+          "province_id": 10,
+          "name": "Tỉnh Hà Tĩnh"
+        },
+        {
+          "province_id": 11,
+          "name": "Tỉnh Hải Dương"
+        },
+        {
+          "province_id": 12,
+          "name": "Tỉnh Hòa Bình"
+        },
+        {
+          "province_id": 13,
+          "name": "Tỉnh Hưng Yên"
+        },
+        {
+          "province_id": 14,
+          "name": "Tỉnh Lai Châu"
+        },
+        {
+          "province_id": 15,
+          "name": "Tỉnh Lạng Sơn"
+        },
+        {
+          "province_id": 16,
+          "name": "Tỉnh Lào Cai"
+        },
+        {
+          "province_id": 17,
+          "name": "Tỉnh Cao Bằng"
+        },
+        {
+          "province_id": 18,
+          "name": "Tỉnh Nam Định"
+        },
+        {
+          "province_id": 19,
+          "name": "Tỉnh Ninh Bình"
+        },
+        {
+          "province_id": 20,
+          "name": "Tỉnh Phú Thọ"
+        },
+        {
+          "province_id": 21,
+          "name": "Tỉnh Quảng Ninh"
+        },
+        {
+          "province_id": 22,
+          "name": "Tỉnh Sơn La"
+        },
+        {
+          "province_id": 23,
+          "name": "Tỉnh Thái Bình"
+        },
+        {
+          "province_id": 24,
+          "name": "Tỉnh Thái Nguyên"
+        },
+        {
+          "province_id": 25,
+          "name": "Tỉnh Tuyên Quang"
+        },
+        {
+          "province_id": 26,
+          "name": "Tỉnh Vĩnh Phúc"
+        },
+        {
+          "province_id": 27,
+          "name": "Tỉnh Yên Bái"
         }
-      ],
-      "type": "category"
-    }
-  },
-  {
-    "id": "_design\/categories",
-    "key": "_design\/categories",
-    "doc": {
-      "_id": "_design\/categories",
-      "_rev": "2-d2ce9f085bb2da688a692567fbedfd29",
-      "views": {
-        "all-category": {
-          "map": "function (doc) {\n  if(doc.type && doc.type == \"category\"){\n    emit(\"data\", doc.data);\n  }\n}"
+      ]
+    },
+    {
+      "area_id": 2,
+      "area": "Miền Trung",
+      "province": [
+        {
+          "province_id": 28,
+          "name": "Thành phố Đà Nẵng"
+        },
+        {
+          "province_id": 29,
+          "name": "Tỉnh Bình Định"
+        },
+        {
+          "province_id": 30,
+          "name": "Tỉnh Bình Thuận"
+        },
+        {
+          "province_id": 31,
+          "name": "Tỉnh Đắk Lắk"
+        },
+        {
+          "province_id": 32,
+          "name": "Tỉnh Đắk Nông"
+        },
+        {
+          "province_id": 33,
+          "name": "Tỉnh Gia Lai"
+        },
+        {
+          "province_id": 34,
+          "name": "Tỉnh Khánh Hòa"
+        },
+        {
+          "province_id": 35,
+          "name": "Tỉnh Kon Tum"
+        },
+        {
+          "province_id": 36,
+          "name": "Tỉnh Lâm Đồng"
+        },
+        {
+          "province_id": 37,
+          "name": "Tỉnh Nghệ An"
+        },
+        {
+          "province_id": 38,
+          "name": "Tỉnh Ninh Thuận"
+        },
+        {
+          "province_id": 39,
+          "name": "Tỉnh Phú Yên"
+        },
+        {
+          "province_id": 40,
+          "name": "Tỉnh Quảng Bình"
+        },
+        {
+          "province_id": 41,
+          "name": "Tỉnh Quảng Nam"
+        },
+        {
+          "province_id": 42,
+          "name": "Tỉnh Quảng Ngãi"
+        },
+        {
+          "province_id": 43,
+          "name": "Tỉnh Quảng Trị"
+        },
+        {
+          "province_id": 44,
+          "name": "Tỉnh Thanh Hóa"
+        },
+        {
+          "province_id": 45,
+          "name": "Tỉnh Thừa Thiên - Huế"
         }
-      },
-      "language": "javascript"
+      ]
+    },
+    {
+      "area_id": 3,
+      "area": "Miền Nam",
+      "province": [
+        {
+          "province_id": 46,
+          "name": "Thành phố Cần Thơ"
+        },
+        {
+          "province_id": 47,
+          "name": "Thành phố Hồ Chí Minh"
+        },
+        {
+          "province_id": 48,
+          "name": "Tỉnh An Giang"
+        },
+        {
+          "province_id": 49,
+          "name": "Tỉnh Bà Rịa - Vũng Tàu"
+        },
+        {
+          "province_id": 50,
+          "name": "Tỉnh Bạc Liêu"
+        },
+        {
+          "province_id": 51,
+          "name": "Tỉnh Bến Tre"
+        },
+        {
+          "province_id": 52,
+          "name": "Tỉnh Bình Dương"
+        },
+        {
+          "province_id": 53,
+          "name": "Tỉnh Bình Phước"
+        },
+        {
+          "province_id": 54,
+          "name": "Tỉnh Cà Mau"
+        },
+        {
+          "province_id": 55,
+          "name": "Tỉnh Đồng Nai"
+        },
+        {
+          "province_id": 56,
+          "name": "Tỉnh Đồng Tháp"
+        },
+        {
+          "province_id": 57,
+          "name": "Tỉnh Hậu Giang"
+        },
+        {
+          "province_id": 58,
+          "name": "Tỉnh Kiên Giang"
+        },
+        {
+          "province_id": 59,
+          "name": "Tỉnh Long An"
+        },
+        {
+          "province_id": 60,
+          "name": "Tỉnh Sóc Trăng"
+        },
+        {
+          "province_id": 61,
+          "name": "Tỉnh Tây Ninh"
+        },
+        {
+          "province_id": 62,
+          "name": "Tỉnh Tiền Giang"
+        },
+        {
+          "province_id": 63,
+          "name": "Tỉnh Trà Vinh"
+        },
+        {
+          "province_id": 64,
+          "name": "Tỉnh Vĩnh Long"
+        }
+      ]
     }
-  }
-]
+  ],
+  "type": "location"
+},
+//change category
+{
+  "data": [
+    {
+      "cat_id": 1,
+      "cat_name": "Đồ điện tử",
+      "subs": [
+        {
+          "sub_id": 1,
+          "name": "Điện thoại"
+        },
+        {
+          "sub_id": 2,
+          "name": "Máy tính bảng"
+        },
+        {
+          "sub_id": 3,
+          "name": "Laptop"
+        },
+        {
+          "sub_id": 4,
+          "name": "Máy tính để bàn"
+        },
+        {
+          "sub_id": 5,
+          "name": "Máy ảnh, Máy quay"
+        },
+        {
+          "sub_id": 6,
+          "name": "Tivi, Loa, Amply"
+        },
+        {
+          "sub_id": 7,
+          "name": "Linh kiện, phụ kiện"
+        },
+        {
+          "sub_id": 8,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 2,
+      "cat_name": "Đồ gia dụng",
+      "subs": [
+        {
+          "sub_id": 9,
+          "name": "Điện lạnh"
+        },
+        {
+          "sub_id": 10,
+          "name": "Thiết bị nhà bếp"
+        },
+        {
+          "sub_id": 11,
+          "name": "Đồ dùng gia đình"
+        },
+        {
+          "sub_id": 12,
+          "name": "Vật dụng cá nhân"
+        },
+        {
+          "sub_id": 13,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 3,
+      "cat_name": "Đồ văn phòng",
+      "subs": [
+        {
+          "sub_id": 14,
+          "name": "Bàn ghế"
+        },
+        {
+          "sub_id": 15,
+          "name": "Tủ"
+        },
+        {
+          "sub_id": 16,
+          "name": "Máy chiếu"
+        },
+        {
+          "sub_id": 17,
+          "name": "Máy photocopy"
+        },
+        {
+          "sub_id": 18,
+          "name": "Camera an ninh"
+        },
+        {
+          "sub_id": 19,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 4,
+      "cat_name": "Xe",
+      "subs": [
+        {
+          "sub_id": 20,
+          "name": "Xe máy"
+        },
+        {
+          "sub_id": 21,
+          "name": "Ôtô"
+        },
+        {
+          "sub_id": 22,
+          "name": "Xe tải"
+        },
+        {
+          "sub_id": 23,
+          "name": "Xe đạp"
+        },
+        {
+          "sub_id": 24,
+          "name": "Phụ tùng xe"
+        },
+        {
+          "sub_id": 25,
+          "name": "Dịch vụ sửa chữa"
+        },
+        {
+          "sub_id": 26,
+          "name": "Khác"
+        }
+      ]
+    }
+  ],
+  "type": "category"
+}]
