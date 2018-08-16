@@ -98,9 +98,39 @@ export class DefaultLayoutComponent {
     this.cat_id = curEl.id;
   }
 
-  clickLoc(event) {
+  mouseenterLevel1(event){
+    let catEl = document.getElementsByClassName("current-level-1");
+    for (let i = 0; i < catEl.length; i++){
+      catEl[i].children[1].classList.remove("show");
+      catEl[i].children[0].classList.remove("active");
+      catEl[i].classList.remove("current-level-1");
+    }
+    event.currentTarget.classList.add("active");
+    let newEl = event.currentTarget.parentElement;
+    newEl.classList.add("current-level-1");
+    newEl.children[1].classList.add("show");
+  }
+
+  mouseenterLevel2(event){
+    let oldEl = document.getElementsByClassName("level-2");
+    for (let i = 0; i < oldEl.length; i++){
+      if(!(oldEl[i].classList.contains("current-level-2"))){
+        oldEl[i].classList.remove("active");
+      }
+    }
+    let newEl = event.currentTarget;
+    newEl.classList.add("active");
+  }
+
+  clickProvince(event){
+    let oldEl = document.getElementsByClassName("current-level-2");
+    for (let i = 0; i < oldEl.length; i++){
+      oldEl[i].classList.remove("active");
+    }
     let curEl = event.currentTarget;
-    curEl.classList.add("active");
+    const cls = ["active", "current-level-2"];
+    curEl.classList.add(cls);
+    // this.area = curEl.parentElement.parentElement.parentElement.children[0].innerHTML;
     this.loc = curEl.innerHTML;
     this.loc_id = curEl.id;
   }

@@ -9,7 +9,7 @@
             <span class="caret"></span>
           </button>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#" *ngFor="let cat of cats" id="{{cat['cat_id']}}" (click)="clickCat($event)">{{cat['cat_name']}}</a>
+            <a class="dropdown-item" href="#" *ngFor="let cat of cats" id="{{cat['cat_id']}}" (click)="clickCategory($event)">{{cat['cat_name']}}</a>
           </div>
         </div>
         <div class="input-group-prepend" dropdown>
@@ -18,10 +18,11 @@
           </button>
           <ul class="dropdown-menu" *dropdownMenu>
             <li class="dropdown-submenu" *ngFor="let location of locations">
-              <a class="dropdown-item dropdown-toggle" (mouseenter)="mouseenterLocation($event)">{{location['area']}}</a>
+              <a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#" *ngFor="let loc of location['province']" id="{{loc['province_id']}}" (click)="clickLoc($event)">{{loc['name']}}</a>
+                  <a class="dropdown-item level-2" *ngFor="let loc of location['province']" id="{{loc['province_id']}}"(click)="clickProvince($event)"
+                    (mouseenter)="mouseenterLevel2($event)">{{loc['name']}}</a>
                 </li>
               </ul>
             </li>
@@ -90,7 +91,7 @@
     transform: rotate(-90deg);
     position: absolute;
     right: 6px;
-    top: .8em;
+    top: 18px;
   }
 
   .dropdown-submenu .dropdown-menu {
@@ -100,3 +101,21 @@
     margin-right: .1rem;
   }
 </style>
+
+<!--<script>-->
+<!--$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {-->
+<!--if (!$(this).next().hasClass('show')) {-->
+<!--$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");-->
+<!--}-->
+<!--var $subMenu = $(this).next(".dropdown-menu");-->
+<!--$subMenu.toggleClass('show');-->
+
+
+<!--$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {-->
+<!--$('.dropdown-submenu .show').removeClass("show");-->
+<!--});-->
+
+
+<!--return false;-->
+<!--});-->
+<!--</script>-->
