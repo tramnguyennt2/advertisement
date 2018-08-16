@@ -9,7 +9,7 @@
             <span class="caret"></span>
           </button>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#" *ngFor="let cat of cats" id="{{cat['cat_id']}}" (click)="clickCategory($event)">{{cat['cat_name']}}</a>
+            <a class="dropdown-item" href="#" *ngFor="let cat of cats" id="{{cat['cat_id']}}" (click)="clickCat($event)">{{cat['cat_name']}}</a>
           </div>
         </div>
         <div class="input-group-prepend" dropdown>
