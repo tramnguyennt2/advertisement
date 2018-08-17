@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from "../../services/category.service";
 import locationsJson from "assets/data/location.json";
+import { DefaultLayoutComponent } from '../../containers';
 
 @Component({
   selector: 'app-post-ad',
@@ -15,20 +16,12 @@ export class PostAdComponent implements OnInit {
   area = '';
   province = 'Chọn khu vực';
 
-  constructor(private catService: CategoryService) { }
+  constructor(private catService: CategoryService, private defaultLayout: DefaultLayoutComponent) {
+    this.cats = defaultLayout.getCats();
+    this.locations = defaultLayout.getLocations();
+  }
 
   ngOnInit() {
-    //load category
-    this.catService.getAllCategory().subscribe(cats => {
-      this.cats = cats;
-      console.log(this.cats)
-    });
-    // load Location
-    let locationObj = <any>locationsJson;
-    this.locations = Object.keys(locationObj).map(function(locationIndex) {
-      let location = locationObj[locationIndex];
-      return location;
-    });
   }
 
   mouseenterLevel1(event){

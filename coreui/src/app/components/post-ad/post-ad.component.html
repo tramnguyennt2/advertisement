@@ -17,9 +17,9 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" *dropdownMenu>
-              <li class="dropdown-submenu" *ngFor="let cat of cats"><a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{cat['category']}}</a>
+              <li class="dropdown-submenu" *ngFor="let cat of cats"><a id="{{cat['cat_id']}}" class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{cat['cat_name']}}</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item level-2" *ngFor="let sub of cat['name']" (click)="clickSubCategory($event)" (mouseenter)="mouseenterLevel2($event)">{{sub}}</a></li>
+                  <li><a id="{{sub['sub_id']}}" class="dropdown-item level-2" *ngFor="let sub of cat['subs']" (click)="clickSubCategory($event)" (mouseenter)="mouseenterLevel2($event)">{{sub['name']}}</a></li>
                 </ul>
               </li>
             </ul>
@@ -32,9 +32,9 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" *dropdownMenu>
-              <li class="dropdown-submenu" *ngFor="let location of locations"><a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
+              <li class="dropdown-submenu" *ngFor="let location of locations"><a id="{{location['area_id']}}" class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item level-2" *ngFor="let province of location['province']" (click)="clickProvince($event)" (mouseenter)="mouseenterLevel2($event)">{{province}}</a></li>
+                  <li><a id="{{province['province_id']}}" class="dropdown-item level-2" *ngFor="let province of location['province']" (click)="clickProvince($event)" (mouseenter)="mouseenterLevel2($event)">{{province['name']}}</a></li>
                 </ul>
               </li>
             </ul>

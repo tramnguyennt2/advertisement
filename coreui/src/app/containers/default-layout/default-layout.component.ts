@@ -134,4 +134,12 @@ export class DefaultLayoutComponent {
     this.loc = curEl.innerHTML;
     this.loc_id = curEl.id;
   }
+
+  getCats(){
+    return this.cats;
+  }
+
+  getLocations(){
+    return this.locations;
+  }
 }
