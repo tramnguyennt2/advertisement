@@ -1,0 +1,17 @@
+<div class="input-group-prepend" dropdown>
+  <button type="button" class="btn btn-outline-info dropdown-toggle" dropdownToggle>{{loc}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" *dropdownMenu>
+    <li class="dropdown-submenu" id="{{loc['area_id']}}" *ngFor="let loc of locs">
+      <a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{loc['area']}}</a>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item level-2" *ngFor="let prov of loc['province']" id="{{prov['province_id']}}"
+             (click)="clickProvince($event)"
+             (mouseenter)="mouseenterLevel2($event)">{{prov['name']}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

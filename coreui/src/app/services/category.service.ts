@@ -1,43 +1,42 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
-import { PouchdbService } from "./pouchdb.service";
+import {Injectable} from "@angular/core";
+import {Subject} from "rxjs/Subject";
+import {PouchdbService} from "./pouchdb.service";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class CategoryService {
-  catSubject: any = new Subject();
-  cats: any;
-
-  allCategorySubject: any = new Subject();
-
-  constructor(private pouchdb: PouchdbService) {}
+  constructor(private pouchdb: PouchdbService) {
+  }
 
   getAllCategory() {
+    let allCategorySubject: any = new Subject();
     this.pouchdb.db
       .find({
-        selector: { type: "category" }
+        selector: {type: "category"}
       })
       .then(result => {
-        this.allCategorySubject.next(result.docs[0].data);
+        allCategorySubject.next(result.docs[0].data);
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
-    return this.allCategorySubject;
+    return allCategorySubject;
   }
 
   getItemNumberOfCategory() {
+    let catSubject: any = new Subject();
+    let cats: any;
     // http://127.0.0.1:5984/advertisement/_design/categories/_view/numberItems?group=true
     this.pouchdb.db
-      .query("categories/numberItems", { group: true })
+      .query("categories/numberItems", {group: true})
       .then(data => {
         let cats = data.rows.map(row => {
           return row;
         });
-        this.cats = cats;
-        this.catSubject.next(cats);
+        cats = cats;
+        catSubject.next(cats);
       });
-    return this.catSubject;
+    return catSubject;
   }
 
   getCategory(id: string) {

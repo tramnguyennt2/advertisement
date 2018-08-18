@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 // Import Containers
 import { DefaultLayoutComponent } from "./containers";
 // Import Components
-import { HomepageComponent } from "./components/homepage/homepage.component";
+import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { SearchComponent } from "./components/search/search.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
 

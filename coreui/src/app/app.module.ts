@@ -39,10 +39,12 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { ChartsModule } from "ng2-charts/ng2-charts";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
-import { HomepageComponent } from "./components/homepage/homepage.component";
+import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { SearchComponent } from "./components/search/search.component";
 import { NewAdsComponent } from "./components/new-ads/new-ads.component";
-
+import { LocDropDownComponent } from "./components/loc-drop-down/loc-drop-down.component";
+import { CatDropDownComponent } from './components/cat-drop-down/cat-drop-down.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -65,7 +67,10 @@ import { NewAdsComponent } from "./components/new-ads/new-ads.component";
     PostAdComponent,
     HomepageComponent,
     SearchComponent,
-    NewAdsComponent
+    NewAdsComponent,
+    LocDropDownComponent,
+    CatDropDownComponent,
+    SideBarComponent
   ],
   providers: [
     PouchdbService,

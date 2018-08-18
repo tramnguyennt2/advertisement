@@ -12,33 +12,11 @@
         <br/>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Danh mục</label>
-          <div class="input-group-prepend col-md-4" dropdown>
-            <button type="button" class="btn btn-outline-secondary dropdown-toggle" dropdownToggle>{{subCategory}}
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" *dropdownMenu>
-              <li class="dropdown-submenu" *ngFor="let cat of cats"><a id="{{cat['cat_id']}}" class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{cat['cat_name']}}</a>
-                <ul class="dropdown-menu">
-                  <li><a id="{{sub['sub_id']}}" class="dropdown-item level-2" *ngFor="let sub of cat['subs']" (click)="clickSubCategory($event)" (mouseenter)="mouseenterLevel2($event)">{{sub['name']}}</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          <app-cat-drop-down class="col-md-4" (subCatClick)="getCatAndSubCatId($event)"></app-cat-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Khu vực</label>
-          <div class="input-group-prepend col-md-4" dropdown>
-            <button type="button" class="btn btn-outline-secondary dropdown-toggle" dropdownToggle>{{province}}
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" *dropdownMenu>
-              <li class="dropdown-submenu" *ngFor="let location of locations"><a id="{{location['area_id']}}" class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{location['area']}}</a>
-                <ul class="dropdown-menu">
-                  <li><a id="{{province['province_id']}}" class="dropdown-item level-2" *ngFor="let province of location['province']" (click)="clickProvince($event)" (mouseenter)="mouseenterLevel2($event)">{{province['name']}}</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          <app-loc-drop-down class="col-md-4" (provClick)="getLocationAndProvId($event)"></app-loc-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
@@ -84,7 +62,8 @@
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="address-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="address-user" name="address-user" placeholder="" value="Quận Thủ Đức, TPHCM">
+            <input class="form-control" id="address-user" name="address-user" placeholder=""
+                   value="Quận Thủ Đức, TPHCM">
           </div>
         </div>
 
