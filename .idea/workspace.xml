@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts">
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/common.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/homepage/homepage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/homepage/homepage.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/homepage/homepage.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/homepage/homepage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" afterDir="false" />
+    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/location.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/location.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,10 +27,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new-ads.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="default-layout.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#app-cat-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#app-loc-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loc-drop-down.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cat-drop-down.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new-ads.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="204">
               <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
             </state>
           </provider>
@@ -107,8 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/angular/src/app/pouchdb.service.ts" />
-        <option value="$PROJECT_DIR$/angular/src/app/new-ad/new-ad.component.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/ad-detail/ad-detail.component.ts" />
         <option value="$PROJECT_DIR$/angular/src/typings.d.ts" />
         <option value="$PROJECT_DIR$/angular/src/app/new-ads/new-ads.component.css" />
@@ -156,8 +163,10 @@
         <option value="$PROJECT_DIR$/coreui/src/app/side-bar/side-bar.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/side-bar/side-bar.component.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" />
       </list>
     </option>
   </component>
@@ -231,7 +240,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="new-ads" type="462c0819:PsiDirectoryNode" />
+              <item name="cat-drop-down" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="loc-drop-down" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
@@ -394,7 +420,7 @@
       <workItem from="1534253933510" duration="60000" />
       <workItem from="1534409617242" duration="3278000" />
       <workItem from="1534572257405" duration="3002000" />
-      <workItem from="1534579225277" duration="8882000" />
+      <workItem from="1534579225277" duration="9631000" />
     </task>
     <task id="LOCAL-00001" summary="mess">
       <created>1528171338148</created>
@@ -641,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534411656376</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="re-arrange components">
+      <created>1534589310324</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1534589310324</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130147000" />
+    <option name="totallyTimeSpent" value="130896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -656,9 +689,9 @@
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32768363" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37853107" />
       <window_info id="npm" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32344633" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32344633" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19497687" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19497687" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -729,7 +762,8 @@
     <MESSAGE value="update front end" />
     <MESSAGE value="search url&#10;todo: insert data in new.json, run npm install" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts" />
+    <MESSAGE value="re-arrange components" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-arrange components" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -929,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/sidebar/sidebar.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -950,26 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret column="18357" selection-start-column="18357" selection-end-column="18357" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#app-cat-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#app-loc-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#app-header#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1034,8 +1041,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="204">
           <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#app-cat-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#app-loc-drop-down#0;n#div#0;n#div#0;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#app-header#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
         </state>
       </provider>
     </entry>
