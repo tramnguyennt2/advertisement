@@ -8,7 +8,7 @@ import {LocationService} from "../../services/location.service";
   styleUrls: ["./post-ad.component.scss"]
 })
 export class PostAdComponent implements OnInit {
-   cat_id = 0;
+  cat_id = 0;
   sub_cat_id = 0;
   loc_id = 0;
   prov_id = 0;
@@ -20,6 +20,10 @@ export class PostAdComponent implements OnInit {
   }
 
   ngOnInit() {
+    let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
+    for (let i = 0; i < sidebarEl.length; i++) {
+      sidebarEl[i].classList.remove("sidebar-lg-show");
+    }
   }
 
   getLocationAndProvId(param) {

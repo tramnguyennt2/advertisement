@@ -5,11 +5,11 @@ import { SolrService } from "../../services/solr.service";
 import { Item } from "../../item";
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  selector: 'app-search-ad',
+  templateUrl: './search-ad.component.html',
+  styleUrls: ['./search-ad.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchAdComponent implements OnInit {
   keyword: string;
   cat_name: string;
   loc_id: string;
@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
+      console.log(params)
       this.keyword = params.keyword;
       this.cat_id = params.cat;
       this.catService.getCategory(this.cat_id).subscribe(cat_name => {
@@ -33,6 +34,15 @@ export class SearchComponent implements OnInit {
       this.loc_id = params.loc;
       // this.searchDocument();
     });
+
+    document.querySelector('body').classList.add('sidebar-lg-show');
+
+    // let sidebarEl = document.getElementsByClassName("nav-dropdown");
+    // for (let i = 0; i < sidebarEl.length; i++) {
+    //   sidebarEl[i].classList.remove("open");
+    //   console.log(sidebarEl[i])
+    // }
+    // console.log(sidebarEl)
   }
 
   // searchDocument() {
@@ -60,3 +70,4 @@ export class SearchComponent implements OnInit {
   //   this.nodejs.post(this.behavior).subscribe(res => console.log(res));
   // }
 }
+
