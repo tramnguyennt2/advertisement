@@ -22,9 +22,21 @@ export class DefaultLayoutComponent {
     this.changes.observe(<Element>this.element, {
       attributes: true
     });
+
+    
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let catEl = document.getElementsByTagName('app-cat-drop-down');
+    for (let i = 0; i < catEl.length; i++) {
+      catEl[i].children[0].classList.add("btn-outline-info");
+    }
+
+    let locEl = document.getElementsByTagName('app-loc-drop-down');
+    for (let i = 0; i < locEl.length; i++) {
+      locEl[i].children[0].classList.add("btn-outline-info");
+    }
+  }
 
 
   getCatAndSubCatId(param){

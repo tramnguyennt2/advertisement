@@ -5,9 +5,9 @@
             [asideMenuToggler]="'lg'">
   <div class="row d-md-down-none col-md-8 align-items-center justify-content-center">
     <div class="form-group row col-md-10" style="padding-top: 17px">
-      <div class="input-group col">
-        <app-cat-drop-down style="margin-right:5px;" (subCatClick)="getCatAndSubCatId($event)"></app-cat-drop-down>
-        <app-loc-drop-down style="margin-right:5px;" (provClick)="getProvId($event)"></app-loc-drop-down>
+      <div class="input-group col" style="padding-right: 5px">   
+        <app-cat-drop-down (subCatClick)="getCatAndSubCatId($event)" class="input-group-prepend" dropdown></app-cat-drop-down>
+        <app-loc-drop-down (provClick)="getProvId($event)" class="input-group-prepend" dropdown></app-loc-drop-down>
         <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm..."
                [(ngModel)]="keyword">
         <span class="input-group-append">

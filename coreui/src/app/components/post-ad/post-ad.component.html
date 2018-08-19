@@ -12,11 +12,11 @@
         <br/>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Danh mục</label>
-          <app-cat-drop-down class="col-md-4" (subCatClick)="getCatAndSubCatId($event)"></app-cat-drop-down>
+          <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown></app-cat-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Khu vực</label>
-          <app-loc-drop-down class="col-md-4" (provClick)="getLocationAndProvId($event)"></app-loc-drop-down>
+          <app-loc-drop-down class="input-group-prepend col-md-4" (provClick)="getLocationAndProvId($event)" dropdown></app-loc-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
