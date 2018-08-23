@@ -30,10 +30,9 @@ export class CategoryService {
     this.pouchdb.db
       .query("categories/numberItems", {group: true})
       .then(data => {
-        let cats = data.rows.map(row => {
+        cats = data.rows.map(row => {
           return row;
         });
-        cats = cats;
         catSubject.next(cats);
       });
     return catSubject;

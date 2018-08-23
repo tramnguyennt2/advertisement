@@ -12,7 +12,7 @@ export class DefaultLayoutComponent {
   sub_cat_id: number;
   prov_id: number;
 
-  constructor(){
+  constructor() {
     this.changes = new MutationObserver(mutations => {
       this.sidebarMinimized = document.body.classList.contains(
         "sidebar-minimized"
@@ -24,12 +24,14 @@ export class DefaultLayoutComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 
-  getCatAndSubCatId(param){
+  getSubCatId(param) {
     this.sub_cat_id = param.sub_cat_id;
   }
+
   getProvId(param) {
     this.prov_id = param.prov_id;
   }

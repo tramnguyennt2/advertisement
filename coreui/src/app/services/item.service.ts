@@ -16,7 +16,9 @@ export class ItemService {
       if (err) {
         return console.log(err);
       }
-      let solr_item = new Item(item.title, item.content, item.area, item.category, item.price, response.id);
+      console.log("inserted to couchdb");
+      let solr_item = Object.assign({}, item);
+      solr_item.couchdb_id = response.id;
       self.solr.add(solr_item).subscribe((res) => console.log('inserted to solr'));
     });
   }

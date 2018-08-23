@@ -1,11 +1,11 @@
 <br/>
 <div class="container-fluid">
   <div class="card">
-    <div class="card-header">
+    <div class="card-heitemer">
       <strong class="text-uppercase">Đăng tin</strong>
     </div>
     <div class="card-body">
-      <form class="form-horizontal" action="" method="post">
+      <form class="form-horizontal" method="post">
         <div class="text-center">
           <strong class="text-uppercase">Thông tin chung</strong>
         </div>
@@ -19,26 +19,28 @@
           <app-loc-drop-down class="col-md-4" (provClick)="getLocationAndProvId($event)"></app-loc-drop-down>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="title-ad">Tiêu đề</label>
+          <label class="col-md-2 col-form-label" for="title-item">Tiêu đề</label>
           <div class="col-md-10">
-            <input class="form-control" id="title-ad" type="text" name="title-ad" placeholder="">
+            <input class="form-control" id="title-item" type="text" name="title-item" [(ngModel)]="item.title">
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="price-ad">Giá cả</label>
+          <label class="col-md-2 col-form-label" for="price-item">Giá cả</label>
           <div class="col-md-3">
-            <input class="form-control" id="price-ad" type="text" name="price-ad" placeholder="">
+            <input class="form-control" id="price-item" type="text" name="price-item" [(ngModel)]="item.price">
           </div>
           <span class="col-form-label">VNĐ</span>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="content-ad">Mô tả chi tiết</label>
+          <label class="col-md-2 col-form-label" for="content-item">Mô tả chi tiết</label>
           <div class="col-md-10">
-            <textarea class="form-control" name="content-ad" type="textarea" id="content-ad" rows="10"></textarea>
+            <textarea class="form-control" name="content-item" type="textarea" id="content-item"
+                      [(ngModel)]="item.content" rows="10">
+            </textarea>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="content-ad">Hình ảnh</label>
+          <label class="col-md-2 col-form-label" for="content-item">Hình ảnh</label>
           <div class="col-md-10">
             <input id="file-multiple-input" type="file" name="file-multiple-input" multiple="">
           </div>
@@ -60,17 +62,16 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="address-user">Địa chỉ</label>
+          <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="address-user" name="address-user" placeholder=""
+            <input class="form-control" id="itemdress-user" name="itemdress-user" placeholder=""
                    value="Quận Thủ Đức, TPHCM">
           </div>
         </div>
-
       </form>
     </div>
     <div class="card-footer">
-      <button class="btn btn-sm btn-primary" type="submit">Đăng</button>
+      <button class="btn btn-sm btn-primary" type="button" (click)="handleAddNewItem()">Đăng</button>
       <button class="btn btn-sm btn-danger" style="margin-left: 5px">Hủy</button>
     </div>
   </div>

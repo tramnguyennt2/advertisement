@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">{{cat_name}}</a>
+    <a href="#">{{sub_cat_name}}</a>
   </li>
   <div class="ml-auto">
     <span>Lọc&nbsp;</span>
@@ -24,41 +24,8 @@
         </div>
         <div class="card-body">
           <div id="new-items" class="row view-group">
-            <div class="item col-xs-12 col-md-6 col-lg-3">
-              <div class="thumbnail card">
-                <div class="img-event">
-                  <img class="group list-group-image img-fluid" src="http://placehold.it/250x250/000/fff" width='100%' alt="" />
-                </div>
-                <div class="caption card-body">
-                  <h5 class="group card-title inner list-group-item-heading" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important; min-height: 2.4rem">Bán gấp điện thoại 2 sim 2 sóng giá rẻ bất ngờ</h5>
-                  <!--<div class="row">-->
-                  <!--<div class="col-xs-12 col-md-6">-->
-                  <p class="lead text-danger">$200000</p>
-                  <!--</div>-->
-                  <!--<div class="col-xs-12 col-md-6">-->
-                  <!--<a class="btn btn-success" href="#"><i class="fa fa-heart-o"></i> Lưu tin</a>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                </div>
-              </div>
-            </div>
-            <div class="item col-xs-12 col-md-6 col-lg-3">
-              <div class="thumbnail card">
-                <div class="img-event">
-                  <img class="group list-group-image img-fluid" src="http://placehold.it/250x250/000/fff" width='100%' alt="" />
-                </div>
-                <div class="caption card-body">
-                  <h5 class="group card-title inner list-group-item-heading" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important; min-height: 2.4rem">Bán gấp điện thoại</h5>
-                  <!--<div class="row">-->
-                  <!--<div class="col-xs-12 col-md-6">-->
-                  <p class="lead text-danger">$200000</p>
-                  <!--</div>-->
-                  <!--<div class="col-xs-12 col-md-6">-->
-                  <!--<a class="btn btn-success" href="#"><i class="fa fa-heart-o"></i> Lưu tin</a>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                </div>
-              </div>
+            <div class="item col-xs-12 col-md-6 col-lg-3" *ngFor="let item of items">
+              <app-item [item]="item"></app-item>
             </div>
           </div>
           <ul class="pagination justify-content-center">

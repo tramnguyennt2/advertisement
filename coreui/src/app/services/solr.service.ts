@@ -1,12 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { environment } from "../../environments/environment";
+import {Injectable} from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class SolrService {
   solr_url = environment.solr_server + "/advertisement";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   add(ads) {
     let headers = new HttpHeaders();
@@ -19,17 +20,13 @@ export class SolrService {
       }
     );
   }
-  search(keyword, loc_id, cat_id): any {
+
+  search(keyword, sub_cat_id, prov_id): any {
+    console.log("keyword: ", keyword);
+    console.log("sub_cat_id: ", sub_cat_id);
+    console.log("prov_id: ", prov_id);
     let url =
-      this.solr_url +
-      "/select" +
-      "?q=" +
-      keyword +
-      " AND cat_id:" +
-      cat_id +
-      " AND loc_id:" +
-      loc_id +
-      "&wt=json";
+      this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
     return this.http.get(url);
   }
 

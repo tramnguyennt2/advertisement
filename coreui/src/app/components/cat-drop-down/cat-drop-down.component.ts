@@ -10,7 +10,8 @@ import {mouseenterLevel2} from "../../common";
 export class CatDropDownComponent implements OnInit {
   cats = [];
   cat_id = 0;
-  cat: string = "Danh mục";
+  sub_cat: string = "Danh mục";
+  cat: string;
   @Output()
   subCatClick = new EventEmitter();
 
@@ -35,8 +36,13 @@ export class CatDropDownComponent implements OnInit {
     let curEl = event.currentTarget;
     const cls = ["active", "current-level-2"];
     curEl.classList.add(cls);
-    this.subCatClick.emit({sub_cat_id: curEl.id, cat_id: this.cat_id});
-    this.cat = curEl.innerHTML;
+    this.subCatClick.emit({
+      sub_cat_id: curEl.id,
+      cat_id: this.cat_id,
+      sub_cat: curEl.innerHTML,
+      cat: this.cat
+    });
+    this.sub_cat = curEl.innerHTML;
   }
 
   mouseenterLevel1(event) {
@@ -49,6 +55,7 @@ export class CatDropDownComponent implements OnInit {
     event.currentTarget.classList.add("active");
     let newEl = event.currentTarget.parentElement;
     this.cat_id = newEl.id;
+    this.cat = newEl.firstElementChild.innerHTML;
     newEl.classList.add("current-level-1");
     newEl.children[1].classList.add("show");
   }

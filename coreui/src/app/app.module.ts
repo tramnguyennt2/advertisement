@@ -45,6 +45,7 @@ import { NewAdsComponent } from "./components/new-ads/new-ads.component";
 import { LocDropDownComponent } from "./components/loc-drop-down/loc-drop-down.component";
 import { CatDropDownComponent } from './components/cat-drop-down/cat-drop-down.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { ItemComponent } from './components/item/item.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -70,7 +71,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     NewAdsComponent,
     LocDropDownComponent,
     CatDropDownComponent,
-    SideBarComponent
+    SideBarComponent,
+    ItemComponent
   ],
   providers: [
     PouchdbService,

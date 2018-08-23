@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { CategoryService } from "../../services/category.service";
-import { SolrService } from "../../services/solr.service";
-import { Item } from "../../item";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {CategoryService} from "../../services/category.service";
+import {SolrService} from "../../services/solr.service";
+import {Item} from "../../item";
 
 @Component({
   selector: "app-search",
@@ -10,10 +10,8 @@ import { Item } from "../../item";
   styleUrls: ["./search.component.scss"]
 })
 export class SearchComponent implements OnInit {
+  sub_cat_name: string;
   keyword: string;
-  cat_name: string;
-  loc_id: string;
-  cat_id: string;
   total: number = 0;
   items = [];
 
@@ -21,39 +19,32 @@ export class SearchComponent implements OnInit {
     private route: ActivatedRoute,
     private catService: CategoryService,
     private solr: SolrService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.keyword = params.keyword;
-      this.cat_id = params.cat;
-      this.catService.getCategory(this.cat_id).subscribe(cat_name => {
-        this.cat_name = cat_name;
-      });
-      this.loc_id = params.loc;
-      // this.searchDocument();
+      this.searchDocument(params.keyword, params.sub_cat_id, params.prov_id);
     });
   }
 
-  // searchDocument() {
-  //   this.items = [];
-  //   return this.solr
-  //     .search(this.keyword, this.loc_id, this.cat_id)
-  //     .subscribe(res => {
-  //       Object.keys(res.response.docs).map(k => {
-  //         let doc = res.response.docs[k];
-  //         let item = new Item(
-  //           doc.title[0],
-  //           doc.content[0],
-  //           doc.area[0],
-  //           doc.category[0],
-  //           doc.price[0]
-  //         );
-  //         this.items.push(item);
-  //       });
-  //       this.total = this.items.length;
-  //     });
-  // }
+  searchDocument(keyword, sub_cat_id, prov_id) {
+    this.items = [];
+    return this.solr
+      .search(keyword, sub_cat_id, prov_id)
+      .subscribe(res => {
+        Object.keys(res.response.docs).map(k => {
+          let doc = res.response.docs[k];
+          let item = new Item(doc.title[0], doc.content[0], doc.cat_id[0], doc.cat[0], doc.sub_cat_id[0],
+            doc.sub_cat[0], doc.loc_id[0], doc.prov_id[0], doc.price[0], doc.couchdb_id[0]
+          );
+          this.sub_cat_name = doc.sub_cat[0];
+          this.items.push(item);
+        });
+        this.total = this.items.length;
+      });
+  }
 
   // saveUserBehavior(item_id) {
   //   this.behavior.item = item_id;
