@@ -17,9 +17,12 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <span>
+          <span *ngIf="keyword.length > 0">
             <strong>{{total}}</strong>&nbsp;kết quả cho từ khóa&nbsp;
             <strong>{{keyword}}</strong>
+          </span>
+          <span *ngIf="keyword.length == 0">
+            <strong>{{total}}</strong>&nbsp;kết quả
           </span>
         </div>
         <div class="card-body">

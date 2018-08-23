@@ -22,11 +22,13 @@ export class SolrService {
   }
 
   search(keyword, sub_cat_id, prov_id): any {
-    console.log("keyword: ", keyword);
-    console.log("sub_cat_id: ", sub_cat_id);
-    console.log("prov_id: ", prov_id);
+    if(keyword.length > 0){
+      let url =
+        this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
+      return this.http.get(url);
+    }
     let url =
-      this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
+      this.solr_url + "/select?q=sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
     return this.http.get(url);
   }
 
