@@ -5,11 +5,11 @@ import {SolrService} from "../../services/solr.service";
 import {Item} from "../../item";
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  selector: 'app-search-ad',
+  templateUrl: './search-ad.component.html',
+  styleUrls: ['./search-ad.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchAdComponent implements OnInit {
   sub_cat_name: string;
   keyword: string;
   total: number = 0;
@@ -27,6 +27,15 @@ export class SearchComponent implements OnInit {
       this.keyword = params.keyword;
       this.searchDocument(params.keyword, params.sub_cat_id, params.prov_id);
     });
+
+    document.querySelector('body').classList.add('sidebar-lg-show');
+
+    // let sidebarEl = document.getElementsByClassName("nav-dropdown");
+    // for (let i = 0; i < sidebarEl.length; i++) {
+    //   sidebarEl[i].classList.remove("open");
+    //   console.log(sidebarEl[i])
+    // }
+    // console.log(sidebarEl)
   }
 
   searchDocument(keyword, sub_cat_id, prov_id) {

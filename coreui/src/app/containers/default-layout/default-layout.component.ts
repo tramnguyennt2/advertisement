@@ -25,8 +25,16 @@ export class DefaultLayoutComponent {
   }
 
   ngOnInit() {
-  }
+    let catEl = document.getElementsByTagName('app-cat-drop-down');
+    for (let i = 0; i < catEl.length; i++) {
+      catEl[i].children[0].classList.add("btn-outline-info");
+    }
 
+    let locEl = document.getElementsByTagName('app-loc-drop-down');
+    for (let i = 0; i < locEl.length; i++) {
+      locEl[i].children[0].classList.add("btn-outline-info");
+    }
+  }
 
   getSubCatId(param) {
     this.sub_cat_id = param.sub_cat_id;
