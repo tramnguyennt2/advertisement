@@ -7,6 +7,7 @@ import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
 import {ItemDetailComponent} from "./components/item-detail/item-detail.component";
+import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
 
 export const routes: Routes = [
   {
@@ -16,7 +17,8 @@ export const routes: Routes = [
       { path: "", component: HomepageComponent },
       { path: "post-ad", component: PostAdComponent },
       { path: "search-ad", component: SearchAdComponent },
-      { path: "item-detail", component: ItemDetailComponent }
+      { path: "item-detail", component: ItemDetailComponent },
+      { path: "manage-ad", component: ManageAdComponent }
     ]
   }
 ];
