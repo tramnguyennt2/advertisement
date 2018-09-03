@@ -50,6 +50,7 @@ import { ItemDetailComponent } from "./components/item-detail/item-detail.compon
 import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
+import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -80,7 +81,8 @@ import { RsResultComponent } from "./components/rs-result/rs-result.component";
     SideBarComponent,
     ItemDetailComponent,
     SearchAdComponent,
-    RsResultComponent
+    RsResultComponent,
+    ManageAdComponent
   ],
   providers: [
     PouchdbService,
