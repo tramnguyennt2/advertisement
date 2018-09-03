@@ -20,10 +20,18 @@
     "url": "https://github.com/tramnguyennt2/advertisement/issues"
   },
   "homepage": "https://github.com/tramnguyennt2/advertisement#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.11.0"
+  },
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
+    "content-based-recommender": "^1.3.3",
     "cors": "~2.8.3",
     "express": "^4.16.3",
-    "kafka-node": "^2.6.1"
+    "kafka-node": "^2.6.1",
+    "nano": "^7.0.0"
   }
 }

@@ -3,9 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('./route'); // for homepage
-
 const cors = require('cors');
-
 
 app.use(express.static(__dirname + '/dist/'));
 app.use(cors());
