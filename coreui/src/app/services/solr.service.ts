@@ -1,13 +1,12 @@
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class SolrService {
   solr_url = environment.solr_server + "/advertisement";
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   add(ads) {
     let headers = new HttpHeaders();
@@ -22,13 +21,24 @@ export class SolrService {
   }
 
   search(keyword, sub_cat_id, prov_id): any {
-    if(keyword.length > 0){
-      let url =
-        this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
-      return this.http.get(url);
+    // let url =
+    //   this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
+    let url = this.solr_url + "/select?q=";
+    let after_keyword = "";
+    let after_sub = "";
+    if (keyword && keyword.length > 0) {
+      url += keyword;
+      after_keyword = " AND ";
     }
-    let url =
-      this.solr_url + "/select?q=sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
+    if (sub_cat_id && sub_cat_id.length > 0) {
+      url += after_keyword + "sub_cat_id:" + sub_cat_id;
+      after_sub = " AND ";
+    }
+    if (prov_id && prov_id.length > 0) {
+      if (after_sub.length > 0) url += after_sub + "prov_id:" + prov_id;
+      else url += after_keyword + "prov_id:" + prov_id;
+    }
+    url += "&wt=json";
     return this.http.get(url);
   }
 

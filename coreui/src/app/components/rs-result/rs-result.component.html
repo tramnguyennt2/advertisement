@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <strong class="text-uppercase">Có thể bạn quan tâm</strong>
+  </div>
+  <div class="card-body">
+    <div id="new-items" class="row view-group">
+      <div class="item col-xs-12 col-md-6 col-lg-3" *ngFor="let item of items">
+        <app-item [item]="item"></app-item>
+      </div>
+    </div>
+  </div>
+</div>

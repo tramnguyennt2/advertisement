@@ -7,10 +7,12 @@ import { SolrService } from "./services/solr.service";
 import { NodeService } from "./services/node.service";
 import { CategoryService } from "./services/category.service";
 import { ItemService } from "./services/item.service";
+import { RsService } from "./services/rs.service";
 
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -42,11 +44,12 @@ import { PostAdComponent } from "./components/post-ad/post-ad.component";
 import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { NewAdsComponent } from "./components/new-ads/new-ads.component";
 import { LocDropDownComponent } from "./components/loc-drop-down/loc-drop-down.component";
-import { CatDropDownComponent } from './components/cat-drop-down/cat-drop-down.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { ItemDetailComponent } from './components/item-detail/item-detail.component';
-import { SearchAdComponent } from './components/search-ad/search-ad.component';
-import { ItemComponent } from './components/item/item.component';
+import { CatDropDownComponent } from "./components/cat-drop-down/cat-drop-down.component";
+import { SideBarComponent } from "./components/side-bar/side-bar.component";
+import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
+import { SearchAdComponent } from "./components/search-ad/search-ad.component";
+import { ItemComponent } from "./components/item/item.component";
+import { RsResultComponent } from "./components/rs-result/rs-result.component";
 @NgModule({
   imports: [
     FormsModule,
@@ -61,7 +64,8 @@ import { ItemComponent } from './components/item/item.component';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -75,14 +79,16 @@ import { ItemComponent } from './components/item/item.component';
     ItemComponent,
     SideBarComponent,
     ItemDetailComponent,
-    SearchAdComponent
+    SearchAdComponent,
+    RsResultComponent
   ],
   providers: [
     PouchdbService,
     SolrService,
     NodeService,
     CategoryService,
-    ItemService
+    ItemService,
+    RsService
   ],
   bootstrap: [AppComponent]
 })

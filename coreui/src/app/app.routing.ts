@@ -6,7 +6,7 @@ import { DefaultLayoutComponent } from "./containers";
 import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
-import {ItemDetailComponent} from "./components/item-detail/item-detail.component";
+import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
 
 export const routes: Routes = [
   {
