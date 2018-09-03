@@ -19,39 +19,42 @@
         <tbody>
         <tr>
           <td>1</td>
-          <td><a title="Bán điện thoại samsung" href="/item-detail" target="_blank">Bán điện thoại samsung</a></td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
           <td>01/01/2018</td>
           <td>1000</td>
           <td>
             <span class="badge badge-success">Hoạt động</span>
           </td>
           <td>
-            <button class="btn btn-sm btn-success" type="button">Sửa</button>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
+            <button class="btn btn-sm btn-warning" type="button">Sửa</button>
             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
           </td>
         </tr>
         <tr>
           <td>1</td>
-          <td><a title="Bán điện thoại samsung" href="/item-detail" target="_blank">Bán điện thoại samsung</a></td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
           <td>01/01/2018</td>
           <td>1000</td>
           <td>
             <span class="badge badge-warning">Đang chờ duyệt</span>
           </td>
           <td>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
             <button class="btn btn-sm btn-success" type="button">Sửa</button>
             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
           </td>
         </tr>
         <tr>
           <td>1</td>
-          <td><a title="Bán điện thoại samsung" href="/item-detail" target="_blank">Bán điện thoại samsung</a></td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
           <td>01/01/2018</td>
           <td>1000</td>
           <td>
             <span class="badge badge-danger">Bị từ chối</span>
           </td>
           <td>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
             <button class="btn btn-sm btn-success" type="button">Sửa</button>
             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
           </td>
@@ -77,6 +80,21 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Hủy</button>
         <button type="button" class="btn btn-danger">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="item-detail-modal" #detailModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="detailModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 550px; overflow-y: auto;">
+        <app-item-detail></app-item-detail>
       </div>
     </div>
   </div>

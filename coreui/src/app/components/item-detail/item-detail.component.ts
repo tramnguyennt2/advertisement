@@ -14,5 +14,10 @@ export class ItemDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
+    for (let i = 0; i < sidebarEl.length; i++) {
+      sidebarEl[i].classList.remove("sidebar-lg-show");
+    }
+  }
 }

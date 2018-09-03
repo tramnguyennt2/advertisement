@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { BsModalService } from "ngx-bootstrap/modal";
 
 @Component({
   selector: 'app-manage-ad',
@@ -9,7 +6,6 @@ import { BsModalService } from "ngx-bootstrap/modal";
   styleUrls: ['./manage-ad.component.scss']
 })
 export class ManageAdComponent implements OnInit {
-  public dangerModal;
 
   constructor() { }
 
