@@ -2,13 +2,12 @@ let express = require("express");
 let router = express.Router();
 const kafka = require("kafka-node");
 const ContentBasedRecommender = require("content-based-recommender");
-const recommender = new ContentBasedRecommender({
+const content_based = new ContentBasedRecommender({
     minScore: 0.1,
     maxSimilarDocuments: 100
 });
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
-const recommender2 = require("recommender");
 
 router.post("/catch-event", function (req, res, next) {
     let data = req.body;
@@ -45,8 +44,8 @@ router.get("/content-based/:id", function (req, res, next) {
             }
         })
         .then(() => {
-            recommender.train(documents);
-            const similarDocuments = recommender.getSimilarDocuments(
+            content_based.train(documents);
+            const similarDocuments = content_based.getSimilarDocuments(
                 req.params.id,
                 0,
                 10
@@ -56,24 +55,5 @@ router.get("/content-based/:id", function (req, res, next) {
 });
 
 router.get("/cf", function (req, res, next) {
-    let ratings = [
-        [4, 0, 0, 1, 1, 0, 0],
-        [5, 5, 4, 0, 0, 0, 0],
-        [0, 0, 0, 2, 4, 5, 0],
-        [3, 0, 0, 0, 0, 0, 3]
-    ];
-    let movieIndex = 0;
-    let userIndex = 4;
-    // We are predicting the rating of U05 for M1.
-    let predictedRating = recommender2.getRatingPrediction(
-        ratings,
-        movieIndex,
-        userIndex,
-        predictedRating => {
-            console.log(predictedRating);
-            // Output: 4
-        }
-    );
-    res.send(predictedRating);
 });
 module.exports = router;
