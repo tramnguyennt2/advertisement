@@ -19,5 +19,9 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.getItem(this.id).then(item => this.item = item);
+    let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
+    for (let i = 0; i < sidebarEl.length; i++) {
+      sidebarEl[i].classList.remove("sidebar-lg-show");
+    }
   }
 }

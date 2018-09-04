@@ -1,0 +1,103 @@
+<br/>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      <strong class="text-uppercase">Các tin đã đăng</strong>
+    </div>
+    <div class="card-body">
+      <table class="table table-responsive-sm">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tiêu đề</th>
+          <th>Ngày đăng</th>
+          <th>Lượt xem</th>
+          <th>Trạng thái</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
+          <td>01/01/2018</td>
+          <td>1000</td>
+          <td>
+            <span class="badge badge-success">Hoạt động</span>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
+            <button class="btn btn-sm btn-warning" type="button">Sửa</button>
+            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
+          <td>01/01/2018</td>
+          <td>1000</td>
+          <td>
+            <span class="badge badge-warning">Đang chờ duyệt</span>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
+            <button class="btn btn-sm btn-success" type="button">Sửa</button>
+            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><span title="Bán điện thoại samsung">Bán điện thoại samsung</span></td>
+          <td>01/01/2018</td>
+          <td>1000</td>
+          <td>
+            <span class="badge badge-danger">Bị từ chối</span>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
+            <button class="btn btn-sm btn-success" type="button">Sửa</button>
+            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="dangerModal.show()">Xóa</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="delete-post-modal" #dangerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Xóa bài viết</h4>
+        <button type="button" class="close" (click)="dangerModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa bài viết này?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Hủy</button>
+        <button type="button" class="btn btn-danger">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="item-detail-modal" #detailModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="detailModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 550px; overflow-y: auto;">
+        <app-item-detail></app-item-detail>
+      </div>
+    </div>
+  </div>
+</div>
+
+

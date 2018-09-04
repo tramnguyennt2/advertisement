@@ -1,9 +1,9 @@
-<div class="thumbnail card">
+<div class="thumbnail card" [routerLink]="['/base-item-detail']">
   <div class="img-event">
     <img class="group list-group-image img-fluid" src="http://placehold.it/250x250/000/fff" width='100%' alt="" />
   </div>
   <div class="caption card-body">
-    <h4 class="group card-title inner list-group-item-heading">
+    <h4 class="group card-title inner list-group-item-heading crop-text-2" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important;">
       {{item.title}}</h4>
     <p class="group inner list-group-item-text crop-text-2" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important;">
       {{item.content}}</p>
