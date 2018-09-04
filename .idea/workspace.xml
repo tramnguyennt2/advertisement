@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="content-based rs">
+    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/app.routing.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/route.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,39 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="route.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item-detail.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#322#328#0" expanded="true" />
-                <element signature="e#362#368#0" expanded="true" />
-                <element signature="e#369#375#0" expanded="true" />
-                <element signature="e#443#449#0" expanded="true" />
-                <element signature="e#483#489#0" expanded="true" />
-                <element signature="e#490#496#0" expanded="true" />
-                <element signature="e#557#563#0" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#2250#2256#0" expanded="true" />
-                <element signature="e#2256#2262#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#2418#2424#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#2599#2605#0" expanded="true" />
-                <element signature="n#style#0;n#iframe#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="76" column="3" lean-forward="true" selection-start-line="76" selection-start-column="3" selection-end-line="76" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -154,11 +133,11 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/couchdb.js" />
         <option value="$PROJECT_DIR$/node_modules/content-based-recommender/lib/ContentBasedRecommender.js" />
-        <option value="$PROJECT_DIR$/route.js" />
-        <option value="$PROJECT_DIR$/coreui/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/route.js" />
       </list>
     </option>
   </component>
@@ -197,41 +176,6 @@
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="item-detail" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -402,7 +346,7 @@
       <workItem from="1535934331900" duration="278000" />
       <workItem from="1535963471675" duration="862000" />
       <workItem from="1535987008325" duration="819000" />
-      <workItem from="1536051109946" duration="340000" />
+      <workItem from="1536051109946" duration="2474000" />
     </task>
     <task id="LOCAL-00001" summary="mess">
       <created>1528171338148</created>
@@ -691,14 +635,22 @@
       <option name="project" value="LOCAL" />
       <updated>1535963785912</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="add cf recommender">
+      <created>1536051491206</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1536051491206</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165178000" />
+    <option name="totallyTimeSpent" value="167312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
@@ -706,9 +658,9 @@
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32768363" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37714285" />
       <window_info id="npm" order="6" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3516949" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20026438" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.122934565" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="7" side_tool="true" />
@@ -784,7 +736,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/app.module.ts&#10;#&#9;coreui/src/app/components/cat-drop-down/cat-drop-down.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts&#10;#&#9;coreui/src/app/components/search-ad/search-ad.component.ts&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts" />
     <MESSAGE value="search" />
     <MESSAGE value="content-based rs" />
-    <option name="LAST_COMMIT_MESSAGE" value="content-based rs" />
+    <MESSAGE value="add cf recommender" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cf recommender" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -998,13 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/content-based-recommender/lib/ContentBasedRecommender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1012,24 +958,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1052,36 +984,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
+        <state relative-caret-position="170">
           <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
+    <entry file="file://$PROJECT_DIR$/node_modules/content-based-recommender/lib/ContentBasedRecommender.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#322#328#0" expanded="true" />
-            <element signature="e#362#368#0" expanded="true" />
-            <element signature="e#369#375#0" expanded="true" />
-            <element signature="e#443#449#0" expanded="true" />
-            <element signature="e#483#489#0" expanded="true" />
-            <element signature="e#490#496#0" expanded="true" />
-            <element signature="e#557#563#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2250#2256#0" expanded="true" />
-            <element signature="e#2256#2262#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2418#2424#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2599#2605#0" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="148" column="2" selection-start-line="148" selection-start-column="2" selection-end-line="148" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="76" column="3" lean-forward="true" selection-start-line="76" selection-start-column="3" selection-end-line="76" selection-end-column="3" />
         </state>
       </provider>
     </entry>
