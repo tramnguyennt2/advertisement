@@ -6,14 +6,16 @@ export class Item {
   sub_cat_id?: string;
   sub_cat?: string;
   loc_id?: string;
+  loc?: string;
   prov_id?: string;
-  price?: number;
+  prov?: string;
+  price?: string;
   couchdb_id?: string;
   created_at: string;
   type: string;
 
-  constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string,
-              sub_cat?: string, loc_id?: string, prov_id?: string, price?: number, couchdb_id?: string) {
+  constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string, sub_cat?: string,
+              loc_id?: string, loc?: string, prov_id?: string, prov?: string, price?: string, couchdb_id?: string) {
     if (title) {
       this.title = title;
     }
@@ -35,10 +37,16 @@ export class Item {
     if (loc_id) {
       this.loc_id = loc_id;
     }
+    if (loc) {
+      this.loc = loc;
+    }
     if (prov_id) {
       this.prov_id = prov_id;
     }
-    if (price > 0) {
+    if (prov) {
+      this.prov = prov;
+    }
+    if (price) {
       this.price = price;
     }
     if (couchdb_id) {
@@ -46,6 +54,23 @@ export class Item {
     }
     let now = new Date();
     this.created_at = now.toISOString();
+    this.type = "item";
+  }
+
+  setItem(obj) {
+    this.title = obj.title;
+    this.content = obj.content;
+    this.cat_id = obj.cat_id;
+    this.cat = obj.cat;
+    this.sub_cat_id = obj.sub_cat_id;
+    this.sub_cat = obj.sub_cat;
+    this.loc_id = obj.loc_id;
+    this.loc = obj.loc;
+    this.prov_id = obj.prov_id;
+    this.prov = obj.prov;
+    this.price = obj.price;
+    this.couchdb_id = obj.couchdb_id;
+    this.created_at = obj.created_at;
     this.type = "item";
   }
 }

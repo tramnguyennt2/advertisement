@@ -18,7 +18,7 @@ export const routes: Routes = [
       { path: "post-ad", component: PostAdComponent },
       { path: "search-ad", component: SearchAdComponent },
       { path: "manage-ad", component: ManageAdComponent },
-      { path: "base-item-detail", component: BaseItemDetailComponent },
+      { path: "item-detail", component: BaseItemDetailComponent },
 ]
   }
 ];

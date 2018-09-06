@@ -9,6 +9,7 @@ import {mouseenterLevel2} from "../../common";
 })
 export class LocDropDownComponent implements OnInit {
   locs = [];
+  loc_str: string;
   loc_id = 0;
   loc: string = "Khu vực";
   @Output()
@@ -35,7 +36,12 @@ export class LocDropDownComponent implements OnInit {
     let curEl = event.currentTarget;
     const cls = ["active", "current-level-2"];
     curEl.classList.add(cls);
-    this.provClick.emit({prov_id: curEl.id, loc_id: this.loc_id});
+    this.provClick.emit({
+      prov_id: curEl.id,
+      prov: curEl.innerHTML,
+      loc_id: this.loc_id,
+      loc: this.loc_str
+    });
     this.loc = curEl.innerHTML;
   }
 
@@ -49,6 +55,7 @@ export class LocDropDownComponent implements OnInit {
     event.currentTarget.classList.add("active");
     let newEl = event.currentTarget.parentElement;
     this.loc_id = newEl.id;
+    this.loc_str = newEl.firstElementChild.innerHTML;
     newEl.classList.add("current-level-1");
     newEl.children[1].classList.add("show");
   }

@@ -52,9 +52,16 @@ export class ItemService {
           return new Item(
             row.doc.title,
             row.doc.content,
-            row.doc.area,
-            row.doc.category,
-            row.doc.price
+            row.doc.cat_id,
+            row.doc.cat,
+            row.doc.sub_cat_id,
+            row.doc.sub_cat,
+            row.doc.loc_id,
+            row.doc.loc,
+            row.doc.prov_id,
+            row.doc.prov,
+            row.doc.price,
+            row.doc._id
           );
         });
         latestItemsSubject.next(latestItems);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import {ItemService} from "../../services/item.service";
 import {Item} from "../../item";
@@ -9,16 +9,16 @@ import {Item} from "../../item";
   styleUrls: ["./item-detail.component.scss"]
 })
 export class ItemDetailComponent implements OnInit {
-  item: Item;
-  id: string;
-  constructor(private route: ActivatedRoute, private itemService: ItemService) {
-    this.route.queryParams.subscribe(params => {
-      this.id = params.id;
-    });
+  @Input() id;
+  item = new Item();
+  constructor(private itemService: ItemService) {
+
   }
 
   ngOnInit() {
-    this.itemService.getItem(this.id).then(item => this.item = item);
+    this.itemService.getItem(this.id).then(item => {
+      this.item.setItem(item);
+    });
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");

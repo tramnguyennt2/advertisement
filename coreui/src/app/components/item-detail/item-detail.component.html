@@ -1,28 +1,17 @@
-<h4>Bán gấp điện thoại di động giá rẻ</h4>
+<h4>{{item.title}}</h4>
 <div class="row align-items-center" style="margin-left: 5px">
   <i class="fa fa-clock-o"></i>
-  <i>&nbsp;1 giờ trước</i>
+  <i>&nbsp;{{item.created_at | date: "dd-MM-yyyy hh:mm"}}</i>
   <span>&nbsp;-&nbsp;</span>
   <i class="fa fa-map-marker"></i>
-  <i>&nbsp;Hồ Chí Minh</i>
-  <span>&nbsp;-&nbsp;</span>
-  <i class="fa fa-eye"></i>
-  <i>&nbsp;1000 lượt xem</i>
+  <i>&nbsp;{{item.prov}}</i>
 </div>
 <br/>
 
 <div class="text-justify">
-  Perhaps you have wondered how predictable machines like computers can generate randomness. In reality, most random numbers
-  used in computer programs are pseudo-random, which means they are generated in a predictable fashion using a
-  mathematical formula. This is fine for many purposes, but it may not be random in the way you expect if you're
-  used to dice rolls and lottery drawings. RANDOM.ORG offers true random numbers to anyone on the Internet. The
-  randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms
-  typically used in computer programs. People use RANDOM.ORG for holding drawings, lotteries and sweepstakes, to
-  drive online games, for scientific applications and for art and music. The service has existed since 1998 and
-  was built by Dr Mads Haahr of the School of Computer Science and Statistics at Trinity College, Dublin in Ireland.
-  Today, RANDOM.ORG is operated by Randomness and Integrity Services Ltd.
+  {{item.content}}
 </div>
-<div>Giá: <span class="text-danger">1.000.000 đồng</span></div>
+<div>Giá: <span class="text-danger">{{item.price}} VND</span></div>
 <hr/>
 <h5 class="text-uppercase">Thông tin liên hệ</h5>
 <div class="row">

@@ -11,7 +11,7 @@ import {SolrService} from "../../services/solr.service";
 export class PostAdComponent implements OnInit {
   item = new Item();
 
-  constructor(private itemService: ItemService, private solr: SolrService) {
+  constructor(private itemService: ItemService) {
   }
 
   ngOnInit() {
@@ -23,7 +23,9 @@ export class PostAdComponent implements OnInit {
 
   getLocationAndProvId(param) {
     this.item.loc_id = param.loc_id;
+    this.item.loc = param.loc;
     this.item.prov_id = param.prov_id;
+    this.item.prov = param.prov;
   }
 
   getCatAndSubCatId(param) {

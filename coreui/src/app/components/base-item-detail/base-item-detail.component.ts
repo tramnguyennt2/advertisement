@@ -7,7 +7,6 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./base-item-detail.component.scss']
 })
 export class BaseItemDetailComponent implements OnInit {
-
   id: string;
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
