@@ -22,6 +22,8 @@ import { AppComponent } from "./app.component";
 
 // Import containers
 import { DefaultLayoutComponent } from "./containers";
+import { BaseItemDetailComponent } from './containers/base-item-detail/base-item-detail.component';
+import { HomepageComponent } from "./containers/homepage/homepage.component";
 
 const APP_CONTAINERS = [DefaultLayoutComponent];
 
@@ -41,7 +43,7 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { ChartsModule } from "ng2-charts/ng2-charts";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
-import { HomepageComponent } from "./containers/homepage/homepage.component";
+
 import { NewAdsComponent } from "./components/new-ads/new-ads.component";
 import { LocDropDownComponent } from "./components/loc-drop-down/loc-drop-down.component";
 import { CatDropDownComponent } from "./components/cat-drop-down/cat-drop-down.component";
@@ -51,7 +53,7 @@ import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
 import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
-import { BaseItemDetailComponent } from './components/base-item-detail/base-item-detail.component';
+
 @NgModule({
   imports: [
     FormsModule,
