@@ -1,7 +1,6 @@
 export class UserBehavior {
   user = 1;
-  kind = 'user_behavior';
+  kind = "rating";
 
-  constructor(public item: number) {
-  }
+  constructor(public item: number) {}
 }

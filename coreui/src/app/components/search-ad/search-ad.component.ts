@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { CategoryService } from "../../services/category.service";
 import { SolrService } from "../../services/solr.service";
 import { Item } from "../../item";
+import { UserBehavior } from "../../user-behavior";
 
 @Component({
   selector: "app-search-ad",
@@ -10,10 +10,10 @@ import { Item } from "../../item";
   styleUrls: ["./search-ad.component.scss"]
 })
 export class SearchAdComponent implements OnInit {
-  sub_cat_name: string;
   keyword: string;
   total: number = 0;
   items = [];
+  rating: UserBehavior;
 
   constructor(private route: ActivatedRoute, private solr: SolrService) {}
 
@@ -24,13 +24,6 @@ export class SearchAdComponent implements OnInit {
     });
 
     document.querySelector("body").classList.add("sidebar-lg-show");
-
-    // let sidebarEl = document.getElementsByClassName("nav-dropdown");
-    // for (let i = 0; i < sidebarEl.length; i++) {
-    //   sidebarEl[i].classList.remove("open");
-    //   console.log(sidebarEl[i])
-    // }
-    // console.log(sidebarEl)
   }
 
   searchDocument(keyword, sub_cat_id, prov_id) {
@@ -46,19 +39,20 @@ export class SearchAdComponent implements OnInit {
           doc.sub_cat_id[0],
           doc.sub_cat[0],
           doc.loc_id[0],
+          doc.loc[0],
           doc.prov_id[0],
+          doc.prov[0],
           doc.price[0],
           doc.couchdb_id[0]
         );
-        this.sub_cat_name = doc.sub_cat[0];
         this.items.push(item);
       });
       this.total = this.items.length;
     });
   }
 
-  // saveUserBehavior(item_id) {
-  //   this.behavior.item = item_id;
-  //   this.nodejs.post(this.behavior).subscribe(res => console.log(res));
-  // }
+  saveUserBehavior(item_id) {
+    this.rating.item = item_id;
+    // this.nodejs.post(this.behavior).subscribe(res => console.log(res));
+  }
 }

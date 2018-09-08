@@ -44,12 +44,14 @@ router.get("/content-based/:id", function(req, res, next) {
       }
     })
     .then(() => {
+      console.log(documents);
       content_based.train(documents);
       const similarDocuments = content_based.getSimilarDocuments(
         req.params.id,
         0,
-        10
+        5
       );
+      console.log(similarDocuments);
       res.send(similarDocuments);
     });
 });
