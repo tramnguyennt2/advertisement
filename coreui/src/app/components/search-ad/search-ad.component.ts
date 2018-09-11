@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { SolrService } from "../../services/solr.service";
 import { Item } from "../../item";
-import { UserBehavior } from "../../user-behavior";
 
 @Component({
   selector: "app-search-ad",
@@ -13,7 +12,6 @@ export class SearchAdComponent implements OnInit {
   keyword: string;
   total: number = 0;
   items = [];
-  rating: UserBehavior;
 
   constructor(private route: ActivatedRoute, private solr: SolrService) {}
 
@@ -49,10 +47,5 @@ export class SearchAdComponent implements OnInit {
       });
       this.total = this.items.length;
     });
-  }
-
-  saveUserBehavior(item_id) {
-    this.rating.item = item_id;
-    // this.nodejs.post(this.behavior).subscribe(res => console.log(res));
   }
 }

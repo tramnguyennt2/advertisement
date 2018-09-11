@@ -13,9 +13,24 @@ export class Item {
   couchdb_id?: string;
   created_at: string;
   type: string;
+  user_id?: string;
 
-  constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string, sub_cat?: string,
-              loc_id?: string, loc?: string, prov_id?: string, prov?: string, price?: string, couchdb_id?: string) {
+  constructor(
+    title?: string,
+    content?: string,
+    cat_id?: string,
+    cat?: string,
+    sub_cat_id?: string,
+    sub_cat?: string,
+    loc_id?: string,
+    loc?: string,
+    prov_id?: string,
+    prov?: string,
+    price?: string,
+    couchdb_id?: string,
+    user_id?: string,
+    _id?: string
+  ) {
     if (title) {
       this.title = title;
     }
@@ -52,6 +67,12 @@ export class Item {
     if (couchdb_id) {
       this.couchdb_id = couchdb_id;
     }
+    if (_id) {
+      this.couchdb_id = _id;
+    }
+    if (user_id) {
+      this.user_id = user_id;
+    }
     let now = new Date();
     this.created_at = now.toISOString();
     this.type = "item";
@@ -69,7 +90,12 @@ export class Item {
     this.prov_id = obj.prov_id;
     this.prov = obj.prov;
     this.price = obj.price;
-    this.couchdb_id = obj.couchdb_id;
+    this.user_id = obj.user_id;
+    if (obj.couchdb_id) {
+      this.couchdb_id = obj.couchdb_id;
+    } else {
+      this.couchdb_id = obj._id;
+    }
     this.created_at = obj.created_at;
     this.type = "item";
   }

@@ -3,6 +3,8 @@ import { Subject } from "rxjs/Subject";
 import { PouchdbService } from "./pouchdb.service";
 import { Item } from "../item";
 import { SolrService } from "./solr.service";
+import "rxjs/add/observable/fromPromise";
+import { UserBehavior } from "../user-behavior";
 
 @Injectable()
 export class ItemService {
@@ -27,14 +29,38 @@ export class ItemService {
   // add to CouchDB
   add(item) {
     this.pouchdb.db.post(item, function(err, response) {
+      console.log("add resp: ", response);
       if (err) {
         return console.log(err);
       }
     });
   }
 
-  getItem(id): Promise<Item> {
+  getItem(id: string) {
     return this.pouchdb.db.get(id);
+  }
+
+  getItemOfRating(rating: UserBehavior) {
+    let ratingSubject: any = new Subject();
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: rating.type,
+          item_id: rating.item_id,
+          user_id: rating.user_id
+        }
+      })
+      .then(result => {
+        if (result.docs.length > 0) {
+          ratingSubject.next(result.docs[0]);
+        } else {
+          ratingSubject.next(null);
+        }
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+    return ratingSubject;
   }
 
   getLastestItems() {
@@ -67,5 +93,23 @@ export class ItemService {
         latestItemsSubject.next(latestItems);
       });
     return latestItemsSubject;
+  }
+
+  updateRating(rating) {
+    this.pouchdb.db
+      .put({
+        _id: rating._id,
+        _rev: rating._rev,
+        user_id: rating.user_id,
+        item_id: rating.item_id,
+        rating: rating.rating + 1,
+        type: "rating"
+      })
+      .then(function(response) {
+        console.log("update resp: ", response);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 }

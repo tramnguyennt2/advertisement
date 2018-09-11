@@ -6,8 +6,8 @@ import { DefaultLayoutComponent } from "./containers";
 import { HomepageComponent } from "./containers/homepage/homepage.component";
 import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
-import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
-import { BaseItemDetailComponent } from './containers/base-item-detail/base-item-detail.component';
+import { ManageAdComponent } from "./components/manage-ad/manage-ad.component";
+import { BaseItemDetailComponent } from "./containers/base-item-detail/base-item-detail.component";
 
 export const routes: Routes = [
   {
@@ -18,8 +18,8 @@ export const routes: Routes = [
       { path: "post-ad", component: PostAdComponent },
       { path: "search-ad", component: SearchAdComponent },
       { path: "manage-ad", component: ManageAdComponent },
-      { path: "item-detail", component: BaseItemDetailComponent },
-]
+      { path: "item-detail", component: BaseItemDetailComponent }
+    ]
   }
 ];
 

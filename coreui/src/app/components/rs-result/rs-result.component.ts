@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { RsService } from "../../services/rs.service";
 import { ItemService } from "../../services/item.service";
+import { Item } from "../../item";
 
 @Component({
   selector: "app-rs-result",
@@ -14,11 +15,15 @@ export class RsResultComponent implements OnInit {
   constructor(private rsService: RsService, private itemService: ItemService) {}
 
   ngOnInit() {
-    this.rsService
-      .getItemContentBased(this.id)
-      .subscribe(items_rs =>
-        this.getItemRs(items_rs).then(items => (this.items = items))
-      );
+    this.rsService.getItemContentBased(this.id).subscribe(items_rs =>
+      this.getItemRs(items_rs).then(items => {
+        for (let i = 0; i < items.length; i++) {
+          let item = new Item();
+          item.setItem(items[i]);
+          this.items.push(item);
+        }
+      })
+    );
   }
 
   async getItemRs(items_rs) {
