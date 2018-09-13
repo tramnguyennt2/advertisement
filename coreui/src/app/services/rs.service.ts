@@ -8,7 +8,11 @@ import { HttpClient } from "@angular/common/http";
 export class RsService {
   constructor(private http: HttpClient) {}
 
-  getItemContentBased(id): Observable<any> {
-    return this.http.get("http://localhost:3000/content-based/" + id);
+  getItemContentBased(item_id): Observable<any> {
+    return this.http.get("http://localhost:3000/content-based/" + item_id);
+  }
+
+  getItemCollaborativeFiltering(user_id): Observable<any> {
+    return this.http.get("http://localhost:3000/cf/" + user_id);
   }
 }

@@ -16,7 +16,7 @@ export class RsResultComponent implements OnInit {
 
   ngOnInit() {
     this.rsService.getItemContentBased(this.id).subscribe(items_rs =>
-      this.getItemRs(items_rs).then(items => {
+      this.getItemCBRs(items_rs).then(items => {
         for (let i = 0; i < items.length; i++) {
           let item = new Item();
           item.setItem(items[i]);
@@ -24,12 +24,31 @@ export class RsResultComponent implements OnInit {
         }
       })
     );
+    // this.rsService.getItemCollaborativeFiltering(5).subscribe(items_rs =>
+    //   this.getItemCFRs(items_rs).then(items => {
+    //     for (let i = 0; i < items.length; i++) {
+    //       let item = new Item();
+    //       item.setItem(items[i]);
+    //       this.items.push(item);
+    //     }
+    //   })
+    // );
   }
 
-  async getItemRs(items_rs) {
+  async getItemCBRs(items_rs) {
     let items = [];
     for (const item of items_rs) {
       const contents = await this.itemService.getItem(item.id).then(item => {
+        return item;
+      });
+      items.push(contents);
+    }
+    return items;
+  }
+  async getItemCFRs(items_rs) {
+    let items = [];
+    for (const item of items_rs) {
+      const contents = await this.itemService.getItem(item.itemId).then(item => {
         return item;
       });
       items.push(contents);
