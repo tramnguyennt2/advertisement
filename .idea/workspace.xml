@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/route.js" afterDir="false" />
-    </list>
+    <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rs-result.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rs-result.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="288">
+              <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -32,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="item-detail.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="item-detail.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+            <state relative-caret-position="408">
+              <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -164,8 +158,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/route.js" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
       </list>
     </option>
   </component>
@@ -189,7 +183,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -414,14 +408,7 @@
       <workItem from="1536369932408" duration="2775000" />
       <workItem from="1536657815399" duration="6918000" />
       <workItem from="1536832767147" duration="1621000" />
-      <workItem from="1536834680101" duration="1251000" />
-    </task>
-    <task id="LOCAL-00004" summary="mess">
-      <created>1528293895546</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1528293895546</updated>
+      <workItem from="1536834680101" duration="1411000" />
     </task>
     <task id="LOCAL-00005" summary="mess">
       <created>1528293983177</created>
@@ -759,18 +746,24 @@
       <option name="project" value="LOCAL" />
       <updated>1536833683701</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="handle collaborative filtering">
+      <created>1536836144528</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1536836144529</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194348000" />
+    <option name="totallyTimeSpent" value="194508000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21480502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21480502" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -778,7 +771,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.37714285" />
       <window_info id="npm" order="6" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2937853" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23446327" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
@@ -1133,13 +1126,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/services/rs.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1155,11 +1141,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="288">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
         </state>
       </provider>
     </entry>
