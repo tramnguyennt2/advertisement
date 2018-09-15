@@ -22,7 +22,12 @@
       <button class="btn btn-block btn-danger" [routerLink]="['/post-ad']">Đăng tin ngay</button>
     </div>
   </div>
-  <ul class="nav navbar-nav ml-auto">
+  <div class="ml-auto">
+    <a href="#" (click)="logInModal.show()">Đăng nhập</a>
+    <span>&nbsp;hoặc&nbsp;</span>
+    <a href="#" (click)="registerModal.show()">Đăng ký</a>
+  </div>
+  <ul hidden class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
          dropdownToggle
@@ -62,20 +67,94 @@
     <a href="https://coreui.io">SBthings</a> &copy; 2018</span>
 </app-footer>
 
-<!--<script>-->
-<!--$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {-->
-<!--if (!$(this).next().hasClass('show')) {-->
-<!--$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");-->
-<!--}-->
-<!--var $subMenu = $(this).next(".dropdown-menu");-->
-<!--$subMenu.toggleClass('show');-->
+<div bsModal id="log-in" #logInModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng nhập</h4>
+        <button type="button" class="close" (click)="logInModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-user"></i>
+            </span>
+          </div>
+          <input class="form-control" type="text" placeholder="Email...">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu...">
+        </div>
+        <div class="input-group mb-4">
+          <span>Bạn chưa có tài khoản?&nbsp;</span>
+          <a href="#" (click)="logInModal.hide(); registerModal.show();">Đăng ký ngay</a>
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="logInModal.hide()">Hủy</button>
+            <button class="btn btn-primary ml-auto">Đăng nhập</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-<!--$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {-->
-<!--$('.dropdown-submenu .show').removeClass("show");-->
-<!--});-->
-
-
-<!--return false;-->
-<!--});-->
-<!--</script>-->
+<div bsModal id="register" #registerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng ký tài khoản</h4>
+        <button type="button" class="close" (click)="registerModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-user"></i>
+            </span>
+          </div>
+          <input class="form-control" type="text" placeholder="Tên hiển thị...">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input class="form-control" type="text" placeholder="Email...">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu...">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Nhập lại mật khẩu...">
+        </div>
+        <div class="input-group mb-4">
+          <span>Bạn đã có tài khoản?&nbsp;</span>
+          <a href="#" (click)="registerModal.hide(); logInModal.show();">Đăng nhập ngay</a>
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="registerModal.hide()">Hủy</button>
+            <button class="btn btn-primary">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
