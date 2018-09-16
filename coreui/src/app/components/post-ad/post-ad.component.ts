@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Item} from "../../item";
 import {ItemService} from "../../services/item.service";
 import {SolrService} from "../../services/solr.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-post-ad",
@@ -10,11 +11,15 @@ import {SolrService} from "../../services/solr.service";
 })
 export class PostAdComponent implements OnInit {
   item = new Item();
+  user_id: null;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.user_id = params.user_id;
+    });
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");
