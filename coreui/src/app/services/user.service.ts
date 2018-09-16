@@ -29,7 +29,11 @@ export class UserService {
     });
   }
 
-  getUser(email: string, password: string){
+  getUser(id: string) {
+    return this.pouchdb.db.get(id);
+  }
+
+  loginUser(email: string, password: string){
     var userSubject: any = new Subject();
     this.pouchdb.db
       .find({

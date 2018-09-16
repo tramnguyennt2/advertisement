@@ -62,7 +62,7 @@ export class DefaultLayoutComponent{
   }
 
   login(){
-    this.userService.getUser(this.email, this.password).subscribe(res => {
+    this.userService.loginUser(this.email, this.password).subscribe(res => {
       if(!res){
         this.errorLoginData = true;
         return false;
@@ -84,7 +84,7 @@ export class DefaultLayoutComponent{
         return false;
       } else {
         this.existEmail = false;
-        if(!this.user.email || !this.user.password || !this.user.fullname || !this.confirmPassword){
+        if(!this.user.email || !this.user.password || !this.user.fullname || !this.user.phone || !this.user.address || !this.confirmPassword){
           this.missingRegisterData = true;
           return false;
         } else{

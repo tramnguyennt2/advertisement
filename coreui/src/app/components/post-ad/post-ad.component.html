@@ -53,19 +53,18 @@
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="name-user">Tên</label>
           <div class="col-md-4">
-            <input disabled class="form-control" id="name-user" name="name-user" placeholder="Nguyễn Văn An">
+            <input class="form-control" id="name-user" name="name-user" value="{{user.fullname}}"/>
           </div>
           <div class="col-md-1"></div>
           <label class="col-md-2 col-form-label" for="phone-user">Số điện thoại</label>
           <div class="col-md-3">
-            <input disabled class="form-control" id="phone-user" name="phone-user" placeholder="01234567890">
+            <input class="form-control" id="phone-user" name="phone-user" value="{{user.phone}}"/>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="itemdress-user" name="itemdress-user" placeholder=""
-                   value="Quận Thủ Đức, TPHCM">
+            <input class="form-control" id="itemdress-user" name="itemdress-user" value="{{user.address}}"/>
           </div>
         </div>
       </form>

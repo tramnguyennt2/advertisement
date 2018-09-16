@@ -44,8 +44,8 @@ export class User {
     this.email = obj.email;
     this.password = obj.password;
     this.fullname = obj.fullname;
-    //this.phone = obj.phone;
-    //this.address = obj.address;
+    this.phone = obj.phone;
+    this.address = obj.address;
     this.role = "user";
     this.type = "user";
   }
