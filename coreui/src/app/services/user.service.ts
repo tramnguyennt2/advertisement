@@ -47,9 +47,30 @@ export class UserService {
         }
       })
       .catch(function(err) {
-        return console.log(err);
+        console.log(err);
       });
     return userSubject;
   }
 
+  checkEmail(email: string){
+    var userSubject: any = new Subject();
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'user',
+          email: email
+        }
+      })
+      .then(result => {
+        if (result.docs.length > 0) {
+          userSubject.next(result.docs[0]);
+        } else {
+          userSubject.next(null);
+        }
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+    return userSubject;
+  }
 }

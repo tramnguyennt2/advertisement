@@ -33,8 +33,8 @@
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
          dropdownToggle
          (click)="false">
+        Xin chào <strong class="text-primary">{{user.fullname}}</strong>
         <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
-        <strong class="text-info">{{user.fullname}}</strong>
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
@@ -133,7 +133,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">@</span>
           </div>
-          <input id="email-user" class="form-control" type="text" placeholder="Email..." [(ngModel)]="email">
+          <input id="email-user" class="form-control" type="text" placeholder="Email..." [(ngModel)]="user.email">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -141,7 +141,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input id="password-user" class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password">
+          <input id="password-user" class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="user.password">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -189,7 +189,6 @@
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="requestLoginModal.hide()">Quay lại</button>
             <button class="btn btn-warning" (click)="requestLoginModal.hide(); loginModal.show();">Đăng nhập</button>
           </div>
-
         </div>
       </div>
     </div>

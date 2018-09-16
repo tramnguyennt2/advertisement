@@ -78,24 +78,32 @@ export class DefaultLayoutComponent{
   }
 
   register(){
-    if(this.user.password != this.confirmPassword){
-      this.errorConfirmPassword = true;
-      return false;
-    } else {
-      this.errorConfirmPassword = false;
-    }
-    if(!this.user.email || !this.user.password || !this.user.fullname){
-      this.missingRegisterData = true;
-      return false;
-    } else{
-      this.missingRegisterData = false;
-    }
-    let a = this.userService.addUser(this.user);
-    document.getElementById('register-modal').classList.remove('show');
-    let modalEl = document.getElementsByTagName('bs-modal-backdrop');
-    modalEl[0].classList.remove('show');
-    let bodyEl = document.getElementsByTagName('body');
-    bodyEl[0].classList.remove('modal-open');
+    this.userService.checkEmail(this.user.email).subscribe(res => {
+      if(res) {
+        this.existEmail = true;
+        return false;
+      } else {
+        this.existEmail = false;
+        if(!this.user.email || !this.user.password || !this.user.fullname || !this.confirmPassword){
+          this.missingRegisterData = true;
+          return false;
+        } else{
+          this.missingRegisterData = false;
+          if(this.user.password != this.confirmPassword){
+            this.errorConfirmPassword = true;
+            return false;
+          } else {
+            this.errorConfirmPassword = false;
+            let a = this.userService.addUser(this.user);
+            document.getElementById('register-modal').classList.remove('show');
+            let modalEl = document.getElementsByTagName('bs-modal-backdrop');
+            modalEl[0].classList.remove('show');
+            let bodyEl = document.getElementsByTagName('body');
+            bodyEl[0].classList.remove('modal-open');
+          }
+        }
+      }
+    });
   }
 
   logout(){
