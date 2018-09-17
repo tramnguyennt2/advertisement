@@ -5,6 +5,7 @@ import {SolrService} from "../../services/solr.service";
 import { ActivatedRoute } from "@angular/router";
 import {User} from "../../user";
 import {UserService} from "../../services/user.service";
+import {Location} from '@angular/common';
 
 @Component({
   selector: "app-post-ad",
@@ -15,8 +16,11 @@ export class PostAdComponent implements OnInit {
   item = new Item();
   user = new User();
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute, private userService: UserService) {
-  }
+  constructor(private itemService: ItemService,
+              private route: ActivatedRoute,
+              private userService: UserService,
+              private _location: Location
+  ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -46,7 +50,27 @@ export class PostAdComponent implements OnInit {
   }
 
   handleAddNewItem() {
+    this.item.price = this.item.price.replace(/,/g,'');
     //insert to couchdb and solr
     let a = this.itemService.addItem(this.item);
+  }
+
+  keyupPrice(){
+    var price = this.item.price.replace(/[^0-9]/g,'');
+    var arr = [];
+    while(price.length > 3){
+      arr.push(price.slice(-3));
+      price = price.slice(0,price.length-3);
+    }
+    arr.push(price);
+    var newPrice = '';
+    arr.map(str => {
+      newPrice = '.' + str + newPrice;
+    });
+    this.item.price = newPrice.slice(1);
+  }
+
+  cancel() {
+    this._location.back();
   }
 }
