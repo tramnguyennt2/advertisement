@@ -11,30 +11,30 @@
         </div>
         <br/>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label">Danh mục</label>
+          <label class="col-md-2 col-form-label">Danh mục<span class="text-danger">&nbsp;*</span></label>
           <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown></app-cat-drop-down>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label">Khu vực</label>
+          <label class="col-md-2 col-form-label">Khu vực<span class="text-danger">&nbsp;*</span></label>
           <app-loc-drop-down class="input-group-prepend col-md-4" (provClick)="getLocationAndProvId($event)" dropdown></app-loc-drop-down>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="title-item">Tiêu đề</label>
+          <label class="col-md-2 col-form-label" for="title-item">Tiêu đề<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-10">
             <input class="form-control" id="title-item" type="text" name="title-item" [(ngModel)]="item.title">
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="price-item">Giá cả</label>
+          <label class="col-md-2 col-form-label" for="price-item">Giá cả<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-3">
             <div class="input-group">
               <input class="form-control col-9" id="price-item" type="text" name="price-item" (keyup)="keyupPrice()" [(ngModel)]="item.price">
-              <input class="form-control col-3 text-center" type="text" disabled value="VNĐ">
+              <input class="form-control col-3 text-center" style="min-width: 70px" type="text" disabled value="VNĐ">
             </div>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="content-item">Mô tả chi tiết</label>
+          <label class="col-md-2 col-form-label" for="content-item">Mô tả chi tiết<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-10">
             <textarea class="form-control" name="content-item" type="textarea" id="content-item"
                       [(ngModel)]="item.content" rows="10">
@@ -53,22 +53,23 @@
         </div>
         <br/>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="name-user">Tên</label>
+          <label class="col-md-2 col-form-label" for="name-user">Tên<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-4">
             <input class="form-control" id="name-user" name="name-user" value="{{user.fullname}}"/>
           </div>
           <div class="col-md-1"></div>
-          <label class="col-md-2 col-form-label" for="phone-user">Số điện thoại</label>
+          <label class="col-md-2 col-form-label" for="phone-user">Số điện thoại<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-3">
             <input class="form-control" id="phone-user" name="phone-user" value="{{user.phone}}"/>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ</label>
+          <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ<span class="text-danger">&nbsp;*</span></label>
           <div class="col-md-10">
             <input class="form-control" id="itemdress-user" name="itemdress-user" value="{{user.address}}"/>
           </div>
         </div>
+        <div *ngIf="missingValue" class="col-md-12 text-danger row">Vui lòng điền đầy đủ thông tin!</div>
       </form>
     </div>
     <div class="card-footer">

@@ -15,6 +15,7 @@ import {Location} from '@angular/common';
 export class PostAdComponent implements OnInit {
   item = new Item();
   user = new User();
+  missingValue = false;
 
   constructor(private itemService: ItemService,
               private route: ActivatedRoute,
@@ -50,9 +51,15 @@ export class PostAdComponent implements OnInit {
   }
 
   handleAddNewItem() {
-    this.item.price = this.item.price.replace(/,/g,'');
-    //insert to couchdb and solr
-    let a = this.itemService.addItem(this.item);
+    if(!this.item.loc_id || !this.item.prov_id || !this.item.title || !this.item.price || !this.item.content){
+      this.missingValue = true;
+      return false;
+    } else{
+      this.missingValue = false;
+      this.item.price = this.item.price.replace(/,/g,'');
+      //insert to couchdb and solr
+      let a = this.itemService.addItem(this.item);
+    }
   }
 
   keyupPrice(){
