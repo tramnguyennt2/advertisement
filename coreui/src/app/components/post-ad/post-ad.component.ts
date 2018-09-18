@@ -28,8 +28,8 @@ export class PostAdComponent implements OnInit {
       this.userService.getUser(params.user_id).then(res => {
         this.user.setUser(res);
       });
+      this.item.user_id = params.user_id;
     });
-    console.log(this.user)
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");
@@ -72,7 +72,7 @@ export class PostAdComponent implements OnInit {
     arr.push(price);
     var newPrice = '';
     arr.map(str => {
-      newPrice = '.' + str + newPrice;
+      newPrice = ',' + str + newPrice;
     });
     this.item.price = newPrice.slice(1);
   }

@@ -53,20 +53,20 @@
         </div>
         <br/>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="name-user">Tên<span class="text-danger">&nbsp;*</span></label>
+          <label class="col-md-2 col-form-label" for="name-user">Tên</label>
           <div class="col-md-4">
-            <input class="form-control" id="name-user" name="name-user" value="{{user.fullname}}"/>
+            <input disabled class="form-control" id="name-user" name="name-user" value="{{user.fullname}}"/>
           </div>
           <div class="col-md-1"></div>
-          <label class="col-md-2 col-form-label" for="phone-user">Số điện thoại<span class="text-danger">&nbsp;*</span></label>
+          <label class="col-md-2 col-form-label" for="phonenumber-user">Số điện thoại</label>
           <div class="col-md-3">
-            <input class="form-control" id="phone-user" name="phone-user" value="{{user.phone}}"/>
+            <input disabled class="form-control" id="phonenumber-user" name="phonenumber-user" value="{{user.phone}}"/>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ<span class="text-danger">&nbsp;*</span></label>
+          <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="itemdress-user" name="itemdress-user" value="{{user.address}}"/>
+            <input disabled class="form-control" id="itemdress-user" name="itemdress-user" value="{{user.address}}"/>
           </div>
         </div>
         <div *ngIf="missingValue" class="col-md-12 text-danger row">Vui lòng điền đầy đủ thông tin!</div>
