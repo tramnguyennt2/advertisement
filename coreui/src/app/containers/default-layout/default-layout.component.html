@@ -1,6 +1,11 @@
-<app-header [fixed]="true"
-            [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-            [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+<!--<app-header [fixed]="true"-->
+            <!--[navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"-->
+            <!--[navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"-->
+            <!--[sidebarToggler]="'lg'"-->
+            <!--[asideMenuToggler]="'lg'">-->
+  <app-header [fixed]="true"
+            [navbarBrandFull]="{src: 'assets/img/logo/logo.png', height: 40, alt: 'Logo'}"
+            [navbarBrandMinimized]="{src: 'assets/img/logo/logo1.png', width: 40, height: 40, alt: 'Logo'}"
             [sidebarToggler]="'lg'"
             [asideMenuToggler]="'lg'">
   <div class="row d-md-down-none col-md-8 align-items-center justify-content-center">
@@ -66,7 +71,7 @@
 </div>
 <app-footer>
   <span>
-    <a href="https://coreui.io">SBthings</a> &copy; 2018</span>
+    <a href="https://coreui.io">SbThings</a> &copy; 2018</span>
 </app-footer>
 
 <div bsModal id="login-modal" #loginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
