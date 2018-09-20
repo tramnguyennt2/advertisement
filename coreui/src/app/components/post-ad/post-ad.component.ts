@@ -16,6 +16,7 @@ export class PostAdComponent implements OnInit {
   item = new Item();
   user = new User();
   missingValue = false;
+  url = null;
 
   constructor(private itemService: ItemService,
               private route: ActivatedRoute,
@@ -79,5 +80,17 @@ export class PostAdComponent implements OnInit {
 
   cancel() {
     this._location.back();
+  }
+
+  readUrl(e) {
+    if (e.target.files && e.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = (e: ProgressEvent) => {
+        this.url = (<FileReader>e.target).result;
+      }
+
+      reader.readAsDataURL(e.target.files[0]);
+    }
   }
 }
