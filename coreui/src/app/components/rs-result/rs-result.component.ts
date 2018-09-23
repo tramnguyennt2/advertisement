@@ -16,7 +16,7 @@ export class RsResultComponent implements OnInit {
 
   ngOnInit() {
     this.rsService.getItemContentBased(this.id).subscribe(items_rs =>
-      this.getItemCBRs(items_rs).then(items => {
+      this.getItemRecommended(items_rs).then(items => {
         for (let i = 0; i < items.length; i++) {
           let item = new Item();
           item.setItem(items[i]);
@@ -35,20 +35,10 @@ export class RsResultComponent implements OnInit {
     // );
   }
 
-  async getItemCBRs(items_rs) {
+  async getItemRecommended(items_rs) {
     let items = [];
     for (const item of items_rs) {
       const contents = await this.itemService.getItem(item.id).then(item => {
-        return item;
-      });
-      items.push(contents);
-    }
-    return items;
-  }
-  async getItemCFRs(items_rs) {
-    let items = [];
-    for (const item of items_rs) {
-      const contents = await this.itemService.getItem(item.itemId).then(item => {
         return item;
       });
       items.push(contents);

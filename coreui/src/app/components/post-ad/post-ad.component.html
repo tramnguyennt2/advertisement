@@ -1,4 +1,4 @@
-<br/>
+<br />
 <div class="container-fluid">
   <div class="card">
     <div class="card-header">
@@ -9,7 +9,7 @@
         <div class="text-center">
           <strong class="text-uppercase">Thông tin chung</strong>
         </div>
-        <br/>
+        <br />
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Danh mục</label>
           <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown></app-cat-drop-down>
@@ -34,22 +34,22 @@
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="content-item">Mô tả chi tiết</label>
           <div class="col-md-10">
-            <textarea class="form-control" name="content-item" type="textarea" id="content-item"
-                      [(ngModel)]="item.content" rows="10">
+            <textarea class="form-control" name="content-item" type="textarea" id="content-item" [(ngModel)]="item.content"
+              rows="10">
             </textarea>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="content-item">Hình ảnh</label>
           <div class="col-md-10">
-            <input id="file-multiple-input" type="file" name="file-multiple-input" multiple="">
+            <input id="file-multiple-input" type="image" name="file-multiple-input" multiple (change)="onUploadFile($event)">
           </div>
         </div>
-        <hr/>
+        <hr />
         <div class="text-center">
           <strong class="text-uppercase">Thông tin liên hệ</strong>
         </div>
-        <br/>
+        <br />
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="name-user">Tên</label>
           <div class="col-md-4">
@@ -64,51 +64,14 @@
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="itemdress-user">Địa chỉ</label>
           <div class="col-md-10">
-            <input class="form-control" id="itemdress-user" name="itemdress-user" placeholder=""
-                   value="Quận Thủ Đức, TPHCM">
+            <input class="form-control" id="itemdress-user" name="itemdress-user" placeholder="" value="Quận Thủ Đức, TPHCM">
           </div>
         </div>
       </form>
     </div>
     <div class="card-footer">
-      <button class="btn btn-sm btn-primary" type="button" (click)="handleAddNewItem(); detailModal.show()">Đăng</button>
+      <button class="btn btn-sm btn-primary" type="button" (click)="handleAddNewItem();">Đăng</button>
       <button class="btn btn-sm btn-danger" style="margin-left: 5px" [routerLink]="['/']">Hủy</button>
     </div>
   </div>
 </div>
-
-<div bsModal id="item-detail-modal" #detailModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" (click)="detailModal.hide()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="height: 550px; overflow-y: auto;">
-        <app-item-detail></app-item-detail>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<style>
-  .dropdown-submenu {
-    position: relative;
-  }
-
-  .dropdown-submenu a::after {
-    transform: rotate(-90deg);
-    position: absolute;
-    right: 6px;
-    top: 18px;
-  }
-
-  .dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-left: .1rem;
-    margin-right: .1rem;
-  }
-</style>

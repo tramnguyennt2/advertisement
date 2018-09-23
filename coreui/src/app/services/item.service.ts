@@ -13,7 +13,7 @@ export class ItemService {
   // add to both CouchDB and Solr
   addItem(item) {
     let self = this;
-    this.pouchdb.db.post(item, function(err, response) {
+    return this.pouchdb.db.post(item, function(err, response) {
       if (err) {
         return console.log(err);
       }

@@ -16,11 +16,12 @@ export class ItemDetailComponent implements OnInit {
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {
-    this.itemService.getItem(this.id).then(item => {
-      this.item.setItem(item);
-      this.saveUserBehavior(this.item.couchdb_id);
-    });
-
+    if(this.id){
+      this.itemService.getItem(this.id).then(item => {
+        this.item.setItem(item);
+        this.saveUserBehavior(this.item.couchdb_id);
+      });
+    }
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");
@@ -32,8 +33,6 @@ export class ItemDetailComponent implements OnInit {
       if (rating === null) {
         this.itemService.add(this.rating);
       } else {
-        console.log(rating);
-        console.log(rating._id);
         this.itemService.updateRating(rating);
       }
     });
