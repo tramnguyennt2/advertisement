@@ -43,21 +43,19 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
-          <strong>Quảng cáo</strong>
+          <strong>Quản lý quảng cáo</strong>
         </div>
-        <a class="dropdown-item" href="#">
-          <i class="fa fa-bell-o"></i> Quảng cáo đã xem</a>
         <a class="dropdown-item" [routerLink]="['/manage-ad']">
-          <i class="fa fa-envelope-o"></i> Quảng cáo đã đăng</a>
+          <i class="fa fa-th-list"></i> Quảng cáo đã đăng</a>
         <div class="dropdown-header text-center bg-dark">
           <strong>Tài khoản</strong>
         </div>
         <a class="dropdown-item" href="#">
-          <i class="fa fa-user"></i> Cập nhật thông tin</a>
+          <i class="fa fa-drivers-license-o"></i> Cập nhật thông tin</a>
         <a class="dropdown-item" href="#">
-          <i class="fa fa-file"></i> Đổi mật khẩu</a>
+          <i class="fa fa-pencil"></i> Đổi mật khẩu</a>
         <a class="dropdown-item" href="#" (click)="logoutModal.show()">
-          <i class="fa fa-lock"></i> Đăng xuất</a>
+          <i class="fa fa-sign-out"></i> Đăng xuất</a>
       </div>
     </li>
   </ul>

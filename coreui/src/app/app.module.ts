@@ -9,11 +9,13 @@ import { CategoryService } from "./services/category.service";
 import { ItemService } from "./services/item.service";
 import { UserService } from "./services/user.service";
 import { RsService } from "./services/rs.service";
+import { CookieService } from 'ngx-cookie-service';
 
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { ModalModule } from "ngx-bootstrap/modal";
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -43,7 +45,6 @@ import { AppRoutingModule } from "./app.routing";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { ChartsModule } from "ng2-charts/ng2-charts";
-import { PostAdComponent } from "./components/post-ad/post-ad.component";
 
 import { NewAdsComponent } from "./components/new-ads/new-ads.component";
 import { LocDropDownComponent } from "./components/loc-drop-down/loc-drop-down.component";
@@ -54,6 +55,7 @@ import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
 import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
+import { PostAdComponent } from "./components/post-ad/post-ad.component";
 
 @NgModule({
   imports: [
@@ -96,7 +98,8 @@ import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
     CategoryService,
     ItemService,
     UserService,
-    RsService
+    RsService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

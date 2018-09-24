@@ -33,7 +33,7 @@ export class SideBarComponent implements OnInit {
         let navItem = {
           name: cat["cat_name"],
           url: "/search",
-          icon: "fa fa-desktop",
+          icon: cat["cat_icon"],
           children: []
         };
         for (let sub of cat["subs"]) {
