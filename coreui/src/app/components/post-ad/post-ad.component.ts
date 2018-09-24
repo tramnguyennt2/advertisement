@@ -6,6 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import {User} from "../../user";
 import {UserService} from "../../services/user.service";
 import {Location} from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: "app-post-ad",
@@ -14,6 +15,7 @@ import {Location} from '@angular/common';
 })
 export class PostAdComponent implements OnInit {
   item = new Item();
+  userId = '';
   user = new User();
   missingValue = false;
   url = null;
@@ -21,15 +23,14 @@ export class PostAdComponent implements OnInit {
   constructor(private itemService: ItemService,
               private route: ActivatedRoute,
               private userService: UserService,
-              private _location: Location
+              private _location: Location,
+              private cookieService: CookieService
   ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.userService.getUser(params.user_id).then(res => {
-        this.user.setUser(res);
-      });
-      this.item.user_id = params.user_id;
+    this.userId = this.cookieService.get('userId');
+    this.userService.getUser(this.userId).then(res => {
+      this.user.setUser(res);
     });
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {

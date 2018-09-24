@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="col-md-2" style="padding-left: 0px">
-      <button *ngIf="isLogin" class="btn btn-block btn-danger" [routerLink]="['/post-ad']" [queryParams]="{user_id: user.user_id}">Đăng tin ngay</button>
+      <button *ngIf="isLogin" class="btn btn-block btn-danger" [routerLink]="['/post-ad']">Đăng tin ngay</button>
       <button *ngIf="!isLogin" class="btn btn-block btn-danger" (click)="requestLoginModal.show()">Đăng tin ngay</button>
     </div>
   </div>
