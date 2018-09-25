@@ -4,7 +4,7 @@ import { environment } from "../../environments/environment";
 
 @Injectable()
 export class SolrService {
-  solr_url = environment.solr_server + "/advertisement";
+  solr_url = environment.solr_server + "/item";
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +20,13 @@ export class SolrService {
     );
   }
 
-  search(keyword, sub_cat_id, prov_id): any {
+  search(
+    keyword,
+    sub_cat_id,
+    prov_id,
+    sort_field = undefined,
+    sort = undefined
+  ): any {
     // let url =
     //   this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
     let url = this.solr_url + "/select?q=";
@@ -38,7 +44,13 @@ export class SolrService {
       if (after_sub.length > 0) url += after_sub + "prov_id:" + prov_id;
       else url += after_keyword + "prov_id:" + prov_id;
     }
-    url += "&wt=json";
+    if (!keyword && !sub_cat_id && !prov_id) url += "*:*";
+    if (sort_field && sort) {
+      url += "&sort=" + sort_field + " " + sort;
+    } else {
+      // newest default
+      url += "&sort=created_at desc&wt=json";
+    }
     return this.http.get(url);
   }
 

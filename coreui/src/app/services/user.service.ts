@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
-import { PouchdbService } from "./pouchdb.service";
+import {Injectable} from "@angular/core";
+import {Subject} from "rxjs/Subject";
+import {PouchdbService} from "./pouchdb.service";
 import "rxjs/add/observable/fromPromise";
-import { User } from "../user";
 
 @Injectable()
 export class UserService {
-  constructor(private pouchdb: PouchdbService) {}
+  constructor(private pouchdb: PouchdbService) {
+  }
 
   // add to CouchDB
-  addUser(user) {
-    let self = this;
-    this.pouchdb.db.post(user, function(err, response) {
+  add(user) {
+    this.pouchdb.db.post(user, function (err, response) {
+      console.log("add resp: ", response);
       if (err) {
         return console.log(err);
       }
@@ -19,22 +19,12 @@ export class UserService {
     });
   }
 
-  // add to CouchDB
-  add(user) {
-    this.pouchdb.db.post(user, function(err, response) {
-      console.log("add resp: ", response);
-      if (err) {
-        return console.log(err);
-      }
-    });
-  }
-
   getUser(id: string) {
     return this.pouchdb.db.get(id);
   }
 
-  loginUser(email: string, password: string){
-    var userSubject: any = new Subject();
+  loginUser(email: string, password: string) {
+    let userSubject: any = new Subject();
     this.pouchdb.db
       .find({
         selector: {
@@ -50,14 +40,14 @@ export class UserService {
           userSubject.next(null);
         }
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
     return userSubject;
   }
 
-  checkEmail(email: string){
-    var userSubject: any = new Subject();
+  checkEmail(email: string) {
+    let userSubject: any = new Subject();
     this.pouchdb.db
       .find({
         selector: {
@@ -66,13 +56,10 @@ export class UserService {
         }
       })
       .then(result => {
-        if (result.docs.length > 0) {
-          userSubject.next(result.docs[0]);
-        } else {
-          userSubject.next(null);
-        }
+        if (result.docs.length > 0) userSubject.next(result.docs[0]);
+        else userSubject.next(null);
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
     return userSubject;

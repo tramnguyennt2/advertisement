@@ -18,8 +18,21 @@ export class ItemService {
         return console.log(err);
       }
       console.log("inserted to couchdb");
-      let solr_item = Object.assign({}, item);
-      solr_item.couchdb_id = response.id;
+      // let solr_item = Object.assign({}, item);
+      let solr_item = new Item(
+        item.title,
+        item.content,
+        null,
+        null,
+        item.sub_cat_id,
+        null,
+        null,
+        null,
+        item.prov_id,
+        null,
+        item.price
+      );
+      solr_item.addDbId(response.id);
       self.solr
         .add(solr_item)
         .subscribe(res => console.log("inserted to solr"));
@@ -87,8 +100,8 @@ export class ItemService {
             row.doc.prov_id,
             row.doc.prov,
             row.doc.price,
-            row.doc._id,
             row.doc.user_id,
+            row.doc._id,
           );
         });
         latestItemsSubject.next(latestItems);
@@ -97,20 +110,22 @@ export class ItemService {
   }
 
   updateRating(rating) {
-    this.pouchdb.db
-      .put({
-        _id: rating._id,
-        _rev: rating._rev,
-        user_id: rating.user_id,
-        item_id: rating.item_id,
-        rating: rating.rating + 1,
-        type: "rating"
-      })
-      .then(function(response) {
-        console.log("update resp: ", response);
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
+    if (rating.rating < 5) {
+      this.pouchdb.db
+        .put({
+          _id: rating._id,
+          _rev: rating._rev,
+          user_id: rating.user_id,
+          item_id: rating.item_id,
+          rating: rating.rating + 1,
+          type: "rating"
+        })
+        .then(function(response) {
+          console.log("update resp: ", response);
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    }
   }
 }

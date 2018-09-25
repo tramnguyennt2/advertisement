@@ -10,6 +10,8 @@ import { Item } from "../../item";
 })
 export class SearchAdComponent implements OnInit {
   keyword: string;
+  sub_cat_id: string;
+  prov_id: string;
   total: number = 0;
   items = [];
 
@@ -18,34 +20,79 @@ export class SearchAdComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.keyword = params.keyword;
+      this.sub_cat_id = params.sub_cat_id;
+      this.prov_id = params.prov_id;
       this.searchDocument(params.keyword, params.sub_cat_id, params.prov_id);
     });
 
     document.querySelector("body").classList.add("sidebar-lg-show");
   }
 
-  searchDocument(keyword, sub_cat_id, prov_id) {
+  searchDocument(
+    keyword,
+    sub_cat_id,
+    prov_id,
+    sort_field = undefined,
+    sort = undefined
+  ) {
     this.items = [];
-    return this.solr.search(keyword, sub_cat_id, prov_id).subscribe(res => {
-      Object.keys(res.response.docs).map(k => {
-        let doc = res.response.docs[k];
-        let item = new Item(
-          doc.title[0],
-          doc.content[0],
-          doc.cat_id[0],
-          doc.cat[0],
-          doc.sub_cat_id[0],
-          doc.sub_cat[0],
-          doc.loc_id[0],
-          doc.loc[0],
-          doc.prov_id[0],
-          doc.prov[0],
-          doc.price[0],
-          doc.couchdb_id[0]
-        );
-        this.items.push(item);
+    return this.solr
+      .search(keyword, sub_cat_id, prov_id, sort_field, sort)
+      .subscribe(res => {
+        Object.keys(res.response.docs).map(k => {
+          let doc = res.response.docs[k];
+          let item = new Item(
+            doc.title[0],
+            doc.content[0],
+            null,
+            null,
+            doc.sub_cat_id[0],
+            null,
+            null,
+            null,
+            doc.prov_id[0],
+            null,
+            doc.price,
+            null,
+            doc.db_id
+          );
+          this.items.push(item);
+        });
+        this.total = this.items.length;
       });
-      this.total = this.items.length;
-    });
+  }
+
+  onFilterChange(event) {
+    let sort = event.target.value;
+    if (sort === "oldest") {
+      this.searchDocument(
+        this.keyword,
+        this.sub_cat_id,
+        this.prov_id,
+        "created_at",
+        "asc"
+      );
+    }
+    if (sort === "newest") {
+      this.searchDocument(this.keyword, this.sub_cat_id, this.prov_id);
+    }
+    if (sort === "lowest") {
+      this.searchDocument(
+        this.keyword,
+        this.sub_cat_id,
+        this.prov_id,
+        "price",
+        "asc"
+      );
+    }
+    if (sort === "highest") {
+      this.searchDocument(
+        this.keyword,
+        this.sub_cat_id,
+        this.prov_id,
+        "price",
+        "desc"
+      );
+    }
   }
 }

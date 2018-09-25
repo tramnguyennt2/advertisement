@@ -94,7 +94,7 @@ export class DefaultLayoutComponent{
             return false;
           } else {
             this.errorConfirmPassword = false;
-            let a = this.userService.addUser(this.user);
+            let a = this.userService.add(this.user);
             document.getElementById('register-modal').classList.remove('show');
             let modalEl = document.getElementsByTagName('bs-modal-backdrop');
             modalEl[0].classList.remove('show');

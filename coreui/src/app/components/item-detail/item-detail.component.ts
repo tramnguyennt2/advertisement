@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ItemService } from "../../services/item.service";
 import { Item } from "../../item";
 import { UserBehavior } from "../../user-behavior";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: "app-item-detail",
@@ -13,13 +14,14 @@ export class ItemDetailComponent implements OnInit {
   id;
   item = new Item();
   rating: UserBehavior;
-  constructor(private itemService: ItemService) {}
+  constructor(private itemService: ItemService, private userService: UserService) {}
 
   ngOnInit() {
     if(this.id){
       this.itemService.getItem(this.id).then(item => {
         this.item.setItem(item);
-        this.saveUserBehavior(this.item.couchdb_id);
+        this.userService.getUser(item.user_id).then(user => console.log(user));
+        // this.saveUserBehavior(this.item.id);
       });
     }
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");

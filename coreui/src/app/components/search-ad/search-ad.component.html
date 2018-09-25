@@ -1,11 +1,11 @@
 <ol class="breadcrumb">
   <div class="ml-auto">
     <span>Lọc&nbsp;</span>
-    <select>
-      <option value="new-time">Tin mới trước</option>
-      <option value="old-time">Tin cũ trước</option>
-      <option value="low-price">Giá cao trước</option>
-      <option value="high-price">Giá thấp trước</option>
+    <select (change)="onFilterChange($event)">
+      <option value="newest">Tin mới trước</option>
+      <option value="oldest">Tin cũ trước</option>
+      <option value="highest">Giá cao trước</option>
+      <option value="lowest">Giá thấp trước</option>
     </select>
   </div>
 </ol>
