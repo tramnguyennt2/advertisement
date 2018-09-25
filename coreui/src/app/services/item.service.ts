@@ -87,7 +87,8 @@ export class ItemService {
             row.doc.prov_id,
             row.doc.prov,
             row.doc.price,
-            row.doc._id
+            row.doc._id,
+            row.doc.user_id,
           );
         });
         latestItemsSubject.next(latestItems);

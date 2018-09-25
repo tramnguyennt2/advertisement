@@ -1,18 +1,34 @@
 import {Component} from "@angular/core";
+import {User} from "../../user";
+import {UserService} from "../../services/user.service";
+import {ItemService} from "../../services/item.service";
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./default-layout.component.html"
 })
-export class DefaultLayoutComponent {
+export class DefaultLayoutComponent{
+
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
   keyword = "";
   sub_cat_id: number;
   prov_id: number;
+  user = new User();
+  // check register data
+  existEmail = false;
+  errorConfirmPassword = false;
+  missingRegisterData = false;
+  confirmPassword = null;
+  // log in data
+  email = null;
+  password = null;
+  errorLoginData = false;
+  // Check login
+  isLogin = false;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.changes = new MutationObserver(mutations => {
       this.sidebarMinimized = document.body.classList.contains(
         "sidebar-minimized"
@@ -34,6 +50,7 @@ export class DefaultLayoutComponent {
     for (let i = 0; i < locEl.length; i++) {
       locEl[i].children[0].classList.add("btn-outline-info");
     }
+
   }
 
   getSubCatId(param) {
@@ -42,5 +59,54 @@ export class DefaultLayoutComponent {
 
   getProvId(param) {
     this.prov_id = param.prov_id;
+  }
+
+  login(){
+    this.userService.loginUser(this.email, this.password).subscribe(res => {
+      if(!res){
+        this.errorLoginData = true;
+        return false;
+      }
+      this.user.setUser(res);
+      document.getElementById('login-modal').classList.remove('show');
+      let modalEl = document.getElementsByTagName('bs-modal-backdrop');
+      modalEl[0].classList.remove('show');
+      let bodyEl = document.getElementsByTagName('body');
+      bodyEl[0].classList.remove('modal-open');
+      this.isLogin = true;
+    });
+  }
+
+  register(){
+    this.userService.checkEmail(this.user.email).subscribe(res => {
+      if(res) {
+        this.existEmail = true;
+        return false;
+      } else {
+        this.existEmail = false;
+        if(!this.user.email || !this.user.password || !this.user.fullname || !this.user.phone || !this.user.address || !this.confirmPassword){
+          this.missingRegisterData = true;
+          return false;
+        } else{
+          this.missingRegisterData = false;
+          if(this.user.password != this.confirmPassword){
+            this.errorConfirmPassword = true;
+            return false;
+          } else {
+            this.errorConfirmPassword = false;
+            let a = this.userService.addUser(this.user);
+            document.getElementById('register-modal').classList.remove('show');
+            let modalEl = document.getElementsByTagName('bs-modal-backdrop');
+            modalEl[0].classList.remove('show');
+            let bodyEl = document.getElementsByTagName('body');
+            bodyEl[0].classList.remove('modal-open');
+          }
+        }
+      }
+    });
+  }
+
+  logout(){
+    this.isLogin = false;
   }
 }

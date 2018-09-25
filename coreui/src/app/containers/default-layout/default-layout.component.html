@@ -1,6 +1,11 @@
-<app-header [fixed]="true"
-            [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-            [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+<!--<app-header [fixed]="true"-->
+            <!--[navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"-->
+            <!--[navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"-->
+            <!--[sidebarToggler]="'lg'"-->
+            <!--[asideMenuToggler]="'lg'">-->
+  <app-header [fixed]="true"
+            [navbarBrandFull]="{src: 'assets/img/logo/logo.png', height: 40, alt: 'Logo'}"
+            [navbarBrandMinimized]="{src: 'assets/img/logo/logo1.png', width: 40, height: 40, alt: 'Logo'}"
             [sidebarToggler]="'lg'"
             [asideMenuToggler]="'lg'">
   <div class="row d-md-down-none col-md-8 align-items-center justify-content-center">
@@ -19,20 +24,22 @@
       </div>
     </div>
     <div class="col-md-2" style="padding-left: 0px">
-      <button class="btn btn-block btn-danger" [routerLink]="['/post-ad']">Đăng tin ngay</button>
+      <button *ngIf="isLogin" class="btn btn-block btn-danger" [routerLink]="['/post-ad']" [queryParams]="{user_id: user.user_id}">Đăng tin ngay</button>
+      <button *ngIf="!isLogin" class="btn btn-block btn-danger" (click)="requestLoginModal.show()">Đăng tin ngay</button>
     </div>
   </div>
-  <div class="ml-auto">
-    <a href="#" (click)="logInModal.show()">Đăng nhập</a>
+  <div *ngIf="!isLogin" class="ml-auto">
+    <a href="javascript:void(0)" (click)="loginModal.show()">Đăng nhập</a>
     <span>&nbsp;hoặc&nbsp;</span>
-    <a href="#" (click)="registerModal.show()">Đăng ký</a>
+    <a href="javascript:void(0)" (click)="registerModal.show()">Đăng ký</a>
   </div>
-  <ul hidden class="nav navbar-nav ml-auto">
+  <ul *ngIf="isLogin" class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
          dropdownToggle
          (click)="false">
-        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+        Xin chào <strong class="text-primary">{{user.fullname}}</strong>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Y_fAiQyoNtVyitsWbBxolrGO6vtAI93ZFnEq1Swe8dpPY3dv" class="img-avatar" alt="admin@bootstrapmaster.com"/>
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
@@ -49,7 +56,7 @@
           <i class="fa fa-user"></i> Cập nhật thông tin</a>
         <a class="dropdown-item" href="#">
           <i class="fa fa-file"></i> Đổi mật khẩu</a>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href="#" (click)="logoutModal.show()">
           <i class="fa fa-lock"></i> Đăng xuất</a>
       </div>
     </li>
@@ -64,15 +71,15 @@
 </div>
 <app-footer>
   <span>
-    <a href="https://coreui.io">SBthings</a> &copy; 2018</span>
+    <a href="https://coreui.io">SbThings</a> &copy; 2018</span>
 </app-footer>
 
-<div bsModal id="log-in" #logInModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div bsModal id="login-modal" #loginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-primary" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Đăng nhập</h4>
-        <button type="button" class="close" (click)="logInModal.hide()" aria-label="Close">
+        <button type="button" class="close" (click)="loginModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -83,7 +90,7 @@
               <i class="icon-user"></i>
             </span>
           </div>
-          <input class="form-control" type="text" placeholder="Email...">
+          <input class="form-control" type="text" placeholder="Email..." [(ngModel)]="email">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -91,14 +98,17 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu...">
+          <input class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password">
+        </div>
+        <div *ngIf="errorLoginData" class="input-group mb-4 text-danger">
+          Email hoặc mật khẩu không đúng!
         </div>
         <div class="input-group mb-4">
           <span>Bạn chưa có tài khoản?&nbsp;</span>
-          <a href="#" (click)="logInModal.hide(); registerModal.show();">Đăng ký ngay</a>
+          <a href="#" (click)="loginModal.hide(); registerModal.show();">Đăng ký ngay</a>
           <div class="ml-auto">
-            <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="logInModal.hide()">Hủy</button>
-            <button class="btn btn-primary ml-auto">Đăng nhập</button>
+            <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="loginModal.hide()">Hủy</button>
+            <button class="btn btn-primary ml-auto" (click)="login()">Đăng nhập</button>
           </div>
         </div>
       </div>
@@ -106,7 +116,7 @@
   </div>
 </div>
 
-<div bsModal id="register" #registerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div bsModal id="register-modal" #registerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-primary" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -116,27 +126,35 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="input-group mb-3">
+        <div class="input-group mb-4">
           <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="icon-user"></i>
             </span>
           </div>
-          <input class="form-control" type="text" placeholder="Tên hiển thị...">
+          <input id="fullname-user" class="form-control" type="text" placeholder="Tên hiển thị..." [(ngModel)]="user.fullname">
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-4">
           <div class="input-group-prepend">
             <span class="input-group-text">@</span>
           </div>
-          <input class="form-control" type="text" placeholder="Email...">
+          <input id="email-user" class="form-control" type="text" placeholder="Email..." [(ngModel)]="user.email">
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-4">
           <div class="input-group-prepend">
             <span class="input-group-text">
-              <i class="icon-lock"></i>
+              <i class="icon-phone"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu...">
+          <input id="phone-user" class="form-control" type="text" placeholder="Số điện thoại..." [(ngModel)]="user.phone">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-location-pin"></i>
+            </span>
+          </div>
+          <input id="address-user" class="form-control" type="text" placeholder="Địa chỉ..." [(ngModel)]="user.address">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -144,14 +162,75 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Nhập lại mật khẩu...">
+          <input id="password-user" class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="user.password">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Nhập lại mật khẩu..." [(ngModel)]="confirmPassword">
+        </div>
+        <div *ngIf="existEmail" class="input-group text-danger mb-4">
+          Email này đã có tài khoản!
+        </div>
+        <div *ngIf="errorConfirmPassword" class="input-group mb-4 text-danger">
+          Mật khẩu không trùng khớp!
+        </div>
+        <div *ngIf="missingRegisterData && !errorConfirmPassword" class="input-group mb-4 text-danger">
+          Vui lòng nhập đầy đủ thông tin!
         </div>
         <div class="input-group mb-4">
           <span>Bạn đã có tài khoản?&nbsp;</span>
-          <a href="#" (click)="registerModal.hide(); logInModal.show();">Đăng nhập ngay</a>
+          <a href="#" (click)="registerModal.hide(); loginModal.show();">Đăng nhập ngay</a>
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="registerModal.hide()">Hủy</button>
-            <button class="btn btn-primary">Đăng ký</button>
+            <button class="btn btn-primary" (click)="register();">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="request-login-modal" #requestLoginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-warning" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="requestLoginModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Vui lòng đăng nhập trước khi thực hiện chức năng này!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="requestLoginModal.hide()">Quay lại</button>
+            <button class="btn btn-warning" (click)="requestLoginModal.hide(); loginModal.show();">Đăng nhập</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="confirm-logout-modal" #logoutModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="logoutModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Bạn chắc chắn muốn đăng xuất?</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="logoutModal.hide()">Hủy</button>
+            <button class="btn btn-danger" (click)="logout(); logoutModal.hide();">Đăng xuất</button>
           </div>
         </div>
       </div>

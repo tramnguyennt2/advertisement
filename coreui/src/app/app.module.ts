@@ -7,6 +7,7 @@ import { SolrService } from "./services/solr.service";
 import { NodeService } from "./services/node.service";
 import { CategoryService } from "./services/category.service";
 import { ItemService } from "./services/item.service";
+import { UserService } from "./services/user.service";
 import { RsService } from "./services/rs.service";
 
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
@@ -94,6 +95,7 @@ import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
     NodeService,
     CategoryService,
     ItemService,
+    UserService,
     RsService
   ],
   bootstrap: [AppComponent]
