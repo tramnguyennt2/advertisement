@@ -29,6 +29,7 @@ export class PostAdComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.cookieService.get('userId');
+    this.item.user_id = this.userId;
     this.userService.getUser(this.userId).then(res => {
       this.user.setUser(res);
     });
