@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {User} from "../../user";
 import {UserService} from "../../services/user.service";
 import {ItemService} from "../../services/item.service";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: "app-dashboard",
@@ -27,8 +28,9 @@ export class DefaultLayoutComponent{
   errorLoginData = false;
   // Check login
   isLogin = false;
+  userId = '';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private cookieService: CookieService) {
     this.changes = new MutationObserver(mutations => {
       this.sidebarMinimized = document.body.classList.contains(
         "sidebar-minimized"
@@ -51,6 +53,13 @@ export class DefaultLayoutComponent{
       locEl[i].children[0].classList.add("btn-outline-info");
     }
 
+    this.userId = this.cookieService.get( 'userId');
+    if(this.userId != ''){
+      this.isLogin = true;
+      this.userService.getUser(this.userId).then(res => {
+        this.user.setUser(res);
+      });
+    }
   }
 
   getSubCatId(param) {
@@ -74,6 +83,7 @@ export class DefaultLayoutComponent{
       let bodyEl = document.getElementsByTagName('body');
       bodyEl[0].classList.remove('modal-open');
       this.isLogin = true;
+      this.cookieService.set( 'userId', res._id );
     });
   }
 
@@ -108,5 +118,7 @@ export class DefaultLayoutComponent{
 
   logout(){
     this.isLogin = false;
+    this.cookieService.set( 'userId', '' );
+    this.userId = '';
   }
 }

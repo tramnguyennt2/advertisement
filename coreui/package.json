@@ -49,6 +49,7 @@
     "mutationobserver-shim": "^0.3.2",
     "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-cookie-service": "^1.0.10",
     "ngx-perfect-scrollbar": "^6.2.0",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0",

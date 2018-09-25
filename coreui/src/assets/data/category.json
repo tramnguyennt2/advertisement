@@ -1,0 +1,139 @@
+{
+  "_id": "3e4301d18613d44f6f0e10bbb8002f79",
+  "_rev": "3-5facf773d826a45f0a49fc452611c0d5",
+  "data": [
+    {
+      "cat_id": 1,
+      "cat_name": "Đồ điện tử",
+      "cat_icon": "fa fa-laptop",
+      "subs": [
+        {
+          "sub_id": 1,
+          "name": "Điện thoại"
+        },
+        {
+          "sub_id": 2,
+          "name": "Máy tính bảng"
+        },
+        {
+          "sub_id": 3,
+          "name": "Laptop"
+        },
+        {
+          "sub_id": 4,
+          "name": "Máy tính để bàn"
+        },
+        {
+          "sub_id": 5,
+          "name": "Máy ảnh, Máy quay"
+        },
+        {
+          "sub_id": 6,
+          "name": "Tivi, Loa, Amply"
+        },
+        {
+          "sub_id": 7,
+          "name": "Linh kiện, phụ kiện"
+        },
+        {
+          "sub_id": 8,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 2,
+      "cat_name": "Đồ gia dụng",
+      "cat_icon": "fa fa-shopping-basket",
+      "subs": [
+        {
+          "sub_id": 9,
+          "name": "Điện lạnh"
+        },
+        {
+          "sub_id": 10,
+          "name": "Thiết bị nhà bếp"
+        },
+        {
+          "sub_id": 11,
+          "name": "Đồ dùng gia đình"
+        },
+        {
+          "sub_id": 12,
+          "name": "Vật dụng cá nhân"
+        },
+        {
+          "sub_id": 13,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 3,
+      "cat_name": "Đồ văn phòng",
+      "cat_icon": "fa fa-shopping-bag",
+      "subs": [
+        {
+          "sub_id": 14,
+          "name": "Bàn ghế"
+        },
+        {
+          "sub_id": 15,
+          "name": "Tủ"
+        },
+        {
+          "sub_id": 16,
+          "name": "Máy chiếu"
+        },
+        {
+          "sub_id": 17,
+          "name": "Máy photocopy"
+        },
+        {
+          "sub_id": 18,
+          "name": "Camera an ninh"
+        },
+        {
+          "sub_id": 19,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 4,
+      "cat_name": "Xe",
+      "cat_icon": "fa fa-car",
+      "subs": [
+        {
+          "sub_id": 20,
+          "name": "Xe máy"
+        },
+        {
+          "sub_id": 21,
+          "name": "Ôtô"
+        },
+        {
+          "sub_id": 22,
+          "name": "Xe tải"
+        },
+        {
+          "sub_id": 23,
+          "name": "Xe đạp"
+        },
+        {
+          "sub_id": 24,
+          "name": "Phụ tùng xe"
+        },
+        {
+          "sub_id": 25,
+          "name": "Dịch vụ sửa chữa"
+        },
+        {
+          "sub_id": 26,
+          "name": "Khác"
+        }
+      ]
+    }
+  ],
+  "type": "category"
+}
