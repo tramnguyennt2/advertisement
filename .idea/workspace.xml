@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/services/user.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/app/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/assets/img/logo/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coreui/src/assets/img/logo/logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/assets/data/category.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/solr.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/solr.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/coreui/src/app/services/item.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding>
                 <element signature="e#1323#1324#0" expanded="true" />
                 <element signature="e#1363#1364#0" expanded="true" />
@@ -51,14 +40,40 @@
       <file leaf-file-name="post-ad.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1621">
-              <caret line="126" column="31" lean-forward="true" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
+            <state relative-caret-position="289">
+              <caret line="29" column="55" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="55" />
               <folding>
-                <element signature="e#1918#1919#0" expanded="true" />
-                <element signature="e#1991#1992#0" expanded="true" />
-                <element signature="e#2484#2485#0" expanded="true" />
-                <element signature="e#2515#2516#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#1979#1980#0" expanded="true" />
+                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="e#2339#2340#0" expanded="true" />
+                <element signature="e#2384#2385#0" expanded="true" />
+                <element signature="e#2445#2446#0" expanded="true" />
+                <element signature="e#2476#2477#0" expanded="true" />
+                <element signature="e#4100#4101#0" expanded="true" />
+                <element signature="e#4127#4128#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -88,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -108,11 +123,8 @@
       <file leaf-file-name="default-layout.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="99">
+              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -121,25 +133,7 @@
         <entry file="file://$PROJECT_DIR$/coreui/src/app/user.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-ads.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -244,9 +238,9 @@
         <option value="$PROJECT_DIR$/coreui/src/app/services/user.service.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" />
-        <option value="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/user.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" />
       </list>
     </option>
@@ -311,14 +305,6 @@
               <item name="coreui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -329,14 +315,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
               <item name="default-layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="coreui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -524,21 +502,7 @@
       <workItem from="1537364414157" duration="3480000" />
       <workItem from="1537410686241" duration="25238000" />
       <workItem from="1537683007063" duration="6872000" />
-      <workItem from="1537842043699" duration="4002000" />
-    </task>
-    <task id="LOCAL-00009" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1528708260009</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1528708260009</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1528710490613</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1528710490613</updated>
+      <workItem from="1537842043699" duration="5320000" />
     </task>
     <task id="LOCAL-00011" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
       <created>1528715222131</created>
@@ -869,26 +833,40 @@
       <option name="project" value="LOCAL" />
       <updated>1537684686766</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts">
+      <created>1537846592452</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1537846592453</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts">
+      <created>1537846668393</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1537846668393</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253239000" />
+    <option name="totallyTimeSpent" value="254557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22207534" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19233312" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.2642857" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37714285" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.2641243" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37711865" />
       <window_info id="npm" order="6" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.42372882" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2937853" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
@@ -1001,7 +979,8 @@
     <MESSAGE value="handle collaborative filtering" />
     <MESSAGE value="hybrid method" />
     <MESSAGE value="cf" />
-    <option name="LAST_COMMIT_MESSAGE" value="cf" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1009,9 +988,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1020,13 +996,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/base-item-detail/base-item-detail.component.ts" />
-    <entry file="file://$PROJECT_DIR$/coreui/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/base-item-detail/base-item-detail.component.html" />
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -1234,7 +1203,7 @@
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1262,23 +1231,10 @@
     <entry file="file://$PROJECT_DIR$/coreui/src/app/services/item.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
             <element signature="e#1323#1324#0" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1621">
-          <caret line="126" column="31" lean-forward="true" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
-          <folding>
-            <element signature="e#1918#1919#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2484#2485#0" expanded="true" />
-            <element signature="e#2515#2516#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1303,14 +1259,14 @@
     <entry file="file://$PROJECT_DIR$/coreui/src/app/user.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1324,13 +1280,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2339#2340#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+            <element signature="e#2445#2446#0" expanded="true" />
+            <element signature="e#2476#2477#0" expanded="true" />
+            <element signature="e#4100#4101#0" expanded="true" />
+            <element signature="e#4127#4128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="99">
+          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
         </state>
       </provider>
     </entry>

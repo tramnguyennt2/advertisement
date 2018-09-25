@@ -4,7 +4,6 @@ import {ItemService} from "../../services/item.service";
 import {PouchdbService} from "../../services/pouchdb.service";
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
-import {User} from "../../user";
 import {UserService} from "../../services/user.service";
 import {Location} from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
@@ -29,6 +28,7 @@ export class PostAdComponent implements OnInit {
 
   ngOnInit() {
     this.item.user_id = this.cookieService.get('user_id');
+    console.log(this.cookieService.get('user_id'))
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");

@@ -83,7 +83,7 @@ export class DefaultLayoutComponent{
       let bodyEl = document.getElementsByTagName('body');
       bodyEl[0].classList.remove('modal-open');
       this.isLogin = true;
-      this.cookieService.set( 'userId', res._id );
+      this.cookieService.set( 'user_id', res._id );
     });
   }
 
@@ -118,7 +118,7 @@ export class DefaultLayoutComponent{
 
   logout(){
     this.isLogin = false;
-    this.cookieService.set( 'userId', '' );
+    this.cookieService.set( 'user_id', '' );
     this.userId = '';
   }
 }
