@@ -53,7 +53,7 @@ export class DefaultLayoutComponent{
       locEl[i].children[0].classList.add("btn-outline-info");
     }
 
-    this.userId = this.cookieService.get( 'userId');
+    this.userId = this.cookieService.get( 'user_id');
     if(this.userId != ''){
       this.isLogin = true;
       this.userService.getUser(this.userId).then(res => {

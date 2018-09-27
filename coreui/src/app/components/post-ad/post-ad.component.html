@@ -6,10 +6,6 @@
     </div>
     <div class="card-body">
       <form class="form-horizontal" method="post">
-        <div class="text-center">
-          <strong class="text-uppercase">Thông tin chung</strong>
-        </div>
-        <br/>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Danh mục<span class="text-danger">&nbsp;*</span></label>
           <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown></app-cat-drop-down>
@@ -58,7 +54,7 @@
     </div>
     <div class="card-footer">
       <button class="btn btn-sm btn-primary" type="button" (click)="handleAddNewItem();">Đăng</button>
-      <button class="btn btn-smreadUrl btn-danger" style="margin-left: 5px" (click)="cancel()">Hủy</button>
+      <button class="btn btn-sm readUrl btn-danger" style="margin-left: 5px" (click)="cancel()">Hủy</button>
     </div>
   </div>
 </div>
