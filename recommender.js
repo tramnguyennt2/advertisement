@@ -5,6 +5,7 @@ const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,
     debug: false
 });
+const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
 const k = 5;
@@ -115,30 +116,40 @@ module.exports = {
                 .then(inputMatrix => {
                     let item_need_to_recommend_index = [];
                     for (let i = 0; i < inputMatrix.length; i++) {
-                        if (inputMatrix[i][user_idx] !== 0)
-                            continue;
+                        if (inputMatrix[i][user_idx] !== 0) continue;
                         item_need_to_recommend_index.push(i);
                     }
                     let item_need_to_recommend_id = [];
                     for (let i = 0; i < item_need_to_recommend_index.length; i++) {
-                        item_need_to_recommend_id.push(item_arr[item_need_to_recommend_index[i]]);
+                        item_need_to_recommend_id.push(
+                            item_arr[item_need_to_recommend_index[i]]
+                        );
                     }
                     // buoc 1: normalize rating by subtract row mean
-                    restructArrayWithMean(inputMatrix).then((avg) => {
-                        getResult(inputMatrix, user_idx, avg, item_need_to_recommend_index, k).then(item_result => {
-                            getResultWithItemId(item_result, item_need_to_recommend_id).then(result => {
-                                sort(result).then(result => {
-                                    if (result.length > maxSimilarDocuments) {
-                                        result = result.splice(0, maxSimilarDocuments);
-                                    }
-                                    resolve(result);
-                                });
-                            });
+                    restructArrayWithMean(inputMatrix).then(avg => {
+                        getResult(
+                            inputMatrix,
+                            user_idx,
+                            avg,
+                            item_need_to_recommend_index,
+                            k
+                        ).then(item_result => {
+                            getResultWithItemId(item_result, item_need_to_recommend_id).then(
+                                result => {
+                                    sort(result).then(result => {
+                                        if (result.length > maxSimilarDocuments) {
+                                            result = result.splice(0, maxSimilarDocuments);
+                                        }
+                                        resolve(result);
+                                    });
+                                }
+                            );
                         });
                     });
-                }).catch(function (err) {
-                reject(new Error(err));
-            });
+                })
+                .catch(function (err) {
+                    reject(new Error(err));
+                });
         });
     },
 
@@ -171,13 +182,71 @@ module.exports = {
                     reject(new Error(err));
                 });
         });
+    },
+
+    getGraphRecommender: function (user_id) {
+        const graph = new ug.Graph();
+        return new Promise(function (resolve, reject) {
+            let q = {
+                selector: {
+                    type: {$eq: "rating"}
+                }
+            };
+            let users = [];
+            let items = [];
+            let views = [];
+            db.find(q)
+                .then(docs => {
+                    for (let i = 0; i < docs.docs.length; i++) {
+                        let user_id = docs.docs[i].user_id;
+                        let item_id = docs.docs[i].item_id;
+                        let userIdx = users.indexOf(user_id);
+                        let itemIdx = items.indexOf(item_id);
+                        let user, item;
+                        if (userIdx <= -1) {
+                            users.push(user_id);
+                            user = graph.createNode("user", {id: user_id});
+                        }
+                        else
+                            user = graph.nodes("user").query().filter({id: user_id}).first();
+                        if (itemIdx <= -1) {
+                            items.push(item_id);
+                            item = graph.createNode("item", {id: item_id});
+                        }
+                        else
+                            item = graph.nodes("item").query().filter({id: item_id}).first();
+                        views.push(graph.createEdge("view").link(user, item));
+                    }
+                })
+                .then(() => {
+                    if (users.indexOf(user_id) <= -1) {
+                        reject("user does not in graph");
+                    }
+                })
+                .then(() => {
+                    let user = graph.nodes("user").query().filter({id: user_id}).first();
+                    let results = graph.closest(user, {
+                            compare: function (node) {
+                                return node.entity === 'item';
+                            },
+                            minDepth: 3,
+                            count: maxSimilarDocuments
+                        }
+                    );
+                    // results is now an array of Paths, which are each traces from your starting node to your result node...
+                    let resultNodes = results.map(function (path) {
+                        return path.end();
+                    });
+                    resolve(resultNodes);
+                });
+        });
     }
 };
 
 function sort(arr) {
     return new Promise(function (resolve, reject) {
         resolve(arr.sort(compare));
-    })
+    });
 }
 
 function compare(a, b) {
@@ -271,37 +340,34 @@ function getRatingPrediction(ratings, itemCosinMatrix, user_index, item_index, a
     return new Promise(function (resolve) {
         // lay ra k item gan nhat
         itemCosinMatrix.splice(item_index, 1);
-        sortWithIndeces(itemCosinMatrix)
-            .then(itemCosinMatrix => {
-                    let itemCosinIndex = itemCosinMatrix.sortIndices;
-                    itemCosinIndex = itemCosinIndex.splice(0, k);
-                    itemCosinMatrix = itemCosinMatrix.splice(0, k);
-                    let user_arr = [];
-                    for (let i = 0; i < ratings.length; i++) {
-                        if (i === item_index)
-                            continue;
-                        user_arr.push(ratings[i][user_index]);
-                    }
-                    let x = [];
-                    for (let i = 0; i < itemCosinIndex.length; i++) {
-                        x.push(user_arr[itemCosinIndex[i]])
-                    }
-                    // tinh rating prediction
-                    let mau_result = 0;
-                    let tu_result = 0;
-                    for (let i = 0; i < itemCosinMatrix.length; i++) {
-                        mau_result += Math.abs(itemCosinMatrix[i]);
-                    }
-                    for (let i = 0; i < x.length; i++) {
-                        tu_result += itemCosinMatrix[i] * x[i];
-                    }
-                    let result1 = 0;
-                    if (tu_result !== 0) {
-                        result1 = tu_result / mau_result;
-                    }
-                    resolve(avg[item_index] + result1);
-                }
-            );
+        sortWithIndeces(itemCosinMatrix).then(itemCosinMatrix => {
+            let itemCosinIndex = itemCosinMatrix.sortIndices;
+            itemCosinIndex = itemCosinIndex.splice(0, k);
+            itemCosinMatrix = itemCosinMatrix.splice(0, k);
+            let user_arr = [];
+            for (let i = 0; i < ratings.length; i++) {
+                if (i === item_index) continue;
+                user_arr.push(ratings[i][user_index]);
+            }
+            let x = [];
+            for (let i = 0; i < itemCosinIndex.length; i++) {
+                x.push(user_arr[itemCosinIndex[i]]);
+            }
+            // tinh rating prediction
+            let mau_result = 0;
+            let tu_result = 0;
+            for (let i = 0; i < itemCosinMatrix.length; i++) {
+                mau_result += Math.abs(itemCosinMatrix[i]);
+            }
+            for (let i = 0; i < x.length; i++) {
+                tu_result += itemCosinMatrix[i] * x[i];
+            }
+            let result1 = 0;
+            if (tu_result !== 0) {
+                result1 = tu_result / mau_result;
+            }
+            resolve(avg[item_index] + result1);
+        });
     });
 }
 
@@ -312,7 +378,7 @@ function getResultWithItemId(item_result, item_need_to_recommend_id) {
             result.push({
                 id: item_need_to_recommend_id[i],
                 rating: item_result[i]
-            })
+            });
         }
         resolve(result);
     });
@@ -323,14 +389,12 @@ async function getResult(inputMatrix, user_idx, avg, item_need_to_recommend_inde
     for (let i = 0; i < item_need_to_recommend_index.length; i++) {
         const item_index = item_need_to_recommend_index[i];
         // buoc 2: pearson correlation
-        await pearsonCorrelation(inputMatrix, item_index)
-            .then((itemCosinMatrix) => {
-                // buoc 3: tinh rating prediction
-                getRatingPrediction(inputMatrix, itemCosinMatrix, user_idx, item_index, avg, k)
-                    .then(result => {
-                        item_result.push(Math.round(result));
-                    });
+        await pearsonCorrelation(inputMatrix, item_index).then(itemCosinMatrix => {
+            // buoc 3: tinh rating prediction
+            getRatingPrediction(inputMatrix, itemCosinMatrix, user_idx, item_index, avg, k).then(result => {
+                item_result.push(Math.round(result));
             });
+        });
     }
     return item_result;
 }

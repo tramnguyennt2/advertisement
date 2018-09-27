@@ -3,10 +3,9 @@ import {Item} from "../../item";
 import {ItemService} from "../../services/item.service";
 import {PouchdbService} from "../../services/pouchdb.service";
 import {Router} from "@angular/router";
-import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {Location} from '@angular/common';
-import { CookieService } from 'ngx-cookie-service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: "app-post-ad",
@@ -20,15 +19,14 @@ export class PostAdComponent implements OnInit {
   url = null;
 
   constructor(
-    private itemService: ItemService,
-    private router: Router,
-    private pouchdb: PouchdbService, private _location: Location,
-    private userService: UserService, private route: ActivatedRoute,private cookieService: CookieService){}
+    private itemService: ItemService, private router: Router, private pouchdb: PouchdbService,
+    private _location: Location, private userService: UserService, private cookieService: CookieService) {
+  }
 
 
   ngOnInit() {
     this.item.user_id = this.cookieService.get('user_id');
-    console.log(this.cookieService.get('user_id'))
+    console.log(this.cookieService.get('user_id'));
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");

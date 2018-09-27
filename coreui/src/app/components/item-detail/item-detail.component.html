@@ -19,15 +19,15 @@
     <div class="row align-items-center" style="margin-left: 0; margin-top: 20px">
       <img src="assets/img/avatars/6.jpg" class="img-avatar" style="width: 25px; height: 25px" alt="admin@bootstrapmaster.com"
       />
-      <span class="lead">&nbsp;&nbsp;Nguyễn Văn An</span>
+      <span class="lead">&nbsp; {{user.fullname}}</span>
     </div>
     <br/>
     <div>
-      <i class="fa fa-map-marker" style="margin-left: 30px"></i>&nbsp;Địa chỉ: 123 Hàm Nghi, Quận 1, TP.HCM
+      <i class="fa fa-map-marker" style="margin-left: 30px"></i>&nbsp;Địa chỉ: {{user.address}}
     </div>
     <br/>
     <div>
-      <i class="fa fa-mobile-phone" style="margin-left: 30px"></i>&nbsp;Số điện thoại: 012333333333
+      <i class="fa fa-mobile-phone" style="margin-left: 30px"></i>&nbsp;Số điện thoại: {{user.phone}}
     </div>
   </div>
 </div>

@@ -32,6 +32,7 @@
     "cors": "~2.8.3",
     "express": "^4.16.3",
     "nano": "^7.0.0",
+    "ug": "0.0.8",
     "vietnamese-stopwords": "0.0.2",
     "vntk": "^1.4.1"
   }
