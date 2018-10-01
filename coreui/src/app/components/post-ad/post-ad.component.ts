@@ -19,8 +19,12 @@ export class PostAdComponent implements OnInit {
   url = null;
 
   constructor(
-    private itemService: ItemService, private router: Router, private pouchdb: PouchdbService,
-    private _location: Location, private userService: UserService, private cookieService: CookieService) {
+    private itemService: ItemService,
+    private router: Router,
+    private pouchdb: PouchdbService,
+    private _location: Location,
+    private userService: UserService,
+    private cookieService: CookieService) {
   }
 
 

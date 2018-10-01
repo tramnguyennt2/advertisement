@@ -8,7 +8,7 @@ import {UserBehavior} from "../user-behavior";
 
 @Injectable()
 export class ItemService {
-  constructor(private pouchdb: PouchdbService, private solr: SolrService) {
+  constructor(private pouchdb: PouchdbService, private solr: SolrService, ) {
   }
 
   // add to both CouchDB and Solr
@@ -72,7 +72,7 @@ export class ItemService {
         latestItems = data.rows.map(row => {
           return new Item(row.doc.title, row.doc.content, row.doc.cat_id, row.doc.cat, row.doc.sub_cat_id,
             row.doc.sub_cat, row.doc.loc_id, row.doc.loc, row.doc.prov_id, row.doc.prov, row.doc.price,
-            row.doc.user_id, row.doc._id,);
+            row.doc.user_id, row.doc._id);
         });
         latestItemsSubject.next(latestItems);
       });
@@ -90,5 +90,37 @@ export class ItemService {
         console.log(err);
       });
     }
+  }
+
+  getItemByUser(userId){
+    let itemSubject: any = new Subject();
+    let items: any[];
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'item',
+          user_id: userId
+        }
+      })
+      .then(data => {
+        items = data.docs.map(row => {
+          return row;
+        });
+        itemSubject.next(items);
+      });
+    return itemSubject;
+  }
+
+  delete(id) {
+    let self = this;
+    this.getItem(id).then(function (res) {
+      return self.pouchdb.db.remove(res, function (err) {
+        if (err) {
+          return console.log(err);
+        } else {
+          console.log("Deleted item successfully");
+        }
+      });
+    });
   }
 }
