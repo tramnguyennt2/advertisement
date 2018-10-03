@@ -9,10 +9,15 @@ export class ItemComponent implements OnInit {
   @Input()
   item;
   price = '';
+  url: string;
   constructor() {}
 
   ngOnInit() {
     this.price = this.formatPrice(this.item.price);
+    if(this.item._attachments){
+      this.url = 'http://localhost:5984/advertisement/' + this.item.id + '/image';
+      console.log(this.url)
+    }
   }
 
   formatPrice(price){

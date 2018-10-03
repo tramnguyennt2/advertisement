@@ -16,7 +16,7 @@ import {CookieService} from 'ngx-cookie-service';
 export class PostAdComponent implements OnInit {
   item = new Item();
   missingValue = false;
-  url = null;
+  url: string;
 
   constructor(
     private itemService: ItemService,
@@ -30,7 +30,6 @@ export class PostAdComponent implements OnInit {
 
   ngOnInit() {
     this.item.user_id = this.cookieService.get('user_id');
-    console.log(this.cookieService.get('user_id'));
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");
@@ -84,43 +83,87 @@ export class PostAdComponent implements OnInit {
     this._location.back();
   }
 
-  onUploadFile(event) {
-    // if (event.target.files && event.target.files.length > 0) {
-    //   let file = event.target.files[0];
-    //   let attachment = {};
-    //   getBase64(file)
-    //     .then(base64 => {
-    //       attachment[file.name] = {
-    //         content_type: file.type,
-    //         data: base64
-    //       };
-    //     })
-    //     .then(() => {
-    //       if (!isEmpty(attachment)) {
-    //         console.log("attachment", attachment);
-    //         this.pouchdb.db
-    //           .put({
-    //             _id: "mydoccc",
-    //             _attachments: attachment
-    //           })
-    //           .then(() => {
-    //             return this.pouchdb.db.getAttachment("mydoccc", "ha.png");
-    //           })
-    //           .then(blob => {
-    //             var url = URL.createObjectURL(blob);
-    //             var img = document.createElement("img");
-    //             img.src = url;
-    //             document.body.appendChild(img);
-    //           })
-    //           .catch(function(err) {
-    //             console.log(err);
-    //           });
-    //       } else {
-    //         console.log("attachment is null");
-    //       }
-    //     })
-    //     .catch(err => console.log("Error: ", err));
-    // }
+  onUploadFile(e) {
+    if (e.target.files && e.target.files.length > 0) {
+      let file = e.target.files[0];
+      let attachment = {};
+
+      //display img
+      var reader = new FileReader();
+      reader.onload = (e: ProgressEvent) => {
+        this.url = (<FileReader>e.target).result;
+      }
+      reader.readAsDataURL(file);
+
+      // add file to item
+      getBase64(file)
+        .then(base64 => {
+          attachment['image'] = {
+            content_type: file.type,
+            data: base64
+          };
+        })
+        .then(() => {
+          if (!isEmpty(attachment)) {
+            console.log("attachment", attachment);
+            this.item._attachments = attachment;
+          } else {
+            console.log("attachment is null");
+          }
+        })
+        .catch(err => console.log("Error: ", err));
+    }
+    console.log(this.item)
+  }
+
+  // onUploadFile(event) {
+  //   if (event.target.files && event.target.files.length > 0) {
+  //     let file = event.target.files[0];
+  //     let attachment = {};
+  //     getBase64(file)
+  //       .then(base64 => {
+  //         attachment[file.name] = {
+  //           content_type: file.type,
+  //           data: base64
+  //         };
+  //       })
+  //       .then(() => {
+  //         if (!isEmpty(attachment)) {
+  //           console.log("attachment", attachment);
+  //           this.pouchdb.db
+  //             .put({
+  //               _id: "mydoccc",
+  //               _attachments: attachment
+  //             })
+  //             .then(() => {
+  //               return this.pouchdb.db.getAttachment("mydoccc", "ha.png");
+  //             })
+  //             .then(blob => {
+  //               var url = URL.createObjectURL(blob);
+  //               console.log(url)
+  //               var img = document.createElement("img");
+  //               img.src = url;
+  //               document.body.appendChild(img);
+  //             })
+  //             .catch(function(err) {
+  //               console.log(err);
+  //             });
+  //         } else {
+  //           console.log("attachment is null");
+  //         }
+  //       })
+  //       .catch(err => console.log("Error: ", err));
+  //   }
+  // }
+
+  readUrl(e) {
+    if (e.target.files && e.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (e: ProgressEvent) => {
+        this.url = (<FileReader>e.target).result;
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    }
   }
 }
 

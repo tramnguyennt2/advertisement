@@ -15,9 +15,10 @@ export class Item {
   created_at: string;
   type: string;
   user_id?: string;
+  _attachments?: object;
 
   constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string, sub_cat?: string,
-              loc_id?: string, loc?: string, prov_id?: string, prov?: string, price?: string, user_id?: string, id?: string) {
+              loc_id?: string, loc?: string, prov_id?: string, prov?: string, price?: string, user_id?: string, id?: string, _attachments?: object) {
     if (title) this.title = title;
     if (content) this.content = content;
     if (cat_id) this.cat_id = cat_id;
@@ -30,6 +31,7 @@ export class Item {
     if (prov) this.prov = prov;
     if (price) this.price = price;
     if (id) this.id = id;
+    if (_attachments) this._attachments = _attachments;
     if (user_id) this.user_id = user_id;
     let now = new Date();
     this.created_at = now.toISOString();
@@ -50,6 +52,7 @@ export class Item {
     this.price = obj.price;
     this.user_id = obj.user_id;
     this.id = obj._id;
+    this._attachments = obj._attachments;
     this.created_at = obj.created_at;
     this.type = "item";
   }
