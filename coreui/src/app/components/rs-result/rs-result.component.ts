@@ -21,16 +21,16 @@ export class RsResultComponent implements OnInit {
 
   ngOnInit() {
     //------------------CB-----------------
-    // this.items = [];
-    // this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
-    //   this.getItemRecommended(items_rs).then(items => {
-    //     for (let i = 0; i < items.length; i++) {
-    //       let item = new Item();
-    //       item.setItem(items[i]);
-    //       this.items.push(item);
-    //     }
-    //   })
-    // );
+    this.items = [];
+    this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
+      this.getItemRecommended(items_rs).then(items => {
+        for (let i = 0; i < items.length; i++) {
+          let item = new Item();
+          item.setItem(items[i]);
+          this.items.push(item);
+        }
+      })
+    );
 
     let user_id = this.cookieService.get('user_id');
     if (user_id !== '') {
@@ -57,15 +57,15 @@ export class RsResultComponent implements OnInit {
         //   })
         // );
         //------------------GRAPH METHOD-----------------
-        this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
-          this.getItemRecommended(items_rs).then(items => {
-            for (let i = 0; i < items.length; i++) {
-              let item = new Item();
-              item.setItem(items[i]);
-              this.items.push(item);
-            }
-          })
-        );
+        // this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
+        //   this.getItemRecommended(items_rs).then(items => {
+        //     for (let i = 0; i < items.length; i++) {
+        //       let item = new Item();
+        //       item.setItem(items[i]);
+        //       this.items.push(item);
+        //     }
+        //   })
+        // );
       });
     }
   }
