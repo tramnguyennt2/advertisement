@@ -8,7 +8,7 @@ const content_based = new ContentBasedRecommender({
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
-const k = 5;
+const k = 2;
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -66,6 +66,8 @@ module.exports = {
             db.find(q)
                 .then(docs => {
                     for (let i = 0; i < docs.docs.length; i++) {
+                        if (user_arr.indexOf(docs.docs[i].user_id) <= -1) user_arr.push(docs.docs[i].user_id);
+                        if (item_arr.indexOf(docs.docs[i].item_id) <= -1) item_arr.push(docs.docs[i].item_id);
                         let obj = {
                             user_id: docs.docs[i].user_id,
                             item_id: docs.docs[i].item_id,
@@ -73,24 +75,12 @@ module.exports = {
                         };
                         documents.push(obj);
                     }
-                    for (let i = 0; i < documents.length; i++) {
-                        if (user_arr.includes(documents[i].user_id)) {
-                            continue;
-                        }
-                        user_arr.push(documents[i].user_id);
-                    }
                     user_idx = user_arr.indexOf(user_id);
                     if (user_idx <= -1) {
                         console.log(
                             "user has not rated any item in recommended item list."
                         );
                         reject("user has not rated any item in recommended item list.");
-                    }
-                    for (let i = 0; i < documents.length; i++) {
-                        if (item_arr.indexOf(documents[i].item_id) > -1) {
-                            continue;
-                        }
-                        item_arr.push(documents[i].item_id);
                     }
                     for (let i = 0; i < documents.length; i++) {
                         let item_idx = item_arr.indexOf(documents[i].item_id);
@@ -104,13 +94,25 @@ module.exports = {
                         inputMatrix[i] = new Array(user_arr.length);
                     }
                     for (let j = 0; j < rating_arr.length; j++) {
-                        inputMatrix[rating_arr[j][0]][rating_arr[j][1]] = rating_arr[j][2];
+                        inputMatrix[rating_arr[j][0]][rating_arr[j][1]] = parseInt(rating_arr[j][2]);
                     }
                     inputMatrix.filter(function (arr) {
                         for (let k = 0; k < arr.length; k++) {
                             if (arr[k] === undefined) arr[k] = 0;
                         }
                     });
+                    // user_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                    // item_arr = [1, 2, 3, 4, 5, 6];
+                    // user_idx = 4;
+                    //
+                    // inputMatrix = [
+                    //     [1, 0, 3, 0, 0, 5, 0, 0, 5, 0, 4, 0],
+                    //     [0, 0, 5, 4, 0, 0, 4, 0, 0, 2, 1, 3],
+                    //     [2, 4, 0, 1, 2, 0, 3, 0, 4, 3, 5, 0],
+                    //     [0, 2, 4, 0, 5, 0, 0, 4, 0, 0, 2, 0],
+                    //     [0, 0, 4, 3, 4, 2, 0, 0, 0, 0, 2, 5],
+                    //     [1, 0, 3, 0, 3, 0, 0, 2, 0, 0, 4, 0]
+                    // ];
                     return inputMatrix;
                 })
                 .then(inputMatrix => {
@@ -392,7 +394,7 @@ async function getResult(inputMatrix, user_idx, avg, item_need_to_recommend_inde
         await pearsonCorrelation(inputMatrix, item_index).then(itemCosinMatrix => {
             // buoc 3: tinh rating prediction
             getRatingPrediction(inputMatrix, itemCosinMatrix, user_idx, item_index, avg, k).then(result => {
-                item_result.push(Math.round(result));
+                item_result.push(result);
             });
         });
     }
