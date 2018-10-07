@@ -28,13 +28,7 @@ export class SearchAdComponent implements OnInit {
     document.querySelector("body").classList.add("sidebar-lg-show");
   }
 
-  searchDocument(
-    keyword,
-    sub_cat_id,
-    prov_id,
-    sort_field = undefined,
-    sort = undefined
-  ) {
+  searchDocument(keyword, sub_cat_id, prov_id, sort_field = undefined, sort = undefined) {
     this.items = [];
     return this.solr
       .search(keyword, sub_cat_id, prov_id, sort_field, sort)
@@ -52,7 +46,7 @@ export class SearchAdComponent implements OnInit {
             null,
             doc.prov_id[0],
             null,
-            doc.price,
+            doc.price[0],
             null,
             doc.db_id
           );
