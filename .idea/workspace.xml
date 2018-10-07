@@ -2,41 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ml-100k/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/allbut.pl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/mku.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/my_example.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/my_example.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.genre" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.item" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.occupation" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u1.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u1.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u2.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u2.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u3.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u3.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u4.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u4.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u5.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u5.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/u_10000.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ua.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ua.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ua_9057.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ua_943.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ub.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml-100k/ub.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommender_evaluation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender.js" beforeDir="false" afterPath="$PROJECT_DIR$/recommender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/assets/img/default-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/item.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -219,11 +199,6 @@
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="ml-100k" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -415,14 +390,7 @@
       <workItem from="1538188962440" duration="741000" />
       <workItem from="1538444113213" duration="15754000" />
       <workItem from="1538641860976" duration="13892000" />
-      <workItem from="1538912112255" duration="1198000" />
-    </task>
-    <task id="LOCAL-00014" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;dist/inline.bundle.js.map&#10;#&#9;dist/main.bundle.js&#10;#&#9;dist/main.bundle.js.map">
-      <created>1528730699403</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1528730699403</updated>
+      <workItem from="1538912112255" duration="1538000" />
     </task>
     <task id="LOCAL-00015" summary="env">
       <created>1528769937680</created>
@@ -760,25 +728,31 @@
       <option name="project" value="LOCAL" />
       <updated>1538044116941</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts">
+      <created>1538916476903</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1538916476904</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307970000" />
+    <option name="totallyTimeSpent" value="308310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17382683" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.2641243" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.43644068" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37571427" />
       <window_info id="npm" order="6" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23305085" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23305085" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
@@ -979,6 +953,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="n#constructor#0;n#ItemService#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
