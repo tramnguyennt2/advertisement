@@ -27,7 +27,7 @@ module.exports = {
                     }
                 })
                 .then(() => {
-                    content_based.train(documents, item_id);
+                    content_based.trainOpt(documents, item_id);
                     const similarDocuments = content_based.getSimilarDocuments(
                         item_id,
                         0,
