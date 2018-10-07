@@ -89,7 +89,7 @@ export class PostAdComponent implements OnInit {
       let attachment = {};
 
       //display img
-      var reader = new FileReader();
+      let reader = new FileReader();
       reader.onload = (e: ProgressEvent) => {
         this.url = (<FileReader>e.target).result;
       }
@@ -158,7 +158,7 @@ export class PostAdComponent implements OnInit {
 
   readUrl(e) {
     if (e.target.files && e.target.files[0]) {
-      var reader = new FileReader();
+      let reader = new FileReader();
       reader.onload = (e: ProgressEvent) => {
         this.url = (<FileReader>e.target).result;
       }
