@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
     // load Category and number of item
     this.catService.getItemNumberOfCategory().subscribe(cats => {
       this.cats = cats;
+      console.log(cats)
     });
   }
 }
