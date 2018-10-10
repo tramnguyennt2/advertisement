@@ -22,7 +22,7 @@ module.exports = {
             db.find(q)
                 .then(docs => {
                     for (let i = 0; i < docs.docs.length; i++) {
-                        let obj = {id: docs.docs[i]._id, content: docs.docs[i].title};
+                        let obj = {id: docs.docs[i]._id, content: docs.docs[i].content};
                         documents.push(obj);
                     }
                 })
