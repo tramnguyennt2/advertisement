@@ -2,7 +2,6 @@ const ContentBasedRecommender = require("content-based-recommender");
 const maxSimilarDocuments = 5;
 const content_based = new ContentBasedRecommender({
     minScore: 0.1,
-    maxSimilarDocuments: maxSimilarDocuments,
     debug: false
 });
 const ug = require("ug");
@@ -31,7 +30,7 @@ module.exports = {
                     const similarDocuments = content_based.getSimilarDocuments(
                         item_id,
                         0,
-                        5
+                        10
                     );
                     resolve(similarDocuments);
                 })
