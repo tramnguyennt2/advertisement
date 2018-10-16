@@ -23,7 +23,7 @@
           <td><span title="{{item.title}}">{{item.title}}</span></td>
           <td>{{item.created_at | date: "hh:mm - dd/MM/yyyy"}}</td>
           <td>{{item.cat}} -> {{item.sub_cat}}</td>
-          <td>{{item.prov}}</td>
+          <td>{{item.sub_loc}}</td>
           <td>{{formatPrice(item.price)}}đ</td>
           <td>
             <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show();">Xem</button>

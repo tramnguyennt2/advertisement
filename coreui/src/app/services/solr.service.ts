@@ -23,12 +23,12 @@ export class SolrService {
   search(
     keyword,
     sub_cat_id,
-    prov_id,
+    sub_loc_id,
     sort_field = undefined,
     sort = undefined
   ): any {
     // let url =
-    //   this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND prov_id:" + prov_id + "&wt=json";
+    //   this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND sub_loc_id:" + sub_loc_id + "&wt=json";
     let url = this.solr_url + "/select?q=";
     let after_keyword = "";
     let after_sub = "";
@@ -40,11 +40,11 @@ export class SolrService {
       url += after_keyword + "sub_cat_id:" + sub_cat_id;
       after_sub = " AND ";
     }
-    if (prov_id && prov_id.length > 0) {
-      if (after_sub.length > 0) url += after_sub + "prov_id:" + prov_id;
-      else url += after_keyword + "prov_id:" + prov_id;
+    if (sub_loc_id && sub_loc_id.length > 0) {
+      if (after_sub.length > 0) url += after_sub + "sub_loc_id:" + sub_loc_id;
+      else url += after_keyword + "sub_loc_id:" + sub_loc_id;
     }
-    if (!keyword && !sub_cat_id && !prov_id) url += "*:*";
+    if (!keyword && !sub_cat_id && !sub_loc_id) url += "*:*";
     if (sort_field && sort) {
       url += "&sort=" + sort_field + " " + sort;
     } else {

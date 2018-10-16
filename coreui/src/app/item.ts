@@ -9,8 +9,8 @@ export class Item {
   sub_cat?: string;
   loc_id?: string;
   loc?: string;
-  prov_id?: string;
-  prov?: string;
+  sub_loc_id?: string;
+  sub_loc?: string;
   price?: string;
   created_at: string;
   type: string;
@@ -18,7 +18,7 @@ export class Item {
   _attachments?: object;
 
   constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string, sub_cat?: string,
-              loc_id?: string, loc?: string, prov_id?: string, prov?: string, price?: string, user_id?: string, id?: string, _attachments?: object) {
+              loc_id?: string, loc?: string, sub_loc_id?: string, sub_loc?: string, price?: string, user_id?: string, id?: string, _attachments?: object) {
     if (title) this.title = title;
     if (content) this.content = content;
     if (cat_id) this.cat_id = cat_id;
@@ -27,8 +27,8 @@ export class Item {
     if (sub_cat) this.sub_cat = sub_cat;
     if (loc_id) this.loc_id = loc_id;
     if (loc) this.loc = loc;
-    if (prov_id) this.prov_id = prov_id;
-    if (prov) this.prov = prov;
+    if (sub_loc_id) this.sub_loc_id = sub_loc_id;
+    if (sub_loc) this.sub_loc = sub_loc;
     if (price) this.price = price;
     if (id) this.id = id;
     if (_attachments) this._attachments = _attachments;
@@ -47,8 +47,8 @@ export class Item {
     this.sub_cat = obj.sub_cat;
     this.loc_id = obj.loc_id;
     this.loc = obj.loc;
-    this.prov_id = obj.prov_id;
-    this.prov = obj.prov;
+    this.sub_loc_id = obj.sub_loc_id;
+    this.sub_loc = obj.sub_loc;
     this.price = obj.price;
     this.user_id = obj.user_id;
     this.id = obj._id;

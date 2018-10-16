@@ -6,6 +6,7 @@ const content_based = new ContentBasedRecommender({
 });
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+//const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 const k = 2;
 
