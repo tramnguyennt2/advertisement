@@ -106,7 +106,7 @@
     {
       "cat_id": 4,
       "cat_name": "Đồ dùng văn phòng",
-      "cat_icon": "fa fa-shopping-bag",
+      "cat_icon": "fa fa-briefcase",
       "subs": [
         {
           "sub_id": 21,
@@ -136,7 +136,7 @@
     },
     {
       "cat_id": 5,
-      "cat_name": "Nội ngoại thất, Đồ gia dụng",
+      "cat_name": "Nội ngoại thất",
       "cat_icon": "fa fa-shopping-basket",
       "subs": [
         {
@@ -193,7 +193,7 @@
     {
       "cat_id": 7,
       "cat_name": "Giải trí, Thể thao",
-      "cat_icon": "fa soccer-ball-o",
+      "cat_icon": "fa fa-soccer-ball-o",
       "subs": [
         {
           "sub_id": 38,
