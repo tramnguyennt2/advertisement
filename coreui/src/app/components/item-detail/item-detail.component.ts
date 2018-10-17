@@ -27,7 +27,7 @@ export class ItemDetailComponent implements OnInit {
         this.item.setItem(item);
         this.userService.getUser(item.user_id).then(user => this.user.setUser(user));
         this.price = this.formatPrice(item.price);
-        if(item.image){
+        if(item.image && item.image != 'khong co'){
           this.url = item.image;
         }
         else if(item._attachments){

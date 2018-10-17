@@ -8,8 +8,8 @@ import { CategoryService } from "../../services/category.service";
 })
 export class HomepageComponent implements OnInit {
   cats = [];
-  icon = [];
-  catObj: any;
+  icons = [];
+  catColors = ['bg-primary', 'bg-warning', 'bg-success', 'bg-danger', 'bg-secondary', 'bg-primary', 'bg-warning', 'bg-success']
 
   constructor(private catService: CategoryService) {}
 
@@ -17,11 +17,15 @@ export class HomepageComponent implements OnInit {
     // load Category and number of item
     this.catService.getItemNumberOfCategory().subscribe(cats => {
       this.cats = cats;
-
       this.catService.getAllCategory().subscribe(catObj => {
-        catObj.map((cat, index) =>{
-          console.log(cat, index)
-        })
+        catObj.map(obj => {
+          cats.map(cat => {
+            if(obj.cat_name == cat.key){
+              this.icons.push(obj.cat_icon);
+              console.log(this.icons)
+            }
+          });
+        });
       });
     });
   }
