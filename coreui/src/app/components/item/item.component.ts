@@ -16,7 +16,10 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
     this.price = this.formatPrice(this.item.price);
     this.itemService.getItem(this.item.id).then(item => {
-      if(item._attachments){
+      if(item.image){
+        this.url = item.image;
+      }
+      else if(item._attachments){
         this.url = 'http://localhost:5984/advertisement/' + item._id + '/image';
       }
     });
