@@ -9,11 +9,11 @@ const PouchDB = $PouchDB["default"];
 @Injectable()
 export class PouchdbService {
   db: any;
-  remote = environment.couchdb_server + "/advertisement";
+  remote = environment.couchdb_server + "/ads";
 
   constructor() {
     PouchDB.plugin(findPlugin);
-    this.db = new PouchDB("advertisement");
+    this.db = new PouchDB("ads");
     this.db.createIndex({
       index: { fields: ["type"] }
     });

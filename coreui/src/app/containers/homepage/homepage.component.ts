@@ -8,6 +8,8 @@ import { CategoryService } from "../../services/category.service";
 })
 export class HomepageComponent implements OnInit {
   cats = [];
+  icon = [];
+  catObj: any;
 
   constructor(private catService: CategoryService) {}
 
@@ -15,7 +17,12 @@ export class HomepageComponent implements OnInit {
     // load Category and number of item
     this.catService.getItemNumberOfCategory().subscribe(cats => {
       this.cats = cats;
-      console.log(cats)
+
+      this.catService.getAllCategory().subscribe(catObj => {
+        catObj.map((cat, index) =>{
+          console.log(cat, index)
+        })
+      });
     });
   }
 }

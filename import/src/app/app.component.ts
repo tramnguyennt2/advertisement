@@ -72,7 +72,7 @@ export class AppComponent {
           if (line) { // check last line
             line = Observable.of(line);
             line.map((item) => {
-              let arr = item.split('*****');
+              let arr = item.split('||');
               if (arr[0] != '') {
                 var time = new Date().toISOString();
                 self.dataPouch._id = arr[0];
@@ -146,6 +146,7 @@ export class AppComponent {
             }).subscribe(() => {
               // save to CouchDb
               self.dataService.addAds(self.user);
+              console.log('inserted user');
             });
           }
         });

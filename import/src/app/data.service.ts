@@ -7,9 +7,9 @@ const PouchDB = $PouchDB['default'];
 @Injectable()
 export class DataService {
   db: any;
-  remote = 'http://localhost:5984/advertisement';
+  remote = 'http://localhost:5984/ads';
   constructor() {
-    this.db = new PouchDB('advertisement');
+    this.db = new PouchDB('ads');
 
     let options = {
       live: true,

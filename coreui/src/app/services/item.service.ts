@@ -61,7 +61,7 @@ export class ItemService {
   getLastestItems() {
     let latestItemsSubject: any = new Subject();
     let latestItems: Item[];
-    // http://127.0.0.1:5984/advertisement/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
+    // http://127.0.0.1:5984/ads/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
     this.pouchdb.db
       .query("items/latest-items", {
         limit: 8,
