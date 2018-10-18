@@ -16,7 +16,7 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
     this.price = this.formatPrice(this.item.price);
     this.itemService.getItem(this.item.id).then(item => {
-      if(item.image){
+      if(item.image && item.image != 'khong co'){
         this.url = item.image;
       }
       else if(item._attachments){
