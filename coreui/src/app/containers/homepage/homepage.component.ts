@@ -18,11 +18,10 @@ export class HomepageComponent implements OnInit {
     this.catService.getItemNumberOfCategory().subscribe(cats => {
       this.cats = cats;
       this.catService.getAllCategory().subscribe(catObj => {
-        catObj.map(obj => {
-          cats.map(cat => {
+        cats.map(cat => {
+          catObj.map(obj => {
             if(obj.cat_name == cat.key){
               this.icons.push(obj.cat_icon);
-              console.log(this.icons)
             }
           });
         });

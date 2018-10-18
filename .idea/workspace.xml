@@ -2837,20 +2837,8 @@
       <change afterPath="$PROJECT_DIR$/import/node_modules/rxjs/testing/TestScheduler.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/import/node_modules/rxjs/testing/TestScheduler.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/pouchdb.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/pouchdb.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import/_gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/import/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import/data/item_import_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/import/data/item_import_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/import/note.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import/src/app/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import/src/app/data.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender.js" beforeDir="false" afterPath="$PROJECT_DIR$/recommender.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -2864,7 +2852,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recommender.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="homepage.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item-detail.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item_import_1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/import/data/item_import_1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="637">
+              <caret line="999" column="558" selection-start-line="999" selection-start-column="558" selection-end-line="999" selection-end-column="558" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recommender.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recommender.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -2873,62 +2888,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/assets/data/category.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category_view.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/assets/data/category_view.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="106" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="106" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pouchdb.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/app/services/pouchdb.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="location.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/assets/data/location.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="22" lean-forward="true" selection-end-line="421" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_view.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/assets/data/item_view.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="126" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post-ad.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts">
+      <file leaf-file-name="manage-ad.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="63" column="9" lean-forward="true" selection-start-line="63" selection-start-column="9" selection-end-line="64" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
+              <caret line="20" column="49" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="30" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default-layout.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="41" column="117" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="122" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item-detail.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -2937,7 +2928,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set</find>
       <find>readUrl</find>
       <find>base/card</find>
       <find>router</find>
@@ -2967,6 +2957,7 @@
       <find>undefined</find>
       <find>advertisement</find>
       <find>Nội ngoại thất, Đồ gia dụng</find>
+      <find>item.image</find>
     </findStrings>
     <replaceStrings>
       <replace>item</replace>
@@ -3022,23 +3013,23 @@
         <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/solr.service.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/scss/_custom.scss" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.scss" />
         <option value="$PROJECT_DIR$/coreui/src/assets/data/category.json" />
-        <option value="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" />
         <option value="$PROJECT_DIR$/import/src/app/data.service.ts" />
         <option value="$PROJECT_DIR$/import/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/import/note.txt" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/pouchdb.service.ts" />
-        <option value="$PROJECT_DIR$/import/data/item_import_1.txt" />
         <option value="$PROJECT_DIR$/recommender.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
+        <option value="$PROJECT_DIR$/import/data/item_import_1.txt" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" />
       </list>
     </option>
   </component>
@@ -3063,8 +3054,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="35" />
+    <option name="x" value="1480" />
+    <option name="y" value="75" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
@@ -3098,7 +3089,59 @@
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
               <item name="coreui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="item-detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="manage-ad" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="default-layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="homepage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
@@ -3106,7 +3149,6 @@
               <item name="coreui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
@@ -3124,13 +3166,6 @@
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
               <item name="import" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="import" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -3334,14 +3369,8 @@
       <workItem from="1539620150070" duration="4854000" />
       <workItem from="1539660814569" duration="6590000" />
       <workItem from="1539699909693" duration="818000" />
-      <workItem from="1539745895927" duration="15218000" />
-    </task>
-    <task id="LOCAL-00022" summary="env">
-      <created>1528771455876</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1528771455876</updated>
+      <workItem from="1539745895927" duration="19522000" />
+      <workItem from="1539830807116" duration="1095000" />
     </task>
     <task id="LOCAL-00023" summary="env">
       <created>1528771773011</created>
@@ -3679,27 +3708,33 @@
       <option name="project" value="LOCAL" />
       <updated>1539761844420</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="update import data">
+      <created>1539770681202</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1539770681202</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371978000" />
+    <option name="totallyTimeSpent" value="377377000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15226555" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.6141479" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37571427" />
       <window_info id="npm" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27009645" />
-      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21502976" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29661018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.14561027" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
@@ -3715,11 +3750,12 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.29661018" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="2" />
@@ -3793,7 +3829,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ng b -prod" />
     <MESSAGE value="new ads component" />
     <MESSAGE value="missing component" />
     <MESSAGE value="delete top-product" />
@@ -3818,7 +3853,8 @@
     <MESSAGE value="Import dữ liệu" />
     <MESSAGE value="hiển thị hình từ dữ liệu import" />
     <MESSAGE value="Sửa hiển thị sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sửa hiển thị sidebar" />
+    <MESSAGE value="update import data" />
+    <option name="LAST_COMMIT_MESSAGE" value="update import data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3826,13 +3862,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="5885" lean-forward="true" selection-start-line="5885" selection-end-line="5885" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-98095">
@@ -3845,13 +3874,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/import/data/user_import.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/node_modules/ngx-perfect-scrollbar/dist/lib/perfect-scrollbar.component.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -3880,13 +3902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/node_modules/@coreui/angular/lib/sidebar/index.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -3897,9 +3912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
           <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3976,20 +3988,6 @@
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="66" column="18" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -4008,13 +4006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="27" column="7" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -4116,20 +4107,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/import/data/item_import_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="637" column="63" lean-forward="true" selection-end-line="1000" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/import/src/app/data.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4144,9 +4125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="63" column="9" lean-forward="true" selection-start-line="63" selection-start-column="9" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4154,9 +4132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4164,6 +4139,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import/data/item_import_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="999" column="558" selection-start-line="999" selection-start-column="558" selection-end-line="999" selection-end-column="558" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="41" column="117" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="14" />
         </state>
       </provider>
     </entry>
