@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import {ItemService} from "../../services/item.service";
 
 @Component({
   selector: "app-item",
@@ -10,14 +11,18 @@ export class ItemComponent implements OnInit {
   item;
   price = '';
   url: string;
-  constructor() {}
+  constructor(private itemService: ItemService) {}
 
   ngOnInit() {
     this.price = this.formatPrice(this.item.price);
-    if(this.item._attachments){
-      this.url = 'http://localhost:5984/advertisement/' + this.item.id + '/image';
-      console.log(this.url)
-    }
+    this.itemService.getItem(this.item.id).then(item => {
+      if(item.image){
+        this.url = item.image;
+      }
+      else if(item._attachments){
+        this.url = 'http://localhost:5984/ads/' + item._id + '/image';
+      }
+    });
   }
 
   formatPrice(price){
@@ -34,4 +39,6 @@ export class ItemComponent implements OnInit {
     });
     return newPrice.slice(1);
   }
+
+
 }

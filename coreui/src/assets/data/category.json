@@ -4,132 +4,238 @@
   "data": [
     {
       "cat_id": 1,
-      "cat_name": "Đồ điện tử",
-      "cat_icon": "fa fa-laptop",
+      "cat_name": "Xe cộ",
+      "cat_icon": "fa fa-car",
       "subs": [
         {
           "sub_id": 1,
-          "name": "Điện thoại"
+          "name": "Ô tô"
         },
         {
           "sub_id": 2,
-          "name": "Máy tính bảng"
+          "name": "Xe máy"
         },
         {
           "sub_id": 3,
-          "name": "Laptop"
+          "name": "Xe tải"
         },
         {
           "sub_id": 4,
-          "name": "Máy tính để bàn"
+          "name": "Xe điện"
         },
         {
           "sub_id": 5,
-          "name": "Máy ảnh, Máy quay"
+          "name": "Xe đạp"
         },
         {
           "sub_id": 6,
-          "name": "Tivi, Loa, Amply"
+          "name": "Phụ tùng xe"
         },
         {
           "sub_id": 7,
-          "name": "Linh kiện, phụ kiện"
-        },
-        {
-          "sub_id": 8,
           "name": "Khác"
         }
       ]
     },
     {
       "cat_id": 2,
-      "cat_name": "Đồ gia dụng",
-      "cat_icon": "fa fa-shopping-basket",
+      "cat_name": "Bất động sản",
+      "cat_icon": "fa fa-home",
       "subs": [
         {
+          "sub_id": 8,
+          "name": "Căn hộ/Chung cư"
+        },
+        {
           "sub_id": 9,
-          "name": "Điện lạnh"
+          "name": "Nhà ở"
         },
         {
           "sub_id": 10,
-          "name": "Thiết bị nhà bếp"
+          "name": "Đất"
         },
         {
           "sub_id": 11,
-          "name": "Đồ dùng gia đình"
+          "name": "Văn phòng, Mặt bằng kinh doanh"
         },
         {
           "sub_id": 12,
-          "name": "Vật dụng cá nhân"
-        },
-        {
-          "sub_id": 13,
           "name": "Khác"
         }
       ]
     },
     {
       "cat_id": 3,
-      "cat_name": "Đồ văn phòng",
-      "cat_icon": "fa fa-shopping-bag",
+      "cat_name": "Đồ điện tử",
+      "cat_icon": "fa fa-laptop",
       "subs": [
         {
+          "sub_id": 13,
+          "name": "Điện thoại"
+        },
+        {
           "sub_id": 14,
-          "name": "Bàn ghế"
+          "name": "Máy tính bảng"
         },
         {
           "sub_id": 15,
-          "name": "Tủ"
+          "name": "Laptop"
         },
         {
           "sub_id": 16,
-          "name": "Máy chiếu"
+          "name": "Máy tính để bàn"
         },
         {
           "sub_id": 17,
-          "name": "Máy photocopy"
+          "name": "Máy ảnh, Máy quay"
         },
         {
           "sub_id": 18,
-          "name": "Camera an ninh"
+          "name": "Tivi, Loa, Amply"
         },
         {
           "sub_id": 19,
+          "name": "Màn hình, Phụ kiện"
+        },
+        {
+          "sub_id": 20,
           "name": "Khác"
         }
       ]
     },
     {
       "cat_id": 4,
-      "cat_name": "Xe",
-      "cat_icon": "fa fa-car",
+      "cat_name": "Đồ dùng văn phòng",
+      "cat_icon": "fa fa-briefcase",
       "subs": [
         {
-          "sub_id": 20,
-          "name": "Xe máy"
-        },
-        {
           "sub_id": 21,
-          "name": "Ôtô"
+          "name": "Bàn ghế"
         },
         {
           "sub_id": 22,
-          "name": "Xe tải"
+          "name": "Tủ"
         },
         {
           "sub_id": 23,
-          "name": "Xe đạp"
+          "name": "Máy chiếu"
         },
         {
           "sub_id": 24,
-          "name": "Phụ tùng xe"
+          "name": "Máy photocopy"
         },
         {
           "sub_id": 25,
-          "name": "Dịch vụ sửa chữa"
+          "name": "Camera an ninh"
         },
         {
           "sub_id": 26,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 5,
+      "cat_name": "Nội ngoại thất",
+      "cat_icon": "fa fa-shopping-basket",
+      "subs": [
+        {
+          "sub_id": 27,
+          "name": "Tủ lạnh, Máy lạnh, Máy giặt"
+        },
+        {
+          "sub_id": 28,
+          "name": "Nội ngoại thất, Cây cảnh"
+        },
+        {
+          "sub_id": 29,
+          "name": "Đồ gia dụng gia đình khác"
+        },
+        {
+          "sub_id": 30,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 6,
+      "cat_name": "Thời trang",
+      "cat_icon": "fa fa-shopping-bag",
+      "subs": [
+        {
+          "sub_id": 31,
+          "name": "Quần áo"
+        },
+        {
+          "sub_id": 32,
+          "name": "Đồng hồ"
+        },
+        {
+          "sub_id": 33,
+          "name": "Giày dép"
+        },
+        {
+          "sub_id": 34,
+          "name": "Túi xách"
+        },{
+          "sub_id": 35,
+          "name": "Nước hoa"
+        },{
+          "sub_id": 36,
+          "name": "Phụ kiện thời trang khác"
+        },
+        {
+          "sub_id": 37,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 7,
+      "cat_name": "Giải trí, Thể thao",
+      "cat_icon": "fa fa-soccer-ball-o",
+      "subs": [
+        {
+          "sub_id": 38,
+          "name": "Âm nhạc, Phim, Sách"
+        },
+        {
+          "sub_id": 39,
+          "name": "Đồ thể thao, Dã ngoại"
+        },
+        {
+          "sub_id": 40,
+          "name": "Sưu tầm, Game, Sở thích khác"
+        },
+        {
+          "sub_id": 41,
+          "name": "Khác"
+        }
+      ]
+    },
+    {
+      "cat_id": 8,
+      "cat_name": "Thú cưng",
+      "cat_icon": "fa fa-paw",
+      "subs": [
+        {
+          "sub_id": 42,
+          "name": "Gà"
+        },
+        {
+          "sub_id": 43,
+          "name": "Chó"
+        },
+        {
+          "sub_id": 44,
+          "name": "Chim"
+        },
+        {
+          "sub_id": 45,
+          "name": "Thú cưng khác, Phụ kiện"
+        },
+        {
+          "sub_id": 46,
           "name": "Khác"
         }
       ]

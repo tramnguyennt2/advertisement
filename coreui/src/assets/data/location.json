@@ -1,80 +1,421 @@
 {
-  "1": {
-    "area": "Miền Bắc",
-    "province": [
-      "Thành phố Hà Nội",
-      "Thành phố Hải Phòng",
-      "Tỉnh Bắc Giang",
-      "Tỉnh Bắc Kạn",
-      "Tỉnh Bắc Ninh",
-      "Tỉnh Cao Bằng",
-      "Tỉnh Điện Biên",
-      "Tỉnh Hà Giang",
-      "Tỉnh Hà Nam",
-      "Tỉnh Hà Tĩnh",
-      "Tỉnh Hải Dương",
-      "Tỉnh Hòa Bình",
-      "Tỉnh Hưng Yên",
-      "Tỉnh Lai Châu",
-      "Tỉnh Lạng Sơn",
-      "Tỉnh Lào Cai",
-      "Tỉnh Nam Định",
-      "Tỉnh Ninh Bình",
-      "Tỉnh Phú Thọ",
-      "Tỉnh Quảng Ninh",
-      "Tỉnh Sơn La",
-      "Tỉnh Thái Bình",
-      "Tỉnh Thái Nguyên",
-      "Tỉnh Tuyên Quang",
-      "Tỉnh Vĩnh Phúc",
-      "Tỉnh Yên Bái"
-    ]
-  },
-  "2": {
-    "area": "Miền Trung",
-    "province": [
-      "Thành phố Đà Nẵng",
-      "Tỉnh Bình Định",
-      "Tỉnh Bình Thuận",
-      "Tỉnh Đắk Lắk",
-      "Tỉnh Đắk Nông",
-      "Tỉnh Gia Lai",
-      "Tỉnh Khánh Hòa",
-      "Tỉnh Kon Tum",
-      "Tỉnh Lâm Đồng",
-      "Tỉnh Nghệ An",
-      "Tỉnh Ninh Thuận",
-      "Tỉnh Phú Yên",
-      "Tỉnh Quảng Bình",
-      "Tỉnh Quảng Nam",
-      "Tỉnh Quảng Ngãi",
-      "Tỉnh Quảng Trị",
-      "Tỉnh Thanh Hóa",
-      "Tỉnh Thừa Thiên - Huế"
-    ]
-  },
-  "3": {
-    "area": "Miền Nam",
-    "province": [
-      "Thành phố Cần Thơ",
-      "Thành phố Hồ Chí Minh",
-      "Tỉnh An Giang",
-      "Tỉnh Bà Rịa - Vũng Tàu",
-      "Tỉnh Bạc Liêu",
-      "Tỉnh Bến Tre",
-      "Tỉnh Bình Dương",
-      "Tỉnh Bình Phước",
-      "Tỉnh Cà Mau",
-      "Tỉnh Đồng Nai",
-      "Tỉnh Đồng Tháp",
-      "Tỉnh Hậu Giang",
-      "Tỉnh Kiên Giang",
-      "Tỉnh Long An",
-      "Tỉnh Sóc Trăng",
-      "Tỉnh Tây Ninh",
-      "Tỉnh Tiền Giang",
-      "Tỉnh Trà Vinh",
-      "Tỉnh Vĩnh Long"
-    ]
-  }
+  "_id": "3e4301d18613d44f6f0e10bbb8000eb7",
+  "_rev": "1-5adb925c3418276a92b4dd32ec6adf23",
+  "data": [
+    {
+      "loc_id": 1,
+      "loc_name": "Hà Nội",
+      "subs": [
+        {
+          "sub_id": 1,
+          "name": "Quận Ba Đình"
+        },
+        {
+          "sub_id": 2,
+          "name": "Quận Bắc Từ Liêm"
+        },{
+          "sub_id": 3,
+          "name": "Quận Cầu Giấy"
+        },{
+          "sub_id": 4,
+          "name": "Quận Đống Đa"
+        },{
+          "sub_id": 5,
+          "name": "Quận Hà Đông"
+        },{
+          "sub_id": 6,
+          "name": "Quận Hai Bà Trưng"
+        },{
+          "sub_id": 7,
+          "name": "Quận Hoàng Mai"
+        },{
+          "sub_id": 8,
+          "name": "Quận Thanh Xuân"
+        },{
+          "sub_id": 9,
+          "name": "Thị Xã Sơn Tây"
+        },{
+          "sub_id": 10,
+          "name": "Huyện Ba Vì"
+        },{
+          "sub_id": 11,
+          "name": "Huyện Đông Anh"
+        },{
+          "sub_id": 12,
+          "name": "Huyện Gia Lâm"
+        },{
+          "sub_id": 13,
+          "name": "Huyện Hoài Đức"
+        },{
+          "sub_id": 14,
+          "name": "Huyện Thạch Thất"
+        },{
+          "sub_id": 15,
+          "name": "Huyện Thanh Trì"
+        },{
+          "sub_id": 16,
+          "name": "Huyện Ứng Hòa"
+        }
+      ]
+    },
+    {
+      "loc_id": 2,
+      "loc_name": "TP Hồ Chí Minh",
+      "subs": [
+        {
+          "sub_id": 17,
+          "name": "Quận 1"
+        },
+        {
+          "sub_id": 18,
+          "name": "Quận 2"
+        },
+        {
+          "sub_id": 19,
+          "name": "Quận 3"
+        },
+        {
+          "sub_id": 20,
+          "name": "Quận 4"
+        },
+        {
+          "sub_id": 21,
+          "name": "Quận 5"
+        },
+        {
+          "sub_id": 22,
+          "name": "Quận 6"
+        },
+        {
+          "sub_id": 23,
+          "name": "Quận 7"
+        },
+        {
+          "sub_id": 24,
+          "name": "Quận 8"
+        },
+        {
+          "sub_id": 25,
+          "name": "Quận 9"
+        },
+        {
+          "sub_id": 26,
+          "name": "Quận 10"
+        },
+        {
+          "sub_id": 27,
+          "name": "Quận 11"
+        },
+        {
+          "sub_id": 28,
+          "name": "Quận 12"
+        },{
+          "sub_id": 29,
+          "name": "Quận Bình Tân"
+        },{
+          "sub_id": 30,
+          "name": "Quận Bình Thạnh"
+        },{
+          "sub_id": 31,
+          "name": "Quận Gò Vấp"
+        },{
+          "sub_id": 32,
+          "name": "Quận Phú Nhuận"
+        },{
+          "sub_id": 33,
+          "name": "Quận Tân Bình"
+        },{
+          "sub_id": 34,
+          "name": "Quận Tân Phú"
+        },{
+          "sub_id": 35,
+          "name": "Quận Thủ Đức"
+        },{
+          "sub_id": 36,
+          "name": "Huyện Bình Chánh"
+        },{
+          "sub_id": 37,
+          "name": "Huyện Cần Giờ"
+        },{
+          "sub_id": 38,
+          "name": "Huyện Củ Chi"
+        },{
+          "sub_id": 39,
+          "name": "Huyện Hóc Môn"
+        },{
+          "sub_id": 40,
+          "name": "Huyện Nhà Bè"
+        }
+      ]
+    },
+    {
+      "loc_id": 3,
+      "loc_name": "Bắc Bộ",
+      "subs": [
+        {
+          "sub_id": 41,
+          "name": "Bắc Giang"
+        },
+        {
+          "sub_id": 42,
+          "name": "Bắc Kạn"
+        },
+        {
+          "sub_id": 43,
+          "name": "Bắc Ninh"
+        },
+        {
+          "sub_id": 44,
+          "name": "Cao Bằng"
+        },
+        {
+          "sub_id": 45,
+          "name": "Điện Biên"
+        },
+        {
+          "sub_id": 46,
+          "name": "Hà Giang"
+        },
+        {
+          "sub_id": 47,
+          "name": "Hà Nam"
+        },
+        {
+          "sub_id": 48,
+          "name": "Hải Dương"
+        },
+        {
+          "sub_id": 49,
+          "name": "Hải Phòng"
+        },
+        {
+          "sub_id": 50,
+          "name": "Hòa Bình"
+        },
+        {
+          "sub_id": 51,
+          "name": "Hưng Yên"
+        },
+        {
+          "sub_id": 52,
+          "name": "Lai Châu"
+        },{
+          "sub_id": 53,
+          "name": "Lạng Sơn"
+        },{
+          "sub_id": 54,
+          "name": "Lào Cai"
+        },{
+          "sub_id": 55,
+          "name": "Nam Định"
+        },{
+          "sub_id": 56,
+          "name": "Ninh Bình"
+        },{
+          "sub_id": 57,
+          "name": "Phú Thọ"
+        },{
+          "sub_id": 58,
+          "name": "Quảng Ninh"
+        },{
+          "sub_id": 59,
+          "name": "Sơn La"
+        },{
+          "sub_id": 60,
+          "name": "Thái Bình"
+        },{
+          "sub_id": 61,
+          "name": "Thái Nguyên"
+        },{
+          "sub_id": 62,
+          "name": "Tuyên Quang"
+        },{
+          "sub_id": 63,
+          "name": "Vĩnh Phúc"
+        },{
+          "sub_id": 64,
+          "name": "Yên Bái"
+        }
+      ]
+    },
+    {
+      "loc_id": 4,
+      "loc_name": "Bắc Trung Bộ",
+      "subs": [
+        {
+          "sub_id": 65,
+          "name": "Hà Tĩnh"
+        },
+        {
+          "sub_id": 66,
+          "name": "Nghệ An"
+        },
+        {
+          "sub_id": 67,
+          "name": "Quảng Bình"
+        },
+        {
+          "sub_id": 68,
+          "name": "Quảng Trị"
+        },
+        {
+          "sub_id": 69,
+          "name": "Thanh Hóa"
+        },
+        {
+          "sub_id": 70,
+          "name": "Thừa Thiên Huế"
+        }
+      ]
+    },
+    {
+      "loc_id": 5,
+      "loc_name": "Nam Trung Bộ",
+      "subs": [
+        {
+          "sub_id": 71,
+          "name": "Bình Định"
+        },
+        {
+          "sub_id": 72,
+          "name": "Bình Thuận"
+        },
+        {
+          "sub_id": 73,
+          "name": "Đà Nẵng"
+        },
+        {
+          "sub_id": 74,
+          "name": "Khánh Hòa"
+        },
+        {
+          "sub_id": 75,
+          "name": "Ninh Thuận"
+        },
+        {
+          "sub_id": 76,
+          "name": "Phú Yên"
+        },
+        {
+          "sub_id": 77,
+          "name": "Quảng Nam"
+        },
+        {
+          "sub_id": 78,
+          "name": "Quảng Ngãi"
+        }
+      ]
+    },
+    {
+      "loc_id": 6,
+      "loc_name": "Tây Nguyên",
+      "subs": [
+        {
+          "sub_id": 79,
+          "name": "Đắk Lắk"
+        },
+        {
+          "sub_id": 80,
+          "name": "Đắk Nông"
+        },
+        {
+          "sub_id": 81,
+          "name": "Gia Lai"
+        },
+        {
+          "sub_id": 82,
+          "name": "Kon Tum"
+        },
+        {
+          "sub_id": 83,
+          "name": "Lâm Đồng"
+        }
+      ]
+    },
+    {
+      "loc_id": 7,
+      "loc_name": "Đông Nam Bộ",
+      "subs": [
+        {
+          "sub_id": 84,
+          "name": "Bà Rịa Vũng Tàu"
+        },
+        {
+          "sub_id": 85,
+          "name": "Bình Dương"
+        },
+        {
+          "sub_id": 86,
+          "name": "Bình Phước"
+        },
+        {
+          "sub_id": 87,
+          "name": "Đồng Nai"
+        },
+        {
+          "sub_id": 88,
+          "name": "Tây Ninh"
+        }
+      ]
+    },
+    {
+      "loc_id": 8,
+      "loc_name": "Tây Nam Bộ",
+      "subs": [
+        {
+          "sub_id": 89,
+          "name": "An Giang"
+        },
+        {
+          "sub_id": 90,
+          "name": "Bạc Liêu"
+        },
+        {
+          "sub_id": 91,
+          "name": "Bến Tre"
+        },
+        {
+          "sub_id": 92,
+          "name": "Cà Mau"
+        },
+        {
+          "sub_id": 93,
+          "name": "Cần Thơ"
+        },
+        {
+          "sub_id": 94,
+          "name": "Đồng Tháp"
+        },
+        {
+          "sub_id": 95,
+          "name": "Hậu Giang"
+        },
+        {
+          "sub_id": 96,
+          "name": "Kiên Giang"
+        },
+        {
+          "sub_id": 97,
+          "name": "Long An"
+        },
+        {
+          "sub_id": 98,
+          "name": "Sóc Trăng"
+        },
+        {
+          "sub_id": 99,
+          "name": "Tiền Giang"
+        },
+        {
+          "sub_id": 100,
+          "name": "Trà Vinh"
+        },
+        {
+          "sub_id": 101,
+          "name": "Vĩnh Long"
+        }
+      ]
+    }
+  ],
+  "type": "location"
 }

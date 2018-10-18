@@ -15,7 +15,7 @@ export class DefaultLayoutComponent{
   public element: HTMLElement = document.body;
   keyword = "";
   sub_cat_id: number;
-  prov_id: number;
+  sub_loc_id: number;
   user = new User();
   // check register data
   existEmail = false;
@@ -66,8 +66,8 @@ export class DefaultLayoutComponent{
     this.sub_cat_id = param.sub_cat_id;
   }
 
-  getProvId(param) {
-    this.prov_id = param.prov_id;
+  getSubLocId(param) {
+    this.sub_loc_id = param.sub_loc_id;
   }
 
   login(){

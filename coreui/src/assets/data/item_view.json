@@ -1,0 +1,10 @@
+{
+  "_id": "_design/items",
+  "_rev": "1-1c163e092f5cc7fbca6b3e1cca411bad",
+  "views": {
+    "latest-items": {
+      "map": "function (doc) {\n  if(doc.type && doc.type === 'item' && doc.created_at){\n    emit(doc.created_at, null);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
