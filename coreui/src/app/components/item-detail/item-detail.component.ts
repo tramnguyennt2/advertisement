@@ -17,6 +17,7 @@ export class ItemDetailComponent implements OnInit {
   user = new User();
   price = '';
   url: string;
+  viewNumber = 0;
 
   constructor(private itemService: ItemService, private userService: UserService, private cookieService: CookieService) {
   }
@@ -33,6 +34,12 @@ export class ItemDetailComponent implements OnInit {
         else if(item._attachments){
           this.url = 'http://localhost:5984/ads/' + item._id + '/image';
         }
+      });
+      //get view number
+      this.itemService.getRatingByItem(this.id).subscribe(res => {
+          res.map(rating => {
+            this.viewNumber += rating.rating;
+          });
       });
     }
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
