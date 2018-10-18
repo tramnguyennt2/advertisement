@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ItemService} from "../../services/item.service";
 import { Item } from "../../item";
+import { User } from "../../user";
 import {CookieService} from "ngx-cookie-service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-manage-ad',
@@ -14,7 +16,8 @@ export class ManageAdComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
-    private itemService: ItemService
+    private itemService: ItemService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -55,4 +58,27 @@ export class ManageAdComponent implements OnInit {
     window.location.reload();
   }
 
+  getViewNumber(id){
+    let viewNumber = 0;
+    this.itemService.getRatingByItem(id).subscribe(res => {
+      res.map(rating => {
+        viewNumber += rating.rating;
+        console.log(viewNumber)
+      });
+
+    });
+    return viewNumber;
+  }
+
+  getUserView(id){
+    let users = [];
+    this.itemService.getRatingByItem(id).subscribe(res => {
+      res.map(rating => {
+        this.userService.getUser(rating.user_id).then(user => {
+          users.push(user)
+        })
+      });
+      console.log(users)
+    });
+  }
 }

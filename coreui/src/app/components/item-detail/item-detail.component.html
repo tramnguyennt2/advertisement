@@ -5,7 +5,10 @@
   <i>&nbsp;{{item.created_at | date: "dd-MM-yyyy hh:mm"}}</i>
   <span>&nbsp;-&nbsp;</span>
   <i class="fa fa-map-marker"></i>
-  <i>&nbsp;{{item.sub_loc}}</i>
+  <i>&nbsp;{{item.sub_loc}}
+  </i><span>&nbsp;-&nbsp;</span>
+  <i class="fa fa-eye"></i>
+  <i>&nbsp;{{viewNumber}}&nbsp;lượt xem</i>
 </div>
 <br/>
 <img *ngIf="url" [src]="url" class="show-img"/>

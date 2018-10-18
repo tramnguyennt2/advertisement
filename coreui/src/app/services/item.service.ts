@@ -58,7 +58,7 @@ export class ItemService {
     return ratingSubject;
   }
 
-  getLastestItems() {
+  getLatestItems() {
     let latestItemsSubject: any = new Subject();
     let latestItems: Item[];
     // http://127.0.0.1:5984/ads/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
@@ -122,5 +122,24 @@ export class ItemService {
         }
       });
     });
+  }
+
+  getRatingByItem(id: string){
+    let ratingSubject: any = new Subject();
+    let ratings: any[];
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'rating',
+          item_id: id
+        }
+      })
+      .then(data => {
+        ratings = data.docs.map(row => {
+          return row;
+        });
+        ratingSubject.next(ratings);
+      });
+    return ratingSubject;
   }
 }
