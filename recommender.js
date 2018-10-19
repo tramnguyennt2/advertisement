@@ -1,6 +1,7 @@
 const ContentBasedRecommender = require("content-based-recommender");
-const maxSimilarDocuments = 5;
+const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
+    maxSimilarDocuments: maxSimilarDocuments,
     minScore: 0,
     debug: false
 });
@@ -8,6 +9,7 @@ const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("ads");
 const k = 2;
+const fs = require('fs');
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -16,9 +18,25 @@ module.exports = {
             db.view("items", "all-item", {
                 'include_docs': true
             }).then((body) => {
-                body.rows.forEach((doc) => {
-                    let obj = {id: doc.doc._id, content: doc.doc.content};
-                    documents.push(obj);
+                fs.readFile('item-length.txt', 'utf8', function (err, len) {
+                    if (parseInt(len, 10) !== body.total_rows) {
+                        console.log("rebuild model");
+                        body.rows.forEach((doc) => {
+                            let obj = {id: doc.doc._id, content: doc.doc.content};
+                            documents.push(obj);
+                        });
+                        fs.writeFile("item-length.txt", body.total_rows, 'utf-8', function (err) {
+                            if (err) {
+                                return console.log(err);
+                            }
+                            console.log("The file item-length.txt was saved!");
+                        });
+                    } else { // lay lai model
+                        fs.readFile('cb-model.txt', 'utf8', function (err, data) {
+                            let dataObj = JSON.parse(data);
+                            resolve(dataObj[item_id]);
+                        });
+                    }
                 });
             }).then(() => {
                 content_based.train(documents);
