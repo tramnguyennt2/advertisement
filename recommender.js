@@ -31,21 +31,22 @@ module.exports = {
                             }
                             console.log("The file item-length.txt was saved!");
                         });
+                        content_based.train(documents);
+                        const similarDocuments = content_based.getSimilarDocuments(
+                            item_id,
+                            0,
+                            10
+                        );
+                        resolve(similarDocuments);
                     } else { // lay lai model
+                        console.log("reuse model");
                         fs.readFile('cb-model.txt', 'utf8', function (err, data) {
                             let dataObj = JSON.parse(data);
+                            console.log(dataObj[item_id]);
                             resolve(dataObj[item_id]);
                         });
                     }
                 });
-            }).then(() => {
-                content_based.train(documents);
-                const similarDocuments = content_based.getSimilarDocuments(
-                    item_id,
-                    0,
-                    10
-                );
-                resolve(similarDocuments);
             })
             .catch(function (err) {
                 reject(new Error(err));
