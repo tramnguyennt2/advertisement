@@ -20,18 +20,6 @@ export class RsResultComponent implements OnInit {
   }
 
   ngOnInit() {
-    //------------------CB-----------------
-    this.items = [];
-    this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
-      this.getItemRecommended(items_rs).then(items => {
-        for (let i = 0; i < items.length; i++) {
-          let item = new Item();
-          item.setItem(items[i]);
-          this.items.push(item);
-        }
-      })
-    );
-
     let user_id = this.cookieService.get('user_id');
     if (user_id !== '') {
       this.saveUserBehavior(this.item_id, user_id).then(() => {
@@ -47,15 +35,15 @@ export class RsResultComponent implements OnInit {
         //   })
         // );
         //------------------HB-----------------
-        // this.rsService.getHybridMethod(this.item_id, user_id).subscribe(items_rs =>
-        //   this.getItemRecommended(items_rs).then(items => {
-        //     for (let i = 0; i < items.length; i++) {
-        //       let item = new Item();
-        //       item.setItem(items[i]);
-        //       this.items.push(item);
-        //     }
-        //   })
-        // );
+        this.rsService.getHybridMethod(this.item_id, user_id).subscribe(items_rs =>
+          this.getItemRecommended(items_rs).then(items => {
+            for (let i = 0; i < items.length; i++) {
+              let item = new Item();
+              item.setItem(items[i]);
+              this.items.push(item);
+            }
+          })
+        );
         //------------------GRAPH METHOD-----------------
         // this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
         //   this.getItemRecommended(items_rs).then(items => {
@@ -67,6 +55,18 @@ export class RsResultComponent implements OnInit {
         //   })
         // );
       });
+    } else {
+      //------------------CB-----------------
+      this.items = [];
+      this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
+        this.getItemRecommended(items_rs).then(items => {
+          for (let i = 0; i < items.length; i++) {
+            let item = new Item();
+            item.setItem(items[i]);
+            this.items.push(item);
+          }
+        })
+      );
     }
   }
 
