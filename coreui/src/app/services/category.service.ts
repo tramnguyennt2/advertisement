@@ -26,7 +26,7 @@ export class CategoryService {
   getItemNumberOfCategory() {
     let catSubject: any = new Subject();
     let cats: any;
-    // http://127.0.0.1:5984/ads/_design/categories/_view/numberItems?group=true
+    // http://127.0.0.1:5984/advertisement/_design/categories/_view/numberItems?group=true
     this.pouchdb.db
       .query("categories/numberItems", {group: true})
       .then(data => {

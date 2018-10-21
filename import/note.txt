@@ -5,5 +5,5 @@
 5. Import Item (advertisement\import\data\item_import_1.txt)
 
 *** Note
-DB name: "ads"
+DB name: "advertisement"
 Solr core name: "item"
