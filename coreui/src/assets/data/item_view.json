@@ -1,9 +1,12 @@
 {
   "_id": "_design/items",
-  "_rev": "1-1c163e092f5cc7fbca6b3e1cca411bad",
+  "_rev": "10-3314abfd33d634caa3e938940cdc2d05",
   "views": {
     "latest-items": {
-      "map": "function (doc) {\n  if(doc.type && doc.type === 'item' && doc.created_at){\n    emit(doc.created_at, null);\n  }\n}"
+      "map": "  function (doc) {\n  if(doc.type && doc.type === 'item' && doc.created_at){\n        emit(doc.created_at, null);\n    }\n}"
+    },
+    "all-item": {
+      "map": "function (doc) {\n  if(doc.type && doc.type==\"item\"){\n    var current_date = new Date();\n    var date = new Date();\n    date.setMonth(date.getMonth() - 3);\n    var ad_date = new Date(doc.created_at);\n    if(ad_date.getTime() >= date.getTime() && ad_date.getTime() <= current_date.getTime()){\n      emit(doc._id, 1);\n    }\n  }\n}"
     }
   },
   "language": "javascript"
