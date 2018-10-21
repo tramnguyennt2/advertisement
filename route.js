@@ -35,31 +35,28 @@ router.get("/cf/:id", function (req, res, next) {
 });
 
 router.get("/test-cf/:id", function (req, res, next) {
-    readUserStream("ml-100k/u.user").then(users => {
-        // let sents = [];
-        // for (let i = 0; i < users.length; i++) {
-        let retrieved = [];
-        recommender_e
-            .getCollaborativeFilteringResult(req.params.id)
+    readUserStream("ml-100k/u (copy).user").then(users => {
+        let sents = [];
+        for (let i = 0; i < users.length; i++) {
+            let retrieved = [];
+            recommender_e.getCollaborativeFilteringResult(users[i])
             .then(similarDocuments => {
-                // console.log("similarDocuments: ", similarDocuments);
                 for (let i = 0; i < similarDocuments.length; i++)
-                    if (similarDocuments[i].rating > 2.5)
+                    if (similarDocuments[i].rating > 1)
                         retrieved.push(similarDocuments[i].id);
             })
             .then(() => {
-                createReadStream("ml-100k/ua.test", req.params.id).then((relevant) => {
-                    console.log("relevant: ", relevant);
-                    console.log("retrieved:", retrieved);
-                    const sentences = precisionRecall(relevant, retrieved);
-                    res.send(sentences)
-                    // sents.push(precisionRecall(relevant, retrieved));
+                createReadStream("ml-100k/ua (copy).test", req.params.id).then((relevant) => {
+                    // console.log("relevant: ", relevant);
+                    // console.log("retrieved:", retrieved);
+                    sents.push(precisionRecall(relevant, retrieved));
+                    console.log("sent: ", sents);
                 })
             })
             .catch(err => {
                 res.send(err);
             });
-        // }
+        }
     })
 });
 
@@ -94,7 +91,7 @@ function createReadStream(filename, id) {
         let relevant = [];
         fs.createReadStream(filename).pipe(parse({delimiter: '\t'})).on('data', function (data) {
             if (data[0] === id) {
-                if (data[2] > 2.5) {
+                if (data[2] > 1) {
                     relevant.push(data[1]);
                 }
             }

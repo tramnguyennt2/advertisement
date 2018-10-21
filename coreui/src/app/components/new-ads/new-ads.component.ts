@@ -12,6 +12,6 @@ export class NewAdsComponent implements OnInit {
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {
-    this.itemService.getLastestItems().subscribe(items => (this.items = items));
+    this.itemService.getLatestItems().subscribe(items => (this.items = items));
   }
 }

@@ -13,7 +13,7 @@ export class LocDropDownComponent implements OnInit {
   loc_id = 0;
   loc: string = "Khu vực";
   @Output()
-  provClick = new EventEmitter();
+  subLocClick = new EventEmitter();
 
   constructor(private locService: LocationService) {
   }
@@ -28,7 +28,7 @@ export class LocDropDownComponent implements OnInit {
     });
   }
 
-  clickProvince(event) {
+  clickSubLoc(event) {
     let oldEl = document.getElementsByClassName("current-level-2");
     for (let i = 0; i < oldEl.length; i++) {
       oldEl[i].classList.remove("active");
@@ -36,9 +36,9 @@ export class LocDropDownComponent implements OnInit {
     let curEl = event.currentTarget;
     const cls = ["active", "current-level-2"];
     curEl.classList.add(cls);
-    this.provClick.emit({
-      prov_id: curEl.id,
-      prov: curEl.innerHTML,
+    this.subLocClick.emit({
+      sub_loc_id: curEl.id,
+      sub_loc: curEl.innerHTML,
       loc_id: this.loc_id,
       loc: this.loc_str
     });

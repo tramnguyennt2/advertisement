@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {RsService} from "../../services/rs.service";
 import {ItemService} from "../../services/item.service";
-import {CookieService} from 'ngx-cookie-service';
+import {CookieService} from "ngx-cookie-service";
 import {UserBehavior} from "../../user-behavior";
 import {Item} from "../../item";
 
@@ -15,6 +15,7 @@ export class RsResultComponent implements OnInit {
   item_id;
   items = [];
   rating: UserBehavior;
+  //urls: string[];
 
   constructor(private rsService: RsService, private itemService: ItemService, private cookieService: CookieService) {
   }
@@ -98,5 +99,17 @@ export class RsResultComponent implements OnInit {
       }
     );
 
+  }
+
+  getUrlImg(id){
+    let url;
+    this.itemService.getItem(id).then(item => {
+      if(item._attachments){
+        url = 'http://localhost:5984/ads/' + item._id + '/image';
+        console.log(url)
+        return url;
+      }
+    });
+    //return url;
   }
 }

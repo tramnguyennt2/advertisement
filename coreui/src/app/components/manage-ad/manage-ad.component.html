@@ -14,6 +14,7 @@
           <th>Danh mục</th>
           <th>Khu vực</th>
           <th>Giá</th>
+          <th>Lượt xem</th>
           <th></th>
         </tr>
         </thead>
@@ -23,8 +24,9 @@
           <td><span title="{{item.title}}">{{item.title}}</span></td>
           <td>{{item.created_at | date: "hh:mm - dd/MM/yyyy"}}</td>
           <td>{{item.cat}} -> {{item.sub_cat}}</td>
-          <td>{{item.prov}}</td>
+          <td>{{item.sub_loc}}</td>
           <td>{{formatPrice(item.price)}}đ</td>
+          <td>{{getViewNumber(item.id)}}</td>
           <td>
             <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show();">Xem</button>
             <button class="btn btn-sm btn-warning" type="button" (click)="onClickUpdate()" target="_blank">Sửa</button>

@@ -5,10 +5,15 @@
   <i>&nbsp;{{item.created_at | date: "dd-MM-yyyy hh:mm"}}</i>
   <span>&nbsp;-&nbsp;</span>
   <i class="fa fa-map-marker"></i>
-  <i>&nbsp;{{item.prov}}</i>
+  <i>&nbsp;{{item.sub_loc}}
+  </i><span>&nbsp;-&nbsp;</span>
+  <i class="fa fa-eye"></i>
+  <i>&nbsp;{{viewNumber}}&nbsp;lượt xem</i>
 </div>
 <br/>
-<img *ngIf="url" [src]="url" class="show-img">
+<img *ngIf="url" [src]="url" class="show-img"/>
+<br/>
+<br/>
 <div class="text-justify angular-with-newlines">
   {{item.content}}
 </div>
@@ -18,15 +23,15 @@
 <div class="row">
   <div class="col-lg-5">
     <div class="row align-items-center" style="margin-left: 0; margin-top: 20px">
-      <img src="assets/img/avatars/6.jpg" class="img-avatar" style="width: 25px; height: 25px" alt="admin@bootstrapmaster.com"
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Y_fAiQyoNtVyitsWbBxolrGO6vtAI93ZFnEq1Swe8dpPY3dv" class="img-avatar" style="width: 25px; height: 25px" alt="admin@bootstrapmaster.com"
       />
       <span class="lead">&nbsp; {{user.fullname}}</span>
     </div>
-    <br/>
-    <div>
-      <i class="fa fa-map-marker" style="margin-left: 30px"></i>&nbsp;Địa chỉ: {{user.address}}
-    </div>
-    <br/>
+    <!--<br/>-->
+    <!--<div>-->
+      <!--<i class="fa fa-map-marker" style="margin-left: 30px"></i>&nbsp;Địa chỉ: {{user.address}}-->
+    <!--</div>-->
+    <!--<br/>-->
     <div>
       <i class="fa fa-mobile-phone" style="margin-left: 30px"></i>&nbsp;Số điện thoại: {{user.phone}}
     </div>

@@ -1,42 +1,56 @@
 const ContentBasedRecommender = require("content-based-recommender");
-const maxSimilarDocuments = 5;
+const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
-    minScore: 0.1,
+    maxSimilarDocuments: maxSimilarDocuments,
+    minScore: 0,
     debug: false
 });
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
-const db = nano.use("advertisement");
+const db = nano.use("ads");
 const k = 2;
+const fs = require('fs');
 
 module.exports = {
     getContentBasedResult: function (item_id) {
         return new Promise(function (resolve, reject) {
             let documents = [];
-            const q = {
-                selector: {
-                    type: {$eq: "item"}
-                }
-            };
-            db.find(q)
-                .then(docs => {
-                    for (let i = 0; i < docs.docs.length; i++) {
-                        let obj = {id: docs.docs[i]._id, content: docs.docs[i].content};
-                        documents.push(obj);
+            db.view("items", "all-item", {
+                'include_docs': true
+            }).then((body) => {
+                fs.readFile('item-length.txt', 'utf8', function (err, len) {
+                    if (parseInt(len, 10) !== body.total_rows) {
+                        console.log("rebuild model");
+                        body.rows.forEach((doc) => {
+                            let obj = {id: doc.doc._id, content: doc.doc.content};
+                            documents.push(obj);
+                        });
+                        fs.writeFile("item-length.txt", body.total_rows, 'utf-8', function (err) {
+                            if (err) {
+                                return console.log(err);
+                            }
+                            console.log("The file item-length.txt was saved!");
+                        });
+                        content_based.train(documents);
+                        const similarDocuments = content_based.getSimilarDocuments(
+                            item_id,
+                            0,
+                            10
+                        );
+                        resolve(similarDocuments);
+                    } else { // lay lai model
+                        console.log("reuse model");
+                        fs.readFile('cb-model.txt', 'utf8', function (err, data) {
+                            let dataObj = JSON.parse(data);
+                            console.log(dataObj[item_id]);
+                            resolve(dataObj[item_id]);
+                        });
                     }
-                })
-                .then(() => {
-                    content_based.trainOpt(documents, item_id);
-                    const similarDocuments = content_based.getSimilarDocuments(
-                        item_id,
-                        0,
-                        10
-                    );
-                    resolve(similarDocuments);
-                })
-                .catch(function (err) {
-                    reject(new Error(err));
                 });
+            })
+            .catch(function (err) {
+                reject(new Error(err));
+            });
         });
     },
 

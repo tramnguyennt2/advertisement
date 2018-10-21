@@ -18,7 +18,7 @@ export class ItemService {
       if (err) return console.log(err);
       console.log("inserted to couchdb");
       let solr_item = new Item(item.title, item.content, null, null, item.sub_cat_id,
-        null, null, null, item.prov_id, null, item.price);
+        null, null, null, item.sub_loc_id, null, item.price);
       solr_item.addDbId(response.id);
       self.solr.add(solr_item).subscribe(res => console.log("inserted to solr"));
     });
@@ -58,20 +58,20 @@ export class ItemService {
     return ratingSubject;
   }
 
-  getLastestItems() {
+  getLatestItems() {
     let latestItemsSubject: any = new Subject();
     let latestItems: Item[];
-    // http://127.0.0.1:5984/advertisement/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
+    // http://127.0.0.1:5984/ads/_design/items/_view/latest-items?limit=2&include_docs=true&descending=true
     this.pouchdb.db
       .query("items/latest-items", {
-        limit: 5,
+        limit: 8,
         include_docs: true,
         descending: true
       })
       .then(data => {
         latestItems = data.rows.map(row => {
           return new Item(row.doc.title, row.doc.content, row.doc.cat_id, row.doc.cat, row.doc.sub_cat_id,
-            row.doc.sub_cat, row.doc.loc_id, row.doc.loc, row.doc.prov_id, row.doc.prov, row.doc.price,
+            row.doc.sub_cat, row.doc.loc_id, row.doc.loc, row.doc.sub_loc_id, row.doc.sub_loc, row.doc.price,
             row.doc.user_id, row.doc._id, row.doc._attachments);
         });
         latestItemsSubject.next(latestItems);
@@ -122,5 +122,24 @@ export class ItemService {
         }
       });
     });
+  }
+
+  getRatingByItem(id: string){
+    let ratingSubject: any = new Subject();
+    let ratings: any[];
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'rating',
+          item_id: id
+        }
+      })
+      .then(data => {
+        ratings = data.docs.map(row => {
+          return row;
+        });
+        ratingSubject.next(ratings);
+      });
+    return ratingSubject;
   }
 }

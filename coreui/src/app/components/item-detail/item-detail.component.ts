@@ -17,6 +17,7 @@ export class ItemDetailComponent implements OnInit {
   user = new User();
   price = '';
   url: string;
+  viewNumber = 0;
 
   constructor(private itemService: ItemService, private userService: UserService, private cookieService: CookieService) {
   }
@@ -27,9 +28,18 @@ export class ItemDetailComponent implements OnInit {
         this.item.setItem(item);
         this.userService.getUser(item.user_id).then(user => this.user.setUser(user));
         this.price = this.formatPrice(item.price);
-        if(item._attachments){
-          this.url = 'http://localhost:5984/advertisement/' + item._id + '/image';
+        if(item.image && item.image != 'khong co'){
+          this.url = item.image;
         }
+        else if(item._attachments){
+          this.url = 'http://localhost:5984/ads/' + item._id + '/image';
+        }
+      });
+      //get view number
+      this.itemService.getRatingByItem(this.id).subscribe(res => {
+          res.map(rating => {
+            this.viewNumber += rating.rating;
+          });
       });
     }
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");

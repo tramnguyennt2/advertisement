@@ -10,7 +10,7 @@ const k = 10;
 const fs = require('fs');
 const parse = require('csv-parse');
 const moviesFile = 'ml-100k/u.item';
-const ratingsFile = 'ml-100k/ua.base';
+const ratingsFile = 'ml-100k/ua (copy).base';
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -86,13 +86,7 @@ module.exports = {
                 console.time("cf");
                 // buoc 1: normalize rating by subtract row mean
                 restructArrayWithMean(inputMatrix).then(avg => {
-                    getResult(
-                        inputMatrix,
-                        user_idx,
-                        avg,
-                        item_need_to_recommend_index,
-                        k
-                    ).then(item_result => {
+                    getResult(inputMatrix, user_idx, avg, item_need_to_recommend_index, k).then(item_result => {
                         getResultWithItemId(item_result, item_need_to_recommend_id).then(
                             result => {
                                 sort(result).then(result => {

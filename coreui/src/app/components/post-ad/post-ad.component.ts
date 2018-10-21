@@ -36,11 +36,11 @@ export class PostAdComponent implements OnInit {
     }
   }
 
-  getLocationAndProvId(param) {
+  getLocationAndSubLocId(param) {
     this.item.loc_id = param.loc_id;
     this.item.loc = param.loc;
-    this.item.prov_id = param.prov_id;
-    this.item.prov = param.prov;
+    this.item.sub_loc_id = param.sub_loc_id;
+    this.item.sub_loc = param.sub_loc;
   }
 
   getCatAndSubCatId(param) {
@@ -51,7 +51,8 @@ export class PostAdComponent implements OnInit {
   }
 
   handleAddNewItem() {
-    if (!this.item.loc_id || !this.item.prov_id || !this.item.title || !this.item.price || !this.item.content) {
+    console.log(this.item)
+    if (!this.item.loc_id || !this.item.sub_loc_id || !this.item.title || !this.item.price || !this.item.content) {
       this.missingValue = true;
       return false;
     } else {

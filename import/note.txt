@@ -1,0 +1,9 @@
+1. Xóa tất cả document có type là user, item, rating trong DB (đừng xóa view nha!!!)
+2. Update category và location (advertisement\coreui\src\assets\data\)
+3. Chạy project "import"
+4. Import User (advertisement\import\data\user_import.txt)
+5. Import Item (advertisement\import\data\item_import_1.txt)
+
+*** Note
+DB name: "ads"
+Solr core name: "item"
