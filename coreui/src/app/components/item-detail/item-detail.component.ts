@@ -49,7 +49,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   formatPrice(price){
-    let price = price;
+    //let price = price;
     let arr = [];
     while (price.length > 3) {
       arr.push(price.slice(-3));

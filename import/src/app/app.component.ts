@@ -32,22 +32,14 @@ export class AppComponent {
     type: "item"
   };
   dataSolr: any = {
-    user_id: "",
-    cat_id: "",
-    cat: "",
     sub_cat_id: "",
-    sub_cat: "",
-    loc_id: "",
-    loc: "",
     sub_loc_id: "",
-    sub_loc: "",
     title: "",
     content: "",
     price: "",
-    image: "",
     created_at: "",
-    type: "item",
-    db_id: ""
+    db_id: "",
+    type: "item"
   };
   user: any = {
     _id: "",
@@ -98,19 +90,11 @@ export class AppComponent {
                   self.dataPouch.created_at = time;
 
                   self.dataSolr.db_id = arr[0];
-                  self.dataSolr.user_id = arr[1];
-                  self.dataSolr.cat_id = arr[2];
-                  self.dataSolr.cat = arr[3];
                   self.dataSolr.sub_cat_id = arr[4];
-                  self.dataSolr.sub_cat = arr[5];
-                  self.dataSolr.loc_id = arr[6];
-                  self.dataSolr.loc = arr[7];
                   self.dataSolr.sub_loc_id = arr[8];
-                  self.dataSolr.sub_loc = arr[9];
                   self.dataSolr.title = arr[10];
                   self.dataSolr.content = arr[11];
                   self.dataSolr.price = arr[12];
-                  self.dataSolr.image = arr[13];
                   self.dataSolr.created_at = time;
                 }
               })
@@ -169,6 +153,14 @@ export class AppComponent {
       }
     };
     fileReader.readAsText(this.file);
+  }
+
+  deleteAllItem(type){
+    //this.dataService.deleteDoc('ad-1')
+    for(let i = 1; i<=1000; i++){
+      let id = 'ad-' + i;
+        this.dataService.deleteDoc(id);
+    }
   }
 }
 function randomDate(start, end) {
