@@ -15,7 +15,6 @@ export class RsResultComponent implements OnInit {
   item_id;
   items = [];
   rating: UserBehavior;
-  //urls: string[];
 
   constructor(private rsService: RsService, private itemService: ItemService, private cookieService: CookieService) {
   }
@@ -105,7 +104,7 @@ export class RsResultComponent implements OnInit {
     let url;
     this.itemService.getItem(id).then(item => {
       if(item._attachments){
-        url = 'http://localhost:5984/ads/' + item._id + '/image';
+        url = 'http://localhost:5984/advertisement/' + item._id + '/image';
         console.log(url)
         return url;
       }

@@ -32,7 +32,7 @@ export class ItemDetailComponent implements OnInit {
           this.url = item.image;
         }
         else if(item._attachments){
-          this.url = 'http://localhost:5984/ads/' + item._id + '/image';
+          this.url = 'http://localhost:5984/advertisement/' + item._id + '/image';
         }
       });
       //get view number
@@ -49,7 +49,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   formatPrice(price){
-    var price = price;
+    let price = price;
     let arr = [];
     while (price.length > 3) {
       arr.push(price.slice(-3));
