@@ -22,4 +22,22 @@ export class DataService {
   addAds(ads): void {
     this.db.post(ads);
   }
+
+  getDoc(id: string) {
+      return this.db.get(id);
+  }
+
+  deleteDoc(id: string){
+    let self = this;
+    this.getDoc(id).then(function (res) {
+        return self.db.remove(res, function (err) {
+            if (err) {
+                return console.log(err);
+            } else {
+                console.log("Deleted", id);
+            }
+        });
+    });
+  }
+
 }
