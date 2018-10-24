@@ -7,6 +7,7 @@ import {UserService} from "../../services/user.service";
 import {Location} from '@angular/common';
 import {CookieService} from 'ngx-cookie-service';
 import {NodeService} from "../../services/node.service";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: "app-post-ad",
@@ -26,11 +27,17 @@ export class PostAdComponent implements OnInit {
     private _location: Location,
     private userService: UserService,
     private cookieService: CookieService,
-    private nodeService: NodeService) {
+    private nodeService: NodeService,
+    private spinner: NgxSpinnerService) {
   }
 
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
     this.item.user_id = this.cookieService.get('user_id');
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {

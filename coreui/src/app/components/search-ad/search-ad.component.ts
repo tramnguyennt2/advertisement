@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { SolrService } from "../../services/solr.service";
 import { Item } from "../../item";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: "app-search-ad",
@@ -15,9 +16,14 @@ export class SearchAdComponent implements OnInit {
   total: number = 0;
   items = [];
 
-  constructor(private route: ActivatedRoute, private solr: SolrService) {}
+  constructor(private route: ActivatedRoute, private solr: SolrService, private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
     this.route.queryParams.subscribe(params => {
       this.keyword = params.keyword;
       this.sub_cat_id = params.sub_cat_id;

@@ -51,6 +51,7 @@
     "ngx-bootstrap": "^3.0.1",
     "ngx-cookie-service": "^1.0.10",
     "ngx-perfect-scrollbar": "^6.2.0",
+    "ngx-spinner": "^6.1.2",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0",
     "rxjs": "^6.2.1",

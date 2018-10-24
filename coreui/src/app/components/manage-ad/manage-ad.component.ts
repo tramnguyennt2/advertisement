@@ -4,6 +4,7 @@ import { Item } from "../../item";
 import { User } from "../../user";
 import {CookieService} from "ngx-cookie-service";
 import {UserService} from "../../services/user.service";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-manage-ad',
@@ -17,10 +18,16 @@ export class ManageAdComponent implements OnInit {
   constructor(
     private cookieService: CookieService,
     private itemService: ItemService,
-    private userService: UserService
+    private userService: UserService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
+    this.spinner.show();
+    // setTimeout(() => {
+    //   /** spinner ends after 5 seconds */
+    //   this.spinner.hide();
+    // }, 5000);
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
     for (let i = 0; i < sidebarEl.length; i++) {
       sidebarEl[i].classList.remove("sidebar-lg-show");
@@ -28,6 +35,7 @@ export class ManageAdComponent implements OnInit {
     this.userId = this.cookieService.get('user_id');
     this.itemService.getItemByUser(this.userId).subscribe(res => {
       this.items = res;
+      this.spinner.hide();
     });
   }
 
