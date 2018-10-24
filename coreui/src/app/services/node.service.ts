@@ -11,7 +11,7 @@ export class NodeService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     console.log(data);
-    return this.http.post('http://localhost:3000/get-token', data, {
+    return this.http.post('http://localhost:3000/get-token', {content: data}, {
       headers: headers
     });
   }

@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {Location} from '@angular/common';
 import {CookieService} from 'ngx-cookie-service';
+import {NodeService} from "../../services/node.service";
 
 @Component({
   selector: "app-post-ad",
@@ -24,7 +25,8 @@ export class PostAdComponent implements OnInit {
     private pouchdb: PouchdbService,
     private _location: Location,
     private userService: UserService,
-    private cookieService: CookieService) {
+    private cookieService: CookieService,
+    private nodeService: NodeService) {
   }
 
 
@@ -51,15 +53,23 @@ export class PostAdComponent implements OnInit {
   }
 
   handleAddNewItem() {
+    let self = this;
     if (!this.item.loc_id || !this.item.sub_loc_id || !this.item.title || !this.item.price || !this.item.content) {
       this.missingValue = true;
       return false;
     } else {
       this.missingValue = false;
       this.item.price = this.item.price.replace(/,/g, '');
-      // insert to couchdb and solr
-      this.itemService.addItem(this.item).then(item => {
-        this.router.navigateByUrl("/item-detail?id=" + item.id);
+      // get token
+      self.nodeService.post(self.item.content).subscribe((token) => {
+        if (token) {
+          console.log("token received:", token);
+          self.item.token = token;
+          // save to CouchDb and solr
+          this.itemService.addItem(this.item).then(item => {
+            this.router.navigateByUrl("/item-detail?id=" + item.id);
+          });
+        }
       });
     }
   }
