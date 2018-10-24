@@ -8,7 +8,8 @@
       <div class="item col-12" *ngFor="let item of items">
         <div class="row">
           <div class="col-4">
-            <img src="../../../assets/img/default-image.jpg" width="100%">
+            <img *ngIf="item.image" src="{{item.image}}">
+            <img *ngIf="!item.image" src="../../../assets/img/default-image.jpg" width="100%">
           </div>
           <div class="col-8 item-title">
             <a [routerLink]="['/item-detail']" [queryParams]="{id: item.id}">{{item.title}}</a>
