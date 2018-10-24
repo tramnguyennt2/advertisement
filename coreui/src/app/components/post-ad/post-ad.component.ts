@@ -51,7 +51,6 @@ export class PostAdComponent implements OnInit {
   }
 
   handleAddNewItem() {
-    console.log(this.item)
     if (!this.item.loc_id || !this.item.sub_loc_id || !this.item.title || !this.item.price || !this.item.content) {
       this.missingValue = true;
       return false;
@@ -93,7 +92,7 @@ export class PostAdComponent implements OnInit {
       let reader = new FileReader();
       reader.onload = (e: ProgressEvent) => {
         this.url = (<FileReader>e.target).result;
-      }
+      };
       reader.readAsDataURL(file);
 
       // add file to item
@@ -117,52 +116,12 @@ export class PostAdComponent implements OnInit {
     console.log(this.item)
   }
 
-  // onUploadFile(event) {
-  //   if (event.target.files && event.target.files.length > 0) {
-  //     let file = event.target.files[0];
-  //     let attachment = {};
-  //     getBase64(file)
-  //       .then(base64 => {
-  //         attachment[file.name] = {
-  //           content_type: file.type,
-  //           data: base64
-  //         };
-  //       })
-  //       .then(() => {
-  //         if (!isEmpty(attachment)) {
-  //           console.log("attachment", attachment);
-  //           this.pouchdb.db
-  //             .put({
-  //               _id: "mydoccc",
-  //               _attachments: attachment
-  //             })
-  //             .then(() => {
-  //               return this.pouchdb.db.getAttachment("mydoccc", "ha.png");
-  //             })
-  //             .then(blob => {
-  //               var url = URL.createObjectURL(blob);
-  //               console.log(url)
-  //               var img = document.createElement("img");
-  //               img.src = url;
-  //               document.body.appendChild(img);
-  //             })
-  //             .catch(function(err) {
-  //               console.log(err);
-  //             });
-  //         } else {
-  //           console.log("attachment is null");
-  //         }
-  //       })
-  //       .catch(err => console.log("Error: ", err));
-  //   }
-  // }
-
   readUrl(e) {
     if (e.target.files && e.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (e: ProgressEvent) => {
         this.url = (<FileReader>e.target).result;
-      }
+      };
       reader.readAsDataURL(e.target.files[0]);
     }
   }

@@ -94,6 +94,7 @@ router.get("/graph/:user_id", function (req, res, next) {
 });
 
 router.post("/get-token", function (req, res, next) {
+    console.log(content_based.getTokensFromString(req.body.content));
     res.send(content_based.getTokensFromString(req.body.content));
 });
 

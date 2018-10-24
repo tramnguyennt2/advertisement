@@ -78,25 +78,27 @@ export class AppComponent {
                                     new Date(2018, 12, 31)
                                 );
                                 self.nodejsService.post(arr[11]).subscribe((token) => {
-                                    console.log("token received:", token);
-                                    self.dataPouch.token = token;
-                                    self.dataPouch._id = arr[0];
-                                    self.dataPouch.user_id = arr[1];
-                                    self.dataPouch.cat_id = arr[2];
-                                    self.dataPouch.cat = arr[3];
-                                    self.dataPouch.sub_cat_id = arr[4];
-                                    self.dataPouch.sub_cat = arr[5];
-                                    self.dataPouch.loc_id = arr[6];
-                                    self.dataPouch.loc = arr[7];
-                                    self.dataPouch.sub_loc_id = arr[8];
-                                    self.dataPouch.sub_loc = arr[9];
-                                    self.dataPouch.title = arr[10];
-                                    self.dataPouch.content = arr[11];
-                                    self.dataPouch.price = arr[12];
-                                    self.dataPouch.image = arr[13];
-                                    self.dataPouch.created_at = time;
-                                    // save to CouchDb
-                                    self.dataService.addAds(self.dataPouch);
+                                    if (token) {
+                                        console.log("token received:", token);
+                                        self.dataPouch.token = token;
+                                        self.dataPouch._id = arr[0];
+                                        self.dataPouch.user_id = arr[1];
+                                        self.dataPouch.cat_id = arr[2];
+                                        self.dataPouch.cat = arr[3];
+                                        self.dataPouch.sub_cat_id = arr[4];
+                                        self.dataPouch.sub_cat = arr[5];
+                                        self.dataPouch.loc_id = arr[6];
+                                        self.dataPouch.loc = arr[7];
+                                        self.dataPouch.sub_loc_id = arr[8];
+                                        self.dataPouch.sub_loc = arr[9];
+                                        self.dataPouch.title = arr[10];
+                                        self.dataPouch.content = arr[11];
+                                        self.dataPouch.price = arr[12];
+                                        self.dataPouch.image = arr[13];
+                                        self.dataPouch.created_at = time;
+                                        // save to CouchDb
+                                        self.dataService.addAds(self.dataPouch);
+                                    }
                                 });
 
                                 self.dataSolr.db_id = arr[0];
