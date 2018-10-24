@@ -10,6 +10,7 @@ export class HomepageComponent implements OnInit {
   cats = [];
   icons = [];
   catColors = ['bg-primary', 'bg-warning', 'bg-success', 'bg-danger', 'bg-secondary', 'bg-primary', 'bg-warning', 'bg-success']
+  textColors = ['text-primary', 'text-warning', 'text-success', 'text-danger', 'text-secondary', 'text-primary', 'text-warning', 'text-success']
 
   constructor(private catService: CategoryService) {}
 

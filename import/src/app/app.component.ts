@@ -74,8 +74,8 @@ export class AppComponent {
                             let arr = item.split("||");
                             if (arr[0] != "") {
                                 let time = randomDate(
-                                    new Date(2018, 1, 1),
-                                    new Date(2018, 12, 31)
+                                    new Date(2017, 0, 1),
+                                    new Date(2018, 11, 31)
                                 );
                                 self.nodejsService.post(arr[11]).subscribe((token) => {
                                     if (token) {
@@ -166,10 +166,10 @@ export class AppComponent {
     }
 
     deleteAllItem(type) {
-        //this.dataService.deleteDoc('ad-1')
-        for (let i = 1; i <= 1000; i++) {
+        for (let i = 1; i <= 2000; i++) {
             let id = 'ad-' + i;
             this.dataService.deleteDoc(id);
+            console.log("Deleted item ", id);
         }
     }
 }

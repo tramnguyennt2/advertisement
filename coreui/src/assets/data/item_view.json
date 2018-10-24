@@ -6,7 +6,7 @@
       "map": "  function (doc) {\n  if(doc.type && doc.type === 'item' && doc.created_at){\n        emit(doc.created_at, null);\n    }\n}"
     },
     "all-item": {
-      "map": "function (doc) {\n  if(doc.type && doc.type==\"item\"){\n    var current_date = new Date();\n    var date = new Date();\n    date.setMonth(date.getMonth() - 3);\n    var ad_date = new Date(doc.created_at);\n    if(ad_date.getTime() >= date.getTime() && ad_date.getTime() <= current_date.getTime()){\n      emit(doc._id, 1);\n    }\n  }\n}"
+      "map": "function (doc) {\n  if(doc.type && doc.type==\"item\"){\n    var current_date = new Date();\n    var date = new Date();\n    date.setMonth(date.getMonth() - 2);\n    var ad_date = new Date(doc.created_at);\n    if(ad_date.getTime() >= date.getTime() && ad_date.getTime() <= current_date.getTime()){\n      emit(doc._id, 1);\n    }\n  }\n}"
     }
   },
   "language": "javascript"
