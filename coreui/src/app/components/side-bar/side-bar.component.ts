@@ -39,7 +39,7 @@ export class SideBarComponent implements OnInit {
         for (let sub of cat["subs"]) {
           navItem.children.push({
             name: sub["name"],
-            url: "/base/cards",
+            url: "/all-items/cat-" + cat["cat_id"] + "/sub-cat-" + sub["sub_id"],
             icon: "icon"
           });
         }

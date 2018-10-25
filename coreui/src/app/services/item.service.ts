@@ -152,4 +152,32 @@ export class ItemService {
       });
     return ratingSubject;
   }
+
+  getAllItems(catId: string, subCatId: string){
+    let allItemsSubject: any = new Subject();
+    let allItems: Item[];
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'item',
+          cat_id: catId,
+          sub_cat_id: subCatId
+        },
+        limit: 10
+      })
+      .then(data => {
+        if (data.docs.length > 0) {
+          allItems = data.docs.map(row => {
+            return new Item(row.title, row.content, row.cat_id, row.cat, row.sub_cat_id,
+              row.sub_cat, row.loc_id, row.loc, row.sub_loc_id, row.sub_loc, row.price,
+              row.user_id, row._id, row._attachments);
+          });
+          allItemsSubject.next(allItems);
+        }
+        else {
+          allItemsSubject.next(null);
+        }
+      });
+    return allItemsSubject;
+  }
 }
