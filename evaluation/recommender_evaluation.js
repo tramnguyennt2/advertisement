@@ -1,52 +1,11 @@
-const ContentBasedRecommender = require("content-based-recommender");
 const maxSimilarDocuments = 100;
-const content_based = new ContentBasedRecommender({
-    minScore: 0.1,
-    maxSimilarDocuments: maxSimilarDocuments,
-    debug: false
-});
 const ug = require("ug");
 const k = 10;
 const fs = require('fs');
 const parse = require('csv-parse');
-const moviesFile = 'ml-100k/u.item';
 const ratingsFile = 'ml-100k/ua (copy).base';
 
 module.exports = {
-    getContentBasedResult: function (item_id) {
-        return new Promise(function (resolve, reject) {
-            let documents = [];
-            fs.createReadStream(moviesFile).pipe(parse({delimiter: '|'}))
-                .on('error', function (err) {
-                    console.log("err", err);
-                })
-                .on('data', function (data) {
-                    try {
-                        documents.push({
-                            id: data[0],
-                            content: data[1]
-                        });
-                    }
-                    catch (err) {
-                        console.log("err", err);
-                    }
-                })
-                .on('end', function () {
-                    console.time("content-based alg");
-                    // optimization
-                    content_based.trainOpt(documents, item_id);
-                    // content_based.train(documents);
-                    const similarDocuments = content_based.getSimilarDocuments(
-                        item_id,
-                        0,
-                        5
-                    );
-                    console.timeEnd("content-based alg");
-                    resolve(similarDocuments);
-                });
-        });
-    },
-
     getCollaborativeFilteringResult: function (user_id) {
         return new Promise(function (resolve, reject) {
             let documents = [];

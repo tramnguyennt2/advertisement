@@ -3,7 +3,7 @@ const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,
     minScore: 0,
-    debug: true
+    debug: false
 });
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
