@@ -57,6 +57,7 @@ import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
 import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
+import { AllItemsComponent } from './components/all-items/all-items.component';
 
 @NgModule({
   imports: [
@@ -92,6 +93,7 @@ import { PostAdComponent } from "./components/post-ad/post-ad.component";
     RsResultComponent,
     ManageAdComponent,
     BaseItemDetailComponent,
+    AllItemsComponent,
   ],
   providers: [
     PouchdbService,
