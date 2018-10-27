@@ -1,4 +1,4 @@
-const ContentBasedRecommender = require("./content-based-recommender");
+const ContentBasedRecommender = require("./content-based-recommender/index");
 const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,

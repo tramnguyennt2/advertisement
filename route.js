@@ -1,12 +1,12 @@
 let express = require("express");
 let router = express.Router();
-const recommender = require("./recommender");
+const recommender = require("./recommender/recommender");
 const recommender_e = require("./recommender_evaluation");
 import precisionRecall from "precision-recall";
 
 const fs = require("fs");
 const parse = require("csv-parse");
-const ContentBasedRecommender = require("./content-based-recommender");
+const ContentBasedRecommender = require("./recommender/content-based-recommender");
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: 10,
     minScore: 0,

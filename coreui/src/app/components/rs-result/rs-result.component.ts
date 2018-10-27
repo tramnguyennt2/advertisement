@@ -21,7 +21,7 @@ export class RsResultComponent implements OnInit {
 
   ngOnInit() {
     let user_id = this.cookieService.get('user_id');
-    if (user_id !== '') {
+    if (user_id !== '') { // user is login
       this.saveUserBehavior(this.item_id, user_id).then(() => {
         this.items = [];
         //------------------CF-----------------

@@ -38,6 +38,4 @@ export class ItemComponent implements OnInit {
     });
     return newPrice.slice(1);
   }
-
-
 }

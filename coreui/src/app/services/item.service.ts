@@ -56,6 +56,7 @@ export class ItemService {
         }
       })
       .then(result => {
+        console.log("result", result);
         if (result.docs.length > 0) {
           ratingSubject.next(result.docs[0]);
         } else {
