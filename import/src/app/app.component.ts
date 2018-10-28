@@ -166,10 +166,50 @@ export class AppComponent {
     }
 
     deleteAllItem(type) {
-        for (let i = 1; i <= 2000; i++) {
-            let id = 'ad-' + i;
-            this.dataService.deleteDoc(id);
-            console.log("Deleted item ", id);
+        if (type == "item") {
+            for (let i = 1; i <= 2000; i++) {
+                let id = 'ad-' + i;
+                this.dataService.deleteDoc(id);
+                console.log("Deleted item ", id);
+            }
+        }
+        if (type == "rating") {
+            console.log("begin deleting rating");
+            this.dataService.db.find({
+                selector: {
+                    type: type
+                }
+            }).then(result => {
+                console.log("length", result.docs.length);
+                for (let rating of result.docs) {
+                    this.dataService.deleteDoc(rating._id);
+                    console.log("deleting rating " + rating._id);
+                }
+            });
+        }
+    }
+
+    generateRating() {
+        const userPrefix = "user-";
+        for (let i = 1; i <= 100; i++) {
+            this.dataService.getDoc(userPrefix + i).then(user => {
+                console.log("generate 10 ratings for user ", user._id);
+                let arr_item = [];
+                for (let i = 1; i <= 10; i++) {
+                    let random_item = Math.floor(Math.random() * 1000) + 1;
+                    while (arr_item.indexOf(random_item) > -1) {
+                        random_item = Math.floor(Math.random() * 1000) + 1;
+                    }
+                    arr_item.push(random_item);
+                    let random_rating = Math.floor(Math.random() * 5) + 1;
+                    this.dataService.addAds({
+                        user_id: user._id,
+                        item_id: "ad-" + random_item,
+                        rating: random_rating,
+                        type: "rating"
+                    });
+                }
+            })
         }
     }
 }

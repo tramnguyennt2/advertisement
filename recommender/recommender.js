@@ -53,152 +53,168 @@ module.exports = {
 
     getCollaborativeFilteringResult: function (user_id, item_input = []) {
         return new Promise(function (resolve, reject) {
-            let documents = [];
-            let user_arr = [];
-            let item_arr = [];
+
             let rating_arr = [];
             let user_idx = 0;
             let q;
-            if (item_input.length === 0) {
-                q = {
-                    selector: {
-                        type: {$eq: "rating"}
+
+            db.view("ratings", "all-rating", {
+                include_docs: true
+            }).then(body => {
+                let documents = [];
+                let user_arr = [];
+                let item_arr = [];
+                console.log(" docs.docs.length", body.total_rows);
+                console.time("cf " + user_id);
+                for (let i = 0; i < body.total_rows; i++) {
+                    if (user_arr.indexOf(body.rows[i].user_id) <= -1)
+                        user_arr.push(body.rows[i].user_id);
+                    if (item_arr.indexOf(body.rows[i].item_id) <= -1)
+                        item_arr.push(body.rows[i].item_id);
+                    let obj = {
+                        user_id: body.rows[i].user_id,
+                        item_id: body.rows[i].item_id,
+                        rating: body.rows[i].rating
+                    };
+                    documents.push(obj);
+                }
+                return [documents, user_arr, item_arr];
+            }).then((data) => {
+                let documents = data[0];
+                let user_arr = data[1];
+                let item_arr = data[2];
+                user_idx = user_arr.indexOf(user_id);
+                if (user_idx <= -1) {
+                    console.log(
+                        "user has not rated any item in recommended item list."
+                    );
+                    reject("user has not rated any item in recommended item list.");
+                }
+                for (let i = 0; i < documents.length; i++) {
+                    let item_idx = item_arr.indexOf(documents[i].item_id);
+                    let user_idx = user_arr.indexOf(documents[i].user_id);
+                    rating_arr.push([item_idx, user_idx, documents[i].rating]);
+                }
+            }).then(() => {
+                let inputMatrix = new Array(item_arr.length);
+                for (let i = 0; i < inputMatrix.length; i++) {
+                    inputMatrix[i] = new Array(user_arr.length);
+                }
+                for (let j = 0; j < rating_arr.length; j++) {
+                    inputMatrix[rating_arr[j][0]][rating_arr[j][1]] = parseInt(
+                        rating_arr[j][2]
+                    );
+                }
+                inputMatrix.filter(function (arr) {
+                    for (let k = 0; k < arr.length; k++) {
+                        if (arr[k] === undefined) arr[k] = 0;
                     }
-                };
-            } else {
-                q = {
-                    selector: {
-                        type: {$eq: "rating"},
-                        $or: item_input
-                    }
-                };
-            }
-            db.find(q)
-                .then(docs => {
-                    for (let i = 0; i < docs.docs.length; i++) {
-                        if (user_arr.indexOf(docs.docs[i].user_id) <= -1)
-                            user_arr.push(docs.docs[i].user_id);
-                        if (item_arr.indexOf(docs.docs[i].item_id) <= -1)
-                            item_arr.push(docs.docs[i].item_id);
-                        let obj = {
-                            user_id: docs.docs[i].user_id,
-                            item_id: docs.docs[i].item_id,
-                            rating: docs.docs[i].rating
-                        };
-                        documents.push(obj);
-                    }
-                    user_idx = user_arr.indexOf(user_id);
-                    if (user_idx <= -1) {
-                        console.log(
-                            "user has not rated any item in recommended item list."
-                        );
-                        reject("user has not rated any item in recommended item list.");
-                    }
-                    for (let i = 0; i < documents.length; i++) {
-                        let item_idx = item_arr.indexOf(documents[i].item_id);
-                        let user_idx = user_arr.indexOf(documents[i].user_id);
-                        rating_arr.push([item_idx, user_idx, documents[i].rating]);
-                    }
-                })
-                .then(() => {
-                    let inputMatrix = new Array(item_arr.length);
-                    for (let i = 0; i < inputMatrix.length; i++) {
-                        inputMatrix[i] = new Array(user_arr.length);
-                    }
-                    for (let j = 0; j < rating_arr.length; j++) {
-                        inputMatrix[rating_arr[j][0]][rating_arr[j][1]] = parseInt(
-                            rating_arr[j][2]
-                        );
-                    }
-                    inputMatrix.filter(function (arr) {
-                        for (let k = 0; k < arr.length; k++) {
-                            if (arr[k] === undefined) arr[k] = 0;
-                        }
-                    });
-                    // user_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-                    // item_arr = [1, 2, 3, 4, 5, 6];
-                    // user_idx = 4;
-                    //
-                    // inputMatrix = [
-                    //     [1, 0, 3, 0, 0, 5, 0, 0, 5, 0, 4, 0],
-                    //     [0, 0, 5, 4, 0, 0, 4, 0, 0, 2, 1, 3],
-                    //     [2, 4, 0, 1, 2, 0, 3, 0, 4, 3, 5, 0],
-                    //     [0, 2, 4, 0, 5, 0, 0, 4, 0, 0, 2, 0],
-                    //     [0, 0, 4, 3, 4, 2, 0, 0, 0, 0, 2, 5],
-                    //     [1, 0, 3, 0, 3, 0, 0, 2, 0, 0, 4, 0]
-                    // ];
-                    return inputMatrix;
-                })
-                .then(inputMatrix => {
-                    let item_need_to_recommend_index = [];
-                    for (let i = 0; i < inputMatrix.length; i++) {
-                        if (inputMatrix[i][user_idx] !== 0) continue;
-                        item_need_to_recommend_index.push(i);
-                    }
-                    let item_need_to_recommend_id = [];
-                    for (let i = 0; i < item_need_to_recommend_index.length; i++) {
-                        item_need_to_recommend_id.push(
-                            item_arr[item_need_to_recommend_index[i]]
-                        );
-                    }
-                    // buoc 1: normalize rating by subtract row mean
-                    restructArrayWithMean(inputMatrix).then(avg => {
-                        getResult(
-                            inputMatrix,
-                            user_idx,
-                            avg,
-                            item_need_to_recommend_index,
-                            k
-                        ).then(item_result => {
-                            getResultWithItemId(item_result, item_need_to_recommend_id).then(
-                                result => {
-                                    sort(result).then(result => {
-                                        if (result.length > maxSimilarDocuments) {
-                                            result = result.splice(0, maxSimilarDocuments);
-                                        }
-                                        resolve(result);
-                                    });
-                                }
-                            );
-                        });
-                    });
-                })
-                .catch(function (err) {
-                    reject(new Error(err));
                 });
+                // user_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                // item_arr = [1, 2, 3, 4, 5, 6];
+                // user_idx = 4;
+                //
+                // inputMatrix = [
+                //     [1, 0, 3, 0, 0, 5, 0, 0, 5, 0, 4, 0],
+                //     [0, 0, 5, 4, 0, 0, 4, 0, 0, 2, 1, 3],
+                //     [2, 4, 0, 1, 2, 0, 3, 0, 4, 3, 5, 0],
+                //     [0, 2, 4, 0, 5, 0, 0, 4, 0, 0, 2, 0],
+                //     [0, 0, 4, 3, 4, 2, 0, 0, 0, 0, 2, 5],
+                //     [1, 0, 3, 0, 3, 0, 0, 2, 0, 0, 4, 0]
+                // ];
+                return inputMatrix;
+            }).then(inputMatrix => {
+                let item_need_to_recommend_index = [];
+                for (let i = 0; i < inputMatrix.length; i++) {
+                    if (inputMatrix[i][user_idx] !== 0) continue;
+                    item_need_to_recommend_index.push(i);
+                }
+                let item_need_to_recommend_id = [];
+                for (let i = 0; i < item_need_to_recommend_index.length; i++) {
+                    item_need_to_recommend_id.push(
+                        item_arr[item_need_to_recommend_index[i]]
+                    );
+                }
+                // buoc 1: normalize rating by subtract row mean
+                restructArrayWithMean(inputMatrix).then(avg => {
+                    getResult(
+                        inputMatrix,
+                        user_idx,
+                        avg,
+                        item_need_to_recommend_index,
+                        k
+                    ).then(item_result => {
+                        getResultWithItemId(item_result, item_need_to_recommend_id).then(
+                            result => {
+                                sort(result).then(result => {
+                                    if (result.length > maxSimilarDocuments) {
+                                        result = result.splice(0, maxSimilarDocuments);
+                                    }
+                                    resolve(result);
+                                });
+                            }
+                        );
+                        console.timeEnd("cf " + user_id);
+                    });
+                });
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+            // if (item_input.length === 0) {
+            //     q = {
+            //         selector: {
+            //             type: {$eq: "rating"}
+            //         }
+            //     };
+            // } else {
+            //     q = {
+            //         selector: {
+            //             type: {$eq: "rating"},
+            //             $or: item_input
+            //         }
+            //     };
+            // }
+            // db.find(q)
+            //     .then(docs => {
+            //
+            //     })
         });
     },
 
-    getHybridRecommender: function (user_id, item_id) {
-        return new Promise(function (resolve, reject) {
-            module.exports
-                .getContentBasedResult(item_id)
-                .then(similarDocuments => {
-                    let or = [];
-                    for (let i = 0; i < similarDocuments.length; i++) {
-                        or.push({item_id: similarDocuments[i].id});
-                    }
-                    module.exports
-                        .getCollaborativeFilteringResult(user_id, or)
-                        .then(result => {
-                            if (result.length === 0) {
-                                console.log("Result after CF is null");
-                                resolve(similarDocuments);
-                            }
-                            resolve(result);
-                        })
-                        .catch(function (err) {
-                            if (err === -1) {
-                                resolve(similarDocuments);
-                            }
-                            reject(new Error(err));
-                        });
-                })
-                .catch(function (err) {
-                    reject(new Error(err));
-                });
-        });
-    },
+    getHybridRecommender:
+
+        function (user_id, item_id) {
+            return new Promise(function (resolve, reject) {
+                module.exports
+                    .getContentBasedResult(item_id)
+                    .then(similarDocuments => {
+                        let or = [];
+                        for (let i = 0; i < similarDocuments.length; i++) {
+                            or.push({item_id: similarDocuments[i].id});
+                        }
+                        module.exports
+                            .getCollaborativeFilteringResult(user_id, or)
+                            .then(result => {
+                                if (result.length === 0) {
+                                    console.log("Result after CF is null");
+                                    resolve(similarDocuments);
+                                }
+                                resolve(result);
+                            })
+                            .catch(function (err) {
+                                if (err === -1) {
+                                    resolve(similarDocuments);
+                                }
+                                reject(new Error(err));
+                            });
+                    })
+                    .catch(function (err) {
+                        reject(new Error(err));
+                    });
+            });
+        }
+
+    ,
 
     getGraphRecommender: function (user_id) {
         const graph = new ug.Graph();

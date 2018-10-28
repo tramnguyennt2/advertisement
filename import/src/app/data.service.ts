@@ -1,43 +1,47 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import * as $PouchDB from "pouchdb";
 import "rxjs/add/observable/from";
+import findPlugin from "pouchdb-find";
 
 const PouchDB = $PouchDB["default"];
 
+
 @Injectable()
 export class DataService {
-  db: any;
-  remote = "http://localhost:5984/advertisement";
-  constructor() {
-    this.db = new PouchDB("advertisement");
+    db: any;
+    remote = "http://localhost:5984/advertisement";
 
-    let options = {
-      live: true,
-      retry: true
-    };
+    constructor() {
+        PouchDB.plugin(findPlugin);
+        this.db = new PouchDB("advertisement");
 
-    this.db.sync(this.remote, options);
-  }
+        let options = {
+            live: true,
+            retry: true
+        };
 
-  addAds(ads): void {
-    this.db.post(ads);
-  }
+        this.db.sync(this.remote, options);
+    }
 
-  getDoc(id: string) {
-      return this.db.get(id);
-  }
+    addAds(ads) {
+        this.db.post(ads);
+    }
 
-  deleteDoc(id: string){
-    let self = this;
-    this.getDoc(id).then(function (res) {
-        return self.db.remove(res, function (err) {
-            if (err) {
-                return console.log(err);
-            } else {
-                console.log("Deleted", id);
-            }
+    getDoc(id: string) {
+        return this.db.get(id);
+    }
+
+    deleteDoc(id: string) {
+        let self = this;
+        this.getDoc(id).then(function (res) {
+            return self.db.remove(res, function (err) {
+                if (err) {
+                    return console.log(err);
+                } else {
+                    console.log("Deleted", id);
+                }
+            });
         });
-    });
-  }
+    }
 
 }
