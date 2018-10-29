@@ -53,36 +53,30 @@ module.exports = {
 
     getCollaborativeFilteringResult: function (user_id, item_input = []) {
         return new Promise(function (resolve, reject) {
-
             let rating_arr = [];
+            let documents = [];
+            let item_arr = [];
+            let user_arr = [];
+
             let user_idx = 0;
             let q;
-
             db.view("ratings", "all-rating", {
                 include_docs: true
             }).then(body => {
-                let documents = [];
-                let user_arr = [];
-                let item_arr = [];
-                console.log(" docs.docs.length", body.total_rows);
                 console.time("cf " + user_id);
                 for (let i = 0; i < body.total_rows; i++) {
-                    if (user_arr.indexOf(body.rows[i].user_id) <= -1)
-                        user_arr.push(body.rows[i].user_id);
-                    if (item_arr.indexOf(body.rows[i].item_id) <= -1)
-                        item_arr.push(body.rows[i].item_id);
+                    if (user_arr.indexOf(body.rows[i].doc.user_id) <= -1)
+                        user_arr.push(body.rows[i].doc.user_id);
+                    if (item_arr.indexOf(body.rows[i].doc.item_id) <= -1)
+                        item_arr.push(body.rows[i].doc.item_id);
                     let obj = {
-                        user_id: body.rows[i].user_id,
-                        item_id: body.rows[i].item_id,
-                        rating: body.rows[i].rating
+                        user_id: body.rows[i].doc.user_id,
+                        item_id: body.rows[i].doc.item_id,
+                        rating: body.rows[i].doc.rating
                     };
                     documents.push(obj);
                 }
-                return [documents, user_arr, item_arr];
-            }).then((data) => {
-                let documents = data[0];
-                let user_arr = data[1];
-                let item_arr = data[2];
+            }).then(()=> {
                 user_idx = user_arr.indexOf(user_id);
                 if (user_idx <= -1) {
                     console.log(
@@ -146,6 +140,7 @@ module.exports = {
                     ).then(item_result => {
                         getResultWithItemId(item_result, item_need_to_recommend_id).then(
                             result => {
+                                console.log(result);
                                 sort(result).then(result => {
                                     if (result.length > maxSimilarDocuments) {
                                         result = result.splice(0, maxSimilarDocuments);
