@@ -1,5 +1,5 @@
 const ContentBasedRecommender = require("./content-based-recommender/index");
-const maxSimilarDocuments = 10;
+const maxSimilarDocuments = 5;
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,
     minScore: 0,
@@ -10,7 +10,6 @@ const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 // const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 const neighbor_num = 2;
-const fs = require("fs");
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -35,11 +34,7 @@ module.exports = {
                 }).then(function (documents) {
                     console.time("content-based " + item_id);
                     content_based.trainOpt(documents, item_id);
-                    const similarDocuments = content_based.getSimilarDocuments(
-                        item_id,
-                        0,
-                        10
-                    );
+                    const similarDocuments = content_based.getSimilarDocuments(item_id, 0, maxSimilarDocuments);
                     console.timeEnd("content-based " + item_id);
                     resolve(similarDocuments);
                 }).catch(function (err) {
@@ -99,15 +94,10 @@ module.exports = {
 
     getHybridRecommend: function (user_id) {
         return new Promise(function (resolve, reject) {
-            let result = [];
             module.exports.getCollaborativeFilteringResult(user_id).then(cf_results => {
-                for (let i = 0; i < cf_results.length; i++) {
-                    module.exports.getContentBasedResult(cf_results[i].item).then(cb_results => {
-                        result.push(cb_results);
-                    });
-                    console.log(result);
-                }
-                resolve(result);
+                getCBResult(cf_results).then(hybrid_result => {
+                    resolve(hybrid_result);
+                })
             }).catch(function (err) {
                 reject(new Error(err));
             });
@@ -314,4 +304,21 @@ function compare(a, b) {
         comparison = 1;
     }
     return comparison;
+}
+
+async function getCBResult(cf_results) {
+    let hybrid_results = [];
+    for (let i = 0; i < cf_results.length; i++) {
+        hybrid_results.push(cf_results[i]);
+        await module.exports.getContentBasedResult(cf_results[i].item).then(cb_results => {
+            console.log("ket qua " + i, cb_results);
+            for (let j = 0; j < cb_results.length; j++) {
+                if(cb_results[j].score > 0.2){
+                    let obj = hybrid_results.find(obj => obj.item === cb_results[j].id);
+                    if (obj === undefined) hybrid_results.push(cb_results[j]);
+                }
+            }
+        });
+    }
+    return hybrid_results;
 }
