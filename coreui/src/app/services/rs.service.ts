@@ -17,8 +17,8 @@ export class RsService {
     return this.http.get(this.nodeServer + "cf/" + user_id);
   }
 
-  getHybridMethod(item_id, user_id): Observable<any> {
-    return this.http.get(this.nodeServer + "hybrid/" + user_id + '/' + item_id);
+  getHybridMethod(user_id): Observable<any> {
+    return this.http.get(this.nodeServer + "hybrid/" + user_id);
   }
 
   getGraphMethod(user_id): Observable<any> {
