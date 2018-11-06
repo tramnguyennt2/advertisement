@@ -45,6 +45,27 @@ module.exports = {
         });
     },
 
+    getContentBasedForHybridResult: function (item_id, all_item) {
+        return new Promise(function (resolve, reject) {
+            db.view("items", 'all-item?key="' + item_id + '"', {
+                include_docs: true
+            }).then(body => {
+                return getItem(body.rows.length, item_id, all_item).then(documents => {
+                    return documents;
+                });
+            }).then(function (documents) {
+                console.log("3: ", documents.length);
+                console.time("content-based " + item_id);
+                content_based.trainOpt(documents, item_id);
+                const similarDocuments = content_based.getSimilarDocuments(item_id, 0, maxSimilarDocuments);
+                console.timeEnd("content-based " + item_id);
+                resolve(similarDocuments);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        });
+    },
+
     getCollaborativeFilteringResult: function (user_id) {
         return new Promise(function (resolve, reject) {
             let item_arr = [], user_arr = [];
@@ -94,12 +115,18 @@ module.exports = {
 
     getHybridRecommend: function (user_id) {
         return new Promise(function (resolve, reject) {
-            module.exports.getCollaborativeFilteringResult(user_id).then(cf_results => {
-                getCBResult(cf_results).then(hybrid_result => {
-                    resolve(hybrid_result);
-                })
-            }).catch(function (err) {
-                reject(new Error(err));
+            db.view("items", "all-item", {
+                include_docs: true
+            }).then(body => {
+                console.time("hybrid " + user_id);
+                module.exports.getCollaborativeFilteringResult(user_id).then(cf_results => {
+                    getCBResult(cf_results, body).then(hybrid_result => {
+                        console.timeEnd("hybrid " + user_id);
+                        resolve(hybrid_result);
+                    })
+                }).catch(function (err) {
+                    reject(new Error(err));
+                });
             });
         });
     },
@@ -171,6 +198,20 @@ module.exports = {
         });
     }
 };
+
+async function getItem(length, item_id, all_item) {
+    let documents = [];
+    if (length === 0) {
+        await db.get(item_id).then((item) => {
+            documents.push({id: item._id, content: item.content, token: item.token});
+        })
+    }
+    all_item.rows.forEach(doc => {
+        let obj = {id: doc.doc._id, content: doc.doc.content, token: doc.doc.token};
+        documents.push(obj);
+    });
+    return documents;
+}
 
 function predict(item_need_to_recommend, avg_user) {
     return new Promise(function (resolve) {
@@ -306,14 +347,13 @@ function compare(a, b) {
     return comparison;
 }
 
-async function getCBResult(cf_results) {
+async function getCBResult(cf_results, all_items) {
     let hybrid_results = [];
     for (let i = 0; i < cf_results.length; i++) {
         hybrid_results.push(cf_results[i]);
-        await module.exports.getContentBasedResult(cf_results[i].item).then(cb_results => {
-            console.log("ket qua " + i, cb_results);
+        await module.exports.getContentBasedForHybridResult(cf_results[i].item, all_items).then(cb_results => {
             for (let j = 0; j < cb_results.length; j++) {
-                if(cb_results[j].score > 0.2){
+                if (cb_results[j].score > 0.2) {
                     let obj = hybrid_results.find(obj => obj.item === cb_results[j].id);
                     if (obj === undefined) hybrid_results.push(cb_results[j]);
                 }

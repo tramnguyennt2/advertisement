@@ -7,7 +7,6 @@ const vietnamese_stopwords = require("vietnamese-stopwords");
 const {TfIdf} = natural;
 const vntk = require("vntk");
 const tokenizer = vntk.wordTokenizer();
-const fs = require('fs');
 
 const defaultOptions = {
     maxVectorSize: 100,
@@ -210,7 +209,6 @@ class ContentBasedRecommender {
                 const vi = documentVectors[i].vector;
                 const idj = documentVectors[j].id;
                 const vj = documentVectors[j].vector;
-                var fs = require('fs');
 
                 const similarity = vi.getCosineSimilarity(vj);
 

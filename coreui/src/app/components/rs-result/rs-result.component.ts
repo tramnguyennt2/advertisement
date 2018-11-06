@@ -35,7 +35,7 @@ export class RsResultComponent implements OnInit {
         //   })
         // );
         //------------------HB-----------------
-        this.rsService.getHybridMethod(this.item_id, user_id).subscribe(items_rs =>
+        this.rsService.getHybridMethod(user_id).subscribe(items_rs =>
           this.getItemRecommended(items_rs).then(items => {
             for (let i = 0; i < items.length; i++) {
               let item = new Item();
