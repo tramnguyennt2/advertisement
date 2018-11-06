@@ -3,11 +3,11 @@
     <img *ngIf="url" class="group list-group-image img-fluid img-item" [src]="url"/>
     <img *ngIf="!url" class="group list-group-image img-fluid img-item" src="../../../assets/img/default-image.jpg" width='100%'/>
   </div>
-  <div class="caption card-body">
-    <h4 class="group card-title inner list-group-item-heading crop-text-2" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important;">
-      {{item.title}}</h4>
-    <p class="group inner list-group-item-text crop-text-2" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important;">
-      {{item.content}}</p>
+  <div class="caption card-body" title="{{item.title}}">
+    <h5 class="group card-title inner list-group-item-heading crop-text-2">
+      {{item.title}}</h5>
+    <!--<p class="group inner list-group-item-text crop-text-2" style="-webkit-line-clamp: 2 !important; overflow : hidden !important; text-overflow: ellipsis !important; display: -webkit-box !important; -webkit-box-orient: vertical !important;">-->
+      <!--{{item.content}}</p>-->
     <p class="lead text-danger">${{price}} VNĐ</p>
   </div>
 </div>

@@ -4,17 +4,18 @@
   color = "#fff"
   type = "ball-clip-rotate-pulse">
 </ngx-spinner>
-<ol class="breadcrumb">
-  <div class="ml-auto">
-    <span>Lọc&nbsp;</span>
-    <select (change)="onFilterChange($event)">
-      <option value="newest">Tin mới trước</option>
-      <option value="oldest">Tin cũ trước</option>
-      <option value="highest">Giá cao trước</option>
-      <option value="lowest">Giá thấp trước</option>
-    </select>
-  </div>
-</ol>
+<!--<ol class="breadcrumb">-->
+  <!--<div class="ml-auto">-->
+    <!--<span>Lọc&nbsp;</span>-->
+    <!--<select (change)="onFilterChange($event)">-->
+      <!--<option value="newest">Tin mới trước</option>-->
+      <!--<option value="oldest">Tin cũ trước</option>-->
+      <!--<option value="highest">Giá cao trước</option>-->
+      <!--<option value="lowest">Giá thấp trước</option>-->
+    <!--</select>-->
+  <!--</div>-->
+<!--</ol>-->
+<br/>
 <div class="container-fluid">
   <div class="row">
     <div class="col">
@@ -27,36 +28,23 @@
           <span *ngIf="keyword.length == 0">
             <strong>{{total}}</strong>&nbsp;kết quả
           </span>
+          <div class="ml-auto">
+            <span>Sắp xếp&nbsp;</span>
+            <select (change)="onFilterChange($event)">
+              <option value="newest">Tin mới trước</option>
+              <option value="oldest">Tin cũ trước</option>
+              <option value="highest">Giá cao trước</option>
+              <option value="lowest">Giá thấp trước</option>
+            </select>
+          </div>
         </div>
         <div class="card-body">
           <div id="new-items" class="row view-group">
-            <div class="item col-xs-12 col-md-6 col-lg-3" *ngFor="let item of items">
+            <div class="item col-xs-12 col-md-6 col-lg-3" *ngFor="let item of items | paginate: { itemsPerPage: 8, currentPage: p }">
               <app-item [item]="item"></app-item>
             </div>
           </div>
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">«</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">»</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
+          <pagination-controls (pageChange)="p = $event" class="pagination justify-content-center" previousLabel="Trang trước" nextLabel="Trang sau"></pagination-controls>
         </div>
       </div>
     </div>

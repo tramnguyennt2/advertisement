@@ -45,6 +45,7 @@ export class SolrService {
       else url += after_keyword + "sub_loc_id:" + sub_loc_id;
     }
     if (!keyword && !sub_cat_id && !sub_loc_id) url += "*:*";
+    url += "&rows=2000";
     if (sort_field && sort) {
       url += "&sort=" + sort_field + " " + sort;
     } else {

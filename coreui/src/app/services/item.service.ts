@@ -163,8 +163,7 @@ export class ItemService {
           type: 'item',
           cat_id: catId,
           sub_cat_id: subCatId
-        },
-        limit: 10
+        }
       })
       .then(data => {
         if (data.docs.length > 0) {

@@ -15,6 +15,7 @@ export class SearchAdComponent implements OnInit {
   sub_loc_id: string;
   total: number = 0;
   items = [];
+  p: number = 1;
 
   constructor(private route: ActivatedRoute, private solr: SolrService, private spinner: NgxSpinnerService) {}
 

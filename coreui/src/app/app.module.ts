@@ -16,6 +16,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -75,7 +76,8 @@ import { AllItemsComponent } from './components/all-items/all-items.component';
     TabsModule.forRoot(),
     ChartsModule,
     ModalModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,

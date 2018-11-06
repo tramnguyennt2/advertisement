@@ -13,6 +13,7 @@ export class AllItemsComponent implements OnInit {
   subCatId: string;
   items: Item[];
   total: 0;
+  p: number = 1;
 
   constructor(private itemService: ItemService, private spinner: NgxSpinnerService) {}
 

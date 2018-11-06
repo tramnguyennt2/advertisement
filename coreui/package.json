@@ -50,6 +50,7 @@
     "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "^3.0.1",
     "ngx-cookie-service": "^1.0.10",
+    "ngx-pagination": "^3.2.1",
     "ngx-perfect-scrollbar": "^6.3.1",
     "ngx-spinner": "^6.1.2",
     "pouchdb": "^7.0.0",
