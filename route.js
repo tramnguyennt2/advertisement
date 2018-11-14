@@ -1,7 +1,7 @@
 let express = require("express");
 let router = express.Router();
 const recommender = require("./recommender/recommender");
-const recommender_e = require("./recommender_evaluation");
+const recommender_e = require("./evaluation/recommender_evaluation");
 import precisionRecall from "precision-recall";
 
 const fs = require("fs");
