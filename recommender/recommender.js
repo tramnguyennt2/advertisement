@@ -1,5 +1,7 @@
+import * as deasync from "deasync";
+
 const ContentBasedRecommender = require("./content-based-recommender/index");
-const maxSimilarDocuments = 5;
+const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,
     minScore: 0,
@@ -7,8 +9,7 @@ const content_based = new ContentBasedRecommender({
 });
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
-// const nano = require("nano")("http://admin:1@localhost:5984");
-const db = nano.use("scala");
+const db = nano.use("advertisement");
 const neighbor_num = 2;
 
 module.exports = {
@@ -34,7 +35,7 @@ module.exports = {
                 }).then(function (documents) {
                     console.time("content-based " + item_id);
                     content_based.trainOpt(documents, item_id);
-                    const similarDocuments = content_based.getSimilarDocuments(item_id, 0, maxSimilarDocuments);
+                    const similarDocuments = content_based.getSimilarDocuments(item_id, 0, 20);
                     console.timeEnd("content-based " + item_id);
                     resolve(similarDocuments);
                 }).catch(function (err) {
@@ -45,28 +46,8 @@ module.exports = {
         });
     },
 
-    getContentBasedForHybridResult: function (item_id, all_item) {
-        return new Promise(function (resolve, reject) {
-            db.view("items", 'all-item?key="' + item_id + '"', {
-                include_docs: true
-            }).then(body => {
-                return getItem(body.rows.length, item_id, all_item).then(documents => {
-                    return documents;
-                });
-            }).then(function (documents) {
-                console.log("3: ", documents.length);
-                console.time("content-based " + item_id);
-                content_based.trainOpt(documents, item_id);
-                const similarDocuments = content_based.getSimilarDocuments(item_id, 0, maxSimilarDocuments);
-                console.timeEnd("content-based " + item_id);
-                resolve(similarDocuments);
-            }).catch(function (err) {
-                reject(new Error(err));
-            });
-        });
-    },
-
-    getCollaborativeFilteringResultU: function (user_id) {
+    //user-based
+    getCollaborativeFilteringResult: function (user_id) {
         return new Promise(function (resolve, reject) {
             let item_arr = [], user_arr = [];
             let docs = {};
@@ -97,9 +78,7 @@ module.exports = {
                             // Step 4: predict
                             predict(item_need_to_recommend, avg_user).then(result => {
                                 sort(result).then(result => {
-                                    if (result.length > maxSimilarDocuments) {
-                                        result = result.splice(0, maxSimilarDocuments);
-                                    }
+                                    if (result.length > maxSimilarDocuments) result = result.splice(0, maxSimilarDocuments);
                                     console.timeEnd("cf " + user_id);
                                     resolve(result);
                                 });
@@ -113,176 +92,87 @@ module.exports = {
         });
     },
 
-    getCollaborativeFilteringResult: function (user_id) {
+    getHybridRecommend: function (user_id, item_id) {
         return new Promise(function (resolve, reject) {
-            let item_arr = [], user_arr = [], user_items = [];
-            let docs = {};
-            let user_idx = 0;
-            db.view("ratings", "all-rating", {include_docs: true}).then(body => {
-                console.time("cf " + user_id);
-                for (let i = 0; i < body.total_rows; i++) {
-                    if (user_arr.indexOf(body.rows[i].doc.user_id) <= -1)
-                        user_arr.push(body.rows[i].doc.user_id);
-                    if (item_arr.indexOf(body.rows[i].doc.item_id) <= -1)
-                        item_arr.push(body.rows[i].doc.item_id);
-                    if (user_id === body.rows[i].doc.user_id) user_items.push(body.rows[i].doc.item_id);
-                    let obj = {};
-                    obj.user = body.rows[i].doc.user_id;
-                    obj.rating = body.rows[i].doc.rating;
-                    if (body.rows[i].doc.item_id in docs) docs[body.rows[i].doc.item_id].push(obj);
-                    else docs[body.rows[i].doc.item_id] = [obj];
+            let output = [], ref_items = [], ref_user_items;
+            console.time("hybrid " + user_id);
+            output = joinAndReturn(user_id, item_id);
+            //Find values that are in both result1 n result2
+            ref_user_items = output[0].filter(function (obj) {
+                return output[1].some(function (obj2) {
+                    return obj.id === obj2.id;
+                });
+            });
+            if (ref_user_items.length > 0) {
+                for (let i = 0; i < ref_user_items.length; i++) {
+                    const index0 = output[0].indexOf(ref_user_items[i]);
+                    output[0].splice(index0, 1);
+                    const removeIndex = output[1].map(function (item) {
+                        return item.id;
+                    }).indexOf(ref_user_items[i].id);
+                    output[1].splice(removeIndex, 1);
                 }
-            }).then(() => {
-                user_idx = user_arr.indexOf(user_id);
-                if (user_idx <= -1) reject("user has not rated any item in recommended item list.");
-                // Step 1: normalize rating by subtract row mean
-                normalizeDocsI(docs, item_arr).then(avg_items => {
-                    // Step 2: get cosin similarity
-                    let items_not_by_user = item_arr.diff(user_items);
-                    getCosinSimilarityI(docs, items_not_by_user, item_arr, user_items).then(similarity => {
-                        let rating_by_user = [];
-                        for (let i = 0; i < user_items.length; i++) {
-                            let users = docs[user_items[i]];
-                            for (let j = 0; j < users.length; j++) {
-                                if (users[j].user === user_id) {
-                                    rating_by_user.push({
-                                        item: user_items[i],
-                                        mean: users[j].rating
-                                    })
-                                }
-                            }
-                        }
-
-                        // similarity.sort(function (a, b) {
-                        //     let keyA = a.sim, keyB = b.sim;
-                        //     if (keyA < keyB) return 1;
-                        //     if (keyA > keyB) return -1;
-                        //     return 0;
-                        // });
-
-                        // Step 4: predict
-                        predictI(rating_by_user, items_not_by_user, similarity, avg_items).then(result => {
-                            sort(result).then(result => {
-                                if (result.length > maxSimilarDocuments) {
-                                    result = result.splice(0, maxSimilarDocuments);
-                                }
-                                console.timeEnd("cf " + user_id);
-                                resolve(result);
-                            });
-                        });
-                    });
-                });
-            }).catch(function (err) {
-                reject(new Error(err));
-            });
-        });
-    },
-
-    getHybridRecommend: function (user_id) {
-        return new Promise(function (resolve, reject) {
-            db.view("items", "all-item", {
-                include_docs: true
-            }).then(body => {
-                console.time("hybrid " + user_id);
-                module.exports.getCollaborativeFilteringResult(user_id).then(cf_results => {
-                    getCBResult(cf_results, body).then(hybrid_result => {
-                        console.timeEnd("hybrid " + user_id);
-                        resolve(hybrid_result);
-                    })
-                }).catch(function (err) {
-                    reject(new Error(err));
-                });
-            });
+                for (let i = 0; i < output[1].length; i++) {
+                    ref_user_items.push(output[1][i]);
+                }
+                ref_items = output[0];
+            } else {
+                ref_items = output[0];
+                ref_user_items = output[1];
+            }
+            let result = {
+                "ref_items": ref_items,
+                "ref_user_items": ref_user_items
+            };
+            console.endTime("hybrid " + user_id);
+            resolve(result);
         });
     },
 
     getGraphRecommend: function (user_id) {
         const graph = new ug.Graph();
         return new Promise(function (resolve, reject) {
-            let q = {
-                selector: {
-                    type: {$eq: "rating"}
+            let users = [], items = [], views = [];
+            db.view("ratings", "all-rating", {include_docs: true}).then(body => {
+                console.time("graph " + user_id);
+                for (let i = 0; i < body.total_rows; i++) {
+                    let user_id = body.rows[i].doc.user_id;
+                    let item_id = body.rows[i].doc.item_id;
+                    let userIdx = users.indexOf(user_id);
+                    let itemIdx = items.indexOf(item_id);
+                    let user, item;
+                    if (userIdx <= -1) {
+                        users.push(user_id);
+                        user = graph.createNode("user", {id: user_id});
+                    } else {
+                        user = graph.nodes("user").query().filter({id: user_id}).first();
+                    }
+                    if (itemIdx <= -1) {
+                        items.push(item_id);
+                        item = graph.createNode("item", {id: item_id});
+                    } else item = graph.nodes("item").query().filter({id: item_id}).first();
+                    views.push(graph.createEdge("view").link(user, item));
                 }
-            };
-            let users = [];
-            let items = [];
-            let views = [];
-            db.find(q)
-                .then(docs => {
-                    for (let i = 0; i < docs.docs.length; i++) {
-                        let user_id = docs.docs[i].user_id;
-                        let item_id = docs.docs[i].item_id;
-                        let userIdx = users.indexOf(user_id);
-                        let itemIdx = items.indexOf(item_id);
-                        let user, item;
-                        if (userIdx <= -1) {
-                            users.push(user_id);
-                            user = graph.createNode("user", {id: user_id});
-                        } else
-                            user = graph
-                                .nodes("user")
-                                .query()
-                                .filter({id: user_id})
-                                .first();
-                        if (itemIdx <= -1) {
-                            items.push(item_id);
-                            item = graph.createNode("item", {id: item_id});
-                        } else
-                            item = graph
-                                .nodes("item")
-                                .query()
-                                .filter({id: item_id})
-                                .first();
-                        views.push(graph.createEdge("view").link(user, item));
-                    }
-                })
-                .then(() => {
-                    if (users.indexOf(user_id) <= -1) {
-                        reject("user does not in graph");
-                    }
-                })
-                .then(() => {
-                    let user = graph
-                        .nodes("user")
-                        .query()
-                        .filter({id: user_id})
-                        .first();
-                    let results = graph.closest(user, {
-                        compare: function (node) {
-                            return node.entity === "item";
-                        },
-                        minDepth: 3,
-                        count: maxSimilarDocuments
-                    });
-                    // results is now an array of Paths, which are each traces from your starting node to your result node...
-                    let resultNodes = results.map(function (path) {
-                        return path.end();
-                    });
-                    resolve(resultNodes);
+            }).then(() => {
+                if (users.indexOf(user_id) <= -1) reject("user does not in graph");
+            }).then(() => {
+                let user = graph.nodes("user").query().filter({id: user_id}).first();
+                let results = graph.closest(user, {
+                    compare: function (node) {
+                        return node.entity === "item";
+                    },
+                    minDepth: 3,
+                    count: maxSimilarDocuments
                 });
+                // results is now an array of Paths, which are each traces from your starting node to your result node...
+                let resultNodes = results.map(function (path) {
+                    return path.end();
+                });
+                resolve(resultNodes);
+            });
         });
     }
 };
-
-Array.prototype.diff = function (a) {
-    return this.filter(function (i) {
-        return a.indexOf(i) < 0;
-    });
-};
-
-async function getItem(length, item_id, all_item) {
-    let documents = [];
-    if (length === 0) {
-        await db.get(item_id).then((item) => {
-            documents.push({id: item._id, content: item.content, token: item.token});
-        })
-    }
-    all_item.rows.forEach(doc => {
-        let obj = {id: doc.doc._id, content: doc.doc.content, token: doc.doc.token};
-        documents.push(obj);
-    });
-    return documents;
-}
 
 function predict(item_need_to_recommend, avg_user) {
     return new Promise(function (resolve) {
@@ -296,42 +186,12 @@ function predict(item_need_to_recommend, avg_user) {
                     v += Math.abs(users[j].sim);
                 }
                 result.push({
-                    item: item_need_to_recommend[i].item,
-                    rating: (r / v) + avg_user
+                    id: item_need_to_recommend[i].item,
+                    score: (r / v) + avg_user
                 });
             }
         }
         resolve(result);
-    });
-}
-
-function predictI(rating_by_user, items_not_by_user, similarity, avg_items) {
-    return new Promise(function (resolve) {
-        let result = [];
-        for (let i = 0; i < items_not_by_user.length; i++) {
-            const items = similarity[items_not_by_user[i]];
-            console.log("items", items);
-            if (items.length >= neighbor_num) {
-                let r = 0, v = 0;
-                for (let j = 0; j < neighbor_num; j++) {
-                    r += items[j] * items[j].rating;
-                    v += Math.abs(items[j].sim);
-                }
-                result.push({
-                    item: items_not_by_user[i],
-                    rating: (r / v) + avg_items[items_not_by_user[i]]
-                });
-            }
-        }
-        console.log("result", result);
-        resolve(result);
-
-        // for (let i = 0; i < items_not_by_user.length; i++) {
-        //     let ratings = similarity[items_not_by_user[i]];
-        //     for (let j = 0; j < ratings.length; j++) {
-        //
-        //     }
-        // }
     });
 }
 
@@ -410,47 +270,6 @@ function getCosinSimilarity(docs, user_items, user_arr, user_id) {
     })
 }
 
-function getCosinSimilarityI(docs, items_not_by_user, item_arr, user_items) {
-    return new Promise(function (resolve) {
-        let similarity = {}, items_value = {};
-        for (let i = 0; i < item_arr.length; i++) {
-            let users = docs[item_arr[i]];
-            let r1 = 0;
-            for (let j = 0; j < users.length; j++) r1 += users[j].rating * users[j].rating;
-            items_value[item_arr[i]] = Math.sqrt(r1);
-        }
-        for (let i = 0; i < items_not_by_user.length; i++) {
-            similarity[items_not_by_user[i]] = [];
-            let other_user_items = docs[items_not_by_user[i]];
-            let value_i = items_value[items_not_by_user[i]];
-            for (let j = 0; j < user_items.length; j++) {
-                let value_j = items_value[user_items[j]];
-                let same = other_user_items.filter(function (obj) {
-                    return docs[user_items[j]].some(function (obj2) {
-                        return obj.user === obj2.user;
-                    });
-                });
-                if (same.length > 0) {
-                    let prod = 0;
-                    for (let k = 0; k < same.length; k++) {
-                        let user_rating = docs[user_items[j]].filter((user) => {
-                            if (user.user === same[k].user) return user.rating;
-                        });
-                        prod += user_rating[0].rating * same[k].rating;
-                    }
-                    if (prod !== 0) {
-                        let sim = prod / (value_i * value_j);
-                        let obj = {};
-                        obj[user_items[j]] = sim;
-                        similarity[items_not_by_user[i]].push(obj);
-                    }
-                }
-            }
-        }
-        resolve(similarity);
-    })
-}
-
 function normalizeDocs(docs, user_arr, user_id) {
     return new Promise(function (resolve) {
         let avg_user = 0;
@@ -468,27 +287,6 @@ function normalizeDocs(docs, user_arr, user_id) {
             }
         }
         resolve(avg_user);
-    });
-}
-
-function normalizeDocsI(docs, item_arr) {
-    return new Promise(function (resolve) {
-        let avg_items = [];
-        for (let i = 0; i < item_arr.length; i++) {
-            let users = docs[item_arr[i]];
-            let value = 0;
-            for (let j = 0; j < users.length; j++) {
-                value += users[j].rating;
-            }
-            avg_items.push({
-                item: item_arr[i],
-                avg: value / users.length
-            });
-            for (let j = 0; j < users.length; j++) {
-                users[j].rating = users[j].rating - value / users.length;
-            }
-        }
-        resolve(avg_items);
     });
 }
 
@@ -510,18 +308,39 @@ function compare(a, b) {
     return comparison;
 }
 
-async function getCBResult(cf_results, all_items) {
-    let hybrid_results = [];
-    for (let i = 0; i < cf_results.length; i++) {
-        hybrid_results.push(cf_results[i]);
-        await module.exports.getContentBasedForHybridResult(cf_results[i].item, all_items).then(cb_results => {
-            for (let j = 0; j < cb_results.length; j++) {
-                if (cb_results[j].score > 0.2) {
-                    let obj = hybrid_results.find(obj => obj.item === cb_results[j].id);
-                    if (obj === undefined) hybrid_results.push(cb_results[j]);
-                }
-            }
-        });
-    }
-    return hybrid_results;
+function doAlgorithms(user_id, item_id) {
+    return Promise.all([
+        new Promise(function (resolve, reject) {
+            module.exports.getContentBasedResult(item_id).then(cb_results => {
+                let output = cb_results.filter(function (obj) {
+                    return obj.score >= 0.15
+                });
+                return resolve(output);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        }),
+
+        new Promise(function (resolve, reject) {
+            module.exports.getCollaborativeFilteringResult(user_id).then(cf_results => {
+                return resolve(cf_results);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        }),
+    ]);
+}
+
+function joinAndReturn(user_id, item_id) {
+    let done = false;
+    let result = [];
+    doAlgorithms(user_id, item_id).then((results) => {
+        result.push(results[0]);
+        result.push(results[1]);
+        done = true;
+    });
+    deasync.loopWhile(function () {
+        return !done;
+    });
+    return result;
 }

@@ -125,6 +125,7 @@ export class ItemService {
   delete(id) {
     let self = this;
     this.getItem(id).then(function (res) {
+      console.log("res: ", res);
       return self.pouchdb.db.remove(res, function (err) {
         if (err) {
           return console.log(err);
