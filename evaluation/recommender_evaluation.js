@@ -1,7 +1,7 @@
 const maxSimilarDocuments = 100;
 const fs = require('fs');
 const parse = require('csv-parse');
-const ratingsFile = 'ml-100k/ua (copy).base';
+const ratingsFile = 'evaluation/ux_train.train';
 
 module.exports = {
     //user-based
