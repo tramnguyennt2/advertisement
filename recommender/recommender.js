@@ -49,7 +49,7 @@ module.exports = {
     //user-based
     getCollaborativeFilteringResult: function (user_id) {
         return new Promise(function (resolve, reject) {
-            let item_arr = [], user_arr = [];
+            let user_arr = [];
             let docs = {};
             let user_idx = 0;
             db.view("ratings", "all-rating", {include_docs: true}).then(body => {
@@ -57,8 +57,6 @@ module.exports = {
                 for (let i = 0; i < body.total_rows; i++) {
                     if (user_arr.indexOf(body.rows[i].doc.user_id) <= -1)
                         user_arr.push(body.rows[i].doc.user_id);
-                    if (item_arr.indexOf(body.rows[i].doc.item_id) <= -1)
-                        item_arr.push(body.rows[i].doc.item_id);
                     let obj = {};
                     obj.item = body.rows[i].doc.item_id;
                     obj.rating = body.rows[i].doc.rating;

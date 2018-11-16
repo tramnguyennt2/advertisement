@@ -5,39 +5,30 @@ const ratingsFile = 'evaluation/ux_train.train';
 
 module.exports = {
     //user-based
-    getCollaborativeFilteringResult: function (user_id) {
+    getCollaborativeFilteringResult: function (docs, user_arr, user_id) {
         return new Promise(function (resolve, reject) {
-            let item_arr = [], user_arr = [];
-            let docs = {};
-            let user_idx = 0;
-            createReadStream(ratingsFile).then(data => {
-                docs = data[0];
-                user_arr = data[1];
-                item_arr = data[2];
-            }).then(() => {
-                user_idx = user_arr.indexOf(user_id);
-                if (user_idx <= -1) reject("user has not rated any item in recommended item list.");
-                // Step 1: normalize rating by subtract row mean
-                normalizeDocs(docs, user_arr, user_id).then(avg_user => {
-                    // Step 2: get cosin similarity
-                    const user_items = docs[user_id];
-                    getCosinSimilarity(docs, user_items, user_arr, user_id).then(similarity => {
-                        // Step 3: get item need to recommend
-                        getItemNeedToRecommend(docs, similarity, user_items).then(item_need_to_recommend => {
-                            // Step 4: predict
-                            predict(item_need_to_recommend, avg_user).then(result => {
-                                sort(result).then(result => {
-                                    if (result.length > maxSimilarDocuments) result = result.splice(0, maxSimilarDocuments);
-                                    console.timeEnd("cf " + user_id);
-                                    resolve(result);
-                                });
-                            });
-                        });
-                    });
-                });
-            }).catch(function (err) {
-                reject(new Error(err));
-            });
+            let user_arr = user_arr;
+            let docs = docs;
+            console.log("user_arr", user_arr);
+            console.log("docs", docs);
+            // // Step 1: normalize rating by subtract row mean
+            // normalizeDocs(docs, user_arr, user_id).then(avg_user => {
+            //     // Step 2: get cosin similarity
+            //     const user_items = docs[user_id];
+            //     getCosinSimilarity(docs, user_items, user_arr, user_id).then(similarity => {
+            //         // Step 3: get item need to recommend
+            //         getItemNeedToRecommend(docs, similarity, user_items).then(item_need_to_recommend => {
+            //             // Step 4: predict
+            //             predict(item_need_to_recommend, avg_user).then(result => {
+            //                 sort(result).then(result => {
+            //                     if (result.length > maxSimilarDocuments) result = result.splice(0, maxSimilarDocuments);
+            //                     console.timeEnd("cf " + user_id);
+            //                     resolve(result);
+            //                 });
+            //             });
+            //         });
+            //     });
+            // }).catch(err => reject(err));
         });
     },
 
