@@ -2,3 +2,4 @@
 /node_modules
 /.idea
 /coreui/.idea
+/recommender/content-based-recommender/node_modules
