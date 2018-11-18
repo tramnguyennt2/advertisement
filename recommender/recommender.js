@@ -244,7 +244,7 @@ function getCosinSimilarity(docs, user_items, user_arr, user_id) {
                     let prod = 0;
                     for (let k = 0; k < same.length; k++) {
                         let item_rating = user_items.filter((item) => {
-                            if (item.item === same[k].item) return item.rating;
+                            if (item.item === same[k].item) return item;
                         });
                         prod += item_rating[0].rating * same[k].rating;
                     }

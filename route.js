@@ -14,9 +14,13 @@ const content_based = new ContentBasedRecommender({
     minScore: 0,
     debug: false
 });
+// const userFile = "evaluation/ux_user_2.user";
 const userFile = "evaluation/ux_user.user";
 const testFile = "evaluation/ux_test.test";
 const trainFile = "evaluation/ux_train.train";
+// when write file, change to docs.txt and re-change docs.json
+const docsFile = "evaluation/docs.json";
+const resultsFile = "evaluation/results.json";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -65,26 +69,27 @@ router.post("/get-token", function (req, res, next) {
     res.send(content_based.getTokensFromString(req.body.content));
 });
 
-
 router.get("/evaluation-cf/", function (req, res, next) {
-    let item_arr = [], r = [], user_arr = [];
-    let docs = {};
     readUserStream(userFile).then(users => {
-        createReadTrainStream(trainFile).then(data => {
+        // createReadTrainStream(trainFile).then(data => {
+        readDocsFile().then(d => {
+            let data = JSON.parse(JSON.stringify(d));
             for (let i = 0; i < users.length; i++) {
                 let retrieved = [];
-                console.log("recommending for user ", users[i]);
                 recommender_e.getCollaborativeFilteringResult(data, users, users[i])
-                    .then(similarDocuments => {
-                        retrieved.push(similarDocuments[i].id);
-                    }).then(() => {
-                    createReadStream(testFile, users[i]).then(
-                        relevant => {
-                            r.push(precisionRecall(relevant, retrieved));
-                            console.log("r: ", r);
-                        }
-                    );
-                }).catch(err => res.send(err));
+                    .then(results => {
+                        console.log("results for user ", users[i], results);
+                    })
+                    // .then(() => {
+                    // createReadStream(testFile, users[i]).then(
+                    //     relevant => {
+                    //         r.push(precisionRecall(relevant, retrieved));
+                    //         console.log("r: ", r);
+                    //     }
+                    // );
+                    // })
+                    .catch(err => res.send(err));
+                data = JSON.parse(JSON.stringify(d));
             }
         }).catch(err => res.send(err));
     }).catch(err => res.send(err));
@@ -92,39 +97,28 @@ router.get("/evaluation-cf/", function (req, res, next) {
 
 module.exports = router;
 
-function createReadStream(filename, id) {
-    return new Promise(function (resolve, reject) {
-        let relevant = [];
-        fs.createReadStream(filename)
-            .pipe(parse({delimiter: "\t"}))
-            .on("data", function (data) {
-                console.log("data", data);
-                if (data[0] === id) {
-                    if (data[2] > 2) {
-                        relevant.push(data[1]);
-                    }
-                }
-            })
-            .on("end", function () {
-                resolve(relevant);
-            });
-    });
-}
-
+// save docs file: /evaluation/docs.json
 function createReadTrainStream(filename) {
     return new Promise(function (resolve, reject) {
         let docs = {};
         fs.createReadStream(filename).pipe(parse({delimiter: '\t'})).on('data', function (data) {
             try {
+                let rating = parseInt(data[2]);
                 let obj = {};
                 obj.item = data[1];
-                obj.rating = data[2];
+                obj.rating = rating;
                 if (data[0] in docs) docs[data[0]].push(obj);
                 else docs[data[0]] = [obj];
             } catch (e) {
                 reject(e);
             }
         }).on('end', function () {
+            fs.writeFile(docsFile, JSON.stringify(docs), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
             resolve(docs);
         });
     });
@@ -141,5 +135,12 @@ function readUserStream(filename) {
             .on("end", function () {
                 resolve(users);
             });
+    });
+}
+
+function readDocsFile() {
+    return new Promise(function (resolve, reject) {
+        const fs = require('fs');
+        resolve(JSON.parse(fs.readFileSync(docsFile, 'utf8')));
     });
 }
