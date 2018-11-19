@@ -1,4 +1,4 @@
-import * as deasync from "deasync";
+﻿import * as deasync from "deasync";
 
 let express = require("express");
 let router = express.Router();
@@ -15,12 +15,15 @@ const content_based = new ContentBasedRecommender({
     debug: false
 });
 // const userFile = "evaluation/ux_user_2.user";
-const userFile = "evaluation/ux_user.user";
+const userTrainFile = "evaluation/ux_user_train.user";
+const userTestFile = "evaluation/ux_user_test.user";
 const testFile = "evaluation/ux_test.test";
 const trainFile = "evaluation/ux_train.train";
 // when write file, change to docs.txt and re-change docs.json
-const docsFile = "evaluation/docs.json";
-const resultsFile = "evaluation/results.json";
+const docsTrainFile = "evaluation/docs.json";
+const docsTestFile = "evaluation/docsTest.txt";
+const resultsFile = "evaluation/results.txt";
+const resultsFileJson = "evaluation/results.json";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -70,38 +73,68 @@ router.post("/get-token", function (req, res, next) {
 });
 
 router.get("/evaluation-cf/", function (req, res, next) {
-    readUserStream(userFile).then(users => {
-        // createReadTrainStream(trainFile).then(data => {
-        readDocsFile().then(d => {
+    readUserStream(userTrainFile).then(users => {
+        // createReadTrainStream(testFile, docsTestFile).then(data => {
+        readDocsFile(docsTrainFile).then(d => {
             let data = JSON.parse(JSON.stringify(d));
             for (let i = 0; i < users.length; i++) {
-                let retrieved = [];
                 recommender_e.getCollaborativeFilteringResult(data, users, users[i])
                     .then(results => {
-                        console.log("results for user ", users[i], results);
+                        let obj = {};
+                        obj[users[i]] = results;
+                        fs.appendFileSync(resultsFile, JSON.stringify(obj));
                     })
-                    // .then(() => {
-                    // createReadStream(testFile, users[i]).then(
-                    //     relevant => {
-                    //         r.push(precisionRecall(relevant, retrieved));
-                    //         console.log("r: ", r);
-                    //     }
-                    // );
-                    // })
                     .catch(err => res.send(err));
                 data = JSON.parse(JSON.stringify(d));
             }
+            resolve("Done");
         }).catch(err => res.send(err));
     }).catch(err => res.send(err));
 });
 
+
+router.get("/map-cf/", function (req, res, next) {
+    readUserStream(userTestFile).then(users => {
+        readDocsFile(resultsFileJson).then(d => {
+            let results = JSON.parse(JSON.stringify(d));
+            readDocsFile(docsTestFile).then(d => {
+                let testData = JSON.parse(JSON.stringify(d));
+                for (let i = 0; i < users.length; i++) {
+                    let result = results[users[i]].sort(compare);
+                    let test = testData[users[i]];
+                    let relevantItems = test.filter(function (item) {
+                        return item.rating > 2.5
+                    });
+                    let recommendedItems = result.slice(0, 20);
+                    //Find values that are in both relevantItems and recommendedItems
+                    let items = relevantItems.filter(function (obj) {
+                        return !recommendedItems.some(function (obj2) {
+                            return obj.item === obj2.item;
+                        });
+                    });
+                    let precision = items.length / 20;
+                    console.log("precision ", users[i], precision);
+                }
+            }).catch(err => res.send(err));
+        }).catch(err => res.send(err));
+    });
+});
+
 module.exports = router;
 
+function compare(a, b) {
+    if (a.score < b.score)
+        return 1;
+    if (a.score > b.score)
+        return -1;
+    return 0;
+}
+
 // save docs file: /evaluation/docs.json
-function createReadTrainStream(filename) {
+function createReadTrainStream(file1, file) {
     return new Promise(function (resolve, reject) {
         let docs = {};
-        fs.createReadStream(filename).pipe(parse({delimiter: '\t'})).on('data', function (data) {
+        fs.createReadStream(file1).pipe(parse({delimiter: '\t'})).on('data', function (data) {
             try {
                 let rating = parseInt(data[2]);
                 let obj = {};
@@ -113,7 +146,7 @@ function createReadTrainStream(filename) {
                 reject(e);
             }
         }).on('end', function () {
-            fs.writeFile(docsFile, JSON.stringify(docs), function (err) {
+            fs.writeFile(file, JSON.stringify(docs), function (err) {
                 if (err) {
                     return console.log(err);
                 }
@@ -138,7 +171,7 @@ function readUserStream(filename) {
     });
 }
 
-function readDocsFile() {
+function readDocsFile(docsFile) {
     return new Promise(function (resolve, reject) {
         const fs = require('fs');
         resolve(JSON.parse(fs.readFileSync(docsFile, 'utf8')));
