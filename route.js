@@ -1,9 +1,7 @@
-﻿import * as deasync from "deasync";
-
-let express = require("express");
+﻿let express = require("express");
 let router = express.Router();
-import precisionRecall from "precision-recall";
 
+const ug = require("ug");
 const recommender = require("./recommender/recommender");
 const recommender_e = require("./evaluation/recommender_evaluation");
 const fs = require("fs");
@@ -14,16 +12,21 @@ const content_based = new ContentBasedRecommender({
     minScore: 0,
     debug: false
 });
-// const userFile = "evaluation/ux_user_2.user";
-const userTrainFile = "evaluation/ux_user_train.user";
-const userTestFile = "evaluation/ux_user_test.user";
-const testFile = "evaluation/ux_test.test";
-const trainFile = "evaluation/ux_train.train";
+
+const userTrainFile = "evaluation/train/ux_user_train.user";
+const userTestFile = "evaluation/test/ux_user_test.user";
+const testFile = "evaluation/test/ux_test.test";
+const trainFile = "evaluation/train/ux_train.train";
+
 // when write file, change to docs.txt and re-change docs.json
-const docsTrainFile = "evaluation/docs.json";
-const docsTestFile = "evaluation/docsTest.txt";
-const resultsFile = "evaluation/results.txt";
-const resultsFileJson = "evaluation/results.json";
+const docsTrainFile = "evaluation/train/docs.json";
+const docsGraphTrainFile = "evaluation/train/docs_graph.txt";
+const docsTestFile = "evaluation/test/docsTest.txt";
+const resultsFile = "evaluation/results/results.txt";
+const resultsFileJson = "evaluation/results/results.json";
+
+const resultsGraphFile = "evaluation/results/results_graph.txt";
+const resultsGraphFileJson = "evaluation/results/results_graph.json";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -68,7 +71,6 @@ router.get("/graph/:user_id", function (req, res, next) {
 });
 
 router.post("/get-token", function (req, res, next) {
-    console.log(content_based.getTokensFromString(req.body.content));
     res.send(content_based.getTokensFromString(req.body.content));
 });
 
@@ -92,29 +94,147 @@ router.get("/evaluation-cf/", function (req, res, next) {
     }).catch(err => res.send(err));
 });
 
+router.get("/evaluation-graph/", function (req, res, next) {
+    const graph = new ug.Graph();
+    let users = [], items = [], views = [];
+    createReadTrainStreamToGraph(trainFile, docsGraphTrainFile, graph).then(data => {
+        users = data[0];
+        items = data[1];
+        views = data[2];
+        let graph = data[3];
+        for (let i = 0; i < users.length; i++) {
+            let user = graph.nodes("user").query().filter({id: users[i]}).first();
+            let results = graph.closest(user, {
+                compare: function (node) {
+                    return node.entity === "item";
+                },
+                minDepth: 3,
+                count: 10
+            });
+
+            // results is now an array of Paths, which are each traces from your starting node to your result node...
+            let resultNodes = results.map(function (path) {
+                return path.end();
+            });
+            let obj = {};
+            obj[users[i]] = resultNodes.map(item => {
+                return {id: item.properties.id};
+            });
+            fs.appendFileSync(resultsGraphFile, JSON.stringify(obj));
+        }
+    }).catch(err => res.send(err));
+
+});
 
 router.get("/map-cf/", function (req, res, next) {
     readUserStream(userTestFile).then(users => {
         readDocsFile(resultsFileJson).then(d => {
             let results = JSON.parse(JSON.stringify(d));
             readDocsFile(docsTestFile).then(d => {
+                let total_ap = 0;
                 let testData = JSON.parse(JSON.stringify(d));
                 for (let i = 0; i < users.length; i++) {
                     let result = results[users[i]].sort(compare);
                     let test = testData[users[i]];
                     let relevantItems = test.filter(function (item) {
-                        return item.rating > 2.5
+                        return item.rating > 2
                     });
-                    let recommendedItems = result.slice(0, 20);
-                    //Find values that are in both relevantItems and recommendedItems
-                    let items = relevantItems.filter(function (obj) {
-                        return !recommendedItems.some(function (obj2) {
-                            return obj.item === obj2.item;
+                    let recommendedItems = result.slice(0, 10);
+                    let arr = [], precisions = [];
+                    let num_relevant = 0;
+                    for (let j = 0; j < recommendedItems.length; j++) {
+                        let flag = 0;
+                        relevantItems.forEach(item => {
+                            if (item.item === recommendedItems[j].id) {
+                                flag = 1;
+                            }
                         });
+                        if (flag === 0) {
+                            arr.push(0);
+                        } else {
+                            num_relevant++;
+                            arr.push(1);
+                        }
+                    }
+                    for (let k = 0; k < arr.length; k++) {
+                        if (arr[k] === 0) {
+                            precisions.push(0);
+                        } else {
+                            let temp_arr = arr.slice(0, k + 1);
+                            let count = temp_arr.filter(x => {
+                                return x === 1
+                            }).length;
+                            precisions.push(count / (k + 1));
+                        }
+                    }
+                    let total_precision = 0;
+                    precisions.forEach(x => {
+                        total_precision += x;
                     });
-                    let precision = items.length / 20;
-                    console.log("precision ", users[i], precision);
+                    let ap = 0;
+                    if (num_relevant !== 0) {
+                        ap = total_precision / num_relevant;
+                    }
+                    total_ap += ap;
                 }
+                console.log("map", total_ap / users.length);
+            }).catch(err => res.send(err));
+        }).catch(err => res.send(err));
+    });
+});
+
+router.get("/map-graph/", function (req, res, next) {
+    readUserStream(userTestFile).then(users => {
+        readDocsFile(resultsGraphFileJson).then(d => {
+            let results = JSON.parse(JSON.stringify(d));
+            readDocsFile(docsTestFile).then(d => {
+                let total_ap = 0;
+                let testData = JSON.parse(JSON.stringify(d));
+                for (let i = 0; i < users.length; i++) {
+                    let result = results[users[i]].sort(compare);
+                    let test = testData[users[i]];
+                    let relevantItems = test.filter(function (item) {
+                        return item.rating > 2
+                    });
+                    let recommendedItems = result.slice(0, 10);
+                    let arr = [], precisions = [];
+                    let num_relevant = 0;
+                    for (let j = 0; j < recommendedItems.length; j++) {
+                        let flag = 0;
+                        relevantItems.forEach(item => {
+                            if (item.item === recommendedItems[j].id) {
+                                flag = 1;
+                            }
+                        });
+                        if (flag === 0) {
+                            arr.push(0);
+                        } else {
+                            num_relevant++;
+                            arr.push(1);
+                        }
+                    }
+                    for (let k = 0; k < arr.length; k++) {
+                        if (arr[k] === 0) {
+                            precisions.push(0);
+                        } else {
+                            let temp_arr = arr.slice(0, k + 1);
+                            let count = temp_arr.filter(x => {
+                                return x === 1
+                            }).length;
+                            precisions.push(count / (k + 1));
+                        }
+                    }
+                    let total_precision = 0;
+                    precisions.forEach(x => {
+                        total_precision += x;
+                    });
+                    let ap = 0;
+                    if (num_relevant !== 0) {
+                        ap = total_precision / num_relevant;
+                    }
+                    total_ap += ap;
+                }
+                console.log("map", total_ap / users.length);
             }).catch(err => res.send(err));
         }).catch(err => res.send(err));
     });
@@ -153,6 +273,36 @@ function createReadTrainStream(file1, file) {
                 console.log("The file was saved!");
             });
             resolve(docs);
+        });
+    });
+}
+
+function createReadTrainStreamToGraph(file1, file, graph) {
+    return new Promise(function (resolve, reject) {
+        let users = [], items = [], views = [];
+        fs.createReadStream(file1).pipe(parse({delimiter: '\t'})).on('data', function (data) {
+            try {
+                let user_id = data[0];
+                let item_id = data[1];
+                let userIdx = users.indexOf(user_id);
+                let itemIdx = items.indexOf(item_id);
+                let user, item;
+                if (userIdx <= -1) {
+                    users.push(user_id);
+                    user = graph.createNode("user", {id: user_id});
+                } else {
+                    user = graph.nodes("user").query().filter({id: user_id}).first();
+                }
+                if (itemIdx <= -1) {
+                    items.push(item_id);
+                    item = graph.createNode("item", {id: item_id});
+                } else item = graph.nodes("item").query().filter({id: item_id}).first();
+                views.push(graph.createEdge("view").link(user, item));
+            } catch (e) {
+                reject(e);
+            }
+        }).on('end', function () {
+            resolve([users, items, views, graph]);
         });
     });
 }

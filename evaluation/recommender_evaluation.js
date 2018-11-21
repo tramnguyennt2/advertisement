@@ -2,9 +2,10 @@ const maxSimilarDocuments = 20;
 const fs = require('fs');
 const parse = require('csv-parse');
 const neighbor_num = 2;
+const ug = require("ug");
 
 module.exports = {
-    //user-based
+    // user-based
     getCollaborativeFilteringResult: function (docs, user_arr, user_id) {
         return new Promise(function (resolve, reject) {
             console.time("cf " + user_id);
@@ -29,6 +30,49 @@ module.exports = {
         });
     },
 
+    getGraphRecommend: function (docs, user_arr, user_id) {
+        const graph = new ug.Graph();
+        return new Promise(function (resolve, reject) {
+            let users = [], items = [], views = [];
+            db.view("ratings", "all-rating", {include_docs: true}).then(body => {
+                console.time("graph " + user_id);
+                for (let i = 0; i < body.total_rows; i++) {
+                    let user_id = body.rows[i].doc.user_id;
+                    let item_id = body.rows[i].doc.item_id;
+                    let userIdx = users.indexOf(user_id);
+                    let itemIdx = items.indexOf(item_id);
+                    let user, item;
+                    if (userIdx <= -1) {
+                        users.push(user_id);
+                        user = graph.createNode("user", {id: user_id});
+                    } else {
+                        user = graph.nodes("user").query().filter({id: user_id}).first();
+                    }
+                    if (itemIdx <= -1) {
+                        items.push(item_id);
+                        item = graph.createNode("item", {id: item_id});
+                    } else item = graph.nodes("item").query().filter({id: item_id}).first();
+                    views.push(graph.createEdge("view").link(user, item));
+                }
+            }).then(() => {
+                if (users.indexOf(user_id) <= -1) reject("user does not in graph");
+            }).then(() => {
+                let user = graph.nodes("user").query().filter({id: user_id}).first();
+                let results = graph.closest(user, {
+                    compare: function (node) {
+                        return node.entity === "item";
+                    },
+                    minDepth: 3,
+                    count: maxSimilarDocuments
+                });
+                // results is now an array of Paths, which are each traces from your starting node to your result node...
+                let resultNodes = results.map(function (path) {
+                    return path.end();
+                });
+                resolve(resultNodes);
+            });
+        });
+    }
 };
 
 function createReadStream(filename) {
