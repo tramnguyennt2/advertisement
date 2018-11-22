@@ -3,6 +3,7 @@ let router = express.Router();
 
 const ug = require("ug");
 const recommender = require("./recommender/recommender");
+const cf_item_based = require("./recommender/redundant");
 const recommender_e = require("./evaluation/recommender_evaluation");
 const fs = require("fs");
 const parse = require("csv-parse");
@@ -13,15 +14,23 @@ const content_based = new ContentBasedRecommender({
     debug: false
 });
 
-const userTrainFile = "evaluation/train/ux_user_train.user";
-const userTestFile = "evaluation/test/ux_user_test.user";
+// ---------------------- USER FILE ------------------------
+const userTrainFile = "evaluation/train/ux_user_train.user"; //459
+const userTestFile = "evaluation/test/ux_user_test.user";//422
+
+// ---------------------- SPLIT DATA FROM u1.test ------------------------
 const testFile = "evaluation/test/ux_test.test";
 const trainFile = "evaluation/train/ux_train.train";
 
+// ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 // when write file, change to docs.txt and re-change docs.json
+// reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
 const docsTrainFile = "evaluation/train/docs.json";
-const docsGraphTrainFile = "evaluation/train/docs_graph.txt";
+// reformat by user_id: [{item: "item", rating: "rating"}] of testFile
 const docsTestFile = "evaluation/test/docsTest.txt";
+
+// ---------------------- RESULT FILE ------------------------
+// result of user-based CF.
 const resultsFile = "evaluation/results/results.txt";
 const resultsFileJson = "evaluation/results/results.json";
 
@@ -41,6 +50,15 @@ router.get("/content-based/:id", function (req, res, next) {
 router.get("/cf/:id", function (req, res, next) {
     recommender
         .getCollaborativeFilteringResult(req.params.id)
+        .then(similarDocuments => res.send(similarDocuments))
+        .catch(err => {
+            res.send(err);
+        });
+});
+
+router.get("/cf-i/:id", function (req, res, next) {
+    cf_item_based
+        .getCollaborativeFilteringResultI(req.params.id)
         .then(similarDocuments => res.send(similarDocuments))
         .catch(err => {
             res.send(err);
@@ -97,7 +115,7 @@ router.get("/evaluation-cf/", function (req, res, next) {
 router.get("/evaluation-graph/", function (req, res, next) {
     const graph = new ug.Graph();
     let users = [], items = [], views = [];
-    createReadTrainStreamToGraph(trainFile, docsGraphTrainFile, graph).then(data => {
+    createReadTrainStreamToGraph(trainFile, graph).then(data => {
         users = data[0];
         items = data[1];
         views = data[2];
@@ -130,8 +148,9 @@ router.get("/map-cf/", function (req, res, next) {
     readUserStream(userTestFile).then(users => {
         readDocsFile(resultsFileJson).then(d => {
             let results = JSON.parse(JSON.stringify(d));
+            let total_ap = 0;
+            let map = 0;
             readDocsFile(docsTestFile).then(d => {
-                let total_ap = 0;
                 let testData = JSON.parse(JSON.stringify(d));
                 for (let i = 0; i < users.length; i++) {
                     let result = results[users[i]].sort(compare);
@@ -177,7 +196,8 @@ router.get("/map-cf/", function (req, res, next) {
                     }
                     total_ap += ap;
                 }
-                console.log("map", total_ap / users.length);
+                map = total_ap / users.length;
+                console.log("map2", total_ap / users.length);
             }).catch(err => res.send(err));
         }).catch(err => res.send(err));
     });
@@ -277,7 +297,7 @@ function createReadTrainStream(file1, file) {
     });
 }
 
-function createReadTrainStreamToGraph(file1, file, graph) {
+function createReadTrainStreamToGraph(file1, graph) {
     return new Promise(function (resolve, reject) {
         let users = [], items = [], views = [];
         fs.createReadStream(file1).pipe(parse({delimiter: '\t'})).on('data', function (data) {
