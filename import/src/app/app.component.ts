@@ -170,7 +170,7 @@ export class AppComponent {
             for (let i = 1; i <= 2000; i++) {
                 let id = 'ad-' + i;
                 this.dataService.deleteDoc(id);
-                console.log("Deleted item ", id);
+                //console.log("Deleted item ", id);
             }
         }
         if (type == "rating") {
@@ -183,7 +183,7 @@ export class AppComponent {
                 console.log("length", result.docs.length);
                 for (let rating of result.docs) {
                     this.dataService.deleteDoc(rating._id);
-                    console.log("deleting rating " + rating._id);
+                    //console.log("deleting rating " + rating._id);
                 }
             });
         }

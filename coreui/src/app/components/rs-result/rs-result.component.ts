@@ -15,6 +15,7 @@ export class RsResultComponent implements OnInit {
   item_id;
   items = [];
   rating: UserBehavior;
+  images = [];
 
   constructor(private rsService: RsService, private itemService: ItemService, private cookieService: CookieService) {
   }
@@ -64,6 +65,7 @@ export class RsResultComponent implements OnInit {
             let item = new Item();
             item.setItem(items[i]);
             this.items.push(item);
+            //this.images.push(items[i].image);
           }
         })
       );
