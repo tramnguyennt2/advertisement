@@ -21,21 +21,25 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <span *ngIf="keyword.length > 0">
-            <strong>{{total}}</strong>&nbsp;kết quả cho từ khóa&nbsp;
-            <strong>{{keyword}}</strong>
-          </span>
-          <span *ngIf="keyword.length == 0">
-            <strong>{{total}}</strong>&nbsp;kết quả
-          </span>
-          <div class="ml-auto">
-            <span>Sắp xếp&nbsp;</span>
-            <select (change)="onFilterChange($event)">
-              <option value="newest">Tin mới trước</option>
-              <option value="oldest">Tin cũ trước</option>
-              <option value="highest">Giá cao trước</option>
-              <option value="lowest">Giá thấp trước</option>
-            </select>
+          <div class="row">
+            <div class="col">
+              <span *ngIf="keyword.length > 0">
+                <strong>{{total}}</strong>&nbsp;kết quả cho từ khóa&nbsp;
+                <strong>{{keyword}}</strong>
+              </span>
+              <span *ngIf="keyword.length == 0">
+                <strong>{{total}}</strong>&nbsp;kết quả
+              </span>
+            </div>
+            <div class="col text-right">
+              <span>Sắp xếp&nbsp;</span>
+              <select class="sort">
+                <option value="newest">Tin mới trước</option>
+                <option value="oldest">Tin cũ trước</option>
+                <option value="highest">Giá cao trước</option>
+                <option value="lowest">Giá thấp trước</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="card-body">

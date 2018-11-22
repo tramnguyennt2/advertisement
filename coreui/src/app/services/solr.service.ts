@@ -20,6 +20,19 @@ export class SolrService {
     );
   }
 
+  delete(dbId){
+    let headers = new HttpHeaders();
+    headers.append("Content-Type", "application/json");
+    let query = "db_id:" + dbId;
+    return this.http.post(
+      this.solr_url + "/update/json?commit=true",
+      {"delete": { "query": query }},
+      {
+        headers: headers
+      }
+    );
+  }
+
   search(
     keyword,
     sub_cat_id,
@@ -45,7 +58,7 @@ export class SolrService {
       else url += after_keyword + "sub_loc_id:" + sub_loc_id;
     }
     if (!keyword && !sub_cat_id && !sub_loc_id) url += "*:*";
-    url += "&rows=2000";
+    url += "&rows=3000";
     if (sort_field && sort) {
       url += "&sort=" + sort_field + " " + sort;
     } else {
