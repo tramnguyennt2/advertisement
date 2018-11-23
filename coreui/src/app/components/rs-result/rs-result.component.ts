@@ -36,14 +36,23 @@ export class RsResultComponent implements OnInit {
         //   })
         // );
         //------------------HB-----------------
-        this.rsService.getHybridMethod(user_id).subscribe(items_rs =>
-          this.getItemRecommended(items_rs).then(items => {
-            for (let i = 0; i < items.length; i++) {
-              let item = new Item();
-              item.setItem(items[i]);
-              this.items.push(item);
-            }
-          })
+        this.rsService.getHybridMethod(user_id, this.item_id).subscribe(results => {
+            console.log("results", results);
+            let items_rs = results.ref_items.map(item => {
+              return item
+            });
+            results.ref_user_items.map(item => {
+              items_rs.push(item);
+            });
+            console.log("items_rs", items_rs);
+            this.getItemRecommended(items_rs).then(items => {
+              for (let i = 0; i < items.length; i++) {
+                let item = new Item();
+                item.setItem(items[i]);
+                this.items.push(item);
+              }
+            })
+          }
         );
         //------------------GRAPH METHOD-----------------
         // this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
@@ -99,13 +108,12 @@ export class RsResultComponent implements OnInit {
         resolve("Done");
       }
     );
-
   }
 
-  getUrlImg(id){
+  getUrlImg(id) {
     let url;
     this.itemService.getItem(id).then(item => {
-      if(item._attachments){
+      if (item._attachments) {
         url = 'http://localhost:5984/advertisement/' + item._id + '/image';
         console.log(url)
         return url;

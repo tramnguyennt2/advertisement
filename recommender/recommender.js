@@ -35,7 +35,7 @@ module.exports = {
                 }).then(function (documents) {
                     console.time("content-based " + item_id);
                     content_based.trainOpt(documents, item_id);
-                    const similarDocuments = content_based.getSimilarDocuments(item_id, 0, 20);
+                    const similarDocuments = content_based.getSimilarDocuments(item_id, 0, 10);
                     console.timeEnd("content-based " + item_id);
                     resolve(similarDocuments);
                 }).catch(function (err) {
@@ -122,7 +122,7 @@ module.exports = {
                 "ref_items": ref_items,
                 "ref_user_items": ref_user_items
             };
-            console.endTime("hybrid " + user_id);
+            console.timeEnd("hybrid " + user_id);
             resolve(result);
         });
     },
@@ -139,11 +139,11 @@ module.exports = {
                     let userIdx = users.indexOf(user_id);
                     let itemIdx = items.indexOf(item_id);
                     let user, item;
-                    if (userIdx <= -1) {
+                    if (userIdx > -1) {
+                        user = graph.nodes("user").query().filter({id: user_id}).first();
+                    } else {
                         users.push(user_id);
                         user = graph.createNode("user", {id: user_id});
-                    } else {
-                        user = graph.nodes("user").query().filter({id: user_id}).first();
                     }
                     if (itemIdx <= -1) {
                         items.push(item_id);

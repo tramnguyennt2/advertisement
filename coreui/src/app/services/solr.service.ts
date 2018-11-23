@@ -41,17 +41,17 @@ export class SolrService {
     sort = undefined
   ): any {
     // let url =
-    //   this.solr_url + "/select?q=" + keyword + " AND sub_cat_id:" + sub_cat_id + " AND sub_loc_id:" + sub_loc_id + "&wt=json";
-    let url = this.solr_url + "/select?q=";
+    //   this.solr_url + "/select?q=" + keyword + " and sub_cat_id:" + sub_cat_id + " and sub_loc_id:" + sub_loc_id + "&wt=json";
+    let url = this.solr_url + "/select?q=content:" + keyword + " and title:";
     let after_keyword = "";
     let after_sub = "";
     if (keyword && keyword.length > 0) {
       url += keyword;
-      after_keyword = " AND ";
+      after_keyword = " and ";
     }
     if (sub_cat_id && sub_cat_id.length > 0) {
       url += after_keyword + "sub_cat_id:" + sub_cat_id;
-      after_sub = " AND ";
+      after_sub = " and ";
     }
     if (sub_loc_id && sub_loc_id.length > 0) {
       if (after_sub.length > 0) url += after_sub + "sub_loc_id:" + sub_loc_id;
