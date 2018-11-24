@@ -19,20 +19,20 @@ const userTrainFile = "evaluation/train/ux_user_train.user"; //459
 const userTestFile = "evaluation/test/ux_user_test.user";//422
 
 // ---------------------- SPLIT DATA FROM u1.test ------------------------
-const testFile = "evaluation/test/ux_test.test";
-const trainFile = "evaluation/train/ux_train.train";
+const testFile = "evaluation/ml-100k/u2.test";
+const trainFile = "evaluation/ml-100k/u2.base";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 // when write file, change to docs.txt and re-change docs.json
 // reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
-const docsTrainFile = "evaluation/train/docs.json";
+const docsTrainFile = "evaluation/train/docs_u2.txt";
 // reformat by user_id: [{item: "item", rating: "rating"}] of testFile
-const docsTestFile = "evaluation/test/docsTest.txt";
+const docsTestFile = "evaluation/test/docsTest_u2.txt";
 
 // ---------------------- RESULT FILE ------------------------
 // result of user-based CF.
-const resultsFile = "evaluation/results/results.txt";
-const resultsFileJson = "evaluation/results/results.json";
+const resultsFile = "evaluation/results/results_u2.txt";
+const resultsFileJson = "evaluation/results/results_u2.json";
 
 const resultsGraphFile = "evaluation/results/results_graph.txt";
 const resultsGraphFileJson = "evaluation/results/results_graph.json";
@@ -93,7 +93,7 @@ router.post("/get-token", function (req, res, next) {
 });
 
 router.get("/evaluation-cf/", function (req, res, next) {
-    readUserStream(userTrainFile).then(users => {
+    readUserStream(userTestFile).then(users => {
         // createReadTrainStream(testFile, docsTestFile).then(data => {
         readDocsFile(docsTrainFile).then(d => {
             let data = JSON.parse(JSON.stringify(d));
@@ -107,7 +107,7 @@ router.get("/evaluation-cf/", function (req, res, next) {
                     .catch(err => res.send(err));
                 data = JSON.parse(JSON.stringify(d));
             }
-            resolve("Done");
+            // res.send("Done");
         }).catch(err => res.send(err));
     }).catch(err => res.send(err));
 });
@@ -153,7 +153,7 @@ router.get("/map-cf/", function (req, res, next) {
             readDocsFile(docsTestFile).then(d => {
                 let testData = JSON.parse(JSON.stringify(d));
                 for (let i = 0; i < users.length; i++) {
-                    let result = results[users[i]].sort(compare);
+                    let result = results[users[i]];
                     let test = testData[users[i]];
                     let relevantItems = test.filter(function (item) {
                         return item.rating > 2

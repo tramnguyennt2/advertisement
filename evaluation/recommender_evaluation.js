@@ -1,4 +1,4 @@
-const maxSimilarDocuments = 20;
+const maxSimilarDocuments = 10;
 const fs = require('fs');
 const parse = require('csv-parse');
 const neighbor_num = 2;
@@ -251,13 +251,9 @@ function sort(arr) {
 }
 
 function compare(a, b) {
-    const ratingA = a.score;
-    const ratingB = b.score;
-    let comparison = 0;
-    if (ratingA > ratingB) {
-        comparison = -1;
-    } else if (ratingA < ratingB) {
-        comparison = 1;
-    }
-    return comparison;
+    if (a.score < b.score)
+        return 1;
+    if (a.score > b.score)
+        return -1;
+    return 0;
 }
