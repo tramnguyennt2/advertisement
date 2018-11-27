@@ -7,8 +7,9 @@ const rs = require("../recommender/recommender");
 
 module.exports = {
     // user-based
-    getCollaborativeFilteringResult: function (docs, user_arr, user_id) {
+    getCollaborativeFilteringResult: function (docsE, user_arr, user_id) {
         return new Promise(function (resolve, reject) {
+            let docs = docsE;
             console.time("cf " + user_id);
             // Step 1: normalize rating by subtract row mean
             rs.normalizeDocs(docs, user_arr, user_id).then(avg_user => {
