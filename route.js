@@ -15,23 +15,25 @@ const content_based = new ContentBasedRecommender({
 });
 
 // ---------------------- USER FILE ------------------------
-const userTrainFile = "evaluation/train/user_train.user";
+const userTrainFile = "evaluation/train/user_ml.user";
 const userTestFile = "evaluation/test/user_test.user";
 
 // ---------------------- SPLIT DATA FROM u1.test ------------------------
-const testFile = "evaluation/test/test.test";
-const trainFile = "evaluation/train/train.base";
+// const testFile = "evaluation/test/test.test";
+// const trainFile = "evaluation/train/train.base";
+const testFile = "evaluation/ml-100k/ua.test";
+const trainFile = "evaluation/ml-100k/ml.base";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
-// when write file, change to docs.txt and re-change docs.json
 // reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
-const docTrainFile = "evaluation/train/doc_train.txt";
+// const docTrainFile = "evaluation/train/doc_train.txt";
+const docTrainFile = "evaluation/train/doc_train_ml.txt";
 // reformat by user_id: [{item: "item", rating: "rating"}] of testFile
 const docTestFile = "evaluation/test/doc_test.txt";
 
 // ---------------------- RESULT FILE ------------------------
 // result of user-based CF.
-const resultFile = "evaluation/results/result.txt";
+const resultFile = "evaluation/results/result_ml.txt";
 
 router.get("/content-based/:id", function(req, res, next) {
   console.log("content-based " + req.params.id);
@@ -46,15 +48,6 @@ router.get("/content-based/:id", function(req, res, next) {
 router.get("/cf/:id", function(req, res, next) {
   recommender
     .getCollaborativeFilteringResult(req.params.id)
-    .then(similarDocuments => res.send(similarDocuments))
-    .catch(err => {
-      res.send(err);
-    });
-});
-
-router.get("/cf-i/:id", function(req, res, next) {
-  cf_item_based
-    .getCollaborativeFilteringResultI(req.params.id)
     .then(similarDocuments => res.send(similarDocuments))
     .catch(err => {
       res.send(err);
@@ -88,11 +81,15 @@ router.post("/get-token", function(req, res, next) {
   res.send(content_based.getTokensFromString(req.body.content));
 });
 
+router.get("/read-file", function(req, res, next) {
+  createReadTrainStream(trainFile, docTrainFile).then(data => {
+    res.send("Done!");
+  });
+});
+
 router.get("/evaluation-cf/", function(req, res, next) {
   readUserStream(userTrainFile)
     .then(users => {
-      //   createReadTrainStream(trainFile, docTrainFile)
-      //     .then(data => {
       readDocsFile(docTrainFile)
         .then(d => {
           let data = JSON.parse(JSON.stringify(d));
@@ -114,102 +111,70 @@ router.get("/evaluation-cf/", function(req, res, next) {
     .catch(err => res.send(err));
 });
 
-router.get("/evaluation-graph/", function(req, res, next) {
-  const graph = new ug.Graph();
-  let users = [],
-    items = [],
-    views = [];
-  createReadTrainStreamToGraph(trainFile, graph)
-    .then(data => {
-      users = data[0];
-      items = data[1];
-      views = data[2];
-      let graph = data[3];
-      for (let i = 0; i < users.length; i++) {
-        let user = graph
-          .nodes("user")
-          .query()
-          .filter({ id: users[i] })
-          .first();
-        let results = graph.closest(user, {
-          compare: function(node) {
-            return node.entity === "item";
-          },
-          minDepth: 3,
-          count: 10
-        });
-
-        // results is now an array of Paths, which are each traces from your starting node to your result node...
-        let resultNodes = results.map(function(path) {
-          return path.end();
-        });
-        let obj = {};
-        obj[users[i]] = resultNodes.map(item => {
-          return { id: item.properties.id };
-        });
-        fs.appendFileSync(resultsGraphFile, JSON.stringify(obj));
-      }
-    })
-    .catch(err => res.send(err));
-});
-
 router.get("/map-cf/", function(req, res, next) {
   readUserStream(userTestFile).then(users => {
-    readDocsFile(resultsFileJson)
+    readDocsFile(resultFile)
       .then(d => {
         let results = JSON.parse(JSON.stringify(d));
-        let total_ap = 0;
-        let map = 0;
-        readDocsFile(docsTestFile)
+        let total_ap = 0,
+          map = 0,
+          length = 0;
+        readDocsFile(docTestFile)
           .then(d => {
             let testData = JSON.parse(JSON.stringify(d));
             for (let i = 0; i < users.length; i++) {
-              let result = results[users[i]];
-              let test = testData[users[i]];
-              let relevantItems = test.filter(function(item) {
-                return item.rating > 2;
-              });
-              let recommendedItems = result.slice(0, 10);
-              let arr = [],
-                precisions = [];
-              let num_relevant = 0;
-              for (let j = 0; j < recommendedItems.length; j++) {
-                let flag = 0;
-                relevantItems.forEach(item => {
-                  if (item.item === recommendedItems[j].id) {
-                    flag = 1;
-                  }
+              if (results[users[i]].length !== undefined) {
+                let recommendedItems = results[users[i]].sort(compare);
+                let k = recommendedItems.length;
+                // let recommendedItems = result.slice(0, k);
+                let test = testData[users[i]];
+                let relevantItems = test.filter(function(item) {
+                  return item.rating > 1;
                 });
-                if (flag === 0) {
-                  arr.push(0);
-                } else {
-                  num_relevant++;
-                  arr.push(1);
+                let num_relevant = relevantItems.length;
+                // let recommendedItems = [1, 2, 3, 4, 5, 6, 7];
+                // let relevantItems = [1, 4, 5, 6];
+                let arr = [],
+                  precisions = [];
+                for (let j = 0; j < k; j++) {
+                  let flag = 0;
+                  relevantItems.forEach(item => {
+                    if (item.item === recommendedItems[j].id) {
+                      flag = 1;
+                    }
+                  });
+                  if (flag === 0) arr.push(0);
+                  else arr.push(1);
                 }
-              }
-              for (let k = 0; k < arr.length; k++) {
-                if (arr[k] === 0) {
-                  precisions.push(0);
-                } else {
-                  let temp_arr = arr.slice(0, k + 1);
-                  let count = temp_arr.filter(x => {
-                    return x === 1;
-                  }).length;
-                  precisions.push(count / (k + 1));
+                length++;
+                let min = num_relevant;
+                if (num_relevant > k) min = k;
+                for (let a = 0; a < arr.length; a++) {
+                  if (arr[a] === 0) {
+                    precisions.push(0);
+                  } else {
+                    let temp_arr = arr.slice(0, a + 1);
+                    let count = temp_arr.filter(x => {
+                      return x === 1;
+                    }).length;
+                    precisions.push((count / (a + 1)) * (1 / min));
+                  }
                 }
+                let ap = 0;
+                precisions.forEach(x => {
+                  ap += x;
+                });
+                // if (users[i] === "13") {
+                //     console.log("recommendedItems", recommendedItems);
+                //     console.log("relevantItems", relevantItems);
+                //     console.log("ap ", ap);
+                // }
+                total_ap += ap;
               }
-              let total_precision = 0;
-              precisions.forEach(x => {
-                total_precision += x;
-              });
-              let ap = 0;
-              if (num_relevant !== 0) {
-                ap = total_precision / num_relevant;
-              }
-              total_ap += ap;
             }
-            map = total_ap / users.length;
-            console.log("map2", total_ap / users.length);
+            map = total_ap / length;
+            console.log("length", length);
+            console.log("map", map);
           })
           .catch(err => res.send(err));
       })
@@ -217,67 +182,28 @@ router.get("/map-cf/", function(req, res, next) {
   });
 });
 
-router.get("/map-graph/", function(req, res, next) {
-  readUserStream(userTestFile).then(users => {
-    readDocsFile(resultsGraphFileJson)
-      .then(d => {
-        let results = JSON.parse(JSON.stringify(d));
-        readDocsFile(docsTestFile)
-          .then(d => {
-            let total_ap = 0;
-            let testData = JSON.parse(JSON.stringify(d));
-            for (let i = 0; i < users.length; i++) {
-              let result = results[users[i]].sort(compare);
-              let test = testData[users[i]];
-              let relevantItems = test.filter(function(item) {
-                return item.rating > 2;
-              });
-              let recommendedItems = result.slice(0, 10);
-              let arr = [],
-                precisions = [];
-              let num_relevant = 0;
-              for (let j = 0; j < recommendedItems.length; j++) {
-                let flag = 0;
-                relevantItems.forEach(item => {
-                  if (item.item === recommendedItems[j].id) {
-                    flag = 1;
-                  }
-                });
-                if (flag === 0) {
-                  arr.push(0);
-                } else {
-                  num_relevant++;
-                  arr.push(1);
-                }
-              }
-              for (let k = 0; k < arr.length; k++) {
-                if (arr[k] === 0) {
-                  precisions.push(0);
-                } else {
-                  let temp_arr = arr.slice(0, k + 1);
-                  let count = temp_arr.filter(x => {
-                    return x === 1;
-                  }).length;
-                  precisions.push(count / (k + 1));
-                }
-              }
-              let total_precision = 0;
-              precisions.forEach(x => {
-                total_precision += x;
-              });
-              let ap = 0;
-              if (num_relevant !== 0) {
-                ap = total_precision / num_relevant;
-              }
-              total_ap += ap;
-            }
-            console.log("map", total_ap / users.length);
-          })
-          .catch(err => res.send(err));
-      })
-      .catch(err => res.send(err));
+function sort(arr) {
+  return new Promise(function(resolve, reject) {
+    try {
+      resolve(arr.sort(compare2));
+    } catch (e) {
+      console.log("sort error ", e);
+      reject(e);
+    }
   });
-});
+}
+
+function compare2(a, b) {
+  const ratingA = a.score;
+  const ratingB = b.score;
+  let comparison = 0;
+  if (ratingA > ratingB) {
+    comparison = -1;
+  } else if (ratingA < ratingB) {
+    comparison = 1;
+  }
+  return comparison;
+}
 
 module.exports = router;
 
@@ -290,6 +216,7 @@ function compare(a, b) {
 // save docs file: /evaluation/docs.json
 function createReadTrainStream(file1, file) {
   return new Promise(function(resolve, reject) {
+    console.time("readFile");
     let docs = {};
     fs.createReadStream(file1)
       .pipe(parse({ delimiter: "\t" }))
@@ -312,6 +239,7 @@ function createReadTrainStream(file1, file) {
           }
           console.log("The file was saved!");
         });
+        console.timeEnd("readFile");
         resolve(docs);
       });
   });
