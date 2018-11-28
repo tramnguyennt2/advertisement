@@ -5,7 +5,6 @@ const userTrainFile = "evaluation/train/user_ua_train.user";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 // reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
-// const docTrainFile = "evaluation/train/doc_train.txt";
 const docTrainFile = "evaluation/train/doc_train_ua.txt";
 const neighbor_num = 5;
 const maxSimilarDocuments = 100;
