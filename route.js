@@ -1,10 +1,8 @@
 ﻿let express = require("express");
 let router = express.Router();
 
-const ug = require("ug");
 const recommender = require("./recommender/recommender");
-const cf_item_based = require("./recommender/redundant");
-const recommender_e = require("./evaluation/recommender_evaluation");
+const recommender_e = require("./evaluation/evaluation");
 const fs = require("fs");
 const parse = require("csv-parse");
 const ContentBasedRecommender = require("./recommender/content-based-recommender");
@@ -15,25 +13,18 @@ const content_based = new ContentBasedRecommender({
 });
 
 // ---------------------- USER FILE ------------------------
-const userTrainFile = "evaluation/train/user_ua_train.user";
 const userTestFile = "evaluation/test/user_test.user";
 
 // ---------------------- SPLIT DATA FROM u1.test ------------------------
-// const testFile = "evaluation/test/test.test";
-// const trainFile = "evaluation/train/train.base";
 const testFile = "evaluation/ml-100k/ua.test";
-const trainFile = "evaluation/ml-100k/ua.base";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
-// reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
-// const docTrainFile = "evaluation/train/doc_train.txt";
-const docTrainFile = "evaluation/train/doc_train_ua.txt";
 // reformat by user_id: [{item: "item", rating: "rating"}] of testFile
-const docTestFile = "evaluation/test/doc_test.txt";
+const docTestFile = "evaluation/test/doc_test_ua.txt";
 
 // ---------------------- RESULT FILE ------------------------
 // result of user-based CF.
-const resultFile = "evaluation/results/result_ml.txt";
+const resultFile = "evaluation/results/result_ua.txt";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -82,98 +73,87 @@ router.post("/get-token", function (req, res, next) {
 });
 
 router.get("/read-file", function (req, res, next) {
-    createReadTrainStream(trainFile, docTrainFile).then(data => {
+    createReadTrainStream(testFile, docTestFile).then(data => {
         res.send("Done!");
     });
 });
 
 router.get("/evaluation-cf/", function (req, res, next) {
-    readUserStream(userTrainFile)
-        .then(users => {
-            readDocsFile(docTrainFile).then(d => {
-                let data = JSON.parse(JSON.stringify(d));
-                for (let i = 0; i < users.length; i++) {
-                    recommender_e.getCollaborativeFilteringResult(data, users, users[i])
-                        .then(results => {
-                            let obj = {};
-                            obj[users[i]] = results;
-                            fs.appendFileSync(resultFile, JSON.stringify(obj));
-                        })
-                        .catch(err => res.send(err));
-                }
-                //res.send("Done");
-            }).catch(err => res.send(err));
-        })
-        .catch(err => res.send(err));
+    recommender_e.getCollaborativeFilteringResult().then(result => {
+        res.send(result);
+        fs.writeFile(resultFile, JSON.stringify(result), function (err) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log("The file was saved!");
+        });
+    });
 });
 
 router.get("/map-cf/", function (req, res, next) {
     readUserStream(userTestFile).then(users => {
-        readDocsFile(resultFile)
-            .then(d => {
-                let results = JSON.parse(JSON.stringify(d));
-                let total_ap = 0,
-                    map = 0,
-                    length = 0;
-                readDocsFile(docTestFile)
-                    .then(d => {
-                        let testData = JSON.parse(JSON.stringify(d));
-                        for (let i = 0; i < users.length; i++) {
-                            if (results[users[i]].length !== undefined) {
-                                let recommendedItems = results[users[i]].sort(compare);
-                                let k = recommendedItems.length;
-                                // let recommendedItems = result.slice(0, k);
-                                let test = testData[users[i]];
-                                let relevantItems = test.filter(function (item) {
-                                    return item.rating > 1;
-                                });
-                                let num_relevant = relevantItems.length;
-                                // let recommendedItems = [1, 2, 3, 4, 5, 6, 7];
-                                // let relevantItems = [1, 4, 5, 6];
-                                let arr = [],
-                                    precisions = [];
-                                for (let j = 0; j < k; j++) {
-                                    let flag = 0;
-                                    relevantItems.forEach(item => {
-                                        if (item.item === recommendedItems[j].id) {
-                                            flag = 1;
-                                        }
-                                    });
-                                    if (flag === 0) arr.push(0);
-                                    else arr.push(1);
+        readDocsFile(resultFile).then(d => {
+            let results = JSON.parse(JSON.stringify(d));
+            let total_ap = 0, map = 0, length = 0;
+            readDocsFile(docTestFile).then(d => {
+                let testData = JSON.parse(JSON.stringify(d));
+                for (let i = 0; i < users.length; i++) {
+                    if (results[users[i]].length !== undefined) {
+                        let recommendedItems = results[users[i]].sort(compare);
+                        let k = recommendedItems.length;
+                        // let recommendedItems = result.slice(0, k);
+                        let relevantItems = testData[users[i]];
+                        // let relevantItems = test.filter(function (item) {
+                        //     return item.rating > 1;
+                        // });
+                        let num_relevant = relevantItems.length;
+                        // let recommendedItems = [1, 2, 3, 4, 5, 6, 7];
+                        // let relevantItems = [1, 4, 5, 6];
+                        let arr = [],
+                            precisions = [];
+                        for (let j = 0; j < k; j++) {
+                            let flag = 0;
+                            relevantItems.forEach(item => {
+                                if (item.item === recommendedItems[j].id) {
+                                    flag = 1;
                                 }
-                                length++;
-                                let min = num_relevant;
-                                if (num_relevant > k) min = k;
-                                for (let a = 0; a < arr.length; a++) {
-                                    if (arr[a] === 0) {
-                                        precisions.push(0);
-                                    } else {
-                                        let temp_arr = arr.slice(0, a + 1);
-                                        let count = temp_arr.filter(x => {
-                                            return x === 1;
-                                        }).length;
-                                        precisions.push((count / (a + 1)) * (1 / min));
-                                    }
-                                }
-                                let ap = 0;
-                                precisions.forEach(x => {
-                                    ap += x;
-                                });
-                                // if (users[i] === "13") {
-                                //     console.log("recommendedItems", recommendedItems);
-                                //     console.log("relevantItems", relevantItems);
-                                //     console.log("ap ", ap);
-                                // }
-                                total_ap += ap;
+                            });
+                            if (flag === 0) arr.push(0);
+                            else arr.push(1);
+                        }
+                        length++;
+                        let min = num_relevant;
+                        console.log(min, min);
+                        if (num_relevant > k) min = k;
+                        for (let a = 0; a < arr.length; a++) {
+                            if (arr[a] === 0) {
+                                precisions.push(0);
+                            } else {
+                                let temp_arr = arr.slice(0, a + 1);
+                                let count = temp_arr.filter(x => {
+                                    return x === 1;
+                                }).length;
+                                precisions.push((count / (a + 1)) * (1 / min));
                             }
                         }
-                        map = total_ap / length;
-                        console.log("length", length);
-                        console.log("map", map);
-                    })
-                    .catch(err => res.send(err));
+                        let ap = 0;
+                        precisions.forEach(x => {
+                            ap += x;
+                        });
+
+                        console.log("recommendedItems", recommendedItems.length);
+                        console.log("relevantItems", relevantItems.length);
+                        console.log("ap ", ap);
+
+                        total_ap += ap;
+                    }
+                }
+                map = total_ap / length;
+                console.log("length", length);
+                console.log("map", map);
             })
+                .catch(err => res.send(err));
+        })
             .catch(err => res.send(err));
     });
 });
