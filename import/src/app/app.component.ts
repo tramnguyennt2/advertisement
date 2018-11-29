@@ -77,7 +77,8 @@ export class AppComponent {
                                     new Date(2017, 0, 1),
                                     new Date(2018, 11, 31)
                                 );
-                                self.nodejsService.post(arr[11]).subscribe((token) => {
+                                let string = arr[11].concat(arr[10]);
+                                self.nodejsService.post(string).subscribe((token) => {
                                     if (token) {
                                         console.log("token received:", token);
                                         self.dataPouch.token = token;
