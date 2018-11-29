@@ -3,6 +3,7 @@ let router = express.Router();
 
 const recommender = require("./recommender/recommender");
 const recommender_e = require("./evaluation/evaluation");
+
 const fs = require("fs");
 const parse = require("csv-parse");
 const ContentBasedRecommender = require("./recommender/content-based-recommender");
@@ -24,7 +25,7 @@ const docTestFile = "evaluation/test/doc_test_ua.txt";
 
 // ---------------------- RESULT FILE ------------------------
 // result of user-based CF.
-const resultFile = "evaluation/results/result_ua.txt";
+const resultFile = "evaluation/results/result_ua_k30.txt";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -157,29 +158,6 @@ router.get("/map-cf/", function (req, res, next) {
             .catch(err => res.send(err));
     });
 });
-
-function sort(arr) {
-    return new Promise(function (resolve, reject) {
-        try {
-            resolve(arr.sort(compare2));
-        } catch (e) {
-            console.log("sort error ", e);
-            reject(e);
-        }
-    });
-}
-
-function compare2(a, b) {
-    const ratingA = a.score;
-    const ratingB = b.score;
-    let comparison = 0;
-    if (ratingA > ratingB) {
-        comparison = -1;
-    } else if (ratingA < ratingB) {
-        comparison = 1;
-    }
-    return comparison;
-}
 
 module.exports = router;
 

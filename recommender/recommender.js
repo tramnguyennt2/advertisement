@@ -1,62 +1,84 @@
 import * as deasync from "deasync";
 
 const ContentBasedRecommender = require("./content-based-recommender/index");
+const CBR = require("./CBR");
 const maxSimilarDocuments = 10;
 const content_based = new ContentBasedRecommender({
     maxSimilarDocuments: maxSimilarDocuments,
     minScore: 0,
-    debug: false
+    debug: true
 });
+const cb = new CBR({
+    maxSimilarDocuments: maxSimilarDocuments,
+    minScore: 0,
+    debug: true
+});
+
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
 const neighbor_num = 2;
 
 module.exports = {
+    // getContentBasedResult: function (item_id) {
+    //     return new Promise(function (resolve, reject) {
+    //         db.view("items", 'all-item?key="' + item_id + '"', {
+    //             include_docs: true
+    //         }).then(body => {
+    //             let documents = [];
+    //             if (body.rows.length === 0) {
+    //                 db.get(item_id).then(item => {
+    //                     documents.push({
+    //                         id: item._id,
+    //                         content: item.content,
+    //                         token: item.token
+    //                     });
+    //                 });
+    //             }
+    //             db.view("items", "all-item", {
+    //                 include_docs: true
+    //             })
+    //                 .then(body => {
+    //                     body.rows.forEach(doc => {
+    //                         let obj = {
+    //                             id: doc.doc._id,
+    //                             content: doc.doc.content,
+    //                             token: doc.doc.token
+    //                         };
+    //                         documents.push(obj);
+    //                     });
+    //                     return documents;
+    //                 })
+    //                 .then(function (documents) {
+    //                     console.time("content-based " + item_id);
+    //                     content_based.trainOpt(documents, item_id);
+    //                     const similarDocuments = content_based.getSimilarDocuments(
+    //                         item_id,
+    //                         0,
+    //                         10
+    //                     );
+    //                     console.timeEnd("content-based " + item_id);
+    //                     resolve(similarDocuments);
+    //                 })
+    //                 .catch(function (err) {
+    //                     reject(new Error(err));
+    //                 });
+    //         });
+    //     });
+    // },
+
     getContentBasedResult: function (item_id) {
         return new Promise(function (resolve, reject) {
-            db.view("items", 'all-item?key="' + item_id + '"', {
-                include_docs: true
-            }).then(body => {
-                let documents = [];
-                if (body.rows.length === 0) {
-                    db.get(item_id).then(item => {
-                        documents.push({
-                            id: item._id,
-                            content: item.content,
-                            token: item.token
-                        });
-                    });
-                }
-                db.view("items", "all-item", {
-                    include_docs: true
-                })
-                    .then(body => {
-                        body.rows.forEach(doc => {
-                            let obj = {
-                                id: doc.doc._id,
-                                content: doc.doc.content,
-                                token: doc.doc.token
-                            };
-                            documents.push(obj);
-                        });
-                        return documents;
-                    })
-                    .then(function (documents) {
-                        console.time("content-based " + item_id);
-                        content_based.trainOpt(documents, item_id);
-                        const similarDocuments = content_based.getSimilarDocuments(
-                            item_id,
-                            0,
-                            10
-                        );
-                        console.timeEnd("content-based " + item_id);
-                        resolve(similarDocuments);
-                    })
-                    .catch(function (err) {
-                        reject(new Error(err));
-                    });
-            });
+            const documents = [
+                {id: '1', content: 'Người lên ngựa kẻ chia bào. Rừng phong thu đã nhốm màu quan san'},
+                {id: '2', content: 'Ô hay buồn vương cây ngô đồng. Vàng rơi vàng rơi thu mênh mông'},
+                {id: '3', content: 'Một chiều về bên bến sông thu. Nghe tin em cưới á cái đù.'},
+                {id: '4', content: 'Sông thu'}
+            ];
+            // start training
+            cb.train(documents);
+            const similarDocuments = cb.getSimilarDocuments(item_id, 0, 10);
+            resolve(similarDocuments);
         });
     },
 
