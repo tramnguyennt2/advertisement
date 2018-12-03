@@ -63,7 +63,6 @@ class ContentBasedRecommender {
 
         // step 1 - preprocess the documents
         const preprocessDocs = this._preprocessDocuments(documents, this.options);
-        console.log(preprocessDocs, preprocessDocs);
 
         // step 2 - create document vectors
         const docVectors = this._produceWordVectors(preprocessDocs, this.options);

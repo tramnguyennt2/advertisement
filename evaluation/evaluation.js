@@ -1,12 +1,17 @@
 const fs = require("fs");
 const parse = require("csv-parse");
+const recommender = require('../recommender/recommender');
+
 // ---------------------- USER FILE ------------------------
 const userTrainFile = "evaluation/train/user_ua_train.user";
-
+const userTrainFileAdClicks = "evaluation/train/user_ad_train.user";
+const ug = require("ug");
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 // reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
 const docTrainFile = "evaluation/train/doc_train_ua.txt";
-const neighbor_num = 5;
+const docTrainFileAdClicks = "evaluation/train/doc_train_ad.txt";
+const docTrainFileAdClicksCF = "evaluation/train/doc_train_ad_cf.txt";
+const neighbor_num = 2;
 const maxSimilarDocuments = 100;
 
 module.exports = {
@@ -37,6 +42,142 @@ module.exports = {
                         });
                     }).catch(err => reject(err));
                 });
+            });
+        });
+    },
+
+    getCollaborativeFilteringResultAdClicks: function () {
+        return new Promise(function (resolve, reject) {
+            readUserStream(userTrainFileAdClicks).then(users => {
+                readDocsFile(docTrainFileAdClicksCF).then(d => {
+                    let docs = JSON.parse(JSON.stringify(d));
+                    console.log("docs", docs);
+                    module.exports.normalizeDocsE(docs, users).then(avgs => {
+                        // Step 2: get cosin similarity
+                        module.exports.getCosinSimilarityE(docs, users).then(sims => {
+                            // Step 3: get item need to recommend
+                            module.exports.getItemNeedToRecommendE(docs, sims, users).then(item_need_to_recommends => {
+                                // Step 4: predict
+                                module.exports.predictE(item_need_to_recommends, avgs, users).then(results => {
+                                    let final_results = {};
+                                    for (let i = 0; i < users.length; i++) {
+                                        let user_id = users[i];
+                                        let result = results[user_id];
+                                        module.exports.sortE(result, user_id).then(result => {
+                                            if (result.length > maxSimilarDocuments) result = result.splice(0, maxSimilarDocuments);
+                                            final_results[user_id] = result;
+                                        });
+                                    }
+                                    resolve(final_results);
+                                });
+                            });
+                        });
+                    }).catch(err => reject(err));
+                });
+            });
+        });
+    },
+
+    getGraphRecommend: function () {
+        const graph = new ug.Graph();
+        return new Promise(function (resolve, reject) {
+            let users = [];
+            let r = {};
+            readDocsFile(docTrainFileAdClicks).then(d => {
+                let items = [], views = [];
+                for (let index in d) {
+                    users.push(index);
+                    let user = graph.createNode("user", {id: index});
+                    let user_items = d[index];
+                    for (let i = 0; i < user_items.length; i++) {
+                        let item;
+                        let item_id = user_items[i].viewed_ad;
+                        let itemIdx = items.indexOf(item_id);
+                        if (itemIdx <= -1) {
+                            items.push(item_id);
+                            item = graph.createNode("item", {id: item_id});
+                        } else item = graph.nodes("item").query().filter({id: item_id}).first();
+                        views.push(graph.createEdge("view").link(user, item));
+                    }
+                }
+            }).then(() => {
+                users.forEach(user_id => {
+                    let user = graph.nodes("user").query().filter({id: user_id}).first();
+                    let results = graph.closest(user, {
+                        compare: function (node) {
+                            return node.entity === "item";
+                        },
+                        minDepth: 3,
+                        count: maxSimilarDocuments
+                    });
+                    // results is now an array of Paths, which are each traces from your starting node to your result node...
+                    let resultNodes = results.map(function (path) {
+                        return path.end();
+                    });
+                    r[user_id] = resultNodes.map(result => {
+                        return result.properties
+                    });
+                });
+
+                resolve(r);
+            });
+            // views.forEach(view => {
+            //     console.log("input", view.inputNode.properties);
+            //     console.log("edges", view.inputNode.edges.length);
+            //     console.log("ouput", view.outputNode.properties);
+            // })
+        })
+    },
+
+    getHybridRecommend: function () {
+        let results = {};
+        return new Promise(function (resolve, reject) {
+            readDocsFile(docTrainFileAdClicks).then(d => {
+                for (let index in d) {
+                    let user_id = index;
+                    let user_items = d[index];
+                    results[user_id] = [];
+                    for (let i = 0; i < user_items.length; i++) {
+                        let item_id = user_items[i].viewed_ad;
+                        let output = [], ref_items = [], ref_user_items;
+                        // console.time("hybrid " + user_id);
+                        output = joinAndReturn(user_id, item_id);
+                        //Find values that are in both result1 n result2
+                        ref_user_items = output[0].filter(function (obj) {
+                            return output[1].some(function (obj2) {
+                                return obj.id === obj2.id;
+                            });
+                        });
+                        if (ref_user_items.length > 0) {
+                            for (let i = 0; i < ref_user_items.length; i++) {
+                                const index0 = output[0].indexOf(ref_user_items[i]);
+                                output[0].splice(index0, 1);
+                                const removeIndex = output[1]
+                                    .map(function (item) {
+                                        return item.id;
+                                    })
+                                    .indexOf(ref_user_items[i].id);
+                                output[1].splice(removeIndex, 1);
+                            }
+                            for (let i = 0; i < output[1].length; i++) {
+                                ref_user_items.push(output[1][i]);
+                            }
+                            ref_items = output[0];
+                        } else {
+                            ref_items = output[0];
+                            ref_user_items = output[1];
+                        }
+                        let result = {
+                            ref_items: ref_items,
+                            ref_user_items: ref_user_items
+                        };
+                        console.timeEnd("hybrid " + user_id);
+                        let obj = {};
+                        obj[item_id] = result;
+                        results[user_id].push(obj);
+                    }
+                }
+                resolve(results);
             });
         });
     },
@@ -74,6 +215,7 @@ module.exports = {
                     r1 += user_items[i].rating * user_items[i].rating;
 
                 const sqrt_user_rating = Math.sqrt(r1);
+                console.log(sqrt_user_rating);
                 for (let i = 0; i < user_arr.length; i++) {
                     if (user_arr[i] !== user_id) {
                         let other_user_items = docs[user_arr[i]];
@@ -200,8 +342,45 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             resolve(arr.sort(compare));
         });
-    }
+    },
 };
+
+function doAlgorithms(user_id, item_id) {
+    return Promise.all([
+        new Promise(function (resolve, reject) {
+            recommender.getContentBasedResult(item_id).then(cb_results => {
+                let output = cb_results.filter(function (obj) {
+                    return obj.score >= 0.15;
+                });
+                return resolve(output);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        }),
+
+        new Promise(function (resolve, reject) {
+            recommender.getCollaborativeFilteringResult(user_id).then(cf_results => {
+                return resolve(cf_results);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        })
+    ]);
+}
+
+function joinAndReturn(user_id, item_id) {
+    let done = false;
+    let result = [];
+    doAlgorithms(user_id, item_id).then(results => {
+        result.push(results[0]);
+        result.push(results[1]);
+        done = true;
+    });
+    deasync.loopWhile(function () {
+        return !done;
+    });
+    return result;
+}
 
 function compare(a, b) {
     const ratingA = a.score;

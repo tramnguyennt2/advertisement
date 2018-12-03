@@ -22,10 +22,14 @@ const testFile = "evaluation/ml-100k/ua.test";
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 // reformat by user_id: [{item: "item", rating: "rating"}] of testFile
 const docTestFile = "evaluation/test/doc_test_ua.txt";
+const docTrainFile = "evaluation/train/doc_train_ad.txt";
+const docTrainFileForCF = "evaluation/train/doc_train_ad_cf.txt";
 
+const trainAdFile = "evaluation/train/ad_train.base";
 // ---------------------- RESULT FILE ------------------------
 // result of user-based CF.
 const resultFile = "evaluation/results/result_ua_k30.txt";
+const resultAdClickFileCF = "evaluation/results/result_ad_cf.txt";
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
@@ -79,6 +83,15 @@ router.get("/read-file", function (req, res, next) {
     });
 });
 
+router.get("/read-ad-file", function (req, res, next) {
+    createReadTrainStreamAdClicks(trainAdFile, docTrainFile).then(data => {
+        createReadTrainStreamAdClicksForCF(trainAdFile, docTrainFileForCF).then(data => {
+            res.send("Done!");
+        });
+    });
+});
+
+// movielens
 router.get("/evaluation-cf/", function (req, res, next) {
     recommender_e.getCollaborativeFilteringResult().then(result => {
         res.send(result);
@@ -88,6 +101,45 @@ router.get("/evaluation-cf/", function (req, res, next) {
             }
             console.log("The file was saved!");
         });
+    });
+});
+
+// adclicks
+router.get("/evaluation-cf-2/", function (req, res, next) {
+    recommender_e.getCollaborativeFilteringResultAdClicks().then(result => {
+        res.send(result);
+        fs.writeFile(resultAdClickFileCF, JSON.stringify(result), function (err) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log("The file was saved!");
+        });
+    });
+});
+
+// adclicks
+router.get("/evaluation-graph/", function (req, res, next) {
+    recommender_e.getGraphRecommend().then(result => {
+        res.send(result);
+        // fs.writeFile(resultAdClickFileCF, JSON.stringify(result), function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
+        //     console.log("The file was saved!");
+        // });
+    });
+});
+
+// adclicks
+router.get("/evaluation-hybrid/", function (req, res, next) {
+    recommender_e.getHybridRecommend().then(result => {
+        res.send(result);
+        // fs.writeFile(resultAdClickFileCF, JSON.stringify(result), function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
+        //     console.log("The file was saved!");
+        // });
     });
 });
 
@@ -177,6 +229,65 @@ function createReadTrainStream(file1, file) {
             .on("data", function (data) {
                 try {
                     let rating = parseInt(data[2]);
+                    let obj = {};
+                    obj.item = data[1];
+                    obj.rating = rating;
+                    if (data[0] in docs) docs[data[0]].push(obj);
+                    else docs[data[0]] = [obj];
+                } catch (e) {
+                    reject(e);
+                }
+            })
+            .on("end", function () {
+                fs.writeFile(file, JSON.stringify(docs), function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("The file was saved!");
+                });
+                console.timeEnd("readFile");
+                resolve(docs);
+            });
+    });
+}
+
+function createReadTrainStreamAdClicks(file1, file) {
+    return new Promise(function (resolve, reject) {
+        console.time("readAdFile");
+        let docs = {};
+        fs.createReadStream(file1).pipe(parse({delimiter: "\t"})).on("data", function (data) {
+            try {
+                let obj = {};
+                obj.viewed_ad = data[1];
+                obj.clicked_ad = data[2];
+                obj.num_click = data[3];
+                if (data[0] in docs) docs[data[0]].push(obj);
+                else docs[data[0]] = [obj];
+            } catch (e) {
+                reject(e);
+            }
+        }).on("end", function () {
+            fs.writeFile(file, JSON.stringify(docs), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The ad file was saved!");
+            });
+            console.timeEnd("readAdFile");
+            resolve(docs);
+        });
+    });
+}
+
+function createReadTrainStreamAdClicksForCF(file1, file) {
+    return new Promise(function (resolve, reject) {
+        console.time("readFile");
+        let docs = {};
+        fs.createReadStream(file1)
+            .pipe(parse({delimiter: "\t"}))
+            .on("data", function (data) {
+                try {
+                    let rating = parseInt(data[3]);
                     let obj = {};
                     obj.item = data[1];
                     obj.rating = rating;
