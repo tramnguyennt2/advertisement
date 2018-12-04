@@ -12,7 +12,9 @@ const docTrainFile = "evaluation/train/doc_train_ua.txt";
 const docTrainFileAdClicks = "evaluation/train/doc_train_ad.txt";
 const docTrainFileAdClicksCF = "evaluation/train/doc_train_ad_cf.txt";
 const neighbor_num = 2;
-const maxSimilarDocuments = 100;
+const maxSimilarDocuments = 10;
+
+const resultCFFile = "evaluation/results/result_ad_cf.txt";
 
 module.exports = {
     getCollaborativeFilteringResult: function () {
@@ -51,7 +53,6 @@ module.exports = {
             readUserStream(userTrainFileAdClicks).then(users => {
                 readDocsFile(docTrainFileAdClicksCF).then(d => {
                     let docs = JSON.parse(JSON.stringify(d));
-                    console.log("docs", docs);
                     module.exports.normalizeDocsE(docs, users).then(avgs => {
                         // Step 2: get cosin similarity
                         module.exports.getCosinSimilarityE(docs, users).then(sims => {
@@ -121,63 +122,40 @@ module.exports = {
 
                 resolve(r);
             });
-            // views.forEach(view => {
-            //     console.log("input", view.inputNode.properties);
-            //     console.log("edges", view.inputNode.edges.length);
-            //     console.log("ouput", view.outputNode.properties);
-            // })
         })
     },
 
     getHybridRecommend: function () {
         let results = {};
         return new Promise(function (resolve, reject) {
-            readDocsFile(docTrainFileAdClicks).then(d => {
-                for (let index in d) {
-                    let user_id = index;
-                    let user_items = d[index];
-                    results[user_id] = [];
-                    for (let i = 0; i < user_items.length; i++) {
-                        let item_id = user_items[i].viewed_ad;
-                        let output = [], ref_items = [], ref_user_items;
-                        // console.time("hybrid " + user_id);
-                        output = joinAndReturn(user_id, item_id);
-                        //Find values that are in both result1 n result2
-                        ref_user_items = output[0].filter(function (obj) {
-                            return output[1].some(function (obj2) {
-                                return obj.id === obj2.id;
+            readDocsFile(docTrainFileAdClicks).then(trainData => {
+                trainData = JSON.parse(JSON.stringify(trainData));
+                readDocsFile(resultCFFile).then(cfResultData => {
+                    cfResultData = JSON.parse(JSON.stringify(cfResultData));
+                    let results = {};
+                    for (let index in cfResultData) {
+                        let user_id = index;
+                        results[user_id] = [];
+                        let cf_results = cfResultData[index];
+                        //find content-based
+                        let items = trainData[user_id];
+                        items.forEach(item => {
+                            recommender.getContentBasedResult(item.viewed_ad).then(cb_results => {
+                                let output = cb_results.filter(function (obj) {
+                                    return obj.score >= 0.15;
+                                });
+                                cf_results.forEach(item => output.push(item));
+                                results[user_id].push({
+                                    item: item.viewed_ad,
+                                    recommend_items: output
+                                });
+                            }).catch(function (err) {
+                                reject(new Error(err));
                             });
                         });
-                        if (ref_user_items.length > 0) {
-                            for (let i = 0; i < ref_user_items.length; i++) {
-                                const index0 = output[0].indexOf(ref_user_items[i]);
-                                output[0].splice(index0, 1);
-                                const removeIndex = output[1]
-                                    .map(function (item) {
-                                        return item.id;
-                                    })
-                                    .indexOf(ref_user_items[i].id);
-                                output[1].splice(removeIndex, 1);
-                            }
-                            for (let i = 0; i < output[1].length; i++) {
-                                ref_user_items.push(output[1][i]);
-                            }
-                            ref_items = output[0];
-                        } else {
-                            ref_items = output[0];
-                            ref_user_items = output[1];
-                        }
-                        let result = {
-                            ref_items: ref_items,
-                            ref_user_items: ref_user_items
-                        };
-                        console.timeEnd("hybrid " + user_id);
-                        let obj = {};
-                        obj[item_id] = result;
-                        results[user_id].push(obj);
                     }
-                }
-                resolve(results);
+                    setTimeout(function(){ resolve(results); }, 60000);
+                });
             });
         });
     },
@@ -215,7 +193,6 @@ module.exports = {
                     r1 += user_items[i].rating * user_items[i].rating;
 
                 const sqrt_user_rating = Math.sqrt(r1);
-                console.log(sqrt_user_rating);
                 for (let i = 0; i < user_arr.length; i++) {
                     if (user_arr[i] !== user_id) {
                         let other_user_items = docs[user_arr[i]];
@@ -344,43 +321,6 @@ module.exports = {
         });
     },
 };
-
-function doAlgorithms(user_id, item_id) {
-    return Promise.all([
-        new Promise(function (resolve, reject) {
-            recommender.getContentBasedResult(item_id).then(cb_results => {
-                let output = cb_results.filter(function (obj) {
-                    return obj.score >= 0.15;
-                });
-                return resolve(output);
-            }).catch(function (err) {
-                reject(new Error(err));
-            });
-        }),
-
-        new Promise(function (resolve, reject) {
-            recommender.getCollaborativeFilteringResult(user_id).then(cf_results => {
-                return resolve(cf_results);
-            }).catch(function (err) {
-                reject(new Error(err));
-            });
-        })
-    ]);
-}
-
-function joinAndReturn(user_id, item_id) {
-    let done = false;
-    let result = [];
-    doAlgorithms(user_id, item_id).then(results => {
-        result.push(results[0]);
-        result.push(results[1]);
-        done = true;
-    });
-    deasync.loopWhile(function () {
-        return !done;
-    });
-    return result;
-}
 
 function compare(a, b) {
     const ratingA = a.score;

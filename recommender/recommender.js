@@ -14,7 +14,6 @@ const neighbor_num = 2;
 
 module.exports = {
     getContentBasedResult: function (item_id) {
-        console.log("item", item_id);
         return new Promise(function (resolve, reject) {
             db.view("items", 'all-item?key="' + item_id + '"', {
                 include_docs: true
