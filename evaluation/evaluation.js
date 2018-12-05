@@ -11,7 +11,7 @@ const ug = require("ug");
 const docTrainFile = "evaluation/train/doc_train_ua.txt";
 const docTrainFileAdClicks = "evaluation/train/doc_train_ad.txt";
 const docTrainFileAdClicksCF = "evaluation/train/doc_train_ad_cf.txt";
-const neighbor_num = 2;
+const neighbor_num = 5;
 const maxSimilarDocuments = 10;
 
 const resultCFFile = "evaluation/results/result_ad_cf.txt";
