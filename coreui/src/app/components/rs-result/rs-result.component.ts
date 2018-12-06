@@ -22,51 +22,52 @@ export class RsResultComponent implements OnInit {
 
   ngOnInit() {
     let user_id = this.cookieService.get('user_id');
-    if (user_id !== '') { // user is login
-      this.saveUserBehavior(this.item_id, user_id).then(() => {
-        this.items = [];
-        //------------------CF-----------------
-        // this.rsService.getItemCollaborativeFiltering(user_id).subscribe(items_rs =>
-        //   this.getItemRecommended(items_rs).then(items => {
-        //     for (let i = 0; i < items.length; i++) {
-        //       let item = new Item();
-        //       item.setItem(items[i]);
-        //       this.items.push(item);
-        //     }
-        //   })
-        // );
-        //------------------HB-----------------
-        this.rsService.getHybridMethod(user_id, this.item_id).subscribe(results => {
-            console.log("results", results);
-            let items_rs = results.ref_items.map(item => {
-              return item
-            });
-            results.ref_user_items.map(item => {
-              items_rs.push(item);
-            });
-            console.log("items_rs", items_rs);
-            this.getItemRecommended(items_rs).then(items => {
-              for (let i = 0; i < items.length; i++) {
-                let item = new Item();
-                item.setItem(items[i]);
-                this.items.push(item);
-              }
-            })
-          }
-        );
-        //------------------GRAPH METHOD-----------------
-        // this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
-        //   this.getItemRecommended(items_rs).then(items => {
-        //     for (let i = 0; i < items.length; i++) {
-        //       let item = new Item();
-        //       item.setItem(items[i]);
-        //       this.items.push(item);
-        //     }
-        //   })
-        // );
-      });
-    } else {
+    // if (user_id !== '') { // user is login
+    //   this.saveUserBehavior(this.item_id, user_id).then(() => {
+    //     this.items = [];
+    //     //------------------CF-----------------
+    //     // this.rsService.getItemCollaborativeFiltering(user_id).subscribe(items_rs =>
+    //     //   this.getItemRecommended(items_rs).then(items => {
+    //     //     for (let i = 0; i < items.length; i++) {
+    //     //       let item = new Item();
+    //     //       item.setItem(items[i]);
+    //     //       this.items.push(item);
+    //     //     }
+    //     //   })
+    //     // );
+    //     //------------------HB-----------------
+    //     this.rsService.getHybridMethod(user_id, this.item_id).subscribe(results => {
+    //         console.log("results", results);
+    //         let items_rs = results.ref_items.map(item => {
+    //           return item
+    //         });
+    //         results.ref_user_items.map(item => {
+    //           items_rs.push(item);
+    //         });
+    //         console.log("items_rs", items_rs);
+    //         this.getItemRecommended(items_rs).then(items => {
+    //           for (let i = 0; i < items.length; i++) {
+    //             let item = new Item();
+    //             item.setItem(items[i]);
+    //             this.items.push(item);
+    //           }
+    //         })
+    //       }
+    //     );
+    //     //------------------GRAPH METHOD-----------------
+    //     // this.rsService.getGraphMethod(user_id).subscribe(items_rs =>
+    //     //   this.getItemRecommended(items_rs).then(items => {
+    //     //     for (let i = 0; i < items.length; i++) {
+    //     //       let item = new Item();
+    //     //       item.setItem(items[i]);
+    //     //       this.items.push(item);
+    //     //     }
+    //     //   })
+    //     // );
+    //   });
+    // } else {
       //------------------CB-----------------
+    this.saveUserBehavior(this.item_id, user_id).then(() => {
       this.items = [];
       this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
         this.getItemRecommended(items_rs).then(items => {
@@ -78,7 +79,9 @@ export class RsResultComponent implements OnInit {
           }
         })
       );
-    }
+    });
+
+    // }
   }
 
   async getItemRecommended(items_rs) {
