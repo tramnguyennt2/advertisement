@@ -116,9 +116,7 @@ module.exports = {
 
     getHybridRecommend: function (user_id, item_id) {
         return new Promise(function (resolve, reject) {
-            let output = [],
-                ref_items = [],
-                ref_user_items;
+            let output = [], ref_items = [], ref_user_items;
             console.time("hybrid " + user_id);
             output = joinAndReturn(user_id, item_id);
             //Find values that are in both result1 n result2
@@ -131,11 +129,9 @@ module.exports = {
                 for (let i = 0; i < ref_user_items.length; i++) {
                     const index0 = output[0].indexOf(ref_user_items[i]);
                     output[0].splice(index0, 1);
-                    const removeIndex = output[1]
-                        .map(function (item) {
-                            return item.id;
-                        })
-                        .indexOf(ref_user_items[i].id);
+                    const removeIndex = output[1].map(function (item) {
+                        return item.id;
+                    }).indexOf(ref_user_items[i].id);
                     output[1].splice(removeIndex, 1);
                 }
                 for (let i = 0; i < output[1].length; i++) {
