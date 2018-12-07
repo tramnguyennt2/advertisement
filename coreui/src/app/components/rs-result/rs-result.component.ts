@@ -14,6 +14,7 @@ export class RsResultComponent implements OnInit {
   @Input()
   item_id;
   items = [];
+  userItems = [];
   rating: UserBehavior;
   images = [];
 
