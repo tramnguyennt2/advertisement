@@ -14,7 +14,6 @@ export class RsResultComponent implements OnInit {
   @Input()
   item_id;
   items = [];
-  userItems = [];
   rating: UserBehavior;
   images = [];
 
@@ -94,7 +93,6 @@ export class RsResultComponent implements OnInit {
         });
         items.push(contents);
       }
-
     }
     return items;
   }
@@ -119,7 +117,6 @@ export class RsResultComponent implements OnInit {
     this.itemService.getItem(id).then(item => {
       if (item._attachments) {
         url = 'http://localhost:5984/advertisement/' + item._id + '/image';
-        console.log(url)
         return url;
       }
     });
