@@ -5,8 +5,9 @@ require('babel-register')({
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const path = require('path');
-const routes = require('./route'); // for homepage
+const main_routes = require('./router/router'); // for homepage
+const acs_evaluation_routes = require('./router/acs_evaluation_route');
+const mls_evaluation_routes = require('./router/mls_evaluation_route');
 const cors = require('cors');
 
 app.use(express.static(__dirname + '/dist/'));
@@ -17,7 +18,9 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.use('/', routes);
+app.use('/', main_routes);
+app.use('/acs-evaluation', acs_evaluation_routes);
+app.use('/mls-evaluation', mls_evaluation_routes);
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');
