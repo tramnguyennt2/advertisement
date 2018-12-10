@@ -33,7 +33,7 @@
             </div>
             <div class="col text-right">
               <span>Sắp xếp&nbsp;</span>
-              <select class="sort">
+              <select class="sort"(change)="onFilterChange($event)">
                 <option value="newest">Tin mới trước</option>
                 <option value="oldest">Tin cũ trước</option>
                 <option value="highest">Giá cao trước</option>
