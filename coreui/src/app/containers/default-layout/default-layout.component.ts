@@ -121,4 +121,9 @@ export class DefaultLayoutComponent{
     this.cookieService.set( 'user_id', '' );
     this.userId = '';
   }
+
+  onEnterKeyword(){
+    let btnSearch = document.getElementById('btn-search');
+    btnSearch.click();
+  }
 }

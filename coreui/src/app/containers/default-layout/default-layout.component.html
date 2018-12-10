@@ -13,10 +13,10 @@
       <div class="input-group col" style="padding-right: 5px">
         <app-cat-drop-down (subCatClick)="getSubCatId($event)" class="input-group-prepend" dropdown></app-cat-drop-down>
         <app-loc-drop-down (subLocClick)="getSubLocId($event)" class="input-group-prepend" dropdown></app-loc-drop-down>
-        <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm..."
+        <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm..." (keyup.enter)="onEnterKeyword()"
                [(ngModel)]="keyword">
         <span class="input-group-append">
-          <button class="btn btn-info" type="button" [routerLink]="['/search-ad']"
+          <button id="btn-search" class="btn btn-info" type="button" [routerLink]="['/search-ad']"
                   [queryParams]="{sub_loc_id: sub_loc_id, sub_cat_id: sub_cat_id, keyword: keyword}">
             <i class="fa fa-search"></i>
           </button>
