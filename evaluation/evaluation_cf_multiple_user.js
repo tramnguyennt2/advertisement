@@ -1,4 +1,4 @@
-const neighbor_num = 1;
+const neighbor_num = 6;
 module.exports = {
     normalizeDocsE(docs, user_arr) {
         return new Promise(function (resolve) {

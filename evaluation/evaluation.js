@@ -127,27 +127,29 @@ module.exports = {
     },
 
     getHybridRecommend: function () {
-        let results = {};
         return new Promise(function (resolve, reject) {
-            handle_file.readDocsFile(docTrainFileACs).then(trainData => {
+            // get unique item of user
+            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsCF).then(cfResultData => {
                     cfResultData = JSON.parse(JSON.stringify(cfResultData));
                     let results = {};
-                    for (let index in cfResultData) {
-                        let user_id = index;
+                    for (let user_id in cfResultData) {
                         results[user_id] = [];
-                        let cf_results = cfResultData[index];
+                        let cf_results = cfResultData[user_id];
                         //find content-based
                         let items = trainData[user_id];
                         items.forEach(item => {
-                            recommender.getContentBasedResult(item.viewed_ad).then(cb_results => {
+                            recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let output = cb_results.filter(function (obj) {
                                     return obj.score >= 0.15;
                                 });
-                                cf_results.forEach(item => output.push(item));
+                                cf_results.forEach(item => output.push({
+                                    id: 'ad-' + item.id,
+                                    score: item.score
+                                }));
                                 results[user_id].push({
-                                    item: item.viewed_ad,
+                                    item: item.item,
                                     recommend_items: output
                                 });
                             }).catch(function (err) {
