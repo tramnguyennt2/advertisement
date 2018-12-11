@@ -17,6 +17,7 @@ const docTrainFileAcsCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
 const maxSimilarDocuments = 10;
 
 const resultACsCF = "evaluation/results/adclicks/result_ad_cf.txt";
+const resultACsGraph = "evaluation/results/adclicks/result_ad_graph.txt";
 
 module.exports = {
     getCFResult: function () {
@@ -86,7 +87,7 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             let users = [];
             let r = {};
-            handle_file.readDocsFile(docTrainFileACs).then(d => {
+            handle_file.readDocsFile(docTrainFileAcsCF).then(d => {
                 let items = [], views = [];
                 for (let index in d) {
                     users.push(index);
@@ -94,7 +95,7 @@ module.exports = {
                     let user_items = d[index];
                     for (let i = 0; i < user_items.length; i++) {
                         let item;
-                        let item_id = user_items[i].viewed_ad;
+                        let item_id = user_items[i].item;
                         let itemIdx = items.indexOf(item_id);
                         if (itemIdx <= -1) {
                             items.push(item_id);
@@ -142,7 +143,46 @@ module.exports = {
                         items.forEach(item => {
                             recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let output = cb_results.filter(function (obj) {
-                                    return obj.score >= 0.15;
+                                    return obj.score >= 0.3;
+                                });
+                                cf_results.forEach(item => output.push({
+                                    id: 'ad-' + item.id,
+                                    score: item.score
+                                }));
+                                results[user_id].push({
+                                    item: item.item,
+                                    recommend_items: output
+                                });
+                            }).catch(function (err) {
+                                reject(new Error(err));
+                            });
+                        });
+                    }
+                    setTimeout(function () {
+                        resolve(results);
+                    }, 60000);
+                });
+            });
+        });
+    },
+
+    getHybridRecommend2: function () {
+        return new Promise(function (resolve, reject) {
+            // get unique item of user
+            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
+                trainData = JSON.parse(JSON.stringify(trainData));
+                handle_file.readDocsFile(resultACsGraph).then(graphResultData => {
+                    graphResultData = JSON.parse(JSON.stringify(graphResultData));
+                    let results = {};
+                    for (let user_id in graphResultData) {
+                        results[user_id] = [];
+                        let cf_results = graphResultData[user_id];
+                        //find content-based
+                        let items = trainData[user_id];
+                        items.forEach(item => {
+                            recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
+                                let output = cb_results.filter(function (obj) {
+                                    return obj.score >= 0.1;
                                 });
                                 cf_results.forEach(item => output.push({
                                     id: 'ad-' + item.id,
