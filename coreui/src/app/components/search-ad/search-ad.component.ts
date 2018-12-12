@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { SolrService } from "../../services/solr.service";
-import { Item } from "../../item";
-import { NgxSpinnerService } from 'ngx-spinner';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {SolrService} from "../../services/solr.service";
+import {Item} from "../../item";
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: "app-search-ad",
@@ -37,8 +37,7 @@ export class SearchAdComponent implements OnInit {
 
   searchDocument(keyword, sub_cat_id, sub_loc_id, sort_field = undefined, sort = undefined) {
     this.items = [];
-    return this.solr
-      .search(keyword, sub_cat_id, sub_loc_id, sort_field, sort)
+    return this.solr.search(keyword, sub_cat_id, sub_loc_id, sort_field, sort)
       .subscribe(res => {
         Object.keys(res.response.docs).map(k => {
           let doc = res.response.docs[k];

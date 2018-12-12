@@ -143,7 +143,7 @@ module.exports = {
                         items.forEach(item => {
                             recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let output = cb_results.filter(function (obj) {
-                                    return obj.score >= 0.3;
+                                    return obj.score >= 0.2;
                                 });
                                 cf_results.forEach(item => output.push({
                                     id: 'ad-' + item.id,
@@ -151,7 +151,7 @@ module.exports = {
                                 }));
                                 results[user_id].push({
                                     item: item.item,
-                                    recommend_items: output
+                                    recommend_items: output.slice(0, 10)
                                 });
                             }).catch(function (err) {
                                 reject(new Error(err));
