@@ -15,49 +15,47 @@ const neighbor_num = 2;
 module.exports = {
     getContentBasedResult: function (item_id) {
         return new Promise(function (resolve, reject) {
-            db.view("items", 'all-item?key="' + item_id + '"', {
+            // db.view("items", 'all-item-e?key="' + item_id + '"', {
+            //     include_docs: true
+            // }).then(body => {
+            //     let documents = [];
+            //     if (body.rows.length === 0) {
+            //         db.get(item_id).then(item => {
+            //             documents.push({
+            //                 id: item._id,
+            //                 content: item.content,
+            //                 token: item.token
+            //             });
+            //         });
+            //     }
+            db.view("items", "all-item-e", {
                 include_docs: true
             }).then(body => {
                 let documents = [];
-                if (body.rows.length === 0) {
-                    db.get(item_id).then(item => {
-                        documents.push({
-                            id: item._id,
-                            content: item.content,
-                            token: item.token
-                        });
-                    });
-                }
-                db.view("items", "all-item", {
-                    include_docs: true
-                })
-                    .then(body => {
-                        body.rows.forEach(doc => {
-                            let obj = {
-                                id: doc.doc._id,
-                                content: doc.doc.content,
-                                token: doc.doc.token
-                            };
-                            documents.push(obj);
-                        });
-                        return documents;
-                    })
-                    .then(function (documents) {
-                        console.time("content-based " + item_id);
-                        content_based.trainOpt(documents, item_id);
-                        const similarDocuments = content_based.getSimilarDocuments(
-                            item_id,
-                            0,
-                            10
-                        );
-                        console.timeEnd("content-based " + item_id);
-                        resolve(similarDocuments);
-                    })
-                    .catch(function (err) {
-                        reject(new Error(err));
-                    });
+                body.rows.forEach(doc => {
+                    let obj = {
+                        id: doc.doc._id,
+                        content: doc.doc.content,
+                        token: doc.doc.token
+                    };
+                    documents.push(obj);
+                });
+                return documents;
+            }).then(function (documents) {
+                console.time("content-based " + item_id);
+                content_based.trainOpt(documents, item_id);
+                const similarDocuments = content_based.getSimilarDocuments(
+                    item_id,
+                    0,
+                    10
+                );
+                console.timeEnd("content-based " + item_id);
+                resolve(similarDocuments);
+            }).catch(function (err) {
+                reject(new Error(err));
             });
         });
+        // });
     },
 
     //user-based
