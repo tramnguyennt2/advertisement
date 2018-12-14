@@ -1,3 +1,4 @@
+const fs = require("fs");
 const ug = require("ug");
 
 const recommender = require('../recommender/recommender');
@@ -18,6 +19,7 @@ const maxSimilarDocuments = 10;
 
 const resultACsCF = "evaluation/results/adclicks/result_ad_cf.txt";
 const resultACsGraph = "evaluation/results/adclicks/result_ad_graph.txt";
+const resultACsCB = "evaluation/results/adclicks/result_cb.txt";
 
 module.exports = {
     getCFResult: function () {
@@ -97,17 +99,22 @@ module.exports = {
                         });
                     });
                     setTimeout(function () {
+                        let count = 0;
                         item_arr.forEach(item => {
                             cb[item] = [];
                             recommender.getContentBasedResult("ad-" + item).then(cb_results => {
-                                console.log(item, cb_results);
+                                count++;
                                 cb[item].push(cb_results);
+                                fs.writeFile(resultACsCB, JSON.stringify(cb), function (err) {
+                                    if (err) {
+                                        return console.log(err);
+                                    }
+                                    console.log(count);
+                                });
                             });
+
                         });
                     }, 60000);
-                    setTimeout(function () {
-                        resolve(cb);
-                    }, 2700000)
                 });
             });
         });
