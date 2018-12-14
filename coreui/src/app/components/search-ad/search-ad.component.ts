@@ -17,7 +17,8 @@ export class SearchAdComponent implements OnInit {
   items = [];
   p: number = 1;
 
-  constructor(private route: ActivatedRoute, private solr: SolrService, private spinner: NgxSpinnerService) {}
+  constructor(private route: ActivatedRoute, private solr: SolrService, private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit() {
     this.spinner.show();
@@ -41,21 +42,8 @@ export class SearchAdComponent implements OnInit {
       .subscribe(res => {
         Object.keys(res.response.docs).map(k => {
           let doc = res.response.docs[k];
-          let item = new Item(
-            doc.title[0],
-            doc.content[0],
-            null,
-            null,
-            doc.sub_cat_id[0],
-            null,
-            null,
-            null,
-            doc.sub_loc_id[0],
-            null,
-            doc.price[0],
-            null,
-            doc.db_id[0]
-          );
+          let item = new Item(doc.title[0], doc.content[0], null, null, doc.sub_cat_id[0], null,
+            null, null, doc.sub_loc_id[0], null, doc.price[0], null, doc.db_id[0]);
           this.items.push(item);
         });
         this.total = this.items.length;
@@ -65,34 +53,16 @@ export class SearchAdComponent implements OnInit {
   onFilterChange(event) {
     let sort = event.target.value;
     if (sort === "oldest") {
-      this.searchDocument(
-        this.keyword,
-        this.sub_cat_id,
-        this.sub_loc_id,
-        "created_at",
-        "asc"
-      );
+      this.searchDocument(this.keyword, this.sub_cat_id, this.sub_loc_id, "created_at", "asc");
     }
     if (sort === "newest") {
       this.searchDocument(this.keyword, this.sub_cat_id, this.sub_loc_id);
     }
     if (sort === "lowest") {
-      this.searchDocument(
-        this.keyword,
-        this.sub_cat_id,
-        this.sub_loc_id,
-        "price",
-        "asc"
-      );
+      this.searchDocument(this.keyword, this.sub_cat_id, this.sub_loc_id, "price", "asc");
     }
     if (sort === "highest") {
-      this.searchDocument(
-        this.keyword,
-        this.sub_cat_id,
-        this.sub_loc_id,
-        "price",
-        "desc"
-      );
+      this.searchDocument(this.keyword, this.sub_cat_id, this.sub_loc_id, "price", "desc");
     }
   }
 }
