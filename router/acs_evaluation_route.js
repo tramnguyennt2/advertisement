@@ -56,6 +56,16 @@ router.get("/evaluation-graph/", function (req, res, next) {
     });
 });
 
+router.get("/evaluation-cb/", function (req, res, next) {
+    recommender_e.getContentBased().then(result => {
+        res.send(result);
+        // fs.writeFile(resultAdClickFileHybrid, JSON.stringify(result), function (err) {
+        //     if (err) return console.log(err);
+        //     console.log("The file was saved!");
+        // });
+    });
+});
+
 router.get("/evaluation-hybrid/", function (req, res, next) {
     recommender_e.getHybridRecommend().then(result => {
         res.send(result);
@@ -117,6 +127,7 @@ router.get("/map-cf/", function (req, res, next) {
                             ap += x;
                         });
                         total_ap += ap;
+                        console.log(users[i], ap);
                     }
                 }
                 map = total_ap / length;

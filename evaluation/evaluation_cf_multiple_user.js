@@ -1,4 +1,4 @@
-const neighbor_num = 6;
+const neighbor_num = 3;
 module.exports = {
     normalizeDocsE(docs, user_arr) {
         return new Promise(function (resolve) {
@@ -33,7 +33,6 @@ module.exports = {
                     r1 += user_items[i].rating * user_items[i].rating;
 
                 const sqrt_user_rating = Math.sqrt(r1);
-                console.log("sqrt_user_rating", user_id, sqrt_user_rating);
                 for (let i = 0; i < user_arr.length; i++) {
                     if (user_arr[i] !== user_id) {
                         let other_user_items = docs[user_arr[i]];
@@ -42,7 +41,6 @@ module.exports = {
                                 return obj.item === obj2.item;
                             });
                         });
-                        console.log(same);
                         if (same.length > 0) {
                             let r2 = 0;
                             for (let j = 0; j < other_user_items.length; j++)
@@ -76,7 +74,6 @@ module.exports = {
                 sims[user_id] = similarity;
             }
             console.timeEnd("getCosinSimilarity");
-            console.log(sims);
             resolve(sims);
         });
     },
@@ -121,6 +118,9 @@ module.exports = {
                     }
                 }
                 item_need_to_recommends[user_id] = item_need_to_recommend;
+                if (user_id === '2') {
+                    console.log(item_need_to_recommend);
+                }
             }
             console.timeEnd("getItemNeedToRecommend");
             resolve(item_need_to_recommends);

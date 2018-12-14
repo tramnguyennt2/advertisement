@@ -82,6 +82,37 @@ module.exports = {
         });
     },
 
+    getContentBased: function () {
+        return new Promise(function (resolve, reject) {
+            let item_arr = [], cb = {};
+            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
+                trainData = JSON.parse(JSON.stringify(trainData));
+                handle_file.readUserStream(userTrainFileACs).then(users => {
+                    users.forEach(user => {
+                        let items = trainData[user];
+                        items.forEach(item => {
+                            if (item_arr.indexOf(item.item) <= -1) {
+                                item_arr.push(item.item);
+                            }
+                        });
+                    });
+                    setTimeout(function () {
+                        item_arr.forEach(item => {
+                            cb[item] = [];
+                            recommender.getContentBasedResult("ad-" + item).then(cb_results => {
+                                console.log(item, cb_results);
+                                cb[item].push(cb_results);
+                            });
+                        });
+                    }, 60000);
+                    setTimeout(function () {
+                        resolve(cb);
+                    }, 2700000)
+                });
+            });
+        });
+    },
+
     getGraphRecommend: function () {
         const graph = new ug.Graph();
         return new Promise(function (resolve, reject) {
