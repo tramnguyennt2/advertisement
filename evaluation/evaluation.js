@@ -171,15 +171,18 @@ module.exports = {
             handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsCF).then(cfResultData => {
-                    cfResultData = JSON.parse(JSON.stringify(cfResultData));
-                    let results = {};
-                    for (let user_id in cfResultData) {
-                        results[user_id] = [];
-                        let cf_results = cfResultData[user_id];
-                        //find content-based
-                        let items = trainData[user_id];
-                        items.forEach(item => {
-                            recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
+                    handle_file.readDocsFile(resultACsCB).then(cbResultData => {
+                        cfResultData = JSON.parse(JSON.stringify(cfResultData));
+                        cbResultData = JSON.parse(JSON.stringify(cbResultData));
+                        let results = {};
+                        for (let user_id in cfResultData) {
+                            results[user_id] = [];
+                            let cf_results = cfResultData[user_id];
+                            //find content-based
+                            let items = trainData[user_id];
+                            items.forEach(item => {
+                                // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
+                                let cb_results = cbResultData[item.item][0];
                                 let output = cb_results.filter(function (obj) {
                                     return obj.score >= 0.2;
                                 });
@@ -191,14 +194,15 @@ module.exports = {
                                     item: item.item,
                                     recommend_items: output.slice(0, 10)
                                 });
-                            }).catch(function (err) {
-                                reject(new Error(err));
+                                // }).catch(function (err) {
+                                //     reject(new Error(err));
+                                // });
                             });
-                        });
-                    }
-                    setTimeout(function () {
-                        resolve(results);
-                    }, 60000);
+                        }
+                        setTimeout(function () {
+                            resolve(results);
+                        }, 60000);
+                    });
                 });
             });
         });
