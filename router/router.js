@@ -1,13 +1,6 @@
 let express = require("express");
 let router = express.Router();
-
 const recommender = require("../recommender/recommender");
-const ContentBasedRecommender = require("../recommender/content-based-recommender/index");
-const content_based = new ContentBasedRecommender({
-    maxSimilarDocuments: 10,
-    minScore: 0,
-    debug: false
-});
 
 router.get("/content-based/:id", function (req, res, next) {
     console.log("content-based " + req.params.id);
