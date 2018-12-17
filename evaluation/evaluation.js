@@ -181,8 +181,10 @@ module.exports = {
                             //find content-based
                             let items = trainData[user_id];
                             items.forEach(item => {
+                                console.log("item: ", item.item);
                                 // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let cb_results = cbResultData[item.item][0];
+                                console.log("cb_results", cb_results);
                                 let output = cb_results.filter(function (obj) {
                                     return obj.score >= 0.2;
                                 });
@@ -214,34 +216,39 @@ module.exports = {
             handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsGraph).then(graphResultData => {
-                    graphResultData = JSON.parse(JSON.stringify(graphResultData));
-                    let results = {};
-                    for (let user_id in graphResultData) {
-                        results[user_id] = [];
-                        let cf_results = graphResultData[user_id];
-                        //find content-based
-                        let items = trainData[user_id];
-                        items.forEach(item => {
-                            recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
+                    handle_file.readDocsFile(resultACsCB).then(cbResultData => {
+                        graphResultData = JSON.parse(JSON.stringify(graphResultData));
+                        cbResultData = JSON.parse(JSON.stringify(cbResultData));
+                        let results = {};
+                        for (let user_id in graphResultData) {
+                            results[user_id] = [];
+                            let cf_results = graphResultData[user_id];
+                            //find content-based
+                            let items = trainData[user_id];
+                            items.forEach(item => {
+                                // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
+                                let cb_results = cbResultData[item.item][0];
                                 let output = cb_results.filter(function (obj) {
-                                    return obj.score >= 0.1;
-                                });
-                                cf_results.forEach(item => output.push({
-                                    id: 'ad-' + item.id,
-                                    score: item.score
-                                }));
-                                results[user_id].push({
-                                    item: item.item,
-                                    recommend_items: output
-                                });
-                            }).catch(function (err) {
-                                reject(new Error(err));
+                                        return obj.score >= 0.2;
+                                    });
+                                    cf_results.forEach(item => output.push({
+                                        id: 'ad-' + item.id,
+                                        score: item.score
+                                    }));
+                                    results[user_id].push({
+                                        item: item.item,
+                                        recommend_items: output.slice(0, 10)
+                                    });
+                                // }).catch(function (err) {
+                                //     reject(new Error(err));
+                                // });
                             });
-                        });
-                    }
-                    setTimeout(function () {
-                        resolve(results);
-                    }, 60000);
+                        }
+                        setTimeout(function () {
+                            resolve(results);
+                        }, 60000);
+                    });
+
                 });
             });
         });
