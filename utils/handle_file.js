@@ -55,32 +55,44 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             console.time("readFile");
             let docs = {};
-            fs.createReadStream(file1)
-                .pipe(parse({delimiter: "\t"}))
+            fs.createReadStream(file1).pipe(parse({delimiter: "\t"}))
                 .on("data", function (data) {
                     try {
                         if (docs[data[0]]) {
                             let items = docs[data[0]];
-                            let flag = 0;
+                            let flag1 = 0;
+                            let flag2 = 0;
                             items.forEach(item => {
                                 if (item.item === data[1]) {
-                                    item.rating++;
-                                    flag = 1;
+                                    flag1 = 1;
+                                }
+                                if (item.item === data[2]) {
+                                    item.rating ++;
+                                    flag2 = 1;
                                 }
                             });
-                            if (flag === 0) {
-                                let obj = {};
-                                obj.item = data[1];
-                                obj.rating = 1;
-                                if (data[0] in docs) docs[data[0]].push(obj);
-                                else docs[data[0]] = [obj];
+                            if (flag1 === 0) {
+                                let obj1 = {};
+                                obj1.item = data[1];
+                                obj1.rating = 1;
+                                docs[data[0]].push(obj1);
+                            }
+                            if (flag2 === 0) {
+                                let obj2 = {};
+                                obj2.item = data[2];
+                                obj2.rating = 1;
+                                docs[data[0]].push(obj2);
                             }
                         } else {
-                            let obj = {};
-                            obj.item = data[1];
-                            obj.rating = 1;
-                            if (data[0] in docs) docs[data[0]].push(obj);
-                            else docs[data[0]] = [obj];
+                            let obj1 = {};
+                            obj1.item = data[1];
+                            obj1.rating = 1;
+                            let obj2 = {};
+                            obj2.item = data[2];
+                            obj2.rating = 1;
+                            docs[data[0]] = [];
+                            docs[data[0]].push(obj1);
+                            docs[data[0]].push(obj2);
                         }
                     } catch (e) {
                         reject(e);

@@ -1,4 +1,5 @@
-const neighbor_num = 3;
+const neighbor_num = 8;
+
 module.exports = {
     normalizeDocsE(docs, user_arr) {
         return new Promise(function (resolve) {
@@ -11,9 +12,7 @@ module.exports = {
                     value += items[j].rating;
                 }
                 avgs[user_arr[i]] = value / items.length;
-                for (let j = 0; j < items.length; j++) {
-                    items[j].rating = items[j].rating - value / items.length;
-                }
+                for (let j = 0; j < items.length; j++) items[j].rating = items[j].rating - value / items.length;
             }
             console.timeEnd("normalizeDocs");
             resolve(avgs);

@@ -182,11 +182,10 @@ module.exports = {
                             let items = trainData[user_id];
                             items.forEach(item => {
                                 console.log("item: ", item.item);
-                                // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let cb_results = cbResultData[item.item][0];
                                 console.log("cb_results", cb_results);
                                 let output = cb_results.filter(function (obj) {
-                                    return obj.score >= 0.2;
+                                    return obj.score >= 0.4;
                                 });
                                 cf_results.forEach(item => output.push({
                                     id: 'ad-' + item.id,
@@ -196,9 +195,6 @@ module.exports = {
                                     item: item.item,
                                     recommend_items: output.slice(0, 10)
                                 });
-                                // }).catch(function (err) {
-                                //     reject(new Error(err));
-                                // });
                             });
                         }
                         setTimeout(function () {
@@ -229,7 +225,7 @@ module.exports = {
                                 // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
                                 let cb_results = cbResultData[item.item][0];
                                 let output = cb_results.filter(function (obj) {
-                                        return obj.score >= 0.2;
+                                        return obj.score >= 0.3;
                                     });
                                     cf_results.forEach(item => output.push({
                                         id: 'ad-' + item.id,
