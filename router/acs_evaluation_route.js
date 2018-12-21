@@ -117,109 +117,6 @@ router.get("/evaluation-hybrid-2/", function (req, res, next) {
         });
     });
 });
-router.get("/map-hybrid-2/", function (req, res, next) {
-    handle_file.readUserStream(userTestFile).then(users => {
-        handle_file.readDocsFile(resultAdClickFileHybrid2).then(d => {
-            let results = JSON.parse(JSON.stringify(d));
-            let total_ap = 0, map = 0;
-            handle_file.readDocsFile(docTestFile).then(d => {
-                let testData = JSON.parse(JSON.stringify(d));
-                for (let i = 0; i < users.length; i++) {
-                    let user_id = users[i];
-                    let items = results[user_id];
-                    let relevantItems = testData[user_id];
-                    let num_relevant = relevantItems.length;
-                    let sub = 0;
-                    items.forEach(item => {
-                        let recommendedItems = item.recommend_items;
-                        let k = recommendedItems.length; // 13
-                        let arr = [], precisions = [];
-                        for (let j = 0; j < k; j++) {
-                            let flag = 0;
-                            relevantItems.forEach(item => {
-                                if ('ad-' + item.clicked_ad === recommendedItems[j].id)
-                                    flag = 1;
-                            });
-                            if (flag === 0) arr.push(0);
-                            else arr.push(1);
-                        }
-
-                        let min = num_relevant;
-                        if (num_relevant > k) min = k;
-                        for (let a = 0; a < arr.length; a++) {
-                            if (arr[a] === 0) precisions.push(0);
-                            else {
-                                let temp_arr = arr.slice(0, a + 1);
-                                let count = temp_arr.filter(x => {
-                                    return x === 1;
-                                }).length;
-                                precisions.push((count / (a + 1)) * (1 / min));
-                            }
-                        }
-                        let ap = 0;
-                        precisions.forEach(x => {
-                            ap += x;
-                        });
-                        sub += ap;
-                    });
-                    total_ap += sub / items.length;
-                    console.log(user_id, sub / items.length);
-                }
-                map = total_ap / users.length;
-                res.send("map is " + map);
-            }).catch(err => res.send(err));
-        }).catch(err => res.send(err));
-    });
-});
-router.get("/map-graph/", function (req, res, next) {
-    handle_file.readUserStream(userTestFile).then(users => {
-        handle_file.readDocsFile(resultAdClickFileGraph).then(d => {
-            let results = JSON.parse(JSON.stringify(d));
-            let total_ap = 0, map = 0, length = 0;
-            handle_file.readDocsFile(docTestFile).then(d => {
-                let testData = JSON.parse(JSON.stringify(d));
-                for (let i = 0; i < users.length; i++) {
-                    if (results[users[i]].length !== undefined) {
-                        let recommendedItems = results[users[i]];
-                        let k = recommendedItems.length;
-                        let relevantItems = testData[users[i]];
-                        let num_relevant = relevantItems.length;
-                        let arr = [], precisions = [];
-                        for (let j = 0; j < k; j++) {
-                            let flag = 0;
-                            relevantItems.forEach(item => {
-                                if (item.viewed_ad === recommendedItems[j].id || item.clicked_ad === recommendedItems[j].id) flag = 1;
-                            });
-                            if (flag === 0) arr.push(0);
-                            else arr.push(1);
-                        }
-                        length++;
-                        let min = num_relevant;
-                        if (num_relevant > k) min = k;
-                        for (let a = 0; a < arr.length; a++) {
-                            if (arr[a] === 0) precisions.push(0);
-                            else {
-                                let temp_arr = arr.slice(0, a + 1);
-                                let count = temp_arr.filter(x => {
-                                    return x === 1;
-                                }).length;
-                                precisions.push((count / (a + 1)) * (1 / min));
-                            }
-                        }
-
-                        let ap = 0;
-                        precisions.forEach(x => {
-                            ap += x;
-                        });
-                        total_ap += ap;
-                    }
-                }
-                map = total_ap / length;
-                res.send("map is " + map);
-            }).catch(err => res.send(err));
-        }).catch(err => res.send(err));
-    });
-});
 
 router.get("/evaluation-cb/", function (req, res, next) {
     recommender_e.getContentBased().then(result => {
@@ -250,19 +147,9 @@ router.get("/map-hybrid/", function (req, res, next) {
                     let relevantItems = testData[user_id];
                     let num_relevant = relevantItems.length;
                     let sub = 0;
-                    let union_items = {};
                     items.forEach(item => {
                         let recommendedItems = item.recommend_items;
                         let k = recommendedItems.length;
-                        if (user_id === "31") {
-                            recommendedItems.forEach(item => {
-                                if (!(item.id in union_items)) {
-                                    union_items[item.id] = 1;
-                                } else {
-                                    union_items[item.id]++;
-                                }
-                            });
-                        }
                         let arr = [], precisions = [];
                         for (let j = 0; j < k; j++) {
                             let flag = 0;
@@ -291,17 +178,8 @@ router.get("/map-hybrid/", function (req, res, next) {
                             ap += x;
                         });
                         sub += ap;
-                        if (user_id === "31") {
-                            console.log(item.item, ap);
-                        }
                     });
-                    if (user_id === "31") {
-                        console.log("union_items", union_items);
-                    }
                     total_ap += sub / items.length;
-                    if (user_id === "31") {
-                        console.log(user_id, sub / items.length);
-                    }
                 }
                 map = total_ap / users.length;
                 res.send("map is " + map);

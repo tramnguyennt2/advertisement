@@ -1,5 +1,4 @@
 const fs = require("fs");
-const ug = require("ug");
 
 const recommender = require('../recommender/recommender');
 const evaluation_cf = require('./evaluation_cf_multiple_user');
@@ -120,55 +119,11 @@ module.exports = {
         });
     },
 
-    getGraphRecommend: function () {
-        const graph = new ug.Graph();
-        return new Promise(function (resolve, reject) {
-            let users = [];
-            let r = {};
-            handle_file.readDocsFile(docTrainFileAcsCF).then(d => {
-                let items = [], views = [];
-                for (let index in d) {
-                    users.push(index);
-                    let user = graph.createNode("user", {id: index});
-                    let user_items = d[index];
-                    for (let i = 0; i < user_items.length; i++) {
-                        let item;
-                        let item_id = user_items[i].item;
-                        let itemIdx = items.indexOf(item_id);
-                        if (itemIdx <= -1) {
-                            items.push(item_id);
-                            item = graph.createNode("item", {id: item_id});
-                        } else item = graph.nodes("item").query().filter({id: item_id}).first();
-                        views.push(graph.createEdge("view").link(user, item));
-                    }
-                }
-            }).then(() => {
-                users.forEach(user_id => {
-                    let user = graph.nodes("user").query().filter({id: user_id}).first();
-                    let results = graph.closest(user, {
-                        compare: function (node) {
-                            return node.entity === "item";
-                        },
-                        minDepth: 3,
-                        count: maxSimilarDocuments
-                    });
-                    // results is now an array of Paths, which are each traces from your starting node to your result node...
-                    let resultNodes = results.map(function (path) {
-                        return path.end();
-                    });
-                    r[user_id] = resultNodes.map(result => {
-                        return result.properties
-                    });
-                });
-                resolve(r);
-            });
-        })
-    },
-
     getHybridRecommend: function () {
         return new Promise(function (resolve, reject) {
             // get unique item of user
             handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
+                let weight = 2;
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsCF).then(cfResultData => {
                     handle_file.readDocsFile(resultACsCB).then(cbResultData => {
@@ -178,22 +133,50 @@ module.exports = {
                         for (let user_id in cfResultData) {
                             results[user_id] = [];
                             let cf_results = cfResultData[user_id];
+                            cf_results.forEach(item => {
+                                item.id = "ad-" + item.id;
+                                item.score = (item.score - 1) / 3;
+                            });
                             //find content-based
-                            let items = trainData[user_id];
-                            items.forEach(item => {
-                                console.log("item: ", item.item);
+                            let train_items = trainData[user_id];
+                            train_items.forEach(item => {
+                                let output = [];
                                 let cb_results = cbResultData[item.item][0];
-                                console.log("cb_results", cb_results);
-                                let output = cb_results.filter(function (obj) {
-                                    return obj.score >= 0.4;
+                                let unique_arr = [];
+                                cb_results.forEach(cb_item => {
+                                    if (unique_arr.indexOf(cb_item.id) <= -1)
+                                        unique_arr.push(cb_item.id);
                                 });
-                                cf_results.forEach(item => output.push({
-                                    id: 'ad-' + item.id,
-                                    score: item.score
-                                }));
-                                results[user_id].push({
-                                    item: item.item,
-                                    recommend_items: output.slice(0, 10)
+                                cf_results.forEach(cf_item => {
+                                    if (unique_arr.indexOf(cf_item.id) <= -1)
+                                        unique_arr.push(cf_item.id);
+                                });
+                                unique_arr.forEach(u_item => {
+                                    let cb_score = 0, cf_score = 0;
+                                    let cb_found = cb_results.filter(function (el) {
+                                        return el.id === u_item;
+                                    });
+                                    if (cb_found.length > 0) {
+                                        cb_score = cb_found[0].score;
+                                    }
+                                    let cf_found = cf_results.filter(function (el) {
+                                        return el.id === u_item;
+                                    });
+                                    if (cf_found.length > 0) {
+                                        cf_score = cf_found[0].score;
+                                    }
+                                    output.push({
+                                        id: u_item,
+                                        score: (weight * cb_score + cf_score) / (weight + 1)
+                                    })
+                                });
+                                sort(output).then(result => {
+                                    if (result.length > 10)
+                                        result = result.splice(0, 10);
+                                    results[user_id].push({
+                                        item: item.item,
+                                        recommend_items: result
+                                    });
                                 });
                             });
                         }
@@ -205,48 +188,22 @@ module.exports = {
             });
         });
     },
-
-    getHybridRecommend2: function () {
-        return new Promise(function (resolve, reject) {
-            // get unique item of user
-            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
-                trainData = JSON.parse(JSON.stringify(trainData));
-                handle_file.readDocsFile(resultACsGraph).then(graphResultData => {
-                    handle_file.readDocsFile(resultACsCB).then(cbResultData => {
-                        graphResultData = JSON.parse(JSON.stringify(graphResultData));
-                        cbResultData = JSON.parse(JSON.stringify(cbResultData));
-                        let results = {};
-                        for (let user_id in graphResultData) {
-                            results[user_id] = [];
-                            let cf_results = graphResultData[user_id];
-                            //find content-based
-                            let items = trainData[user_id];
-                            items.forEach(item => {
-                                // recommender.getContentBasedResult("ad-" + item.item).then(cb_results => {
-                                let cb_results = cbResultData[item.item][0];
-                                let output = cb_results.filter(function (obj) {
-                                        return obj.score >= 0.3;
-                                    });
-                                    cf_results.forEach(item => output.push({
-                                        id: 'ad-' + item.id,
-                                        score: item.score
-                                    }));
-                                    results[user_id].push({
-                                        item: item.item,
-                                        recommend_items: output.slice(0, 10)
-                                    });
-                                // }).catch(function (err) {
-                                //     reject(new Error(err));
-                                // });
-                            });
-                        }
-                        setTimeout(function () {
-                            resolve(results);
-                        }, 60000);
-                    });
-
-                });
-            });
-        });
-    }
 };
+
+function sort(arr) {
+    return new Promise(function (resolve, reject) {
+        resolve(arr.sort(compare));
+    });
+}
+
+function compare(a, b) {
+    const ratingA = a.score;
+    const ratingB = b.score;
+    let comparison = 0;
+    if (ratingA > ratingB) {
+        comparison = -1;
+    } else if (ratingA < ratingB) {
+        comparison = 1;
+    }
+    return comparison;
+}

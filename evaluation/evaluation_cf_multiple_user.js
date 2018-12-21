@@ -1,4 +1,4 @@
-const neighbor_num = 8;
+const neighbor_num = 3;
 
 module.exports = {
     normalizeDocsE(docs, user_arr) {
@@ -8,9 +8,7 @@ module.exports = {
             for (let i = 0; i < user_arr.length; i++) {
                 let items = docs[user_arr[i]];
                 let value = 0;
-                for (let j = 0; j < items.length; j++) {
-                    value += items[j].rating;
-                }
+                for (let j = 0; j < items.length; j++) value += items[j].rating;
                 avgs[user_arr[i]] = value / items.length;
                 for (let j = 0; j < items.length; j++) items[j].rating = items[j].rating - value / items.length;
             }
