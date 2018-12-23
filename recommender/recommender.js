@@ -15,49 +15,47 @@ const neighbor_num = 2;
 module.exports = {
     getContentBasedResult: function (item_id) {
         return new Promise(function (resolve, reject) {
-            db.view("items", 'all-item?key="' + item_id + '"', {
+            // db.view("items", 'all-item-e?key="' + item_id + '"', {
+            //     include_docs: true
+            // }).then(body => {
+            //     let documents = [];
+            //     if (body.rows.length === 0) {
+            //         db.get(item_id).then(item => {
+            //             documents.push({
+            //                 id: item._id,
+            //                 content: item.content,
+            //                 token: item.token
+            //             });
+            //         });
+            //     }
+            db.view("items", "all-item-e", {
                 include_docs: true
             }).then(body => {
                 let documents = [];
-                if (body.rows.length === 0) {
-                    db.get(item_id).then(item => {
-                        documents.push({
-                            id: item._id,
-                            content: item.content,
-                            token: item.token
-                        });
-                    });
-                }
-                db.view("items", "all-item", {
-                    include_docs: true
-                })
-                    .then(body => {
-                        body.rows.forEach(doc => {
-                            let obj = {
-                                id: doc.doc._id,
-                                content: doc.doc.content,
-                                token: doc.doc.token
-                            };
-                            documents.push(obj);
-                        });
-                        return documents;
-                    })
-                    .then(function (documents) {
-                        console.time("content-based " + item_id);
-                        content_based.trainOpt(documents, item_id);
-                        const similarDocuments = content_based.getSimilarDocuments(
-                            item_id,
-                            0,
-                            10
-                        );
-                        console.timeEnd("content-based " + item_id);
-                        resolve(similarDocuments);
-                    })
-                    .catch(function (err) {
-                        reject(new Error(err));
-                    });
+                body.rows.forEach(doc => {
+                    let obj = {
+                        id: doc.doc._id,
+                        content: doc.doc.content,
+                        token: doc.doc.token
+                    };
+                    documents.push(obj);
+                });
+                return documents;
+            }).then(function (documents) {
+                console.time("content-based " + item_id);
+                content_based.trainOpt(documents, item_id);
+                const similarDocuments = content_based.getSimilarDocuments(
+                    item_id,
+                    0,
+                    10
+                );
+                console.timeEnd("content-based " + item_id);
+                resolve(similarDocuments);
+            }).catch(function (err) {
+                reject(new Error(err));
             });
         });
+        // });
     },
 
     //user-based
@@ -372,10 +370,7 @@ function doAlgorithms(user_id, item_id) {
             module.exports
                 .getContentBasedResult(item_id)
                 .then(cb_results => {
-                    let output = cb_results.filter(function (obj) {
-                        return obj.score >= 0.15;
-                    });
-                    return resolve(output);
+                    return resolve(cb_results);
                 })
                 .catch(function (err) {
                     reject(new Error(err));
@@ -397,10 +392,42 @@ function doAlgorithms(user_id, item_id) {
 
 function joinAndReturn(user_id, item_id) {
     let done = false;
-    let result = [];
+    let result = [], unique_arr = [], output = [];
     doAlgorithms(user_id, item_id).then(results => {
-        result.push(results[0]);
-        result.push(results[1]);
+        // result.push(results[0]);
+        // result.push(results[1]);
+        let cb_results = results[1], cf_results = results[2];
+        cb_results.forEach(cb_item => {
+            if (unique_arr.indexOf(cb_item.id) <= -1)
+                unique_arr.push(cb_item.id);
+        });
+        cf_results.forEach(cf_item => {
+            if (unique_arr.indexOf(cf_item.id) <= -1)
+                unique_arr.push(cf_item.id);
+        });
+        unique_arr.forEach(u_item => {
+            let cb_score = 0, cf_score = 0;
+            let cb_found = cb_results.filter(function (el) {
+                return el.id === u_item;
+            });
+            if (cb_found.length > 0) {
+                cb_score = cb_found[0].score;
+            }
+            let cf_found = cf_results.filter(function (el) {
+                return el.id === u_item;
+            });
+            if (cf_found.length > 0) {
+                cf_score = cf_found[0].score;
+            }
+            output.push({
+                id: u_item,
+                score: (weight * cb_score + cf_score) / (weight + 1)
+            })
+        });
+        sort(output).then(r => {
+            if (result.length > 10)
+                result = r.splice(0, 10);
+        });
         done = true;
     });
     deasync.loopWhile(function () {

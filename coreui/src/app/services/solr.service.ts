@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { environment } from "../../environments/environment";
+import {Injectable} from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class SolrService {
@@ -20,28 +20,22 @@ export class SolrService {
     );
   }
 
-  delete(dbId){
+  delete(dbId) {
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
     let query = "db_id:" + dbId;
     return this.http.post(
       this.solr_url + "/update/json?commit=true",
-      {"delete": { "query": query }},
+      {"delete": {"query": query}},
       {
         headers: headers
       }
     );
   }
 
-  search(
-    keyword,
-    sub_cat_id,
-    sub_loc_id,
-    sort_field = undefined,
-    sort = undefined
-  ): any {
+  search(keyword, sub_cat_id, sub_loc_id, sort_field = undefined, sort = undefined): any {
     // let url =
-    //   this.solr_url + "/select?q=" + keyword + " and sub_cat_id:" + sub_cat_id + " and sub_loc_id:" + sub_loc_id + "&wt=json";
+    // this.solr_url + "/select?q=" + keyword + " and sub_cat_id:" + sub_cat_id + " and sub_loc_id:" + sub_loc_id + "&wt=json";
     let url = this.solr_url + "/select?q=content:" + keyword + " and title:";
     let after_keyword = "";
     let after_sub = "";
