@@ -9,6 +9,7 @@ import { PostAdComponent } from "./components/post-ad/post-ad.component";
 import { ManageAdComponent } from "./components/manage-ad/manage-ad.component";
 import { BaseItemDetailComponent } from "./containers/base-item-detail/base-item-detail.component";
 import { AllItemsComponent } from "./components/all-items/all-items.component";
+import { UserInformationComponent } from './components/user-information/user-information.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
       { path: "search-ad", component: SearchAdComponent },
       { path: "manage-ad", component: ManageAdComponent },
       { path: "item-detail", component: BaseItemDetailComponent },
+      { path: "user-information", component: UserInformationComponent },
       { path: "all-items/cat-1/sub-cat-1", component: AllItemsComponent },
       { path: "all-items/cat-1/sub-cat-2", component: AllItemsComponent },
       { path: "all-items/cat-1/sub-cat-3", component: AllItemsComponent },
