@@ -10,7 +10,7 @@ const content_based = new ContentBasedRecommender({
 const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
-const neighbor_num = 2;
+const neighbor_num = 3;
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -95,7 +95,10 @@ module.exports = {
                                             // Step 4: predict
                                             module.exports.predict(item_need_to_recommend, avg_user, user_id)
                                                 .then(result => {
-                                                    module.exports.sort(result).then(result => {
+                                                    sort(result).then(result => {
+                                                        result.forEach(item => {
+                                                            item.score = (item.score - 1) / 4;
+                                                        });
                                                         if (result.length > maxSimilarDocuments)
                                                             result = result.splice(0, maxSimilarDocuments);
                                                         console.timeEnd("cf " + user_id);
@@ -117,95 +120,8 @@ module.exports = {
             let output = [], ref_items = [], ref_user_items;
             console.time("hybrid " + user_id);
             output = joinAndReturn(user_id, item_id);
-            //Find values that are in both result1 n result2
-            ref_user_items = output[0].filter(function (obj) {
-                return output[1].some(function (obj2) {
-                    return obj.id === obj2.id;
-                });
-            });
-            if (ref_user_items.length > 0) {
-                for (let i = 0; i < ref_user_items.length; i++) {
-                    const index0 = output[0].indexOf(ref_user_items[i]);
-                    output[0].splice(index0, 1);
-                    const removeIndex = output[1].map(function (item) {
-                        return item.id;
-                    }).indexOf(ref_user_items[i].id);
-                    output[1].splice(removeIndex, 1);
-                }
-                for (let i = 0; i < output[1].length; i++) {
-                    ref_user_items.push(output[1][i]);
-                }
-                ref_items = output[0];
-            } else {
-                ref_items = output[0];
-                ref_user_items = output[1];
-            }
-            let result = {
-                ref_items: ref_items,
-                ref_user_items: ref_user_items
-            };
             console.timeEnd("hybrid " + user_id);
-            resolve(result);
-        });
-    },
-
-    getGraphRecommend: function (user_id) {
-        const graph = new ug.Graph();
-        return new Promise(function (resolve, reject) {
-            let users = [], items = [], views = [];
-            db.view("ratings", "all-rating", {include_docs: true})
-                .then(body => {
-                    console.time("graph " + user_id);
-                    for (let i = 0; i < body.total_rows; i++) {
-                        let user_id = body.rows[i].doc.user_id;
-                        let item_id = body.rows[i].doc.item_id;
-                        let userIdx = users.indexOf(user_id);
-                        let itemIdx = items.indexOf(item_id);
-                        let user, item;
-                        if (userIdx > -1) {
-                            user = graph
-                                .nodes("user")
-                                .query()
-                                .filter({id: user_id})
-                                .first();
-                        } else {
-                            users.push(user_id);
-                            user = graph.createNode("user", {id: user_id});
-                        }
-                        if (itemIdx <= -1) {
-                            items.push(item_id);
-                            item = graph.createNode("item", {id: item_id});
-                        } else
-                            item = graph
-                                .nodes("item")
-                                .query()
-                                .filter({id: item_id})
-                                .first();
-                        views.push(graph.createEdge("view").link(user, item));
-                    }
-                })
-                .then(() => {
-                    if (users.indexOf(user_id) <= -1) reject("user does not in graph");
-                })
-                .then(() => {
-                    let user = graph
-                        .nodes("user")
-                        .query()
-                        .filter({id: user_id})
-                        .first();
-                    let results = graph.closest(user, {
-                        compare: function (node) {
-                            return node.entity === "item";
-                        },
-                        minDepth: 3,
-                        count: maxSimilarDocuments
-                    });
-                    // results is now an array of Paths, which are each traces from your starting node to your result node...
-                    let resultNodes = results.map(function (path) {
-                        return path.end();
-                    });
-                    resolve(resultNodes);
-                });
+            resolve(output);
         });
     },
 
@@ -344,31 +260,12 @@ module.exports = {
             resolve(avg_user);
         });
     },
-
-    sort(arr) {
-        return new Promise(function (resolve, reject) {
-            resolve(arr.sort(compare));
-        });
-    }
 };
-
-function compare(a, b) {
-    const ratingA = a.score;
-    const ratingB = b.score;
-    let comparison = 0;
-    if (ratingA > ratingB) {
-        comparison = -1;
-    } else if (ratingA < ratingB) {
-        comparison = 1;
-    }
-    return comparison;
-}
 
 function doAlgorithms(user_id, item_id) {
     return Promise.all([
         new Promise(function (resolve, reject) {
-            module.exports
-                .getContentBasedResult(item_id)
+            module.exports.getContentBasedResult(item_id)
                 .then(cb_results => {
                     return resolve(cb_results);
                 })
@@ -378,8 +275,7 @@ function doAlgorithms(user_id, item_id) {
         }),
 
         new Promise(function (resolve, reject) {
-            module.exports
-                .getCollaborativeFilteringResult(user_id)
+            module.exports.getCollaborativeFilteringResult(user_id)
                 .then(cf_results => {
                     return resolve(cf_results);
                 })
@@ -392,11 +288,9 @@ function doAlgorithms(user_id, item_id) {
 
 function joinAndReturn(user_id, item_id) {
     let done = false;
-    let result = [], unique_arr = [], output = [];
+    let result = [], unique_arr = [], output = [], w = 0.3;
     doAlgorithms(user_id, item_id).then(results => {
-        // result.push(results[0]);
-        // result.push(results[1]);
-        let cb_results = results[1], cf_results = results[2];
+        let cb_results = results[0], cf_results = results[1];
         cb_results.forEach(cb_item => {
             if (unique_arr.indexOf(cb_item.id) <= -1)
                 unique_arr.push(cb_item.id);
@@ -421,12 +315,13 @@ function joinAndReturn(user_id, item_id) {
             }
             output.push({
                 id: u_item,
-                score: (weight * cb_score + cf_score) / (weight + 1)
-            })
+                score: (w * cb_score + cf_score) / (w + 1)
+            });
         });
         sort(output).then(r => {
-            if (result.length > 10)
+            if (r.length > 10)
                 result = r.splice(0, 10);
+            else result = r;
         });
         done = true;
     });
@@ -434,4 +329,22 @@ function joinAndReturn(user_id, item_id) {
         return !done;
     });
     return result;
+}
+
+function sort(arr) {
+    return new Promise(function (resolve, reject) {
+        resolve(arr.sort(compare));
+    });
+}
+
+function compare(a, b) {
+    const ratingA = a.score;
+    const ratingB = b.score;
+    let comparison = 0;
+    if (ratingA > ratingB) {
+        comparison = -1;
+    } else if (ratingA < ratingB) {
+        comparison = 1;
+    }
+    return comparison;
 }
