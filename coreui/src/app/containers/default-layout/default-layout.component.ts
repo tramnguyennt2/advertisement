@@ -126,4 +126,9 @@ export class DefaultLayoutComponent{
     let btnSearch = document.getElementById('btn-search');
     btnSearch.click();
   }
+
+  onEnterLogin(){
+    let btnLogin = document.getElementById('btn-login');
+    btnLogin.click();
+  }
 }

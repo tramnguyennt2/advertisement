@@ -43,18 +43,18 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
-          <strong>Quản lý quảng cáo</strong>
+          <strong>Quản lý rao vặt</strong>
         </div>
         <a class="dropdown-item" [routerLink]="['/manage-ad']">
-          <i class="fa fa-th-list"></i> Quảng cáo đã đăng</a>
+          <i class="fa fa-th-list"></i> Tin đã đăng</a>
         <div class="dropdown-header text-center bg-dark">
           <strong>Tài khoản</strong>
         </div>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" [routerLink]="['/user-information']">
           <i class="fa fa-drivers-license-o"></i> Cập nhật thông tin</a>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" (click)="changePasswwordModal.show()" style="cursor: pointer">
           <i class="fa fa-pencil"></i> Đổi mật khẩu</a>
-        <a class="dropdown-item" (click)="logoutModal.show()">
+        <a class="dropdown-item" (click)="logoutModal.show()" style="cursor: pointer">
           <i class="fa fa-sign-out"></i> Đăng xuất</a>
       </div>
     </li>
@@ -69,7 +69,7 @@
 </div>
 <app-footer>
   <span>
-    <a href="https://coreui.io">SbThings</a> &copy; 2018</span>
+    <a href="/">SbThings</a> &copy; 2018</span>
 </app-footer>
 
 <div bsModal id="login-modal" #loginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -96,7 +96,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password">
+          <input class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password" (keyup.enter)="onEnterLogin()">
         </div>
         <div *ngIf="errorLoginData" class="input-group mb-4 text-danger">
           Email hoặc mật khẩu không đúng!
@@ -106,7 +106,7 @@
           <a href="#" (click)="loginModal.hide(); registerModal.show();">Đăng ký ngay</a>
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="loginModal.hide()">Hủy</button>
-            <button class="btn btn-primary ml-auto" (click)="login()">Đăng nhập</button>
+            <button id="btn-login" class="btn btn-primary ml-auto" (click)="login()">Đăng nhập</button>
           </div>
         </div>
       </div>
@@ -229,6 +229,51 @@
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="logoutModal.hide()">Hủy</button>
             <button class="btn btn-danger" (click)="logout(); logoutModal.hide();">Đăng xuất</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="change-passwword-modal" #changePasswwordModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đổi mật khẩu</h4>
+        <button type="button" class="close" (click)="changePasswwordModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu cũ...">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu mới...">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Xác nhận mật khẩu mới...">
+        </div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="changePasswwordModal.hide()">Hủy</button>
+            <button id="btn-change-password" class="btn btn-primary ml-auto">Lưu</button>
           </div>
         </div>
       </div>

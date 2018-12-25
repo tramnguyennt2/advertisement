@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender/recommender.js" beforeDir="false" afterPath="$PROJECT_DIR$/recommender/recommender.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,92 +76,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="evaluation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rs-result.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evaluation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/evaluation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="179" column="39" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="39" />
+            <state relative-caret-position="215">
+              <caret line="137" column="66" selection-start-line="137" selection-start-column="32" selection-end-line="137" selection-end-column="66" />
               <folding>
-                <element signature="e#925#2671#0" />
-                <element signature="e#2706#4454#0" />
-                <element signature="e#4492#6497#0" />
-                <element signature="e#6536#8353#0" />
-                <element signature="e#7464#7465#0" expanded="true" />
-                <element signature="e#7560#7561#0" expanded="true" />
-                <element signature="e#9319#9320#0" expanded="true" />
-                <element signature="e#9414#9415#0" expanded="true" />
+                <element signature="e#8285#8286#0" expanded="true" />
+                <element signature="e#8388#8389#0" expanded="true" />
+                <element signature="e#8646#8647#0" expanded="true" />
+                <element signature="e#8749#8750#0" expanded="true" />
+                <element signature="e#9749#9750#0" expanded="true" />
+                <element signature="e#9821#9822#0" expanded="true" />
+                <element signature="e#9986#9987#0" expanded="true" />
+                <element signature="e#10028#10029#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="acs_evaluation_route.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
+      <file leaf-file-name="recommender.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/recommender/recommender.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="272" column="33" lean-forward="true" selection-start-line="272" selection-start-column="33" selection-end-line="272" selection-end-column="33" />
+            <state relative-caret-position="64">
+              <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
               <folding>
-                <element signature="e#1172#1379#0" />
-                <element signature="e#1442#1549#0" />
-                <element signature="e#1613#1891#0" />
-                <element signature="e#1954#2238#0" />
-                <element signature="e#2302#2588#0" />
-                <element signature="e#2652#2938#0" />
-                <element signature="e#2641#4960#0" />
-                <element signature="e#5016#7338#0" />
-                <element signature="e#5964#5965#0" expanded="true" />
-                <element signature="e#6129#6130#0" expanded="true" />
-                <element signature="e#7395#9946#0" />
+                <element signature="e#510#2158#0" />
+                <element signature="e#2234#5144#0" />
+                <element signature="e#4484#4485#0" expanded="true" />
+                <element signature="e#4626#4627#0" expanded="true" />
+                <element signature="e#9430#10296#0" />
+                <element signature="e#10365#12107#0" />
+                <element signature="e#12170#14387#0" />
+                <element signature="e#14433#15212#0" />
+                <element signature="n#!!block;n#joinAndReturn#0" />
+                <element signature="e#18094#18095#0" expanded="true" />
+                <element signature="e#18136#18137#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="result_ad_hybrid2.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid2.txt">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_getTokensFromString</find>
-      <find>striptags</find>
-      <find>Nội ngoại thất, Đồ gia dụng</find>
-      <find>save</find>
-      <find>base/card</find>
-      <find>@core</find>
-      <find>find</find>
-      <find>findPlugin</find>
-      <find>pouchdb</find>
-      <find>global</find>
-      <find>in</find>
-      <find>center</find>
-      <find>justify-content-center</find>
-      <find>: 10</find>
-      <find>10</find>
-      <find>createReadStream</find>
-      <find>pred</find>
-      <find>ContentBased</find>
-      <find>evaluation-gra</find>
-      <find>&quot;user-250</find>
-      <find>&quot;user-250&quot;:</find>
-      <find>docTestFileForCF</find>
+      <find>966</find>
+      <find>2	1162</find>
+      <find>8	243</find>
+      <find>&quot;8&quot;</find>
+      <find>2	1706</find>
+      <find>&quot;2&quot;</find>
+      <find>9	1706</find>
+      <find>9	1466</find>
+      <find>&quot;9&quot;</find>
+      <find>11	1773</find>
+      <find>&quot;11&quot;</find>
+      <find>12	1529</find>
+      <find>&quot;12&quot;</find>
+      <find>13	1425</find>
+      <find>&quot;13&quot;</find>
+      <find>17</find>
+      <find>17	1162</find>
+      <find>&quot;17&quot;</find>
+      <find>26	1466</find>
+      <find>&quot;26&quot;</find>
+      <find>30	648</find>
+      <find>30	1381</find>
+      <find>31	322</find>
+      <find>&quot;30&quot;</find>
+      <find>&quot;311&quot;:</find>
+      <find>forEach</find>
+      <find>sort</find>
+      <find>module.expo</find>
+      <find>filter</find>
       <find>console.lo</find>
-      <find>readUserStream</find>
-      <find>router</find>
-      <find>module.ex</find>
-      <find>file</find>
-      <find>parse</find>
-      <find>460</find>
-      <find>neighbor_num</find>
     </findStrings>
     <replaceStrings>
       <replace>item</replace>
       <replace>1000000</replace>
       <replace>Nội ngoại thất</replace>
       <replace>6.1.10</replace>
+      <replace>&quot;8&quot;</replace>
+      <replace>&quot;9&quot;</replace>
+      <replace>&quot;11&quot;</replace>
+      <replace>&quot;12&quot;</replace>
+      <replace>&quot;13&quot;</replace>
+      <replace>&quot;17&quot;</replace>
+      <replace>&quot;26&quot;</replace>
+      <replace>&quot;30&quot;</replace>
+      <replace>&quot;2&quot;</replace>
+      <replace>&quot;31&quot;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\huyen\WebstormProjects\advertisement\coreui</dir>
@@ -176,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/coreui/src/app/components/all-items/all-items.component.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/scss/_custom.scss" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/item/item.component.scss" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/all-items/all-items.component.html" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.ts" />
@@ -185,19 +202,16 @@
         <option value="$PROJECT_DIR$/import/data/item_import_2.txt" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/services/solr.service.ts" />
-        <option value="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" />
         <option value="$PROJECT_DIR$/evaluation/recommender_evaluation.js" />
         <option value="$PROJECT_DIR$/evaluation/results/result_ml.txt" />
         <option value="$PROJECT_DIR$/evaluation/test/user_test.user" />
         <option value="$PROJECT_DIR$/evaluation/results/result_ua.txt" />
         <option value="$PROJECT_DIR$/recommender/CBR.js" />
         <option value="$PROJECT_DIR$/evaluation/train/user_ad_train.user" />
-        <option value="$PROJECT_DIR$/recommender/content-based-recommender/lib/ContentBasedRecommender.js" />
         <option value="$PROJECT_DIR$/evaluation/train/doc_train_ad_cf.txt" />
         <option value="$PROJECT_DIR$/evaluation/train/doc_train_ad.txt" />
         <option value="$PROJECT_DIR$/evaluation/train/ad_train.base" />
         <option value="$PROJECT_DIR$/evaluation/test/doc_test_ad_json.json" />
-        <option value="$PROJECT_DIR$/recommender/recommender.js" />
         <option value="$PROJECT_DIR$/route.js" />
         <option value="$PROJECT_DIR$/evaluation/test/ad_test.test" />
         <option value="$PROJECT_DIR$/evaluation/test/doc_test_ad.txt" />
@@ -209,24 +223,29 @@
         <option value="$PROJECT_DIR$/handle_file.js" />
         <option value="$PROJECT_DIR$/router/e_mls_router.js" />
         <option value="$PROJECT_DIR$/router/e_route.js" />
-        <option value="$PROJECT_DIR$/router/router.js" />
         <option value="$PROJECT_DIR$/router.js" />
         <option value="$PROJECT_DIR$/router/mls_evaluation_route.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/utils/handle_file.js" />
         <option value="$PROJECT_DIR$/evaluation/train/movielens/user_train_ua.user" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad.user" />
-        <option value="$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train.base" />
         <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad.txt" />
         <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf.txt" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test" />
         <option value="$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad.txt" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user" />
         <option value="$PROJECT_DIR$/import/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid.txt" />
+        <option value="$PROJECT_DIR$/recommender/content-based-recommender/lib/ContentBasedRecommender.js" />
+        <option value="$PROJECT_DIR$/recommender/comparision.js" />
+        <option value="$PROJECT_DIR$/router/router.js" />
+        <option value="$PROJECT_DIR$/router/comparision.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad.user" />
+        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user" />
+        <option value="$PROJECT_DIR$/utils/handle_file.js" />
+        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train.base" />
+        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test" />
+        <option value="$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js" />
         <option value="$PROJECT_DIR$/router/acs_evaluation_route.js" />
         <option value="$PROJECT_DIR$/evaluation/evaluation.js" />
+        <option value="$PROJECT_DIR$/recommender/recommender.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" />
       </list>
     </option>
   </component>
@@ -283,7 +302,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,28 +314,11 @@
               <item name="advertisement" type="462c0819:PsiDirectoryNode" />
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="adclicks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -331,22 +332,22 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/import/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/coreui/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/evaluation/train" />
-      <recent name="$PROJECT_DIR$/recommender" />
-      <recent name="D:\Thesis\advertisement\import\data" />
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/router" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/evaluation/train/movielens" />
       <recent name="$PROJECT_DIR$/evaluation/train/adclicks" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\evaluation\test\adclicks" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/evaluation/train" />
+      <recent name="$PROJECT_DIR$/recommender" />
+      <recent name="D:\Thesis\advertisement\import\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -542,20 +543,15 @@
       <workItem from="1544149739418" duration="13243000" />
       <workItem from="1544171736803" duration="3419000" />
       <workItem from="1544408576122" duration="261000" />
-    </task>
-    <task id="LOCAL-00040" summary="search">
-      <created>1535017273191</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1535017273206</updated>
-    </task>
-    <task id="LOCAL-00041" summary="content-based rs">
-      <created>1535963785912</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1535963785912</updated>
+      <workItem from="1544745260325" duration="138000" />
+      <workItem from="1545061976440" duration="3029000" />
+      <workItem from="1545101054569" duration="8645000" />
+      <workItem from="1545186335215" duration="19521000" />
+      <workItem from="1545269844756" duration="11638000" />
+      <workItem from="1545452974282" duration="1195000" />
+      <workItem from="1545473423772" duration="1722000" />
+      <workItem from="1545475576042" duration="94000" />
+      <workItem from="1545714209314" duration="7546000" />
     </task>
     <task id="LOCAL-00042" summary="add cf recommender">
       <created>1536051491206</created>
@@ -886,66 +882,68 @@
       <option name="project" value="LOCAL" />
       <updated>1544529579239</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="comparision">
+      <created>1544745379602</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1544745379602</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1545319458359</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1545319458388</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="622549000" />
+    <option name="totallyTimeSpent" value="682208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13284865" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5043668" side_tool="true" weight="0.4288703" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49563318" weight="0.32909605" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37570623" />
       <window_info id="npm" order="6" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49563318" visible="true" weight="0.3079096" />
+      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1473893" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2960251" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49563318" visible="true" weight="0.22740114" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925596" weight="0.39871383" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37570623" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49563318" weight="0.43841335" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5043668" side_tool="true" weight="0.4288703" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15065502" />
-      <window_info id="npm" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49563318" visible="true" weight="0.3294979" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.2960251" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925596" weight="0.39871383" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37714285" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37714285" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="4" />
@@ -954,21 +952,22 @@
       <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29519773" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1903503" />
       <window_info id="npm" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.30932203" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1903503" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29714286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
@@ -1021,7 +1020,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="search url&#10;todo: insert data in new.json, run npm install" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts" />
     <MESSAGE value="re-arrange components" />
     <MESSAGE value="fix dropdown" />
@@ -1043,59 +1041,18 @@
     <MESSAGE value="Sửa hiển thị sidebar" />
     <MESSAGE value="update dữ liệu import" />
     <MESSAGE value="get token item mới" />
-    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
     <MESSAGE value="restruct nodejs server" />
     <MESSAGE value="add hybrid graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="add hybrid graph" />
+    <MESSAGE value="comparision" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/evaluation/results/results.json" />
-    <entry file="file://$PROJECT_DIR$/evaluation/results/results_graph.json" />
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/rs.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/solr.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/result.txt" />
-    <entry file="file://$PROJECT_DIR$/evaluation/test/movielens/user_test.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/movielens/doc_test_ua.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13857" selection-start-column="13857" selection-end-column="13857" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/test.test" />
-    <entry file="file://$PROJECT_DIR$/evaluation/train/user_train.user" />
     <entry file="file://$PROJECT_DIR$/evaluation/train/train.base" />
     <entry file="file://$PROJECT_DIR$/evaluation/train/doc_train.txt" />
     <entry file="file://$PROJECT_DIR$/evaluation/train/movielens/doc_train_ua.txt">
@@ -1128,106 +1085,17 @@
     <entry file="file://$PROJECT_DIR$/evaluation/train/movielens/doc_train_ml.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/results/result_ad.txt" />
-    <entry file="file://$PROJECT_DIR$/recommender/redundant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-214" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/recommender_evaluation.js" />
-    <entry file="file://$PROJECT_DIR$/recommender/content-based-recommender/lib/ContentBasedRecommender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/test/doc_test_ad_cf.txt" />
     <entry file="file://$PROJECT_DIR$/evaluation/test/doc_test_ad_json.json" />
     <entry file="file://$PROJECT_DIR$/evaluation/test/movielens/doc_test.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/recommender/recommender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="153" column="4" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/mls_evaluation_route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/handle_file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/train/movielens/user_train_ua.user">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="942" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/ad_train.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1245,10 +1113,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_graph.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recommender/redundant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recommender/content-based-recommender/lib/ContentBasedRecommender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="160" column="35" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad.user">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret column="502" lean-forward="true" selection-start-column="502" selection-end-column="502" />
+        <state relative-caret-position="187">
+          <caret column="1730" selection-start-column="1730" selection-end-column="1730" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/csv-parse/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="259" selection-start-line="259" selection-end-line="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_2 - Copy.test" />
+    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_2.test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="15" lean-forward="true" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="145" selection-start-column="145" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/ad_train.base">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="280" lean-forward="true" selection-start-line="280" selection-end-line="280" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/handle_file.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1259,62 +1207,168 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf.txt">
+    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="8" selection-end-column="12" />
+        <state relative-caret-position="68">
+          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_cb.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret column="4471" selection-start-column="4471" selection-end-column="4471" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-column="17" />
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_graph.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="272" column="33" lean-forward="true" selection-start-line="272" selection-start-column="33" selection-end-line="272" selection-end-column="33" />
+        <state relative-caret-position="408">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/comparision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
-            <element signature="e#1172#1379#0" />
-            <element signature="e#1442#1549#0" />
-            <element signature="e#1613#1891#0" />
-            <element signature="e#1954#2238#0" />
-            <element signature="e#2302#2588#0" />
-            <element signature="e#2652#2938#0" />
-            <element signature="e#2641#4960#0" />
-            <element signature="e#5016#7338#0" />
-            <element signature="e#5964#5965#0" expanded="true" />
-            <element signature="e#6129#6130#0" expanded="true" />
-            <element signature="e#7395#9946#0" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/router/mls_evaluation_route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!block;n#compare#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/all-items/all-items.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recommender/comparision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+          <folding>
+            <element signature="e#1476#1477#0" expanded="true" />
+            <element signature="e#1530#1531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/rs.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/evaluation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="179" column="39" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="39" />
+        <state relative-caret-position="215">
+          <caret line="137" column="66" selection-start-line="137" selection-start-column="32" selection-end-line="137" selection-end-column="66" />
           <folding>
-            <element signature="e#925#2671#0" />
-            <element signature="e#2706#4454#0" />
-            <element signature="e#4492#6497#0" />
-            <element signature="e#6536#8353#0" />
-            <element signature="e#7464#7465#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
-            <element signature="e#9319#9320#0" expanded="true" />
-            <element signature="e#9414#9415#0" expanded="true" />
+            <element signature="e#8285#8286#0" expanded="true" />
+            <element signature="e#8388#8389#0" expanded="true" />
+            <element signature="e#8646#8647#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#9749#9750#0" expanded="true" />
+            <element signature="e#9821#9822#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10028#10029#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recommender/recommender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+          <folding>
+            <element signature="e#510#2158#0" />
+            <element signature="e#2234#5144#0" />
+            <element signature="e#4484#4485#0" expanded="true" />
+            <element signature="e#4626#4627#0" expanded="true" />
+            <element signature="e#9430#10296#0" />
+            <element signature="e#10365#12107#0" />
+            <element signature="e#12170#14387#0" />
+            <element signature="e#14433#15212#0" />
+            <element signature="n#!!block;n#joinAndReturn#0" />
+            <element signature="e#18094#18095#0" expanded="true" />
+            <element signature="e#18136#18137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
