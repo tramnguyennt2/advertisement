@@ -1,4 +1,4 @@
-const neighbor_num = 3;
+const neighbor_num = 4;
 
 module.exports = {
     normalizeDocsE(docs, user_arr) {
@@ -115,9 +115,6 @@ module.exports = {
                     }
                 }
                 item_need_to_recommends[user_id] = item_need_to_recommend;
-                if (user_id === '2') {
-                    console.log(item_need_to_recommend);
-                }
             }
             console.timeEnd("getItemNeedToRecommend");
             resolve(item_need_to_recommends);

@@ -56,7 +56,6 @@ router.get("/map-cf/", function (req, res, next) {
                     if (results[users[i]].length !== undefined) {
                         let recommendedItems = results[users[i]];
                         let k = recommendedItems.length;
-                        console.log(users[i], k);
                         let relevantItems = testData[users[i]];
                         let num_relevant = relevantItems.length;
                         let arr = [], precisions = [];
@@ -87,7 +86,6 @@ router.get("/map-cf/", function (req, res, next) {
                             ap += x;
                         });
                         total_ap += ap;
-                        console.log(users[i], ap);
                     }
                 }
                 map = total_ap / length;

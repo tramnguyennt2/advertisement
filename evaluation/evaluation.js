@@ -66,7 +66,16 @@ module.exports = {
                                         let user_id = users[i];
                                         let result = results[user_id];
                                         evaluation_cf.sortE(result, user_id).then(result => {
-                                            if (result.length > maxSimilarDocuments) result = result.splice(0, maxSimilarDocuments);
+                                            if (result.length > maxSimilarDocuments) {
+                                                result = result.splice(0, maxSimilarDocuments);
+                                            } else {
+                                                for (let i = result.length; i < maxSimilarDocuments; i++) {
+                                                    result.push({
+                                                        id: generateRandomNumber(1, 1000).toString(),
+                                                        score: 0
+                                                    })
+                                                }
+                                            }
                                             final_results[user_id] = result;
                                         });
                                     }
@@ -120,7 +129,7 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             // get unique item of user
             handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
-                let weight = 2;
+                let weight = 1.8;
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsCF).then(cfResultData => {
                     handle_file.readDocsFile(resultACsCB).then(cbResultData => {
@@ -237,4 +246,8 @@ function compare(a, b) {
         comparison = 1;
     }
     return comparison;
+}
+
+function generateRandomNumber(min_value, max_value) {
+    return Math.floor(Math.random() * (max_value - min_value + 1)) + min_value;
 }
