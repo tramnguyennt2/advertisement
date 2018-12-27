@@ -9,15 +9,12 @@ const userTrainFileMLs = "evaluation/train/movielens/user_train_ua.user";
 const userTrainFileACs = "evaluation/train/adclicks/user_train_ad.user";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
-// reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
 const docTrainFileMLs = "evaluation/train/movielens/doc_train_ua.txt";
-const docTrainFileACs = "evaluation/train/adclicks/doc_train_ad.txt";
 const docTrainFileAcsCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
 
 const maxSimilarDocuments = 10;
 
 const resultACsCF = "evaluation/results/adclicks/result_ad_cf.txt";
-const resultACsGraph = "evaluation/results/adclicks/result_ad_graph.txt";
 const resultACsCB = "evaluation/results/adclicks/result_cb.txt";
 
 module.exports = {
@@ -180,6 +177,40 @@ module.exports = {
                                 });
                             });
                         }
+                        setTimeout(function () {
+                            resolve(results);
+                        }, 60000);
+                    });
+                });
+            });
+        });
+    },
+
+    getCBEvaluation: function () {
+        return new Promise(function (resolve, reject) {
+            // get unique item of user
+            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
+                trainData = JSON.parse(JSON.stringify(trainData));
+                handle_file.readUserStream(userTrainFileACs).then(users => {
+                    handle_file.readDocsFile(resultACsCB).then(cbResultData => {
+                        cbResultData = JSON.parse(JSON.stringify(cbResultData));
+                        let results = {};
+                        users.forEach(user_id => {
+                            console.log(user_id);
+                            results[user_id] = [];
+                            let train_items = trainData[user_id];
+                            train_items.forEach(item => {
+                                let output = cbResultData[item.item][0];
+                                sort(output).then(result => {
+                                    if (result.length > 10)
+                                        result = result.splice(0, 10);
+                                    results[user_id].push({
+                                        item: item.item,
+                                        recommend_items: result
+                                    });
+                                });
+                            });
+                        });
                         setTimeout(function () {
                             resolve(results);
                         }, 60000);
