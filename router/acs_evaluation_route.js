@@ -9,29 +9,52 @@ const userTestFile = "evaluation/test/adclicks/user_ad_test.user";
 
 // ---------------------- SPLIT DATA FROM u1.test ------------------------
 const testAdFile = "evaluation/test/adclicks/ad_test.test";
+const testAdFile320 = "evaluation/test/adclicks/ad_test.test";
+const testAdFile240 = "evaluation/test/adclicks/ad_test.test";
+const testAdFile160 = "evaluation/test/adclicks/ad_test.test";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 const docTrainFile = "evaluation/train/adclicks/doc_train_ad.txt";
+const docTrainFile320 = "evaluation/train/adclicks/doc_train_ad_320.txt";
+const docTrainFile240 = "evaluation/train/adclicks/doc_train_ad_240.txt";
+const docTrainFile160 = "evaluation/train/adclicks/doc_train_ad_160.txt";
+
 const docTrainFileForCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
+const docTrainFileForCF320 = "evaluation/train/adclicks/doc_train_ad_cf_320.txt";
+const docTrainFileForCF240 = "evaluation/train/adclicks/doc_train_ad_cf_240.txt";
+const docTrainFileForCF160 = "evaluation/train/adclicks/doc_train_ad_cf_160.txt";
+
 const docTestFile = "evaluation/test/adclicks/doc_test_ad.txt";
+const docTestFile320 = "evaluation/test/adclicks/doc_test_ad_320.txt";
+const docTestFile240 = "evaluation/test/adclicks/doc_test_ad_240.txt";
+const docTestFile160 = "evaluation/test/adclicks/doc_test_ad_160.txt";
+
 const trainAdFile = "evaluation/train/adclicks/ad_train.base";
+const trainAdFile320 = "evaluation/train/adclicks/ad_train_320.base";
+const trainAdFile240 = "evaluation/train/adclicks/ad_train_240.base";
+const trainAdFile160 = "evaluation/train/adclicks/ad_train_160.base";
 
 // ---------------------- RESULT FILE ------------------------
 const resultAdClickFileCF = "evaluation/results/adclicks/result_ad_cf.txt";
-const resultAdClickFileGraph = "evaluation/results/adclicks/result_ad_graph.txt";
+const resultAdClickFileCF320 = "evaluation/results/adclicks/result_ad_cf_320.txt";
+const resultAdClickFileCF240 = "evaluation/results/adclicks/result_ad_cf_240.txt";
+const resultAdClickFileCF160 = "evaluation/results/adclicks/result_ad_cf_160.txt";
+
 const resultAdClickFileHybrid = "evaluation/results/adclicks/result_ad_hybrid.txt";
-const resultAdClickFileHybrid2 = "evaluation/results/adclicks/result_ad_hybrid2.txt";
+const resultAdClickFileHybrid320 = "evaluation/results/adclicks/result_ad_hybrid_320.txt";
+const resultAdClickFileHybrid240 = "evaluation/results/adclicks/result_ad_hybrid_240.txt";
+const resultAdClickFileHybrid160 = "evaluation/results/adclicks/result_ad_hybrid_160.txt";
 
 router.get("/read-ad-file", function (req, res, next) {
-    handle_file.readTrainACs(trainAdFile, docTrainFile).then(data => {
-        handle_file.readTrainACsCF(trainAdFile, docTrainFileForCF).then(data => {
+    handle_file.readTrainACs(trainAdFile160, docTrainFile160).then(data => {
+        handle_file.readTrainACsCF(trainAdFile160, docTrainFileForCF160).then(data => {
             res.send("Done!");
         });
     });
 });
 
 router.get("/read-ad-test-file", function (req, res, next) {
-    handle_file.readTrainACs(testAdFile, docTestFile).then(data => {
+    handle_file.readTrainACs(testAdFile160, docTestFile160).then(data => {
         res.send("Done!");
     });
 });
@@ -95,26 +118,6 @@ router.get("/map-cf/", function (req, res, next) {
                 res.send("map is " + map);
             }).catch(err => res.send(err));
         }).catch(err => res.send(err));
-    });
-});
-
-router.get("/evaluation-graph/", function (req, res, next) {
-    recommender_e.getGraphRecommend().then(result => {
-        res.send(result);
-        fs.writeFile(resultAdClickFileGraph, JSON.stringify(result), function (err) {
-            if (err) return console.log(err);
-            console.log("The file was saved!");
-        });
-    });
-});
-
-router.get("/evaluation-hybrid-2/", function (req, res, next) {
-    recommender_e.getHybridRecommend2().then(result => {
-        res.send(result);
-        fs.writeFile(resultAdClickFileHybrid2, JSON.stringify(result), function (err) {
-            if (err) return console.log(err);
-            console.log("The file was saved!");
-        });
     });
 });
 

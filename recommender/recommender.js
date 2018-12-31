@@ -7,10 +7,9 @@ const content_based = new ContentBasedRecommender({
     minScore: 0,
     debug: false
 });
-const ug = require("ug");
 const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
 const db = nano.use("advertisement");
-const neighbor_num = 3;
+const neighbor_num = 4;
 
 module.exports = {
     getContentBasedResult: function (item_id) {
@@ -273,7 +272,6 @@ function doAlgorithms(user_id, item_id) {
                     reject(new Error(err));
                 });
         }),
-
         new Promise(function (resolve, reject) {
             module.exports.getCollaborativeFilteringResult(user_id)
                 .then(cf_results => {

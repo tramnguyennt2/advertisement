@@ -7,18 +7,28 @@ const handle_file = require('../utils/handle_file');
 // ---------------------- USER FILE ------------------------
 const userTrainFileMLs = "evaluation/train/movielens/user_train_ua.user";
 const userTrainFileACs = "evaluation/train/adclicks/user_train_ad.user";
+const userTrainFileACs320 = "evaluation/train/adclicks/user_train_ad_320.user";
+const userTrainFileACs240 = "evaluation/train/adclicks/user_train_ad_240.user";
+const userTrainFileACs160 = "evaluation/train/adclicks/user_train_ad_160.user";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
-// reformat by user_id: [{item: "item", rating: "rating"}] of trainFile
 const docTrainFileMLs = "evaluation/train/movielens/doc_train_ua.txt";
-const docTrainFileACs = "evaluation/train/adclicks/doc_train_ad.txt";
 const docTrainFileAcsCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
+const docTrainFileAcsCF320 = "evaluation/train/adclicks/doc_train_ad_cf_320.txt";
+const docTrainFileAcsCF240 = "evaluation/train/adclicks/doc_train_ad_cf_240.txt";
+const docTrainFileAcsCF160 = "evaluation/train/adclicks/doc_train_ad_cf_160.txt";
 
 const maxSimilarDocuments = 10;
 
 const resultACsCF = "evaluation/results/adclicks/result_ad_cf.txt";
-const resultACsGraph = "evaluation/results/adclicks/result_ad_graph.txt";
+const resultACsCF320 = "evaluation/results/adclicks/result_ad_cf_320.txt";
+const resultACsCF240 = "evaluation/results/adclicks/result_ad_cf_240.txt";
+const resultACsCF160 = "evaluation/results/adclicks/result_ad_cf_160.txt";
+
 const resultACsCB = "evaluation/results/adclicks/result_cb.txt";
+const resultACsCB320 = "evaluation/results/adclicks/result_cb_360.txt";
+const resultACsCB240 = "evaluation/results/adclicks/result_cb_240.txt";
+const resultACsCB160 = "evaluation/results/adclicks/result_cb_160.txt";
 
 module.exports = {
     getCFResult: function () {
@@ -86,9 +96,9 @@ module.exports = {
     getContentBased: function () {
         return new Promise(function (resolve, reject) {
             let item_arr = [], cb = {};
-            handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
+            handle_file.readDocsFile(docTrainFileAcsCF320).then(trainData => {
                 trainData = JSON.parse(JSON.stringify(trainData));
-                handle_file.readUserStream(userTrainFileACs).then(users => {
+                handle_file.readUserStream(userTrainFileACs320).then(users => {
                     users.forEach(user => {
                         let items = trainData[user];
                         items.forEach(item => {
@@ -104,7 +114,7 @@ module.exports = {
                             recommender.getContentBasedResult("ad-" + item).then(cb_results => {
                                 count++;
                                 cb[item].push(cb_results);
-                                fs.writeFile(resultACsCB, JSON.stringify(cb), function (err) {
+                                fs.writeFile(resultACsCB320, JSON.stringify(cb), function (err) {
                                     if (err) {
                                         return console.log(err);
                                     }
@@ -123,7 +133,7 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             // get unique item of user
             handle_file.readDocsFile(docTrainFileAcsCF).then(trainData => {
-                let weight = 2;
+                let weight = 0.3;
                 trainData = JSON.parse(JSON.stringify(trainData));
                 handle_file.readDocsFile(resultACsCF).then(cfResultData => {
                     handle_file.readDocsFile(resultACsCB).then(cbResultData => {

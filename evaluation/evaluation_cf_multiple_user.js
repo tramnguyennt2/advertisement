@@ -1,4 +1,4 @@
-const neighbor_num = 3;
+const neighbor_num = 4;
 
 module.exports = {
     normalizeDocsE(docs, user_arr) {
