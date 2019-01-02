@@ -9,52 +9,41 @@ const userTestFile = "evaluation/test/adclicks/user_ad_test.user";
 
 // ---------------------- SPLIT DATA FROM u1.test ------------------------
 const testAdFile = "evaluation/test/adclicks/ad_test.test";
-const testAdFile320 = "evaluation/test/adclicks/ad_test.test";
-const testAdFile240 = "evaluation/test/adclicks/ad_test.test";
-const testAdFile160 = "evaluation/test/adclicks/ad_test.test";
+const testAdFile300 = "evaluation/test/adclicks/ad_test_300.test";
 
 // ----------------- REFORMAT TEST AND TRAINING FILE -------------------
 const docTrainFile = "evaluation/train/adclicks/doc_train_ad.txt";
-const docTrainFile320 = "evaluation/train/adclicks/doc_train_ad_320.txt";
-const docTrainFile240 = "evaluation/train/adclicks/doc_train_ad_240.txt";
-const docTrainFile160 = "evaluation/train/adclicks/doc_train_ad_160.txt";
+const docTrainFile300 = "evaluation/train/adclicks/doc_train_ad_300.txt";
 
 const docTrainFileForCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
-const docTrainFileForCF320 = "evaluation/train/adclicks/doc_train_ad_cf_320.txt";
-const docTrainFileForCF240 = "evaluation/train/adclicks/doc_train_ad_cf_240.txt";
-const docTrainFileForCF160 = "evaluation/train/adclicks/doc_train_ad_cf_160.txt";
+const docTrainFileForCF300 = "evaluation/train/adclicks/doc_train_ad_cf_300.txt";
 
 const docTestFile = "evaluation/test/adclicks/doc_test_ad.txt";
-const docTestFile320 = "evaluation/test/adclicks/doc_test_ad_320.txt";
-const docTestFile240 = "evaluation/test/adclicks/doc_test_ad_240.txt";
-const docTestFile160 = "evaluation/test/adclicks/doc_test_ad_160.txt";
+const docTestFile300 = "evaluation/test/adclicks/doc_test_ad_300.txt";
 
 const trainAdFile = "evaluation/train/adclicks/ad_train.base";
-const trainAdFile320 = "evaluation/train/adclicks/ad_train_320.base";
-const trainAdFile240 = "evaluation/train/adclicks/ad_train_240.base";
-const trainAdFile160 = "evaluation/train/adclicks/ad_train_160.base";
+const trainAdFile300 = "evaluation/train/adclicks/ad_train_300.base";
 
 // ---------------------- RESULT FILE ------------------------
 const resultAdClickFileCF = "evaluation/results/adclicks/result_ad_cf.txt";
-const resultAdClickFileCF320 = "evaluation/results/adclicks/result_ad_cf_320.txt";
-const resultAdClickFileCF240 = "evaluation/results/adclicks/result_ad_cf_240.txt";
-const resultAdClickFileCF160 = "evaluation/results/adclicks/result_ad_cf_160.txt";
+const resultAdClickFileCF300 = "evaluation/results/adclicks/result_ad_cf_300.txt";
+
+const resultAdClickFileCB = "evaluation/results/adclicks/result_ad_cb.txt";
+const resultAdClickFileCB300 = "evaluation/results/adclicks/result_ad_cb_300.txt";
 
 const resultAdClickFileHybrid = "evaluation/results/adclicks/result_ad_hybrid.txt";
-const resultAdClickFileHybrid320 = "evaluation/results/adclicks/result_ad_hybrid_320.txt";
-const resultAdClickFileHybrid240 = "evaluation/results/adclicks/result_ad_hybrid_240.txt";
-const resultAdClickFileHybrid160 = "evaluation/results/adclicks/result_ad_hybrid_160.txt";
+const resultAdClickFileHybrid300 = "evaluation/results/adclicks/result_ad_hybrid_300.txt";
 
 router.get("/read-ad-file", function (req, res, next) {
-    handle_file.readTrainACs(trainAdFile160, docTrainFile160).then(data => {
-        handle_file.readTrainACsCF(trainAdFile160, docTrainFileForCF160).then(data => {
+    handle_file.readTrainACs(trainAdFile300, docTrainFile300).then(data => {
+        handle_file.readTrainACsCF(trainAdFile300, docTrainFileForCF300).then(data => {
             res.send("Done!");
         });
     });
 });
 
 router.get("/read-ad-test-file", function (req, res, next) {
-    handle_file.readTrainACs(testAdFile160, docTestFile160).then(data => {
+    handle_file.readTrainACs(testAdFile300, docTestFile300).then(data => {
         res.send("Done!");
     });
 });
@@ -62,7 +51,7 @@ router.get("/read-ad-test-file", function (req, res, next) {
 router.get("/evaluation-cf-acs/", function (req, res, next) {
     recommender_e.getCFResultACs().then(result => {
         res.send(result);
-        fs.writeFile(resultAdClickFileCF, JSON.stringify(result), function (err) {
+        fs.writeFile(resultAdClickFileCF300, JSON.stringify(result), function (err) {
             if (err) return console.log(err);
             console.log("The file was saved!");
         });
@@ -70,17 +59,16 @@ router.get("/evaluation-cf-acs/", function (req, res, next) {
 });
 
 router.get("/map-cf/", function (req, res, next) {
-    handle_file.readUserStream(userTestFile).then(users => {
-        handle_file.readDocsFile(resultAdClickFileCF).then(d => {
+    handle_file.readUserStream(userTestFile300).then(users => {
+        handle_file.readDocsFile(resultAdClickFileCF300).then(d => {
             let results = JSON.parse(JSON.stringify(d));
             let total_ap = 0, map = 0, length = 0;
-            handle_file.readDocsFile(docTestFile).then(d => {
+            handle_file.readDocsFile(docTestFile300).then(d => {
                 let testData = JSON.parse(JSON.stringify(d));
                 for (let i = 0; i < users.length; i++) {
                     if (results[users[i]].length !== undefined) {
                         let recommendedItems = results[users[i]];
                         let k = recommendedItems.length;
-                        console.log(users[i], k);
                         let relevantItems = testData[users[i]];
                         let num_relevant = relevantItems.length;
                         let arr = [], precisions = [];
@@ -111,7 +99,6 @@ router.get("/map-cf/", function (req, res, next) {
                             ap += x;
                         });
                         total_ap += ap;
-                        console.log(users[i], ap);
                     }
                 }
                 map = total_ap / length;
@@ -121,28 +108,28 @@ router.get("/map-cf/", function (req, res, next) {
     });
 });
 
-router.get("/evaluation-cb/", function (req, res, next) {
+router.get("/get-cb-result/", function (req, res, next) {
     recommender_e.getContentBased().then(result => {
         res.send(result);
     });
 });
 
-router.get("/evaluation-hybrid/", function (req, res, next) {
-    recommender_e.getHybridRecommend().then(result => {
+router.get("/evaluation-cb/", function (req, res, next) {
+    recommender_e.getCBEvaluation().then(result => {
         res.send(result);
-        fs.writeFile(resultAdClickFileHybrid, JSON.stringify(result), function (err) {
+        fs.writeFile(resultAdClickFileCB300, JSON.stringify(result), function (err) {
             if (err) return console.log(err);
             console.log("The file was saved!");
         });
     });
 });
 
-router.get("/map-hybrid/", function (req, res, next) {
+router.get("/map-cb/", function (req, res, next) {
     handle_file.readUserStream(userTestFile).then(users => {
-        handle_file.readDocsFile(resultAdClickFileHybrid).then(d => {
+        handle_file.readDocsFile(resultAdClickFileCB300).then(d => {
             let results = JSON.parse(JSON.stringify(d));
             let total_ap = 0, map = 0;
-            handle_file.readDocsFile(docTestFile).then(d => {
+            handle_file.readDocsFile(docTestFile300).then(d => {
                 let testData = JSON.parse(JSON.stringify(d));
                 for (let i = 0; i < users.length; i++) {
                     let user_id = users[i];
@@ -163,7 +150,6 @@ router.get("/map-hybrid/", function (req, res, next) {
                             if (flag === 0) arr.push(0);
                             else arr.push(1);
                         }
-
                         let min = num_relevant;
                         if (num_relevant > k) min = k;
                         for (let a = 0; a < arr.length; a++) {
@@ -183,6 +169,86 @@ router.get("/map-hybrid/", function (req, res, next) {
                         sub += ap;
                     });
                     total_ap += sub / items.length;
+                }
+                map = total_ap / users.length;
+                res.send("map is " + map);
+            }).catch(err => res.send(err));
+        }).catch(err => res.send(err));
+    });
+});
+
+router.get("/evaluation-hybrid/", function (req, res, next) {
+    recommender_e.getHybridRecommend().then(result => {
+        res.send(result);
+        fs.writeFile(resultAdClickFileHybrid300, JSON.stringify(result), function (err) {
+            if (err) return console.log(err);
+            console.log("The file was saved!");
+        });
+    });
+});
+
+router.get("/map-hybrid/", function (req, res, next) {
+    handle_file.readUserStream(userTestFile).then(users => {
+        handle_file.readDocsFile(resultAdClickFileHybrid300).then(d => {
+            let results = JSON.parse(JSON.stringify(d));
+            let total_ap = 0, map = 0;
+            handle_file.readDocsFile(docTestFile300).then(d => {
+                let testData = JSON.parse(JSON.stringify(d));
+                for (let i = 0; i < users.length; i++) {
+                    let user_id = users[i];
+                    let sub = 0;
+                    let union_items = {};
+                    let items = results[user_id];
+                    let relevantItems = testData[user_id];
+                    if(relevantItems !== undefined){
+                        let num_relevant = relevantItems.length;
+                        items.forEach(item => {
+                            let recommendedItems = item.recommend_items;
+                            let k = recommendedItems.length;
+                            if (user_id === "11") {
+                                recommendedItems.forEach(item => {
+                                    if (!(item.id in union_items)) {
+                                        union_items[item.id] = 1;
+                                    } else {
+                                        union_items[item.id]++;
+                                    }
+                                });
+                            }
+                            let arr = [], precisions = [];
+                            for (let j = 0; j < k; j++) {
+                                let flag = 0;
+                                relevantItems.forEach(item => {
+                                    if ('ad-' + item.clicked_ad === recommendedItems[j].id || 'ad-' + item.viewed_ad === recommendedItems[j].id)
+                                        flag = 1;
+                                });
+                                if (flag === 0) arr.push(0);
+                                else arr.push(1);
+                            }
+
+                            let min = num_relevant;
+                            if (num_relevant > k) min = k;
+                            for (let a = 0; a < arr.length; a++) {
+                                if (arr[a] === 0) precisions.push(0);
+                                else {
+                                    let temp_arr = arr.slice(0, a + 1);
+                                    let count = temp_arr.filter(x => {
+                                        return x === 1;
+                                    }).length;
+                                    precisions.push((count / (a + 1)) * (1 / min));
+                                }
+                            }
+                            let ap = 0;
+                            precisions.forEach(x => {
+                                ap += x;
+                            });
+                            sub += ap;
+                        });
+                    }
+                    console.log(user_id, sub / items.length);
+                    total_ap += sub / items.length;
+                    if (user_id === "11") {
+                        console.log("union_items", union_items);
+                    }
                 }
                 map = total_ap / users.length;
                 res.send("map is " + map);
