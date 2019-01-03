@@ -1,5 +1,9 @@
 const fs = require("fs");
 const parse = require("csv-parse");
+const docTrainFileAcsCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
+
+const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const db = nano.use("advertisement");
 
 module.exports = {
     readUserStream(filename) {
@@ -67,7 +71,7 @@ module.exports = {
                                     flag1 = 1;
                                 }
                                 if (item.item === data[2]) {
-                                    item.rating ++;
+                                    item.rating++;
                                     flag2 = 1;
                                 }
                             });
@@ -135,6 +139,26 @@ module.exports = {
                 console.timeEnd("readAdFile");
                 resolve(docs);
             });
+        });
+    },
+
+    importData(file) {
+        return new Promise(function (resolve, reject) {
+            module.exports.readDocsFile(docTrainFileAcsCF).then(trainData => {
+                trainData = JSON.parse(JSON.stringify(trainData));
+                for (let user in trainData) {
+                    let items = trainData[user];
+                    items.forEach(item => {
+                        db.insert({
+                            user_id: "user-" + user,
+                            item_id: "ad-" + item.item,
+                            rating: item.rating,
+                            type: "rating"
+                        }).then(res => console.log(res)).catch(err => reject(err));
+                    })
+                }
+                resolve("Done");
+            }).catch(err => reject(err));
         });
     }
 };

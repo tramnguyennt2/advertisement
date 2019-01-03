@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {RsService} from "../../services/rs.service";
 import {ItemService} from "../../services/item.service";
 import {CookieService} from "ngx-cookie-service";
@@ -49,20 +49,32 @@ export class RsResultComponent implements OnInit {
       });
     } else {
       //------------------CB-----------------
-      this.saveUserBehavior(this.item_id, user_id).then(() => {
-        this.items = [];
-        this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
-          this.getItemRecommended(items_rs).then(items => {
-            for (let i = 0; i < items.length; i++) {
-              let item = new Item();
-              item.setItem(items[i]);
-              this.items.push(item);
-              //this.images.push(items[i].image);
-            }
-          })
-        );
-      });
+      // nho comment cho save user
+      this.items = [];
+      this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
+        this.getItemRecommended(items_rs).then(items => {
+          for (let i = 0; i < items.length; i++) {
+            let item = new Item();
+            item.setItem(items[i]);
+            this.items.push(item);
+            //this.images.push(items[i].image);
+          }
+        })
+      );
     }
+    // this.saveUserBehavior(this.item_id, user_id).then(() => {
+    //   this.items = [];
+    //   this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
+    //     this.getItemRecommended(items_rs).then(items => {
+    //       for (let i = 0; i < items.length; i++) {
+    //         let item = new Item();
+    //         item.setItem(items[i]);
+    //         this.items.push(item);
+    //         //this.images.push(items[i].image);
+    //       }
+    //     })
+    //   );
+    // });
   }
 
   async getItemRecommended(items_rs) {

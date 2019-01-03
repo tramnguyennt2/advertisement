@@ -48,6 +48,12 @@ router.get("/read-ad-test-file", function (req, res, next) {
     });
 });
 
+router.get("/import", function (req, res, next) {
+    handle_file.importData(docTrainFileForCF).then(done => {res.send(done);}).catch(err => {
+        res.send(err);
+    });
+});
+
 router.get("/evaluation-cf-acs/", function (req, res, next) {
     recommender_e.getCFResultACs().then(result => {
         res.send(result);
