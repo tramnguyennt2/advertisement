@@ -25,16 +25,6 @@ export class RsResultComponent implements OnInit {
     if (user_id !== '') { // user is login
       this.saveUserBehavior(this.item_id, user_id).then(() => {
         this.items = [];
-        //------------------CF-----------------
-        // this.rsService.getItemCollaborativeFiltering(user_id).subscribe(items_rs =>
-        //   this.getItemRecommended(items_rs).then(items => {
-        //     for (let i = 0; i < items.length; i++) {
-        //       let item = new Item();
-        //       item.setItem(items[i]);
-        //       this.items.push(item);
-        //     }
-        //   })
-        // );
         //------------------HB-----------------
         this.rsService.getHybridMethod(user_id, this.item_id).subscribe(items_rs => {
           this.getItemRecommended(items_rs).then(items => {
@@ -49,7 +39,6 @@ export class RsResultComponent implements OnInit {
       });
     } else {
       //------------------CB-----------------
-      // nho comment cho save user
       this.items = [];
       this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
         this.getItemRecommended(items_rs).then(items => {
