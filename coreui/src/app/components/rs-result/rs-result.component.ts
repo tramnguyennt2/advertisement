@@ -92,17 +92,16 @@ export class RsResultComponent implements OnInit {
 
   saveUserBehavior(item_id, user_id) {
     return new Promise((resolve, reject) => {
-        this.rating = new UserBehavior(user_id, item_id);
-        this.itemService.getItemOfRating(this.rating).subscribe(rating => {
-          if (rating === null) {
-            this.itemService.add(this.rating);
-          } else {
-            this.itemService.updateRating(rating);
-          }
-        });
-        resolve("Done");
-      }
-    );
+      this.rating = new UserBehavior(user_id, item_id);
+      this.itemService.getItemOfRating(this.rating).subscribe(rating => {
+        if (rating === null) {
+          this.itemService.add(this.rating);
+        } else {
+          this.itemService.updateRating(rating);
+        }
+      });
+      resolve("Done");
+    });
   }
 
   getUrlImg(id) {
@@ -113,6 +112,5 @@ export class RsResultComponent implements OnInit {
         return url;
       }
     });
-    //return url;
   }
 }
