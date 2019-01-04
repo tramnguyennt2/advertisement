@@ -34,6 +34,8 @@ const resultAdClickFileCB300 = "evaluation/results/adclicks/result_ad_cb_300.txt
 const resultAdClickFileHybrid = "evaluation/results/adclicks/result_ad_hybrid.txt";
 const resultAdClickFileHybrid300 = "evaluation/results/adclicks/result_ad_hybrid_300.txt";
 
+const importFile = "rating.json";
+
 router.get("/read-ad-file", function (req, res, next) {
     handle_file.readTrainACs(trainAdFile300, docTrainFile300).then(data => {
         handle_file.readTrainACsCF(trainAdFile300, docTrainFileForCF300).then(data => {
@@ -49,7 +51,7 @@ router.get("/read-ad-test-file", function (req, res, next) {
 });
 
 router.get("/import", function (req, res, next) {
-    handle_file.importData(docTrainFileForCF).then(done => {res.send(done);}).catch(err => {
+    handle_file.importData(importFile).then(done => {res.send(done);}).catch(err => {
         res.send(err);
     });
 });

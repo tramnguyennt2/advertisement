@@ -116,7 +116,7 @@ module.exports = {
 
     getHybridRecommend: function (user_id, item_id) {
         return new Promise(function (resolve, reject) {
-            let output = [], ref_items = [], ref_user_items;
+            let output = [];
             console.time("hybrid " + user_id);
             output = joinAndReturn(user_id, item_id);
             console.timeEnd("hybrid " + user_id);
@@ -278,7 +278,7 @@ function doAlgorithms(user_id, item_id) {
                     return resolve(cf_results);
                 })
                 .catch(function (err) {
-                    reject(new Error(err));
+                    return resolve([]);
                 });
         })
     ]);

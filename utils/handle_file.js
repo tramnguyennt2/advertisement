@@ -144,19 +144,16 @@ module.exports = {
 
     importData(file) {
         return new Promise(function (resolve, reject) {
-            module.exports.readDocsFile(docTrainFileAcsCF).then(trainData => {
-                trainData = JSON.parse(JSON.stringify(trainData));
-                for (let user in trainData) {
-                    let items = trainData[user];
-                    items.forEach(item => {
-                        db.insert({
-                            user_id: "user-" + user,
-                            item_id: "ad-" + item.item,
-                            rating: item.rating,
-                            type: "rating"
-                        }).then(res => console.log(res)).catch(err => reject(err));
-                    })
-                }
+            module.exports.readDocsFile(file).then(importData => {
+                importData = JSON.parse(JSON.stringify(importData));
+                importData.forEach(data => {
+                    db.insert({
+                        user_id: data.doc.user_id,
+                        item_id: data.doc.item_id,
+                        rating: data.doc.rating,
+                        type: "rating"
+                    }).then(res => console.log(res)).catch(err => reject(err));
+                });
                 resolve("Done");
             }).catch(err => reject(err));
         });
