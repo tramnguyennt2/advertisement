@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import {CookieService} from 'ngx-cookie-service';
+import {UserService} from "../../services/user.service";
+import {User} from "../../user";
 
 @Component({
   selector: 'app-user-information',
@@ -6,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-information.component.scss']
 })
 export class UserInformationComponent implements OnInit {
+  user = new User();
 
-  constructor() { }
+  constructor(
+    private cookieService: CookieService,
+    private spinner: NgxSpinnerService,
+    private userService: UserService,
+  ) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
+    let userId = this.cookieService.get('user_id');
+    this.userService.getUser(userId).then(user => this.user.setUser(user));
   }
 
 }

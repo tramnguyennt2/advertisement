@@ -39,7 +39,7 @@
          dropdownToggle
          (click)="false">
         Xin chào <strong class="text-primary">{{user.fullname}}</strong>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Y_fAiQyoNtVyitsWbBxolrGO6vtAI93ZFnEq1Swe8dpPY3dv" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+        <img src="../../../assets/img/avatar.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
@@ -184,7 +184,7 @@
           <a href="#" (click)="registerModal.hide(); loginModal.show();">Đăng nhập ngay</a>
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="registerModal.hide()">Hủy</button>
-            <button class="btn btn-primary" (click)="register();">Đăng ký</button>
+            <button class="btn btn-primary" (click)="register(); notiRegisModal.show()">Đăng ký</button>
           </div>
         </div>
       </div>
@@ -274,6 +274,28 @@
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="changePasswwordModal.hide()">Hủy</button>
             <button id="btn-change-password" class="btn btn-primary ml-auto">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="noti-regis-modal" #notiRegisModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="notiRegisModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Bạn đã đăng ký tài khoản thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="notiRegisModal.hide(); loginModal.show();" style="margin-right: 5px">Đăng nhập</button>
+            <button class="btn btn-danger" (click)="notiRegisModal.hide();">OK</button>
           </div>
         </div>
       </div>

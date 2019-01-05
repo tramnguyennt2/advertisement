@@ -1,40 +1,46 @@
 <router-outlet></router-outlet>
-<h4>{{item.title}}</h4>
-<div class="row align-items-center" style="margin-left: 5px">
-  <i class="fa fa-clock-o"></i>
+<div class="row">
+  <h4 class="title">{{item.title}}</h4>
+  <div class="ml-auto">
+    <button class="btn btn-outline-success"><i class="fa fa-save text-success"></i> Lưu tin</button>
+    <button class="btn btn-outline-primary"><i class="fa fa-share text-primary"></i> Chia sẻ</button>
+  </div>
+</div>
+<div class="row align-items-center time" style="margin-left: 5px">
+  <i class="fa fa-clock-o text-primary"></i>
   <i>&nbsp;{{item.created_at | date: "dd-MM-yyyy hh:mm"}}</i>
   <span>&nbsp;-&nbsp;</span>
-  <i class="fa fa-map-marker"></i>
+  <i class="fa fa-map-marker text-primary"></i>
   <i>&nbsp;{{item.sub_loc}}
   </i><span>&nbsp;-&nbsp;</span>
-  <i class="fa fa-eye"></i>
+  <i class="fa fa-eye text-primary"></i>
   <i>&nbsp;{{viewNumber}}&nbsp;lượt xem</i>
 </div>
 <br/>
-<img *ngIf="url" [src]="url" class="show-img"/>
+<img *ngIf="url" class="show-img" [src]="url" onerror="this.src='../../../assets/img/default-image.jpg'"/>
 <img *ngIf="!url" class="show-img" src="../../../assets/img/default-image.jpg"/>
 <br/>
 <br/>
-<div class="text-justify angular-with-newlines">
+<div class="text-justify angular-with-newlines content">
   {{item.content}}
 </div>
-<div>Giá: <span class="text-danger">{{price}} VND</span></div>
+<div class="price">Giá: <span class="text-danger">{{price}} VND</span></div>
 <hr/>
 <h5 class="text-uppercase">Thông tin liên hệ</h5>
-<div class="row">
-  <div class="col-lg-5">
+<div class="row user-info">
+  <div class="col-lg-12">
     <div class="row align-items-center" style="margin-left: 0; margin-top: 20px">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Y_fAiQyoNtVyitsWbBxolrGO6vtAI93ZFnEq1Swe8dpPY3dv" class="img-avatar" style="width: 25px; height: 25px" alt="admin@bootstrapmaster.com"
-      />
-      <span class="lead">&nbsp; {{user.fullname}}</span>
+      <img src="../../../assets/img/avatar.jpg" class="img-avatar" style="width: 25px; height: 25px"/>
+      <span class="lead text-primary">&nbsp; {{user.fullname}}</span>
     </div>
     <!--<br/>-->
-    <!--<div>-->
-      <!--<i class="fa fa-map-marker" style="margin-left: 30px"></i>&nbsp;Địa chỉ: {{user.address}}-->
+    <!--<div class="address">-->
+      <!--<i class="fa fa-map-marker"></i> Địa chỉ:{{user.address}}-->
     <!--</div>-->
-    <!--<br/>-->
-    <div>
-      <i class="fa fa-mobile-phone" style="margin-left: 30px"></i>&nbsp;Số điện thoại: {{user.phone}}
+    <br/>
+    <div class="row">
+      <button class="btn btn-success" style="margin-left: 50px"><i class="fa fa-phone"></i> {{user.phone}}</button>
+      <button class="btn btn-primary"><i class="fa fa-envelope"></i> Chat với người bán</button>
     </div>
   </div>
 </div>

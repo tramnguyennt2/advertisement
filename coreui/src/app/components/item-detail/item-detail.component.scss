@@ -8,4 +8,34 @@ img.show-img{
   width: 300px;
   height: 300px;
   border: 1px gray solid;
+  margin-left: 30px;
+}
+
+.title {
+  margin-left: 15px;
+}
+
+.content, .time {
+  font-size: 15px;
+}
+
+.price {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.ml-auto button {
+  margin-right: 10px;
+}
+
+.lead {
+  font-size: 20px;
+}
+
+.user-info button {
+  margin-left: 10px;
+}
+
+.user-info i {
+  color: #fff;
 }

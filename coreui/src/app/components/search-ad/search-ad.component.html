@@ -43,12 +43,15 @@
           </div>
         </div>
         <div class="card-body">
+          <div *ngIf="total == 0" class="text-center">
+            <img src="../../../assets/img/sad.png" style="width: 200px; margin: 50px">
+          </div>
           <div id="new-items" class="row view-group">
             <div class="item col-xs-12 col-md-6 col-lg-3" *ngFor="let item of items | paginate: { itemsPerPage: 8, currentPage: p }">
               <app-item [item]="item"></app-item>
             </div>
           </div>
-          <pagination-controls (pageChange)="p = $event" class="pagination justify-content-center" previousLabel="Trang trước" nextLabel="Trang sau"></pagination-controls>
+          <pagination-controls *ngIf="total != 0" (pageChange)="p = $event" class="pagination justify-content-center" previousLabel="Trang trước" nextLabel="Trang sau"></pagination-controls>
         </div>
       </div>
     </div>

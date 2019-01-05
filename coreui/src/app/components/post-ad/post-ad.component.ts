@@ -39,10 +39,10 @@ export class PostAdComponent implements OnInit {
       this.spinner.hide();
     }, 1000);
     this.item.user_id = this.cookieService.get('user_id');
-    let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
-    for (let i = 0; i < sidebarEl.length; i++) {
-      sidebarEl[i].classList.remove("sidebar-lg-show");
-    }
+    // let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
+    // for (let i = 0; i < sidebarEl.length; i++) {
+    //   sidebarEl[i].classList.remove("sidebar-lg-show");
+    // }
   }
 
   getLocationAndSubLocId(param) {

@@ -1,6 +1,6 @@
 <div class="thumbnail card" [routerLink]="['/item-detail']" [queryParams]="{id: item.id}">
   <div class="img-event">
-    <img *ngIf="url" class="group list-group-image img-fluid img-item" [src]="url"/>
+    <img *ngIf="url" class="group list-group-image img-fluid img-item" [src]="url" onerror="this.src='../../../assets/img/default-image.jpg'"/>
     <img *ngIf="!url" class="group list-group-image img-fluid img-item" src="../../../assets/img/default-image.jpg" width='100%'/>
   </div>
   <div class="caption card-body" title="{{item.title}}">
