@@ -30,7 +30,7 @@ export class BaseItemDetailComponent implements OnInit {
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 1500);
+    }, 10000);
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
     });

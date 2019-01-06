@@ -123,17 +123,36 @@ export class ItemService {
   }
 
   delete(id) {
-    let self = this;
-    this.getItem(id).then(function (res) {
-      console.log("res: ", res);
-      return self.pouchdb.db.remove(res, function (err) {
-        if (err) {
-          return console.log(err);
-        } else {
-          console.log("Deleted item successfully");
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: 'item',
+          id: id
         }
+      })
+      .then(data => {
+        data.docs.map(row => {
+          alert(row);
+        });
+        // items = data.docs.map(row => {
+        //   return row;
+        // });
+        // itemSubject.next(items);
       });
-    });
+    // alert(id)
+    // let self = this;
+    // this.getItem(id).then(function (res) {
+    //   alert(res)
+    //   console.log("res: ", res);
+    //   return self.pouchdb.db.remove(res, function (err) {
+    //     if (err) {
+    //       return console.log(err);
+    //     } else {
+    //       console.log("Deleted item successfully");
+    //     }
+    //   });
+    // });
+    //this.solr.delete(id);
   }
 
   getRatingByItem(id: string){

@@ -56,6 +56,7 @@ export class ManageAdComponent implements OnInit {
 
   deleteItem(id){
     this.itemService.delete(id);
+    // this.itemService.getItem(id).subscribe(item => alert(item.title))
   }
 
   reload(){

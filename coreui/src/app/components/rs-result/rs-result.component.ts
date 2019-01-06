@@ -32,7 +32,14 @@ export class RsResultComponent implements OnInit {
               let item = new Item();
               item.setItem(items[i]);
               this.items.push(item);
-              //this.images.push(items[i].image);
+              this.itemService.getItem(items[i]._id).then(item => {
+                if (item.image){
+                  this.images.push(item.image);
+                }
+                else {
+                  this.images.push('../../../assets/img/default-image.jpg');
+                }
+              });
             }
           });
         });
@@ -42,11 +49,21 @@ export class RsResultComponent implements OnInit {
       this.items = [];
       this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
         this.getItemRecommended(items_rs).then(items => {
+          console.log(items.length)
           for (let i = 0; i < items.length; i++) {
             let item = new Item();
             item.setItem(items[i]);
             this.items.push(item);
-            //this.images.push(items[i].image);
+            // this.images.push(this.getUrlImg(items[i]._id));
+            // this.getUrlImg(items[i]._id).then(url => alert(url));
+            this.itemService.getItem(items[i]._id).then(item => {
+              if (item.image){
+                this.images.push(item.image);
+              }
+              else {
+                this.images.push('../../../assets/img/default-image.jpg');
+              }
+            });
           }
         })
       );
@@ -94,12 +111,35 @@ export class RsResultComponent implements OnInit {
   }
 
   getUrlImg(id) {
-    let url;
-    this.itemService.getItem(id).then(item => {
-      if (item._attachments) {
-        url = 'http://localhost:5984/advertisement/' + item._id + '/image';
-        return url;
-      }
+    // alert(id);
+    // this.itemService.getItem(id).then(item => {
+    //   if (item.image){
+    //     return item.image;
+    //   }
+    //   else if (item._attachments) {
+    //     return 'http://localhost:5984/advertisement/' + item._id + '/image';
+    //   }
+    //   else {
+    //     return  '../../../assets/img/default-image.jpg';
+    //   }
+    // });
+    return new Promise((resolve, reject) => {
+      let url = '';
+      this.itemService.getItem(id).subscribe(item => {
+        alert(item)
+        if (item.image){
+          url = item.image;
+        }
+        else if (item._attachments) {
+          url = 'http://localhost:5984/advertisement/' + item._id + '/image';
+        }
+        else {
+          url =  '../../../assets/img/default-image.jpg';
+        }
+      }).subscribe(() => {
+        alert(url);
+        resolve(url);
+      });
     });
   }
 }
