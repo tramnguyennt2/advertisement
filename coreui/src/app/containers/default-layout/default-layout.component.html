@@ -252,7 +252,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu cũ...">
+          <input class="form-control" type="password" placeholder="Mật khẩu cũ..." [(ngModel)]="oldPassword">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -260,7 +260,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu mới...">
+          <input class="form-control" type="password" placeholder="Mật khẩu mới..." [(ngModel)]="newPassword">
         </div>
         <div class="input-group mb-4">
           <div class="input-group-prepend">
@@ -268,12 +268,18 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Xác nhận mật khẩu mới...">
+          <input class="form-control" type="password" placeholder="Xác nhận mật khẩu mới..." [(ngModel)]="newPassword2">
+        </div>
+        <div *ngIf="errorOldPass" class="input-group text-danger mb-4">
+          Mật khẩu không đúng!
+        </div>
+        <div *ngIf="errorConfirmPass" class="input-group text-danger mb-4">
+          Mật khẩu xác nhận không trùng khớp!
         </div>
         <div class="input-group mb-4">
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="changePasswwordModal.hide()">Hủy</button>
-            <button id="btn-change-password" class="btn btn-primary ml-auto">Lưu</button>
+            <button id="btn-change-password" class="btn btn-primary ml-auto" (click)="changePassword(); changePasswwordModal.hide(); notiChangePassModal.show()">Lưu</button>
           </div>
         </div>
       </div>
@@ -296,6 +302,27 @@
           <div class="ml-auto">
             <button class="btn btn-success" (click)="notiRegisModal.hide(); loginModal.show();" style="margin-right: 5px">Đăng nhập</button>
             <button class="btn btn-danger" (click)="notiRegisModal.hide();">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="noti-change-pass-modal" #notiChangePassModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="notiChangePassModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Đổi mật khẩu thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="notiChangePassModal.hide();">OK</button>
           </div>
         </div>
       </div>

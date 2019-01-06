@@ -64,4 +64,26 @@ export class UserService {
       });
     return userSubject;
   }
+
+  updateUser(user){
+    let self = this;
+    this.getUser(user.id).then(function(doc) {
+      doc.fullname = user.fullname    // new field
+      doc.address = user.address    // new field
+      doc.phone = user.phone    // new field
+      return self.pouchdb.db.put(doc)   // put updated doc, will create new revision
+    }).then(function (res) {
+      console.log(res)
+    })
+  }
+
+  changePassword(id: string, password: string){
+    let self = this;
+    this.getUser(id).then(function(doc) {
+      doc.password = password    // new field
+      return self.pouchdb.db.put(doc)   // put updated doc, will create new revision
+    }).then(function (res) {
+      console.log(res)
+    })
+  }
 }

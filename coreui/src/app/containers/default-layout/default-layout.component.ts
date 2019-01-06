@@ -29,6 +29,12 @@ export class DefaultLayoutComponent{
   // Check login
   isLogin = false;
   userId = '';
+  // check change password
+  oldPassword: string;
+  newPassword: string;
+  newPassword2: string;
+  errorOldPass = false;
+  errorConfirmPass = false;
 
   constructor(private userService: UserService, private cookieService: CookieService) {
     this.changes = new MutationObserver(mutations => {
@@ -130,5 +136,27 @@ export class DefaultLayoutComponent{
   onEnterLogin(){
     let btnLogin = document.getElementById('btn-login');
     btnLogin.click();
+  }
+
+  changePassword(){
+    if(this.oldPassword !== this.user.password){
+      this.errorOldPass = true;
+    }
+    else if(this.newPassword !== this.newPassword2){
+      this.errorOldPass = false;
+      this.errorConfirmPass = true;
+    }
+    else{
+      this.errorOldPass = false;
+      this.errorConfirmPass = false;
+      this.userService.changePassword(this.user.id,this.newPassword);
+      // hide modal
+      // document.getElementById('change-passwword-modal').classList.remove('show');
+      // let modalEl = document.getElementsByTagName('bs-modal-backdrop');
+      // modalEl[0].classList.remove('show');
+      // let bodyEl = document.getElementsByTagName('body');
+      // bodyEl[0].classList.remove('modal-open');
+    }
+
   }
 }

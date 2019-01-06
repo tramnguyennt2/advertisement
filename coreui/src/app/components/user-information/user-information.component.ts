@@ -21,11 +21,14 @@ export class UserInformationComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 1000);
     let userId = this.cookieService.get('user_id');
     this.userService.getUser(userId).then(user => this.user.setUser(user));
+  }
+
+  updateUser(){
+    this.userService.updateUser(this.user);
   }
 
 }

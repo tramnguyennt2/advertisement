@@ -46,8 +46,29 @@
       </form>
     </div>
     <div class="card-footer">
-      <button class="btn btn-sm btn-primary" type="button">Lưu</button>
+      <button class="btn btn-sm btn-primary" type="button" (click)="updateUser(); updateUserModal.show()">Lưu</button>
       <button class="btn btn-sm readUrl btn-danger" style="margin-left: 5px" (click)="cancel()">Hủy</button>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="update-user-modal" #updateUserModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="updateUserModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Cập nhật thông tin thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="updateUserModal.hide();">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
