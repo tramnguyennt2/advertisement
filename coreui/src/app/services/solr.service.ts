@@ -37,19 +37,14 @@ export class SolrService {
     // let url =
     // this.solr_url + "/select?q=" + keyword + " and sub_cat_id:" + sub_cat_id + " and sub_loc_id:" + sub_loc_id + "&wt=json";
     let url = this.solr_url + "/select?q=content:" + keyword + " and title:";
-    let after_keyword = "";
-    let after_sub = "";
     if (keyword && keyword.length > 0) {
       url += keyword;
-      after_keyword = " and ";
     }
     if (sub_cat_id && sub_cat_id.length > 0) {
-      url += after_keyword + "sub_cat_id:" + sub_cat_id;
-      after_sub = " and ";
+      url += "&fq=sub_cat_id:" + sub_cat_id;
     }
     if (sub_loc_id && sub_loc_id.length > 0) {
-      if (after_sub.length > 0) url += after_sub + "sub_loc_id:" + sub_loc_id;
-      else url += after_keyword + "sub_loc_id:" + sub_loc_id;
+      url += "&fq=sub_loc_id:" + sub_loc_id;
     }
     if (!keyword && !sub_cat_id && !sub_loc_id) url += "*:*";
     url += "&rows=3000";
