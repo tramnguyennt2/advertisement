@@ -8,7 +8,7 @@ import {UserBehavior} from "../user-behavior";
 
 @Injectable()
 export class ItemService {
-  constructor(private pouchdb: PouchdbService, private solr: SolrService, ) {
+  constructor(private pouchdb: PouchdbService, private solr: SolrService,) {
   }
 
   // add to both CouchDB and Solr
@@ -103,59 +103,39 @@ export class ItemService {
     }
   }
 
-  getItemByUser(userId){
+  getItemByUser(userId) {
     let itemSubject: any = new Subject();
     let items: any[];
-    this.pouchdb.db
-      .find({
-        selector: {
-          type: 'item',
-          user_id: userId
-        }
-      })
-      .then(data => {
-        items = data.docs.map(row => {
-          return row;
-        });
-        itemSubject.next(items);
+    this.pouchdb.db.find({
+      selector: {
+        type: 'item',
+        user_id: userId
+      }
+    }).then(data => {
+      items = data.docs.map(row => {
+        return row;
       });
+      itemSubject.next(items);
+    });
     return itemSubject;
   }
 
-  delete(id) {
-    this.pouchdb.db
-      .find({
-        selector: {
-          type: 'item',
-          id: id
+  deleteI(id) {
+    let self = this;
+    return this.pouchdb.db.get(id).then(function (res) {
+      console.log("res: ", res);
+      self.pouchdb.db.remove(res, function (err) {
+        if (err) {
+          return console.log(err);
+        } else {
+          console.log("Deleted item successfully");
         }
-      })
-      .then(data => {
-        data.docs.map(row => {
-          alert(row);
-        });
-        // items = data.docs.map(row => {
-        //   return row;
-        // });
-        // itemSubject.next(items);
       });
-    // alert(id)
-    // let self = this;
-    // this.getItem(id).then(function (res) {
-    //   alert(res)
-    //   console.log("res: ", res);
-    //   return self.pouchdb.db.remove(res, function (err) {
-    //     if (err) {
-    //       return console.log(err);
-    //     } else {
-    //       console.log("Deleted item successfully");
-    //     }
-    //   });
-    // });
-    //this.solr.delete(id);
+    });
+    // this.solr.delete(id);
   }
 
-  getRatingByItem(id: string){
+  getRatingByItem(id: string) {
     let ratingSubject: any = new Subject();
     let ratings: any[];
     this.pouchdb.db
@@ -174,7 +154,7 @@ export class ItemService {
     return ratingSubject;
   }
 
-  getAllItems(catId: string, subCatId: string){
+  getAllItems(catId: string, subCatId: string) {
     let allItemsSubject: any = new Subject();
     let allItems: Item[];
     this.pouchdb.db

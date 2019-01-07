@@ -49,7 +49,6 @@ export class RsResultComponent implements OnInit {
       this.items = [];
       this.rsService.getItemContentBased(this.item_id).subscribe(items_rs =>
         this.getItemRecommended(items_rs).then(items => {
-          console.log(items.length)
           for (let i = 0; i < items.length; i++) {
             let item = new Item();
             item.setItem(items[i]);

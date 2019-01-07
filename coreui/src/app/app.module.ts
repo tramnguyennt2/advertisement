@@ -56,10 +56,11 @@ import { ItemDetailComponent } from "./components/item-detail/item-detail.compon
 import { SearchAdComponent } from "./components/search-ad/search-ad.component";
 import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
-import { ManageAdComponent } from './components/manage-ad/manage-ad.component';
+import { ManageAdComponent } from "./components/manage-ad/manage-ad.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
 import { AllItemsComponent } from './components/all-items/all-items.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
+import { UpdateAdComponent } from './components/update-ad/update-ad.component';
 
 @NgModule({
   imports: [
@@ -94,10 +95,11 @@ import { UserInformationComponent } from './components/user-information/user-inf
     ItemDetailComponent,
     SearchAdComponent,
     RsResultComponent,
-    ManageAdComponent,
     BaseItemDetailComponent,
     AllItemsComponent,
     UserInformationComponent,
+    ManageAdComponent,
+    UpdateAdComponent,
   ],
   providers: [
     PouchdbService,

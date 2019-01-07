@@ -9,6 +9,7 @@ export class Item {
   sub_cat?: string;
   loc_id?: string;
   loc?: string;
+  _rev?: string;
   sub_loc_id?: string;
   sub_loc?: string;
   price?: string;
@@ -57,10 +58,11 @@ export class Item {
     this._attachments = obj._attachments;
     this.token = obj.token;
     this.created_at = obj.created_at;
+    this._rev = obj._rev;
     this.type = "item";
   }
 
-  addDbId(id){
+  addDbId(id) {
     this.db_id = id;
   }
 }

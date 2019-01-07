@@ -10,6 +10,7 @@ import { ManageAdComponent } from "./components/manage-ad/manage-ad.component";
 import { BaseItemDetailComponent } from "./containers/base-item-detail/base-item-detail.component";
 import { AllItemsComponent } from "./components/all-items/all-items.component";
 import { UserInformationComponent } from './components/user-information/user-information.component';
+import {UpdateAdComponent} from "./components/update-ad/update-ad.component";
 
 export const routes: Routes = [
   {
@@ -18,6 +19,7 @@ export const routes: Routes = [
     children: [
       { path: "", component: HomepageComponent },
       { path: "post-ad", component: PostAdComponent },
+      { path: "update-ad", component: UpdateAdComponent },
       { path: "search-ad", component: SearchAdComponent },
       { path: "manage-ad", component: ManageAdComponent },
       { path: "item-detail", component: BaseItemDetailComponent },
