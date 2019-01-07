@@ -5,6 +5,7 @@ import {CookieService} from "ngx-cookie-service";
 import {UserService} from "../../services/user.service";
 import {NgxSpinnerService} from 'ngx-spinner';
 import {PouchdbService} from "../../services/pouchdb.service";
+import {SolrService} from "../../services/solr.service";
 
 @Component({
   selector: 'app-manage-ad',
@@ -20,6 +21,7 @@ export class ManageAdComponent implements OnInit {
     private cookieService: CookieService,
     private itemService: ItemService,
     private userService: UserService,
+    private solr: SolrService,
     private pouchdb: PouchdbService,
     private spinner: NgxSpinnerService
   ) {
@@ -66,8 +68,11 @@ export class ManageAdComponent implements OnInit {
 
   deleteItem() {
     console.log("id", this.chooseId);
-    this.pouchdb.db.get(this.chooseId).then(res => console.log(res));
-    // this.itemService.deleteI(this.chooseId);
+    // delete in solr - work!!!
+    // this.solr.delete(this.chooseId).subscribe(res => console.log("solr res", res));
+
+    // delete in couchdb
+    // this.itemService.deleteI(this.chooseId).then(res => console.log("x res", res));
   }
 
   getViewNumber(id) {

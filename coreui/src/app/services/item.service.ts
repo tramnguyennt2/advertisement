@@ -121,16 +121,9 @@ export class ItemService {
   }
 
   deleteI(id) {
-    let self = this;
-    return this.pouchdb.db.get(id).then(function (res) {
-      console.log("res: ", res);
-      self.pouchdb.db.remove(res, function (err) {
-        if (err) {
-          return console.log(err);
-        } else {
-          console.log("Deleted item successfully");
-        }
-      });
+    return this.pouchdb.db.get(id).then(res => {
+      console.log("res get", res);
+      this.pouchdb.db.remove(res).then(delRes => console.log(delRes));
     });
     // this.solr.delete(id);
   }
