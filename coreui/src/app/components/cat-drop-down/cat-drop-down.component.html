@@ -6,7 +6,8 @@
     <li class="dropdown-submenu" id="{{cat['cat_id']}}" *ngFor="let cat of cats">
       <a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{cat['cat_name']}}</a>
       <ul class="dropdown-menu">
-        <li><a id="{{sub['sub_id']}}" class="dropdown-item level-2" *ngFor="let sub of cat['subs']"
+        <li>
+          <a id="{{sub['sub_id']}}" class="dropdown-item level-2" *ngFor="let sub of cat['subs']"
                (click)="clickSubCategory($event)" (mouseenter)="mouseenterLevel2($event)">{{sub['name']}}</a>
         </li>
       </ul>

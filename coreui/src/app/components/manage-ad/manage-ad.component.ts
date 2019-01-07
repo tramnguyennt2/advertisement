@@ -72,7 +72,7 @@ export class ManageAdComponent implements OnInit {
     // this.solr.delete(this.chooseId).subscribe(res => console.log("solr res", res));
 
     // delete in couchdb
-    // this.itemService.deleteI(this.chooseId).then(res => console.log("x res", res));
+    this.itemService.deleteI(this.chooseId).then(res => console.log("x res", res));
   }
 
   getViewNumber(id) {

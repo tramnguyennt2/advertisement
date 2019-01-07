@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, OnInit, Input, Output} from "@angular/core";
 import {LocationService} from "../../services/location.service";
 import {mouseenterLevel2} from "../../common";
 
@@ -8,6 +8,8 @@ import {mouseenterLevel2} from "../../common";
   styleUrls: ["./loc-drop-down.component.scss"]
 })
 export class LocDropDownComponent implements OnInit {
+  @Input()
+  old_sub_loc;
   locs = [];
   loc_str: string;
   loc_id = 0;
@@ -20,6 +22,9 @@ export class LocDropDownComponent implements OnInit {
 
   ngOnInit() {
     this.loadLocation();
+    if(this.old_sub_loc){
+      this.loc = this.old_sub_loc;
+    }
   }
 
   loadLocation() {

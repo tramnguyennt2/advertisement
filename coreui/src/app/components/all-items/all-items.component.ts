@@ -22,7 +22,7 @@ export class AllItemsComponent implements OnInit {
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 5000);
+    }, 7000);
     let url = window.location.href;
     let arr = url.substring(36, url.length).split('/sub-cat-');
     this.catId = arr[0];
