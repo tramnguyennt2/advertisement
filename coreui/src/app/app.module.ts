@@ -9,15 +9,13 @@ import { CategoryService } from "./services/category.service";
 import { ItemService } from "./services/item.service";
 import { UserService } from "./services/user.service";
 import { RsService } from "./services/rs.service";
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from "ngx-cookie-service";
 
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
-import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { ModalModule } from "ngx-bootstrap/modal";
-import { NgxSpinnerModule } from 'ngx-spinner';
-import {NgxPaginationModule} from 'ngx-pagination';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxPaginationModule } from "ngx-pagination";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -27,7 +25,7 @@ import { AppComponent } from "./app.component";
 
 // Import containers
 import { DefaultLayoutComponent } from "./containers";
-import { BaseItemDetailComponent } from './containers/base-item-detail/base-item-detail.component';
+import { BaseItemDetailComponent } from "./containers/base-item-detail/base-item-detail.component";
 import { HomepageComponent } from "./containers/homepage/homepage.component";
 
 const APP_CONTAINERS = [DefaultLayoutComponent];
@@ -58,9 +56,9 @@ import { ItemComponent } from "./components/item/item.component";
 import { RsResultComponent } from "./components/rs-result/rs-result.component";
 import { ManageAdComponent } from "./components/manage-ad/manage-ad.component";
 import { PostAdComponent } from "./components/post-ad/post-ad.component";
-import { AllItemsComponent } from './components/all-items/all-items.component';
-import { UserInformationComponent } from './components/user-information/user-information.component';
-import { UpdateAdComponent } from './components/update-ad/update-ad.component';
+import { AllItemsComponent } from "./components/all-item/all-item.component";
+import { UserInformationComponent } from "./components/user-information/user-information.component";
+import { UpdateAdComponent } from "./components/update-ad/update-ad.component";
 
 @NgModule({
   imports: [
@@ -77,9 +75,9 @@ import { UpdateAdComponent } from './components/update-ad/update-ad.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    ModalModule.forRoot(),
     NgxSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -95,11 +93,11 @@ import { UpdateAdComponent } from './components/update-ad/update-ad.component';
     ItemDetailComponent,
     SearchAdComponent,
     RsResultComponent,
+    ManageAdComponent,
     BaseItemDetailComponent,
     AllItemsComponent,
     UserInformationComponent,
-    ManageAdComponent,
-    UpdateAdComponent,
+    UpdateAdComponent
   ],
   providers: [
     PouchdbService,

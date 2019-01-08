@@ -74,7 +74,7 @@ export class UserService {
       return self.pouchdb.db.put(doc)   // put updated doc, will create new revision
     }).then(function (res) {
       console.log(res)
-    })
+    });
   }
 
   changePassword(id: string, password: string){

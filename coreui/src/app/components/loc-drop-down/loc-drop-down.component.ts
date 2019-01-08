@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
-import {LocationService} from "../../services/location.service";
-import {mouseenterLevel2} from "../../common";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { LocationService } from "../../services/location.service";
+import { mouseenterLevel2 } from "../../common";
 
 @Component({
   selector: "app-loc-drop-down",
@@ -15,8 +15,7 @@ export class LocDropDownComponent implements OnInit {
   @Output()
   subLocClick = new EventEmitter();
 
-  constructor(private locService: LocationService) {
-  }
+  constructor(private locService: LocationService) {}
 
   ngOnInit() {
     this.loadLocation();

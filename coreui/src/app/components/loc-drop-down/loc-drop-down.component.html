@@ -1,17 +1,28 @@
-<button type="button" class="btn btn-outline-secondary dropdown-toggle" dropdownToggle>{{loc}}
-  <span class="caret"></span>
+<button
+  type="button"
+  class="btn btn-outline-secondary dropdown-toggle"
+  dropdownToggle
+>
+  {{ loc }} <span class="caret"></span>
 </button>
 <ul class="dropdown-menu" *dropdownMenu>
   <li class="dropdown-submenu" id="{{loc['loc_id']}}" *ngFor="let loc of locs">
-    <a class="dropdown-item dropdown-toggle level-1" (mouseenter)="mouseenterLevel1($event)">{{loc['loc_name']}}</a>
+    <a
+      class="dropdown-item dropdown-toggle level-1"
+      (mouseenter)="mouseenterLevel1($event)"
+      >{{ loc["loc_name"] }}</a
+    >
     <ul class="dropdown-menu">
       <li>
-        <a class="dropdown-item level-2" *ngFor="let sub_loc of loc['subs']" id="{{sub_loc['sub_id']}}"
-            (click)="clickSubLoc($event)"
-            (mouseenter)="mouseenterLevel2($event)">{{sub_loc['name']}}</a>
+        <a
+          class="dropdown-item level-2"
+          *ngFor="let sub_loc of loc['subs']"
+          id="{{sub_loc['sub_id']}}"
+          (click)="clickSubLoc($event)"
+          (mouseenter)="mouseenterLevel2($event)"
+          >{{ sub_loc["name"] }}</a
+        >
       </li>
     </ul>
   </li>
 </ul>
-
-

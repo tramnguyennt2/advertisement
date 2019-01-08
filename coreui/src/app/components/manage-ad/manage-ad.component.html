@@ -1,10 +1,11 @@
 <ngx-spinner
-  bdColor = "rgba(51, 51, 51, 0.8)"
-  size = "medium"
-  color = "#fff"
-  type = "ball-clip-rotate-pulse">
+  bdColor="rgba(51, 51, 51, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate-pulse"
+>
 </ngx-spinner>
-<br/>
+<br />
 <div class="container-fluid">
   <div class="card">
     <div class="card-header">
@@ -13,68 +14,172 @@
     <div class="card-body">
       <table class="table table-responsive-sm">
         <thead>
-        <tr>
-          <th>STT</th>
-          <th>Tiêu đề</th>
-          <th>Thời gian</th>
-          <th>Danh mục</th>
-          <th>Khu vực</th>
-          <th>Giá</th>
-          <th>Lượt xem</th>
-          <th></th>
-        </tr>
+          <tr>
+            <th>STT</th>
+            <th>Tiêu đề</th>
+            <th>Thời gian</th>
+            <th>Danh mục</th>
+            <th>Khu vực</th>
+            <th>Giá</th>
+            <th>Lượt xem</th>
+            <th></th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of items; index as i">
-          <td>{{i+1}}</td>
-          <td><span title="{{item.title}}">{{item.title}}</span></td>
-          <td>{{item.created_at | date: "hh:mm - dd/MM/yyyy"}}</td>
-          <td>{{item.cat}} -> {{item.sub_cat}}</td>
-          <td>{{item.sub_loc}}</td>
-          <td>{{formatPrice(item.price)}}đ</td>
-          <td>{{getViewNumber(item.id)}}</td>
-          <td>
-            <button class="btn btn-sm btn-info" type="button" (click)="detailModal.show()">Xem</button>
-            <button class="btn btn-sm btn-warning" type="button" (click)="onClickUpdate(item.id)" target="_blank">Sửa</button>
-            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" (click)="deleteModal.show(); updateChooseId(item.id)">Xóa</button>
-          </td>
-        </tr>
+          <tr *ngFor="let item of items; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <span title="{{ item.title }}">{{ item.title }}</span>
+            </td>
+            <td>{{ item.created_at | date: "hh:mm - dd/MM/yyyy" }}</td>
+            <td>{{ item.cat }} -> {{ item.sub_cat }}</td>
+            <td>{{ item.sub_loc }}</td>
+            <td>{{ formatPrice(item.price) }}đ</td>
+            <td>{{ getViewNumber(item.id) }}</td>
+            <td>
+              <button
+                class="btn btn-sm btn-info"
+                type="button"
+                (click)="detailModal.show()"
+              >
+                Xem
+              </button>
+              <button
+                class="btn btn-sm btn-warning"
+                type="button"
+                (click)="onClickUpdate(item._id)"
+                target="_blank"
+              >
+                Sửa
+              </button>
+              <button
+                class="btn btn-sm btn-danger"
+                type="button"
+                data-toggle="modal"
+                (click)="deleteModal.show()"
+              >
+                Xóa
+              </button>
+            </td>
+            <div
+              bsModal
+              class="item-detail-modal"
+              #detailModal="bs-modal"
+              class="modal fade"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="myModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      (click)="detailModal.hide()"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div
+                    class="modal-body"
+                    style="height: 550px; overflow-y: auto;"
+                  >
+                    <app-item-detail [id]="item._id"></app-item-detail>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              bsModal
+              class="delete-post-modal"
+              #deleteModal="bs-modal"
+              class="modal fade"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="myModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-danger" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Xóa bài viết</h4>
+                    <button
+                      type="button"
+                      class="close"
+                      (click)="deleteModal.hide()"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Bạn chắc chắn muốn xóa bài viết này?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      (click)="deleteModal.hide()"
+                    >
+                      Hủy
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="
+                        deleteItem(item._id);
+                        deleteModal.hide();
+                        deleteSuccessModal.show()
+                      "
+                    >
+                      Xóa
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
-<div bsModal class="item-detail-modal" #detailModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+<div
+  bsModal
+  class="delete-success-modal"
+  #deleteSuccessModal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-success" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" (click)="detailModal.hide();" aria-label="Close">
+        <h4 class="modal-title">Thông báo</h4>
+        <button
+          type="button"
+          class="close"
+          (click)="deleteSuccessModal.hide()"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" style="height: 550px; overflow-y: auto;">
-        <app-item-detail [id]=(chooseId)></app-item-detail>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div bsModal class="delete-post-modal" #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-danger" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Xóa bài viết</h4>
-        <button type="button" class="close" (click)="deleteModal.hide();" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Bạn chắc chắn muốn xóa bài viết này?</p>
-      </div>
+      <div class="modal-body"><p>Xóa bài viết thành công!</p></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="deleteModal.hide()">Hủy</button>
-        <button type="button" class="btn btn-danger" (click)="deleteItem(chooseId); deleteModal.hide();">Xóa</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="deleteSuccessModal.hide(); reload()"
+        >
+          OK
+        </button>
       </div>
     </div>
   </div>

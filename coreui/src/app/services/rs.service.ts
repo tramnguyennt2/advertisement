@@ -8,9 +8,7 @@ import {HttpClient} from "@angular/common/http";
 export class RsService {
   constructor(private http: HttpClient) {
   }
-
   nodeServer = "http://localhost:3000/";
-
   getItemContentBased(item_id): Observable<any> {
     return this.http.get(this.nodeServer + "content-based/" + item_id);
   }
@@ -19,8 +17,8 @@ export class RsService {
     return this.http.get(this.nodeServer + "cf/" + user_id);
   }
 
-  getHybridMethod(user_id, item_id): Observable<any> {
-    return this.http.get(this.nodeServer + "hybrid/" + user_id + "/" + item_id);
+  getHybridMethod(item_id, user_id): Observable<any> {
+    return this.http.get(this.nodeServer + "hybrid/" + user_id + '/' + item_id);
   }
 
   getGraphMethod(user_id): Observable<any> {

@@ -19,8 +19,23 @@ export class Item {
   _attachments?: object;
   token: any[];
 
-  constructor(title?: string, content?: string, cat_id?: string, cat?: string, sub_cat_id?: string, sub_cat?: string,
-              loc_id?: string, loc?: string, sub_loc_id?: string, sub_loc?: string, price?: string, user_id?: string, id?: string, _attachments?: object, token?: any[]) {
+  constructor(
+    title?: string,
+    content?: string,
+    cat_id?: string,
+    cat?: string,
+    sub_cat_id?: string,
+    sub_cat?: string,
+    loc_id?: string,
+    loc?: string,
+    sub_loc_id?: string,
+    sub_loc?: string,
+    price?: string,
+    user_id?: string,
+    id?: string,
+    _attachments?: object,
+    token?: any[]
+  ) {
     if (title) this.title = title;
     if (content) this.content = content;
     if (cat_id) this.cat_id = cat_id;

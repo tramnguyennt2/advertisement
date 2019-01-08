@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: "app-base-item-detail",
@@ -9,7 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class BaseItemDetailComponent implements OnInit {
   id: string;
-  constructor(private router: Router, private route: ActivatedRoute, private spinner: NgxSpinnerService) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     // override the route reuse strategy
     this.router.routeReuseStrategy.shouldReuseRoute = function() {
       return false;
@@ -26,11 +25,6 @@ export class BaseItemDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.spinner.show();
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 10000);
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
     });

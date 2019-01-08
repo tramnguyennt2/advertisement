@@ -1,20 +1,19 @@
-import {Injectable} from "@angular/core";
-import {Subject} from "rxjs/Subject";
-import {PouchdbService} from "./pouchdb.service";
-import {Item} from "../item";
-import {SolrService} from "./solr.service";
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs/Subject";
+import { PouchdbService } from "./pouchdb.service";
+import { Item } from "../item";
+import { SolrService } from "./solr.service";
 import "rxjs/add/observable/fromPromise";
-import {UserBehavior} from "../user-behavior";
+import { UserBehavior } from "../user-behavior";
 
 @Injectable()
 export class ItemService {
-  constructor(private pouchdb: PouchdbService, private solr: SolrService,) {
-  }
+  constructor(private pouchdb: PouchdbService, private solr: SolrService) {}
 
   // add to both CouchDB and Solr
   addItem(item) {
     let self = this;
-    return this.pouchdb.db.post(item, function (err, response) {
+    return this.pouchdb.db.post(item, function(err, response) {
       if (err) return console.log(err);
       console.log("inserted to couchdb");
       let solr_item = new Item(
@@ -28,15 +27,18 @@ export class ItemService {
         null,
         item.sub_loc_id,
         null,
-        item.price);
+        item.price
+      );
       solr_item.addDbId(response.id);
-      self.solr.add(solr_item).subscribe(res => console.log("inserted to solr"));
+      self.solr
+        .add(solr_item)
+        .subscribe(res => console.log("inserted to solr"));
     });
   }
 
   // add to CouchDB
   add(item) {
-    this.pouchdb.db.post(item, function (err, response) {
+    this.pouchdb.db.post(item, function(err, response) {
       if (err) return console.log(err);
     });
   }
@@ -63,7 +65,7 @@ export class ItemService {
           ratingSubject.next(null);
         }
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.log(err);
       });
     return ratingSubject;
@@ -81,9 +83,22 @@ export class ItemService {
       })
       .then(data => {
         latestItems = data.rows.map(row => {
-          return new Item(row.doc.title, row.doc.content, row.doc.cat_id, row.doc.cat, row.doc.sub_cat_id,
-            row.doc.sub_cat, row.doc.loc_id, row.doc.loc, row.doc.sub_loc_id, row.doc.sub_loc, row.doc.price,
-            row.doc.user_id, row.doc._id, row.doc._attachments);
+          return new Item(
+            row.doc.title,
+            row.doc.content,
+            row.doc.cat_id,
+            row.doc.cat,
+            row.doc.sub_cat_id,
+            row.doc.sub_cat,
+            row.doc.loc_id,
+            row.doc.loc,
+            row.doc.sub_loc_id,
+            row.doc.sub_loc,
+            row.doc.price,
+            row.doc.user_id,
+            row.doc._id,
+            row.doc._attachments
+          );
         });
         latestItemsSubject.next(latestItems);
       });
@@ -92,40 +107,41 @@ export class ItemService {
 
   updateRating(rating) {
     if (rating.rating < 5) {
-      this.pouchdb.db.put({
-        _id: rating._id, _rev: rating._rev, user_id: rating.user_id, item_id: rating.item_id,
-        rating: rating.rating + 1, type: "rating"
-      }).then(function (response) {
-        console.log("update resp: ", response);
-      }).catch(function (err) {
-        console.log(err);
-      });
+      this.pouchdb.db
+        .put({
+          _id: rating._id,
+          _rev: rating._rev,
+          user_id: rating.user_id,
+          item_id: rating.item_id,
+          rating: rating.rating + 1,
+          type: "rating"
+        })
+        .then(function(response) {
+          console.log("update resp: ", response);
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
     }
   }
 
   getItemByUser(userId) {
     let itemSubject: any = new Subject();
     let items: any[];
-    this.pouchdb.db.find({
-      selector: {
-        type: 'item',
-        user_id: userId
-      }
-    }).then(data => {
-      items = data.docs.map(row => {
-        return row;
+    this.pouchdb.db
+      .find({
+        selector: {
+          type: "item",
+          user_id: userId
+        }
+      })
+      .then(data => {
+        items = data.docs.map(row => {
+          return row;
+        });
+        itemSubject.next(items);
       });
-      itemSubject.next(items);
-    });
     return itemSubject;
-  }
-
-  deleteI(id) {
-    return this.pouchdb.db.get(id).then(res => {
-      console.log("res get", res);
-      this.pouchdb.db.remove(res).then(delRes => console.log(delRes));
-    });
-    // this.solr.delete(id);
   }
 
   getRatingByItem(id: string) {
@@ -134,7 +150,7 @@ export class ItemService {
     this.pouchdb.db
       .find({
         selector: {
-          type: 'rating',
+          type: "rating",
           item_id: id
         }
       })
@@ -153,7 +169,7 @@ export class ItemService {
     this.pouchdb.db
       .find({
         selector: {
-          type: 'item',
+          type: "item",
           cat_id: catId,
           sub_cat_id: subCatId
         }
@@ -161,16 +177,41 @@ export class ItemService {
       .then(data => {
         if (data.docs.length > 0) {
           allItems = data.docs.map(row => {
-            return new Item(row.title, row.content, row.cat_id, row.cat, row.sub_cat_id,
-              row.sub_cat, row.loc_id, row.loc, row.sub_loc_id, row.sub_loc, row.price,
-              row.user_id, row._id, row._attachments);
+            return new Item(
+              row.title,
+              row.content,
+              row.cat_id,
+              row.cat,
+              row.sub_cat_id,
+              row.sub_cat,
+              row.loc_id,
+              row.loc,
+              row.sub_loc_id,
+              row.sub_loc,
+              row.price,
+              row.user_id,
+              row._id,
+              row._attachments
+            );
           });
           allItemsSubject.next(allItems);
-        }
-        else {
+        } else {
           allItemsSubject.next(null);
         }
       });
     return allItemsSubject;
+  }
+
+  delete(id) {
+    let self = this;
+    this.getItem(id).then(function(res) {
+      return self.pouchdb.db.remove(res, function(err) {
+        if (err) {
+          return console.log(err);
+        } else {
+          console.log("Deleted item successfully");
+        }
+      });
+    });
   }
 }

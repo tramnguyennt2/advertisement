@@ -12,8 +12,8 @@
 .dropdown-submenu .dropdown-menu {
   top: 0;
   left: 100%;
-  margin-left: .1rem;
-  margin-right: .1rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
 }
 
 //div.show-img{
@@ -23,11 +23,10 @@
 //  margin: 0;
 //}
 
-img.show-img{
+img.show-img {
   object-fit: cover;
   width: 300px;
   height: 300px;
   border: 1px gray solid;
   margin-left: 20px;
 }
-

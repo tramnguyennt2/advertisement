@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {ItemService} from "../../services/item.service";
-import {Item} from "../../item";
-import {UserService} from "../../services/user.service";
-import {User} from "../../user";
-import {CookieService} from 'ngx-cookie-service';
+import { Component, Input, OnInit } from "@angular/core";
+import { ItemService } from "../../services/item.service";
+import { Item } from "../../item";
+import { UserService } from "../../services/user.service";
+import { User } from "../../user";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-item-detail",
@@ -15,31 +15,36 @@ export class ItemDetailComponent implements OnInit {
   id;
   item = new Item();
   user = new User();
-  price = '';
+  price = "";
   url: string;
   viewNumber = 0;
 
-  constructor(private itemService: ItemService, private userService: UserService, private cookieService: CookieService) {
-  }
+  constructor(
+    private itemService: ItemService,
+    private userService: UserService,
+    private cookieService: CookieService
+  ) {}
 
   ngOnInit() {
     if (this.id) {
       this.itemService.getItem(this.id).then(item => {
         this.item.setItem(item);
-        this.userService.getUser(item.user_id).then(user => this.user.setUser(user));
+        this.userService
+          .getUser(item.user_id)
+          .then(user => this.user.setUser(user));
         this.price = this.formatPrice(item.price);
-        if(item.image && item.image != 'khong co'){
+        if (item.image && item.image != "khong co") {
           this.url = item.image;
-        }
-        else if(item._attachments){
-          this.url = 'http://localhost:5984/advertisement/' + item._id + '/image';
+        } else if (item._attachments) {
+          this.url =
+            "http://localhost:5984/advertisement/" + item._id + "/image";
         }
       });
       //get view number
       this.itemService.getRatingByItem(this.id).subscribe(res => {
-          res.map(rating => {
-            this.viewNumber += rating.rating;
-          });
+        res.map(rating => {
+          this.viewNumber += rating.rating;
+        });
       });
     }
     let sidebarEl = document.getElementsByClassName("sidebar-lg-show");
@@ -48,7 +53,7 @@ export class ItemDetailComponent implements OnInit {
     }
   }
 
-  formatPrice(price){
+  formatPrice(price) {
     //let price = price;
     let arr = [];
     while (price.length > 3) {
@@ -56,9 +61,9 @@ export class ItemDetailComponent implements OnInit {
       price = price.slice(0, price.length - 3);
     }
     arr.push(price);
-    let newPrice = '';
+    let newPrice = "";
     arr.map(str => {
-      newPrice = ',' + str + newPrice;
+      newPrice = "," + str + newPrice;
     });
     return newPrice.slice(1);
   }

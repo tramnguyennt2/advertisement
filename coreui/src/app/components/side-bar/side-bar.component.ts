@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {CategoryService} from "../../services/category.service";
+import { Component, OnInit } from "@angular/core";
+import { CategoryService } from "../../services/category.service";
 
 @Component({
-  selector: 'app-side-bar',
-  templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+  selector: "app-side-bar",
+  templateUrl: "./side-bar.component.html",
+  styleUrls: ["./side-bar.component.scss"]
 })
 export class SideBarComponent implements OnInit {
   public navItems = [
@@ -16,8 +16,7 @@ export class SideBarComponent implements OnInit {
   cats = [];
   navObjs = [];
 
-  constructor(private catService: CategoryService) {
-  }
+  constructor(private catService: CategoryService) {}
 
   ngOnInit() {
     this.loadCategory();
@@ -39,11 +38,12 @@ export class SideBarComponent implements OnInit {
         for (let sub of cat["subs"]) {
           navItem.children.push({
             name: sub["name"],
-            url: "/all-items/cat-" + cat["cat_id"] + "/sub-cat-" + sub["sub_id"],
+            url:
+              "/all-items/cat-" + cat["cat_id"] + "/sub-cat-" + sub["sub_id"],
             icon: "icon"
           });
         }
-        this.navObjs.push({navItem});
+        this.navObjs.push({ navItem });
       }
       for (let n of this.navObjs) {
         this.navItems.push(n["navItem"]);

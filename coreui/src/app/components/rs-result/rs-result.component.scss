@@ -2,15 +2,15 @@
   padding-left: 0px;
 }
 
-.image{
+.image {
   object-fit: cover;
   width: 45px;
   height: 45px;
 }
 
-.crop-text-2{
+.crop-text-2 {
   -webkit-line-clamp: 2 !important;
-  overflow : hidden !important;
+  overflow: hidden !important;
   text-overflow: ellipsis !important;
   display: -webkit-box !important;
   -webkit-box-orient: vertical !important;
