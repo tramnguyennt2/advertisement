@@ -1,0 +1,9 @@
+{
+  "views": {
+    "numberItems": {
+      "reduce": "_sum",
+      "map": "function (doc) {\n  if(doc.type && doc.type=='item' && doc.cat){\n    emit(doc.cat, 1);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}

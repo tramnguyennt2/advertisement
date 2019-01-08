@@ -5,7 +5,7 @@ const content_based = new ContentBasedRecommender({
     minScore: 0,
     debug: false
 });
-const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 
 module.exports = {

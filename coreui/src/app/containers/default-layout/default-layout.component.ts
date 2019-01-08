@@ -15,7 +15,7 @@ export class DefaultLayoutComponent{
   public element: HTMLElement = document.body;
   keyword = "";
   sub_cat_id: number;
-  prov_id: number;
+  sub_loc_id: number;
   user = new User();
   // check register data
   existEmail = false;
@@ -29,6 +29,12 @@ export class DefaultLayoutComponent{
   // Check login
   isLogin = false;
   userId = '';
+  // check change password
+  oldPassword: string;
+  newPassword: string;
+  newPassword2: string;
+  errorOldPass = false;
+  errorConfirmPass = false;
 
   constructor(private userService: UserService, private cookieService: CookieService) {
     this.changes = new MutationObserver(mutations => {
@@ -66,8 +72,8 @@ export class DefaultLayoutComponent{
     this.sub_cat_id = param.sub_cat_id;
   }
 
-  getProvId(param) {
-    this.prov_id = param.prov_id;
+  getSubLocId(param) {
+    this.sub_loc_id = param.sub_loc_id;
   }
 
   login(){
@@ -120,5 +126,37 @@ export class DefaultLayoutComponent{
     this.isLogin = false;
     this.cookieService.set( 'user_id', '' );
     this.userId = '';
+  }
+
+  onEnterKeyword(){
+    let btnSearch = document.getElementById('btn-search');
+    btnSearch.click();
+  }
+
+  onEnterLogin(){
+    let btnLogin = document.getElementById('btn-login');
+    btnLogin.click();
+  }
+
+  changePassword(){
+    if(this.oldPassword !== this.user.password){
+      this.errorOldPass = true;
+    }
+    else if(this.newPassword !== this.newPassword2){
+      this.errorOldPass = false;
+      this.errorConfirmPass = true;
+    }
+    else{
+      this.errorOldPass = false;
+      this.errorConfirmPass = false;
+      this.userService.changePassword(this.user.id,this.newPassword);
+      // hide modal
+      // document.getElementById('change-passwword-modal').classList.remove('show');
+      // let modalEl = document.getElementsByTagName('bs-modal-backdrop');
+      // modalEl[0].classList.remove('show');
+      // let bodyEl = document.getElementsByTagName('body');
+      // bodyEl[0].classList.remove('modal-open');
+    }
+
   }
 }

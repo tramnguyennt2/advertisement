@@ -1,0 +1,20 @@
+{
+  "language": "query",
+  "views": {
+    "idx-9f3e9023f8bdf7ab37391cdb25252e4d": {
+      "map": {
+        "fields": {
+          "type": "asc"
+        }
+      },
+      "reduce": "_count",
+      "options": {
+        "def": {
+          "fields": [
+            "type"
+          ]
+        }
+      }
+    }
+  }
+}

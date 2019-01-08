@@ -1,9 +1,9 @@
 <!--<app-header [fixed]="true"-->
-            <!--[navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"-->
-            <!--[navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"-->
-            <!--[sidebarToggler]="'lg'"-->
-            <!--[asideMenuToggler]="'lg'">-->
-  <app-header [fixed]="true"
+<!--[navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"-->
+<!--[navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"-->
+<!--[sidebarToggler]="'lg'"-->
+<!--[asideMenuToggler]="'lg'">-->
+<app-header [fixed]="true"
             [navbarBrandFull]="{src: 'assets/img/logo/logo.png', height: 40, alt: 'Logo'}"
             [navbarBrandMinimized]="{src: 'assets/img/logo/logo1.png', width: 40, height: 40, alt: 'Logo'}"
             [sidebarToggler]="'lg'"
@@ -12,12 +12,12 @@
     <div class="form-group row col-md-10" style="padding-top: 17px">
       <div class="input-group col" style="padding-right: 5px">
         <app-cat-drop-down (subCatClick)="getSubCatId($event)" class="input-group-prepend" dropdown></app-cat-drop-down>
-        <app-loc-drop-down (provClick)="getProvId($event)" class="input-group-prepend" dropdown></app-loc-drop-down>
-        <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm..."
+        <app-loc-drop-down (subLocClick)="getSubLocId($event)" class="input-group-prepend" dropdown></app-loc-drop-down>
+        <input class="form-control" type="text" name="input1-group3" placeholder="Nội dung cần tìm..." (keyup.enter)="onEnterKeyword()"
                [(ngModel)]="keyword">
         <span class="input-group-append">
-          <button class="btn btn-info" type="button" [routerLink]="['/search-ad']"
-                  [queryParams]="{prov_id: prov_id, sub_cat_id: sub_cat_id, keyword: keyword}">
+          <button id="btn-search" class="btn btn-info" type="button" [routerLink]="['/search-ad']"
+                  [queryParams]="{sub_loc_id: sub_loc_id, sub_cat_id: sub_cat_id, keyword: keyword}">
             <i class="fa fa-search"></i>
           </button>
         </span>
@@ -39,22 +39,24 @@
          dropdownToggle
          (click)="false">
         Xin chào <strong class="text-primary">{{user.fullname}}</strong>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Y_fAiQyoNtVyitsWbBxolrGO6vtAI93ZFnEq1Swe8dpPY3dv" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+        <img src="../../../assets/img/avatar.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center bg-dark">
-          <strong>Quản lý quảng cáo</strong>
+          <strong>Quản lý rao vặt</strong>
         </div>
         <a class="dropdown-item" [routerLink]="['/manage-ad']">
-          <i class="fa fa-th-list"></i> Quảng cáo đã đăng</a>
+          <i class="fa fa-th-list"></i> Tin đã đăng</a>
+        <a class="dropdown-item" href="/">
+          <i class="fa fa-save"></i> Tin đã lưu</a>
         <div class="dropdown-header text-center bg-dark">
           <strong>Tài khoản</strong>
         </div>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" [routerLink]="['/user-information']">
           <i class="fa fa-drivers-license-o"></i> Cập nhật thông tin</a>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" (click)="changePasswwordModal.show()" style="cursor: pointer">
           <i class="fa fa-pencil"></i> Đổi mật khẩu</a>
-        <a class="dropdown-item" href="#" (click)="logoutModal.show()">
+        <a class="dropdown-item" (click)="logoutModal.show()" style="cursor: pointer">
           <i class="fa fa-sign-out"></i> Đăng xuất</a>
       </div>
     </li>
@@ -69,7 +71,7 @@
 </div>
 <app-footer>
   <span>
-    <a href="https://coreui.io">SbThings</a> &copy; 2018</span>
+    <a href="/">SbThings</a> &copy; 2018</span>
 </app-footer>
 
 <div bsModal id="login-modal" #loginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -96,7 +98,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password">
+          <input class="form-control" type="password" placeholder="Mật khẩu..." [(ngModel)]="password" (keyup.enter)="onEnterLogin()">
         </div>
         <div *ngIf="errorLoginData" class="input-group mb-4 text-danger">
           Email hoặc mật khẩu không đúng!
@@ -106,7 +108,7 @@
           <a href="#" (click)="loginModal.hide(); registerModal.show();">Đăng ký ngay</a>
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="loginModal.hide()">Hủy</button>
-            <button class="btn btn-primary ml-auto" (click)="login()">Đăng nhập</button>
+            <button id="btn-login" class="btn btn-primary ml-auto" (click)="login()">Đăng nhập</button>
           </div>
         </div>
       </div>
@@ -184,7 +186,7 @@
           <a href="#" (click)="registerModal.hide(); loginModal.show();">Đăng nhập ngay</a>
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="registerModal.hide()">Hủy</button>
-            <button class="btn btn-primary" (click)="register();">Đăng ký</button>
+            <button class="btn btn-primary" (click)="register(); notiRegisModal.show()">Đăng ký</button>
           </div>
         </div>
       </div>
@@ -229,6 +231,100 @@
           <div class="ml-auto">
             <button class="btn btn-secondary mr-1" type="button" data-dismiss="modal" (click)="logoutModal.hide()">Hủy</button>
             <button class="btn btn-danger" (click)="logout(); logoutModal.hide();">Đăng xuất</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="change-passwword-modal" #changePasswwordModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đổi mật khẩu</h4>
+        <button type="button" class="close" (click)="changePasswwordModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu cũ..." [(ngModel)]="oldPassword">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Mật khẩu mới..." [(ngModel)]="newPassword">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" placeholder="Xác nhận mật khẩu mới..." [(ngModel)]="newPassword2">
+        </div>
+        <div *ngIf="errorOldPass" class="input-group text-danger mb-4">
+          Mật khẩu không đúng!
+        </div>
+        <div *ngIf="errorConfirmPass" class="input-group text-danger mb-4">
+          Mật khẩu xác nhận không trùng khớp!
+        </div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-secondary mr-1 ml-auto" type="button" data-dismiss="modal" (click)="changePasswwordModal.hide()">Hủy</button>
+            <button id="btn-change-password" class="btn btn-primary ml-auto" (click)="changePassword(); changePasswwordModal.hide(); notiChangePassModal.show()">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="noti-regis-modal" #notiRegisModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="notiRegisModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Bạn đã đăng ký tài khoản thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="notiRegisModal.hide(); loginModal.show();" style="margin-right: 5px">Đăng nhập</button>
+            <button class="btn btn-danger" (click)="notiRegisModal.hide();">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="noti-change-pass-modal" #notiChangePassModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="notiChangePassModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Đổi mật khẩu thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="notiChangePassModal.hide();">OK</button>
           </div>
         </div>
       </div>

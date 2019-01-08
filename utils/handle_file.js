@@ -2,7 +2,7 @@ const fs = require("fs");
 const parse = require("csv-parse");
 const docTrainFileAcsCF = "evaluation/train/adclicks/doc_train_ad_cf.txt";
 
-const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 
 module.exports = {
