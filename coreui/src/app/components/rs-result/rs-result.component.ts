@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { RsService } from "../../services/rs.service";
-import { ItemService } from "../../services/item.service";
-import { CookieService } from "ngx-cookie-service";
-import { UserBehavior } from "../../user-behavior";
-import { Item } from "../../item";
+import {Component, Input, OnInit} from "@angular/core";
+import {RsService} from "../../services/rs.service";
+import {ItemService} from "../../services/item.service";
+import {CookieService} from "ngx-cookie-service";
+import {UserBehavior} from "../../user-behavior";
+import {Item} from "../../item";
 
 @Component({
   selector: "app-rs-result",
@@ -17,37 +17,32 @@ export class RsResultComponent implements OnInit {
   rating: UserBehavior;
   images = [];
 
-  constructor(
-    private rsService: RsService,
-    private itemService: ItemService,
-    private cookieService: CookieService
-  ) {}
+  constructor(private rsService: RsService, private itemService: ItemService, private cookieService: CookieService) {
+  }
 
   ngOnInit() {
-    let user_id = this.cookieService.get("user_id");
-    if (user_id !== "") {
-      // user is login
+    let user_id = this.cookieService.get('user_id');
+    if (user_id !== '') { // user is login
       this.saveUserBehavior(this.item_id, user_id).then(() => {
         this.items = [];
         //------------------HB-----------------
-        this.rsService
-          .getHybridMethod(user_id, this.item_id)
-          .subscribe(items_rs => {
-            this.getItemRecommended(items_rs).then(items => {
-              for (let i = 0; i < items.length; i++) {
-                let item = new Item();
-                item.setItem(items[i]);
-                this.items.push(item);
-                this.itemService.getItem(items[i]._id).then(item => {
-                  if (item.image) {
-                    this.images.push(item.image);
-                  } else {
-                    this.images.push("../../../assets/img/default-image.jpg");
-                  }
-                });
-              }
-            });
+        this.rsService.getHybridMethod(user_id, this.item_id).subscribe(items_rs => {
+          this.getItemRecommended(items_rs).then(items => {
+            for (let i = 0; i < items.length; i++) {
+              let item = new Item();
+              item.setItem(items[i]);
+              this.items.push(item);
+              this.itemService.getItem(items[i]._id).then(item => {
+                if (item.image){
+                  this.images.push(item.image);
+                }
+                else {
+                  this.images.push('../../../assets/img/default-image.jpg');
+                }
+              });
+            }
           });
+        });
       });
     } else {
       //------------------CB-----------------
@@ -61,10 +56,11 @@ export class RsResultComponent implements OnInit {
             // this.images.push(this.getUrlImg(items[i]._id));
             // this.getUrlImg(items[i]._id).then(url => alert(url));
             this.itemService.getItem(items[i]._id).then(item => {
-              if (item.image) {
+              if (item.image){
                 this.images.push(item.image);
-              } else {
-                this.images.push("../../../assets/img/default-image.jpg");
+              }
+              else {
+                this.images.push('../../../assets/img/default-image.jpg');
               }
             });
           }
@@ -114,24 +110,35 @@ export class RsResultComponent implements OnInit {
   }
 
   getUrlImg(id) {
+    // alert(id);
+    // this.itemService.getItem(id).then(item => {
+    //   if (item.image){
+    //     return item.image;
+    //   }
+    //   else if (item._attachments) {
+    //     return 'http://localhost:5984/advertisement/' + item._id + '/image';
+    //   }
+    //   else {
+    //     return  '../../../assets/img/default-image.jpg';
+    //   }
+    // });
     return new Promise((resolve, reject) => {
-      let url = "";
-      this.itemService
-        .getItem(id)
-        .subscribe(item => {
-          alert(item);
-          if (item.image) {
-            url = item.image;
-          } else if (item._attachments) {
-            url = "http://localhost:5984/advertisement/" + item._id + "/image";
-          } else {
-            url = "../../../assets/img/default-image.jpg";
-          }
-        })
-        .subscribe(() => {
-          alert(url);
-          resolve(url);
-        });
+      let url = '';
+      this.itemService.getItem(id).subscribe(item => {
+        alert(item)
+        if (item.image){
+          url = item.image;
+        }
+        else if (item._attachments) {
+          url = 'http://localhost:5984/advertisement/' + item._id + '/image';
+        }
+        else {
+          url =  '../../../assets/img/default-image.jpg';
+        }
+      }).subscribe(() => {
+        alert(url);
+        resolve(url);
+      });
     });
   }
 }
