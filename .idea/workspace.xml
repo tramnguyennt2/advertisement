@@ -2,49 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219b0342-d4d6-4049-bfd4-4dfe3937b052" name="Default" comment="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cb.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cb_300.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf_100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf_300.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid_100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid_300.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_100.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_200.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_300.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_300.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_100.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_200.base" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_300.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_300.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui/src/app/components/all-items/all-items.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/evaluation.js" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf.txt" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_160.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_240.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_320.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_160.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_240.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_320.base" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_300.base" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_160.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_240.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_320.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_160.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_240.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_320.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_160.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_240.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_320.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/acs_evaluation_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/router/acs_evaluation_route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/manage-ad/manage-ad.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/components/update-ad/update-ad.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/containers/base-item-detail/base-item-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/containers/base-item-detail/base-item-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,119 +24,44 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1116885616">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="base" value="11" />
-          <entry key="js" value="62" />
-          <entry key="json" value="3" />
-          <entry key="test" value="10" />
-          <entry key="ts" value="8" />
-          <entry key="txt" value="64" />
-          <entry key="user" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="62" />
-          <entry key="PLAIN_TEXT" value="98" />
-          <entry key="TypeScript" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="TypeScriptServerServiceImpl" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="js" value="3814" />
-          <entry key="json" value="25" />
-          <entry key="ts" value="225" />
-          <entry key="txt" value="28" />
-          <entry key="user" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JSON" value="25" />
-          <entry key="JavaScript" value="3814" />
-          <entry key="PLAIN_TEXT" value="33" />
-          <entry key="TypeScript" value="225" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.115" value="1" />
-          <entry key="project.open.time.44" value="1" />
-          <entry key="project.open.time.53" value="1" />
-          <entry key="project.open.time.56" value="2" />
-          <entry key="project.open.time.57" value="1" />
-          <entry key="project.open.time.62" value="1" />
-          <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="8" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="evaluation.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/evaluation.js">
+      <file leaf-file-name="app.routing.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/app.routing.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2703">
-              <caret line="204" column="57" selection-start-line="204" selection-start-column="57" selection-end-line="204" selection-end-column="57" />
+            <state relative-caret-position="187">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
-                <element signature="e#8911#8912#0" expanded="true" />
-                <element signature="e#9014#9015#0" expanded="true" />
-                <element signature="e#9272#9273#0" expanded="true" />
-                <element signature="e#9375#9376#0" expanded="true" />
-                <element signature="e#10375#10376#0" expanded="true" />
-                <element signature="e#10447#10448#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#189#264#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="acs_evaluation_route.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
+      <file leaf-file-name="all-item.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coreui/src/app/components/all-item/all-item.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="207" column="47" selection-start-line="207" selection-start-column="47" selection-end-line="207" selection-end-column="47" />
-              <folding>
-                <element signature="e#1957#1958#0" expanded="true" />
-                <element signature="e#1998#1999#0" expanded="true" />
-                <element signature="e#2149#2150#0" expanded="true" />
-                <element signature="e#2182#2183#0" expanded="true" />
-                <element signature="e#3539#3540#0" expanded="true" />
-                <element signature="e#3704#3705#0" expanded="true" />
-                <element signature="e#4271#4272#0" expanded="true" />
-                <element signature="e#4357#4358#0" expanded="true" />
-                <element signature="e#4589#4590#0" expanded="true" />
-                <element signature="e#4652#4653#0" expanded="true" />
-                <element signature="e#5026#5027#0" expanded="true" />
-                <element signature="e#5058#5059#0" expanded="true" />
-                <element signature="e#7246#7247#0" expanded="true" />
-                <element signature="e#7332#7333#0" expanded="true" />
-                <element signature="e#7563#7564#0" expanded="true" />
-                <element signature="e#7626#7627#0" expanded="true" />
-                <element signature="e#10791#10792#0" expanded="true" />
-                <element signature="e#10885#10886#0" expanded="true" />
-                <element signature="e#11136#11137#0" expanded="true" />
-                <element signature="e#11207#11208#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="27" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ad_test_300.test" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_300.test">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+            <state relative-caret-position="68">
+              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coreui/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -177,59 +70,39 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>30	1381</find>
-      <find>31	322</find>
-      <find>&quot;30&quot;</find>
-      <find>&quot;311&quot;:</find>
-      <find>forEach</find>
-      <find>sort</find>
-      <find>module.expo</find>
-      <find>filter</find>
+      <find>mouseenterLevel1</find>
+      <find>clickProvince</find>
+      <find>provClick</find>
+      <find>clickSubCategory</find>
+      <find>mouseenterLevel2</find>
+      <find>ad</find>
+      <find>@Input</find>
+      <find>getCatAndSubCatId</find>
+      <find>content</find>
+      <find>eng</find>
+      <find>manage</find>
+      <find>getRatingPrediction</find>
+      <find>user</find>
+      <find>item.</find>
+      <find>app-item-detail</find>
+      <find>sw</find>
+      <find>user_index</find>
+      <find>user_idx</find>
+      <find>async</find>
+      <find>SolrService</find>
+      <find>new Item(</find>
+      <find>isEmpty</find>
+      <find>set</find>
+      <find>readUrl</find>
+      <find>base/card</find>
+      <find>router</find>
+      <find>route</find>
+      <find>console</find>
+      <find>indexof</find>
       <find>console.lo</find>
-      <find>w =</find>
-      <find>docTrainFileACs</find>
-      <find>doc_train_ad.txt</find>
-      <find>docTrainFile</find>
-      <find>user_train_ad_320</find>
-      <find>&quot;31&quot;:</find>
-      <find>&quot;17&quot;:</find>
-      <find>resultAdClickFileCB320</find>
-      <find>31</find>
-      <find>360</find>
-      <find>generateRandomNumber</find>
-      <find>160</find>
-      <find>240</find>
-      <find>320</find>
-      <find>100</find>
-      <find>300</find>
-      <find>count</find>
-      <find>30	536</find>
-      <find>30</find>
-      <find>11	631</find>
-      <find>200</find>
     </findStrings>
     <replaceStrings>
       <replace>item</replace>
-      <replace>1000000</replace>
-      <replace>Nội ngoại thất</replace>
-      <replace>6.1.10</replace>
-      <replace>&quot;8&quot;</replace>
-      <replace>&quot;9&quot;</replace>
-      <replace>&quot;11&quot;</replace>
-      <replace>&quot;12&quot;</replace>
-      <replace>&quot;13&quot;</replace>
-      <replace>&quot;17&quot;</replace>
-      <replace>&quot;26&quot;</replace>
-      <replace>&quot;30&quot;</replace>
-      <replace>&quot;2&quot;</replace>
-      <replace>&quot;31&quot;</replace>
-      <replace>160</replace>
-      <replace>240</replace>
-      <replace>320</replace>
-      <replace>100</replace>
-      <replace>200</replace>
-      <replace>11</replace>
-      <replace>300</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\huyen\WebstormProjects\advertisement\coreui</dir>
@@ -246,57 +119,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_graph.txt" />
-        <option value="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf.txt" />
-        <option value="$PROJECT_DIR$/evaluation_router.js" />
-        <option value="$PROJECT_DIR$/e_mls_router.js" />
-        <option value="$PROJECT_DIR$/e_route.js" />
-        <option value="$PROJECT_DIR$/handle_file.js" />
-        <option value="$PROJECT_DIR$/router/e_mls_router.js" />
-        <option value="$PROJECT_DIR$/router/e_route.js" />
-        <option value="$PROJECT_DIR$/router.js" />
-        <option value="$PROJECT_DIR$/router/mls_evaluation_route.js" />
-        <option value="$PROJECT_DIR$/evaluation/train/movielens/user_train_ua.user" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad.txt" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf.txt" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad.txt" />
-        <option value="$PROJECT_DIR$/import/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid.txt" />
-        <option value="$PROJECT_DIR$/recommender/content-based-recommender/lib/ContentBasedRecommender.js" />
-        <option value="$PROJECT_DIR$/recommender/comparision.js" />
-        <option value="$PROJECT_DIR$/router/router.js" />
-        <option value="$PROJECT_DIR$/router/comparision.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/loc-drop-down/loc-drop-down.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/common.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/common.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/loc-drop-down/loc-drop-down.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/cat-drop-down/cat-drop-down.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/cat-drop-down/cat-drop-down.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/side-bar/side-bar.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/side-bar/side-bar.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.scss" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.scss" />
+        <option value="$PROJECT_DIR$/coreui/src/app/services/category.service.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/search/search.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/search/search.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/cat-drop-down/cat-drop-down.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/services/solr.service.ts" />
+        <option value="$PROJECT_DIR$/index2.js" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad.user" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user" />
-        <option value="$PROJECT_DIR$/utils/handle_file.js" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train.base" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test" />
+        <option value="$PROJECT_DIR$/couchdb.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/loc-drop-down/loc-drop-down.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/base-item-detail/base-item-detail.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/base-item-detail/base-item-detail.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/search-ad/search-ad.component.html" />
+        <option value="$PROJECT_DIR$/node_modules/content-based-recommender/lib/ContentBasedRecommender.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/item.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item/item.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/user.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/services/item.service.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/containers/base-item-detail/base-item-detail.component.html" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts" />
+        <option value="$PROJECT_DIR$/recommender.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts" />
+        <option value="$PROJECT_DIR$/route.js" />
+        <option value="$PROJECT_DIR$/coreui/src/app/services/rs.service.ts" />
         <option value="$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_160.test" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_240.test" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_320.test" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_160.base" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_240.base" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_320.base" />
-        <option value="$PROJECT_DIR$/recommender/recommender.js" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_320.txt" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_320.txt" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_320.user" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_240.user" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_160.user" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_160.user" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_240.user" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_320.user" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_100.base" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_200.base" />
-        <option value="$PROJECT_DIR$/evaluation/train/adclicks/ad_train_300.base" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_100.test" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_200.test" />
-        <option value="$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js" />
-        <option value="$PROJECT_DIR$/evaluation/evaluation.js" />
-        <option value="$PROJECT_DIR$/router/acs_evaluation_route.js" />
-        <option value="$PROJECT_DIR$/evaluation/test/adclicks/ad_test_300.test" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/coreui/src/app/components/all-item/all-item.component.ts" />
+        <option value="$PROJECT_DIR$/coreui/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/coreui/.gitignore" />
       </list>
     </option>
   </component>
@@ -323,29 +196,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>JSUnfilteredForInLoop</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -353,42 +206,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
+              <item name="advertisement2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="advertisement2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement2" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="advertisement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="advertisement" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
-              <item name="adclicks" type="462c0819:PsiDirectoryNode" />
+              <item name="advertisement2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="advertisement2" type="462c0819:PsiDirectoryNode" />
+              <item name="coreui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -397,27 +237,26 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.9.4" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/recommender" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/coreui/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/import/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/router" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$/evaluation/train/movielens" />
-      <recent name="$PROJECT_DIR$/evaluation/train/adclicks" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement2\coreui\src\app\components" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\coreui\src\app\services" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\coreui\src\app\components" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\coreui\src\app\containers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement\evaluation\test\adclicks" />
-      <recent name="C:\Users\huyen\WebstormProjects\advertisement\evaluation\train\adclicks" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/evaluation/train" />
-      <recent name="$PROJECT_DIR$/recommender" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement2\node_modules" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\strategies" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\preparation" />
+      <recent name="C:\Users\huyen\WebstormProjects\advertisement\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,7 +272,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="acs_evaluation_route.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/router/acs_evaluation_route.js" working-dir="$PROJECT_DIR$" />
+    <configuration name="route.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="route.js" working-dir="$PROJECT_DIR$" />
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -477,7 +316,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.acs_evaluation_route.js" />
+        <item itemvalue="Node.js.route.js" />
       </list>
     </recent_temporary>
   </component>
@@ -572,64 +411,225 @@
       <workItem from="1537410686241" duration="25238000" />
       <workItem from="1537683007063" duration="6872000" />
       <workItem from="1537842043699" duration="14565000" />
-      <workItem from="1538019843639" duration="12583000" />
-      <workItem from="1538188962440" duration="741000" />
-      <workItem from="1538444113213" duration="15754000" />
-      <workItem from="1538641860976" duration="13892000" />
-      <workItem from="1538912112255" duration="6416000" />
-      <workItem from="1539008483562" duration="8640000" />
-      <workItem from="1539052874724" duration="2187000" />
-      <workItem from="1539183089528" duration="597000" />
-      <workItem from="1539318473905" duration="3094000" />
-      <workItem from="1539446115524" duration="599000" />
-      <workItem from="1539487749272" duration="5572000" />
-      <workItem from="1539575306806" duration="7681000" />
-      <workItem from="1539620150070" duration="4854000" />
-      <workItem from="1539660814569" duration="6590000" />
-      <workItem from="1539699909693" duration="818000" />
-      <workItem from="1539745895927" duration="19522000" />
-      <workItem from="1539830807116" duration="12335000" />
-      <workItem from="1540177745277" duration="13787000" />
-      <workItem from="1540261713249" duration="2250000" />
-      <workItem from="1540276071127" duration="479000" />
-      <workItem from="1540282300820" duration="4289000" />
-      <workItem from="1540287801883" duration="13204000" />
-      <workItem from="1540385726995" duration="12530000" />
-      <workItem from="1540608085316" duration="3035000" />
-      <workItem from="1540650853769" duration="3602000" />
-      <workItem from="1540654704972" duration="2103000" />
-      <workItem from="1540713753703" duration="8714000" />
-      <workItem from="1540869231348" duration="2373000" />
-      <workItem from="1541036794574" duration="18230000" />
-      <workItem from="1541125830005" duration="21450000" />
-      <workItem from="1541209374119" duration="8031000" />
-      <workItem from="1541235659521" duration="3318000" />
-      <workItem from="1541486145664" duration="7701000" />
-      <workItem from="1543372140388" duration="13324000" />
-      <workItem from="1543458174861" duration="11474000" />
-      <workItem from="1543803574036" duration="16255000" />
-      <workItem from="1543830458718" duration="1941000" />
-      <workItem from="1543978905667" duration="12166000" />
-      <workItem from="1544149739418" duration="13243000" />
-      <workItem from="1544171736803" duration="3419000" />
-      <workItem from="1544408576122" duration="261000" />
-      <workItem from="1544745260325" duration="138000" />
-      <workItem from="1545061976440" duration="3029000" />
-      <workItem from="1545101054569" duration="8645000" />
-      <workItem from="1545186335215" duration="19521000" />
-      <workItem from="1545269844756" duration="11638000" />
-      <workItem from="1545452974282" duration="1195000" />
-      <workItem from="1545473423772" duration="1722000" />
-      <workItem from="1545475576042" duration="94000" />
-      <workItem from="1545714209314" duration="7730000" />
-      <workItem from="1546095496888" duration="1577000" />
-      <workItem from="1546177302718" duration="2255000" />
-      <workItem from="1546219724228" duration="2976000" />
-      <workItem from="1546240976807" duration="6907000" />
-      <workItem from="1546312777822" duration="5041000" />
-      <workItem from="1546331185467" duration="1939000" />
-      <workItem from="1546355567694" duration="1679000" />
-      <workItem from="1546396031469" duration="6140000" />
+      <workItem from="1538019843639" duration="12505000" />
+      <workItem from="1546920685670" duration="2106000" />
+    </task>
+    <task id="LOCAL-00014" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;dist/inline.bundle.js.map&#10;#&#9;dist/main.bundle.js&#10;#&#9;dist/main.bundle.js.map">
+      <created>1528730699403</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528730699403</updated>
+    </task>
+    <task id="LOCAL-00015" summary="env">
+      <created>1528769937680</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1528769937680</updated>
+    </task>
+    <task id="LOCAL-00016" summary="env">
+      <created>1528770462435</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770462435</updated>
+    </task>
+    <task id="LOCAL-00017" summary="env">
+      <created>1528770558769</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770558769</updated>
+    </task>
+    <task id="LOCAL-00018" summary="env">
+      <created>1528770826314</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1528770826314</updated>
+    </task>
+    <task id="LOCAL-00019" summary="env">
+      <created>1528771209940</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771209940</updated>
+    </task>
+    <task id="LOCAL-00020" summary="env">
+      <created>1528771357578</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771357578</updated>
+    </task>
+    <task id="LOCAL-00021" summary="env">
+      <created>1528771401481</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771401481</updated>
+    </task>
+    <task id="LOCAL-00022" summary="env">
+      <created>1528771455876</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771455876</updated>
+    </task>
+    <task id="LOCAL-00023" summary="env">
+      <created>1528771773011</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1528771773011</updated>
+    </task>
+    <task id="LOCAL-00024" summary="env">
+      <created>1528774303329</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1528774303329</updated>
+    </task>
+    <task id="LOCAL-00025" summary="ng b -prod">
+      <created>1528799375136</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1528799375136</updated>
+    </task>
+    <task id="LOCAL-00026" summary="ng b -prod">
+      <created>1530604816069</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1530604816069</updated>
+    </task>
+    <task id="LOCAL-00027" summary="ng b -prod">
+      <created>1531212174361</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1531212174361</updated>
+    </task>
+    <task id="LOCAL-00028" summary="new ads component">
+      <created>1533645647697</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1533645647859</updated>
+    </task>
+    <task id="LOCAL-00029" summary="missing component">
+      <created>1533646267124</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1533646267124</updated>
+    </task>
+    <task id="LOCAL-00030" summary="delete top-product">
+      <created>1533646336955</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1533646336955</updated>
+    </task>
+    <task id="LOCAL-00031" summary="split some components">
+      <created>1533657477911</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1533657477911</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update front end">
+      <created>1534000156458</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1534000156458</updated>
+    </task>
+    <task id="LOCAL-00033" summary="search url&#10;todo: insert data in new.json, run npm install">
+      <created>1534410526359</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1534410526359</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts">
+      <created>1534411629191</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1534411629191</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts">
+      <created>1534411656376</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1534411656376</updated>
+    </task>
+    <task id="LOCAL-00036" summary="re-arrange components">
+      <created>1534589310324</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1534589310324</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix dropdown">
+      <created>1534590597061</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1534590597061</updated>
+    </task>
+    <task id="LOCAL-00038" summary="search component">
+      <created>1535014949784</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1535014949784</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/app.module.ts&#10;#&#9;coreui/src/app/components/cat-drop-down/cat-drop-down.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts&#10;#&#9;coreui/src/app/components/search-ad/search-ad.component.ts&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts">
+      <created>1535016003048</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1535016003048</updated>
+    </task>
+    <task id="LOCAL-00040" summary="search">
+      <created>1535017273191</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1535017273206</updated>
+    </task>
+    <task id="LOCAL-00041" summary="content-based rs">
+      <created>1535963785912</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1535963785912</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add cf recommender">
+      <created>1536051491206</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1536051491206</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/item-detail/item-detail.component.ts">
+      <created>1536060300050</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1536060300050</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
+      <created>1536060356096</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1536060356096</updated>
     </task>
     <task id="LOCAL-00045" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
       <created>1536060369605</created>
@@ -750,270 +750,53 @@
       <option name="project" value="LOCAL" />
       <updated>1537847944476</updated>
     </task>
-    <task id="LOCAL-00062" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts">
-      <created>1538044116941</created>
+    <task id="LOCAL-00062" summary="full update">
+      <created>1546922775638</created>
       <option name="number" value="00062" />
       <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
-      <updated>1538044116941</updated>
+      <updated>1546922775638</updated>
     </task>
-    <task id="LOCAL-00063" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts">
-      <created>1538916476903</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1538916476904</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1538916856822</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1538916856822</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1538916951895</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1538916951895</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1538918050962</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1538918050963</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1538918288400</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1538918288400</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Import dữ liệu">
-      <created>1539664558754</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1539664558755</updated>
-    </task>
-    <task id="LOCAL-00069" summary="hiển thị hình từ dữ liệu import">
-      <created>1539747973442</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1539747973444</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Sửa hiển thị sidebar">
-      <created>1539761844419</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1539761844420</updated>
-    </task>
-    <task id="LOCAL-00071" summary="update import data">
-      <created>1539770681202</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1539770681202</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Sửa màu icon trang chủ">
-      <created>1539832033923</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1539832033924</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Sửa hiển thị sidebar">
-      <created>1540178006192</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1540178006194</updated>
-    </task>
-    <task id="LOCAL-00074" summary="update dữ liệu import">
-      <created>1540393574610</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1540393574611</updated>
-    </task>
-    <task id="LOCAL-00075" summary="get token item mới">
-      <created>1540396551067</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1540396551067</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1540608503023</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1540608503025</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1540608634197</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1540608634197</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1540608716909</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1540608716909</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1540741749006</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1540741749007</updated>
-    </task>
-    <task id="LOCAL-00080" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1542970846880</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1542970846881</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1543401109946</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1543401109946</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1543401466469</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1543401466469</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1543485331171</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1543485331174</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1543834116998</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1543834116999</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1543834147355</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1543834147355</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1544007602818</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1544007602819</updated>
-    </task>
-    <task id="LOCAL-00087" summary="restruct nodejs server">
-      <created>1544408694979</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1544408694980</updated>
-    </task>
-    <task id="LOCAL-00088" summary="add hybrid graph">
-      <created>1544529579238</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1544529579239</updated>
-    </task>
-    <task id="LOCAL-00089" summary="comparision">
-      <created>1544745379602</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1544745379602</updated>
-    </task>
-    <task id="LOCAL-00090" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1545319458359</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1545319458388</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1545755924692</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1545755924707</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1545756050325</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1545756050325</updated>
-    </task>
-    <task id="LOCAL-00093" summary="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement">
-      <created>1546244904057</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1546244904059</updated>
-    </task>
-    <option name="localTasksCounter" value="94" />
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="710906000" />
+    <option name="totallyTimeSpent" value="281483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16325182" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5043668" side_tool="true" weight="0.4288703" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.2937853" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49563318" weight="0.32909605" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37570623" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.2641243" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37571427" />
       <window_info id="npm" order="6" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3799435" />
+      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2161269" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49563318" visible="true" weight="0.32768363" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925596" weight="0.39871383" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32768363" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.29714286" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909605" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="2" />
@@ -1051,21 +834,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/import/node_modules/karma/config.tpl.js" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -1097,6 +865,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;dist/inline.bundle.js.map&#10;#&#9;dist/main.bundle.js&#10;#&#9;dist/main.bundle.js.map" />
+    <MESSAGE value="env" />
+    <MESSAGE value="ng b -prod" />
+    <MESSAGE value="new ads component" />
+    <MESSAGE value="missing component" />
+    <MESSAGE value="delete top-product" />
+    <MESSAGE value="split some components" />
+    <MESSAGE value="update front end" />
+    <MESSAGE value="search url&#10;todo: insert data in new.json, run npm install" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.html&#10;#&#9;coreui/src/app/containers/default-layout/default-layout.component.ts" />
     <MESSAGE value="re-arrange components" />
     <MESSAGE value="fix dropdown" />
@@ -1106,374 +883,273 @@
     <MESSAGE value="content-based rs" />
     <MESSAGE value="add cf recommender" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/item-detail/item-detail.component.ts" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
     <MESSAGE value="handle collaborative filtering" />
     <MESSAGE value="hybrid method" />
     <MESSAGE value="cf" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.html&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement&#10;&#10;# Conflicts:&#10;#&#9;coreui/src/app/components/post-ad/post-ad.component.ts" />
-    <MESSAGE value="Import dữ liệu" />
-    <MESSAGE value="hiển thị hình từ dữ liệu import" />
-    <MESSAGE value="update import data" />
-    <MESSAGE value="Sửa màu icon trang chủ" />
-    <MESSAGE value="Sửa hiển thị sidebar" />
-    <MESSAGE value="update dữ liệu import" />
-    <MESSAGE value="get token item mới" />
-    <MESSAGE value="restruct nodejs server" />
-    <MESSAGE value="add hybrid graph" />
-    <MESSAGE value="comparision" />
-    <MESSAGE value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/tramnguyennt2/advertisement" />
+    <MESSAGE value="full update" />
+    <option name="LAST_COMMIT_MESSAGE" value="full update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/content-based-recommender/fixtures/sample-documents.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/stopword/lib/stopwords_nl.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/stopword/lib/stopword.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/stopword/lib/stopwords_ar.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/stopword/lib/stopwords_da.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/vietnamese-stopwords/package.json" />
+    <entry file="file://$PROJECT_DIR$/node_modules/vietnamese-stopwords/index.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/vietnamese-stopwords/test.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/stopword/package.json" />
+    <entry file="file://$PROJECT_DIR$/node_modules/content-based-recommender/lib/ContentBasedRecommender.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/content-based-recommender/index.js" />
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/homepage/homepage.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="-5">
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/comparision.js">
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/pouchdb.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/mls_evaluation_route.js">
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/solr.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/item.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        <state relative-caret-position="272">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.routing.ts">
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/new-ads/new-ads.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+        <state relative-caret-position="187">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/node_modules/@angular/common/src/location/location.d.ts" />
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/default-layout/default-layout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1421">
+          <caret line="95" column="22" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="46" column="87" selection-start-line="46" selection-start-column="87" selection-end-line="46" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/side-bar/side-bar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/item.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/post-ad/post-ad.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/base-item-detail/base-item-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/containers/base-item-detail/base-item-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item/item.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item/item.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/user-behavior.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_to_saved_graph.ugd" />
+    <entry file="file://$PROJECT_DIR$/node_modules/ug/lib/path.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/ug/lib/graph.js" />
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/item-detail/item-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="294">
+          <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/router.js">
+    <entry file="file://$PROJECT_DIR$/recommender.js" />
+    <entry file="file://$PROJECT_DIR$/route.js" />
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/rs.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/all-items/all-items.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recommender/comparision.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="132">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coreui/src/app/components/rs-result/rs-result.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        <state relative-caret-position="119">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreui/src/app/services/rs.service.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/vntk/bin/vntk.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+        <state relative-caret-position="221">
+          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test.test">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        <state relative-caret-position="12">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recommender/recommender.js">
+    <entry file="file://$PROJECT_DIR$/evaluation/evaluation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="273" column="11" selection-start-line="273" selection-start-column="11" selection-end-line="273" selection-end-column="11" />
-          <folding>
-            <element signature="n#!!block;n#sort#0" />
-            <element signature="n#!!block;n#compare#0" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="192" column="30" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf.txt">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="145" selection-start-column="145" selection-end-column="145" />
+        <state relative-caret-position="391">
+          <caret line="5790" selection-start-line="5790" selection-end-line="5790" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_160.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_240.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_160.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_graph.txt" />
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_cb_360.txt" />
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_320.user">
+    <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_160.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test_240.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_160.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_240.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_240.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_320.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-end-column="4841" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_160.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="37" selection-start-column="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_240.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1943" lean-forward="true" selection-start-column="1943" selection-end-column="1943" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/ml-100k/ub.test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="650" column="14" selection-start-line="650" selection-start-column="14" selection-end-line="650" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cb_320.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret column="711" selection-start-column="711" selection-end-column="711" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid_240.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret column="1481" selection-end-column="91709" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_hybrid_320.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret column="1877" selection-end-column="120563" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/user_ad_test.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/handle_file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/user_train_ad_320.user">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_320.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/doc_train_ad_cf_320.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_200.test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_100.test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/ad_train_300.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="240" selection-start-line="240" selection-end-line="240" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/ad_train_200.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/train/adclicks/ad_train_100.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad_100.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/doc_test_ad.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cb.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_ad_cf_300.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/results/adclicks/result_cb.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret column="4471" selection-start-column="4471" selection-end-column="4471" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/evaluation_cf_multiple_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="383">
+          <caret line="207" column="41" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/test/adclicks/ad_test_300.test">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/acs_evaluation_route.js">
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/app.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="207" column="47" selection-start-line="207" selection-start-column="47" selection-end-line="207" selection-end-column="47" />
+        <state relative-caret-position="187">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
-            <element signature="e#1957#1958#0" expanded="true" />
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2182#2183#0" expanded="true" />
-            <element signature="e#3539#3540#0" expanded="true" />
-            <element signature="e#3704#3705#0" expanded="true" />
-            <element signature="e#4271#4272#0" expanded="true" />
-            <element signature="e#4357#4358#0" expanded="true" />
-            <element signature="e#4589#4590#0" expanded="true" />
-            <element signature="e#4652#4653#0" expanded="true" />
-            <element signature="e#5026#5027#0" expanded="true" />
-            <element signature="e#5058#5059#0" expanded="true" />
-            <element signature="e#7246#7247#0" expanded="true" />
-            <element signature="e#7332#7333#0" expanded="true" />
-            <element signature="e#7563#7564#0" expanded="true" />
-            <element signature="e#7626#7627#0" expanded="true" />
-            <element signature="e#10791#10792#0" expanded="true" />
-            <element signature="e#10885#10886#0" expanded="true" />
-            <element signature="e#11136#11137#0" expanded="true" />
-            <element signature="e#11207#11208#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#189#264#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/evaluation.js">
+    <entry file="file://$PROJECT_DIR$/coreui/src/app/components/all-item/all-item.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2703">
-          <caret line="204" column="57" selection-start-line="204" selection-start-column="57" selection-end-line="204" selection-end-column="57" />
-          <folding>
-            <element signature="e#8911#8912#0" expanded="true" />
-            <element signature="e#9014#9015#0" expanded="true" />
-            <element signature="e#9272#9273#0" expanded="true" />
-            <element signature="e#9375#9376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
-            <element signature="e#10447#10448#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreui/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
         </state>
       </provider>
     </entry>

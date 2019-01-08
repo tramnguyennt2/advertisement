@@ -8,11 +8,11 @@
       <form class="form-horizontal" method="post">
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Danh mục<span class="text-danger">&nbsp;*</span></label>
-          <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown></app-cat-drop-down>
+          <app-cat-drop-down class="input-group-prepend col-md-4" (subCatClick)="getCatAndSubCatId($event)" dropdown [old_sub_cat]="item.sub_cat"></app-cat-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label">Khu vực<span class="text-danger">&nbsp;*</span></label>
-          <app-loc-drop-down class="input-group-prepend col-md-4" (subLocClick)="getLocationAndSubLocId($event)" dropdown></app-loc-drop-down>
+          <app-loc-drop-down class="input-group-prepend col-md-4" (subLocClick)="getLocationAndSubLocId($event)" dropdown [old_sub_loc]="item.sub_loc"></app-loc-drop-down>
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label" for="title-item">Tiêu đề<span class="text-danger">&nbsp;*</span></label>
@@ -53,8 +53,29 @@
       </form>
     </div>
     <div class="card-footer">
-      <button class="btn btn-sm btn-primary" type="button" (click)="handleAddNewItem();">Sửa</button>
+      <button class="btn btn-sm btn-primary" type="button" (click)="updateItem(); notiUpdateItemModal.show()">Sửa</button>
       <button class="btn btn-sm readUrl btn-danger" style="margin-left: 5px" (click)="cancel()">Hủy</button>
+    </div>
+  </div>
+</div>
+
+<div bsModal id="noti-update-item-modal" #notiUpdateItemModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông báo</h4>
+        <button type="button" class="close" (click)="notiUpdateItemModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-4">Cập nhật tin thành công!</div>
+        <div class="input-group mb-4">
+          <div class="ml-auto">
+            <button class="btn btn-success" (click)="notiUpdateItemModal.hide(); back()">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

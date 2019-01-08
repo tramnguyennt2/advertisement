@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ItemService } from "../../services/item.service";
 import { Item } from "../../item";
+import { UserService } from "../../services/user.service";
 import { CookieService } from "ngx-cookie-service";
 import { SolrService } from "../../services/solr.service";
 
@@ -16,6 +17,7 @@ export class ManageAdComponent implements OnInit {
   constructor(
     private cookieService: CookieService,
     private itemService: ItemService,
+    private userService: UserService,
     private solr: SolrService
   ) {}
 
@@ -31,7 +33,6 @@ export class ManageAdComponent implements OnInit {
   }
 
   formatPrice(price) {
-    var price = price;
     let arr = [];
     while (price.length > 3) {
       arr.push(price.slice(-3));

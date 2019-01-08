@@ -214,4 +214,26 @@ export class ItemService {
       });
     });
   }
+
+  updateItem(item){
+    let self = this;
+    this.getItem(item.id).then(function(doc) {
+
+      doc.title = item.title,    // new field
+      doc.content = item.content,
+      doc.cat_id = item.cat_id,
+      doc.cat = item.cat,
+      doc.sub_cat_id = item.sub_cat_id,
+      doc.sub_cat = item.sub_cat,
+      doc.loc_id = item.loc_id,
+      doc.loc = item.loc,
+      doc.sub_loc_id = item.sub_loc_id,
+      doc.sub_loc = item.sub_loc,
+      doc.price = item.price,
+      doc.sub_loc_id = item.cat_id
+      return self.pouchdb.db.put(doc)   // put updated doc, will create new revision
+    }).then(function (res) {
+      console.log(res)
+    })
+  }
 }

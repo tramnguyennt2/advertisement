@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {mouseenterLevel2} from "../../common";
 
@@ -8,6 +8,8 @@ import {mouseenterLevel2} from "../../common";
   styleUrls: ['./cat-drop-down.component.scss']
 })
 export class CatDropDownComponent implements OnInit {
+  @Input()
+  old_sub_cat;
   cats = [];
   cat_id = 0;
   sub_cat: string = "Danh mục";
@@ -20,6 +22,9 @@ export class CatDropDownComponent implements OnInit {
 
   ngOnInit() {
     this.loadCategory();
+    if(this.old_sub_cat){
+      this.sub_cat = this.old_sub_cat;
+    }
   }
 
   loadCategory() {
