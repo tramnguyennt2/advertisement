@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Observable} from "rxjs/Observable";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {DataService} from "./data.service";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/map";
@@ -101,27 +101,27 @@ export class AppComponent {
                                         self.dataService.addAds(self.dataPouch);
                                     }
                                 });
-                                // self.dataSolr.db_id = arr[0];
-                                // self.dataSolr.sub_cat_id = arr[4];
-                                // self.dataSolr.sub_loc_id = arr[8];
-                                // self.dataSolr.title = arr[10];
-                                // self.dataSolr.content = arr[11];
-                                // self.dataSolr.price = arr[12];
-                                // self.dataSolr.created_at = time;
+                                self.dataSolr.db_id = arr[0];
+                                self.dataSolr.sub_cat_id = arr[4];
+                                self.dataSolr.sub_loc_id = arr[8];
+                                self.dataSolr.title = arr[10];
+                                self.dataSolr.content = arr[11];
+                                self.dataSolr.price = arr[12];
+                                self.dataSolr.created_at = time;
                             }
                         }).subscribe(() => {
-                            // save to solr
-                            // let headers = new HttpHeaders();
-                            // headers.append("Content-Type", "application/json");
-                            // self.http
-                            //     .post(
-                            //         "http://localhost:8983/solr/item/update/json/docs?commit=true --data-binary ",
-                            //         self.dataSolr,
-                            //         {
-                            //             headers: headers
-                            //         }
-                            //     )
-                            //     .subscribe(res => console.log(res));
+                            //save to solr
+                            let headers = new HttpHeaders();
+                            headers.append("Content-Type", "application/json");
+                            self.http
+                                .post(
+                                    "http://localhost:8983/solr/item/update/json/docs?commit=true --data-binary ",
+                                    self.dataSolr,
+                                    {
+                                        headers: headers
+                                    }
+                                )
+                                .subscribe(res => console.log(res));
                         });
                     }
                 });

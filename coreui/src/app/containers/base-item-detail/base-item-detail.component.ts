@@ -28,9 +28,8 @@ export class BaseItemDetailComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 15000);
+    }, 8000);
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
     });
