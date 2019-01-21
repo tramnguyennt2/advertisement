@@ -1,4 +1,3 @@
-admin*****Administrator*****admin@gmail.com*****admin*****0909123456*****admin*****
 user-1*****Anh Giang*****user1@gmail.com*****123456*****0909123456*****user*****
 user-2*****Quốc Tường*****user2@gmail.com*****123456*****0909123456*****user*****
 user-3*****Hoàng Huyền*****user3@gmail.com*****123456*****0909123456*****user*****
