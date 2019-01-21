@@ -34,6 +34,7 @@ const resultAdClickFileCB300 = "evaluation/results/adclicks/result_ad_cb_300.txt
 const resultAdClickFileHybrid = "evaluation/results/adclicks/result_ad_hybrid.txt";
 const resultAdClickFileHybrid300 = "evaluation/results/adclicks/result_ad_hybrid_300.txt";
 
+const contentBasedSaveFile = "cb.json";
 const importFile = "rating.json";
 
 router.get("/read-ad-file", function (req, res, next) {
@@ -262,6 +263,16 @@ router.get("/map-hybrid/", function (req, res, next) {
                 res.send("map is " + map);
             }).catch(err => res.send(err));
         }).catch(err => res.send(err));
+    });
+});
+
+router.get("/run-content-based/", function (req, res, next) {
+    recommender_e.getContentBasedSaveFile().then(result => {
+        res.send(result);
+        fs.writeFile(contentBasedSaveFile, JSON.stringify(result), function (err) {
+            if (err) return console.log(err);
+            console.log("The file was saved!");
+        });
     });
 });
 

@@ -1,4 +1,12 @@
 const fs = require("fs");
+const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const db = nano.use("advertisement");
+const ContentBasedRecommender = require("../recommender/content-based-recommender/index");
+const content_based = new ContentBasedRecommender({
+    maxSimilarDocuments: 10,
+    minScore: 0,
+    debug: false
+});
 
 const recommender = require('../recommender/recommender');
 const evaluation_cf = require('./evaluation_cf_multiple_user');
@@ -232,6 +240,41 @@ module.exports = {
             });
         });
     },
+
+    getContentBasedSaveFile: function () {
+        return new Promise(function (resolve, reject) {
+            let itemSave = {};
+            db.view("items", "all-item-e", {
+                include_docs: true
+            }).then(body => {
+                let documents = [];
+                body.rows.forEach(doc => {
+                    let obj = {
+                        id: doc.doc._id,
+                        content: doc.doc.content,
+                        token: doc.doc.token
+                    };
+                    documents.push(obj);
+                });
+                return documents;
+            }).then(function (documents) {
+                documents.forEach(item => {
+                    console.time("content-based " + item.id);
+                    content_based.trainOpt(documents, item.id);
+                    const similarDocuments = content_based.getSimilarDocuments(
+                        item.id,
+                        0,
+                        10
+                    );
+                    console.timeEnd("content-based " + item.id);
+                    itemSave[item.id] = similarDocuments;
+                });
+                resolve(itemSave);
+            }).catch(function (err) {
+                reject(new Error(err));
+            });
+        });
+    }
 };
 
 function sort(arr) {
