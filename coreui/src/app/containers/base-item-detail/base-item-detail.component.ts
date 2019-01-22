@@ -29,7 +29,7 @@ export class BaseItemDetailComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 8000);
+    }, 1000);
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
     });

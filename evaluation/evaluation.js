@@ -1,5 +1,5 @@
 const fs = require("fs");
-const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 const ContentBasedRecommender = require("../recommender/content-based-recommender/index");
 const content_based = new ContentBasedRecommender({

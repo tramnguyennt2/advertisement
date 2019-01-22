@@ -8,7 +8,7 @@ const content_based = new ContentBasedRecommender({
   debug: false
 });
 const handle_file = require("../utils/handle_file");
-const nano = require("nano")("http://huyentk:Huyen1312@localhost:5984");
+const nano = require("nano")("http://admin:1@localhost:5984");
 const db = nano.use("advertisement");
 const neighbor_num = 4;
 const cbJsonFile = "cb.json";
